@@ -1,0 +1,13 @@
+{
+  "as_of": "2026-07-28",
+  "note": "Figure-free holdings universe for briefing scope. Tickers and themes ONLY — never add values, quantities, P&L, or any personal figures to this file. Maintained by the Cowork cockpit on the MacBook when holdings change (source of truth: memory/portfolio-register.md, which never leaves the MacBook).",
+  "groups": {
+    "us-megacap-tech": ["AAPL", "AMD", "AMZN", "ASML", "AVGO", "CRWD", "GOOGL", "META", "MSFT", "MU", "NFLX", "NVDA", "ORCL", "PLTR", "TSLA"],
+    "ai-infra-industrial": ["ANET", "CAT", "CCJ", "CEG", "DDOG", "DE", "ETN", "FCX", "GEV", "ISRG", "SIE", "SU", "TMO", "VRT"]
+  },
+  "other_exposure": [
+    "BTC (bitcoin, unwrapped)",
+    "Global all-cap equity fund (Vanguard LifeStrategy 100% Equity)",
+    "UK workplace pension fund"
+  ]
+}

@@ -1,0 +1,4 @@
+# Personal — never leaves the MacBook. The Mini has no business reading these,
+# and any credential on the shared Mini could read the whole repo.
+braindumps/
+.DS_Store

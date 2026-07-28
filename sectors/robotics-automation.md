@@ -1,0 +1,13 @@
+---
+name: robotics-automation
+description: Robotics & automation — decade DCA theme; picks-and-shovels
+created: 2026-07-26
+type: library-log
+---
+
+Running log — the LifeOS market-briefing agent appends dated entries below (newest at the bottom). Human never maintains this.
+
+## Log
+
+### 2026-07-26
+Tesla's Q2 earnings call (Jul 22): Musk said "there is no humanoid robot that is actually able to do generalized tasks. Optimus will be the first one," describing it as learning by observation. Three days later (Jul 25) he warned of a "long and flat" initial production ramp given the near-total absence of a mature supply chain for ~10,000 entirely new Gen3 components. Fremont's former Model S/X line has been converted to an automated Optimus line (designed capacity 1M units/yr), but true mass production awaits a dedicated Texas factory in 2027. [PYMNTS](https://www.pymnts.com/earnings/2026/tesla-says-optimus-is-the-first-robot-that-learns-by-watching/), [The AI Insider](https://theaiinsider.tech/2026/07/25/musk-updates-progress-of-teslas-optimus-humanoid-robot-warns-of-long-and-flat-production-ramp/). Thesis-watch context (not held): Boston Dynamics (Hyundai) unveiled a production-ready, all-electric 5th-gen Atlas in early July — "almost an order of magnitude" mechanically simpler, Hyundai targeting up to 30,000 units/yr. Figure AI's Figure 03 is running commercial pilots at BMW's Spartanburg plant at ~1 robot/hour. Several outlets frame July 2026 as the inflection point where humanoid robotics moved from demo to (small) real commercial deployment. [Forbes](https://www.forbes.com/sites/johnkoetsier/2026/07/02/boston-dynamics-new-atlas-humanoid-robot-order-of-magnitude-simpler/). Separately, Japan's ¥80 trillion national robotics push (targeting 10M AI robots by 2040) brought Toyota, Fujitsu, Kawasaki and FANUC into Nvidia's Cosmos Coalition for physical AI — a bigger industrial-policy commitment than anything comparable in the US so far.

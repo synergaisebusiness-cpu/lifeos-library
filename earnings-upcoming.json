@@ -1,0 +1,17 @@
+[
+  {"ticker": "MSFT", "date": "2026-07-29", "watch": "Azure growth vs guided 39-40% range and FY2027 capex framing after ~$190B FY26 capex guide"},
+  {"ticker": "META", "date": "2026-07-29", "watch": "Whether ad strength offsets capex fears after raising 2026 capex guide to $125-145B"},
+  {"ticker": "VRT", "date": "2026-07-29", "watch": "Whether the $15bn+ order backlog and four-quarter beat streak continues"},
+  {"ticker": "AAPL", "date": "2026-07-30", "watch": "iPhone/Services momentum and AI/capex signal; expected to be Tim Cook's last call as CEO"},
+  {"ticker": "AMZN", "date": "2026-07-30", "watch": "AWS growth (consensus 28-33%) and updated capex guide (some estimates see $200B+ FY26)"},
+  {"ticker": "SU", "date": "2026-07-30", "watch": "Schneider Electric H1 results - data-center order book (>EUR25bn) vs reaffirmed 2026 guide (7-10% organic growth, 19.1-19.4% EBITA margin)"},
+  {"ticker": "ETN", "date": "2026-07-31", "watch": "Electrical Americas data-center order growth (~240% YoY prior quarter) and segment margin trajectory"},
+  {"ticker": "CCJ", "date": "2026-07-31", "watch": "Uranium price realization and Cigar Lake production recovery after the July mine disruption"},
+  {"ticker": "PLTR", "date": "2026-08-03", "watch": "US commercial/government AI demand growth and Rule-of-40 metrics vs valuation debate (38x forward sales)"},
+  {"ticker": "AMD", "date": "2026-08-04", "watch": "Data Center revenue vs $11.2B guide and early Helios/MI450 shipment commentary post Advancing AI event"},
+  {"ticker": "ANET", "date": "2026-08-04", "watch": "AI networking demand and progress toward the raised $3.5bn AI revenue target"},
+  {"ticker": "CAT", "date": "2026-08-04", "watch": "Tariff cost impact (~$2.6bn FY26 headwind) vs construction/mining/power-equipment demand"},
+  {"ticker": "SIE", "date": "2026-08-06", "watch": "Exact date unconfirmed in sourcing (Aug 1 vs Aug 6) - Digital Industries margin recovery and European industrial capex trends"},
+  {"ticker": "CEG", "date": "2026-08-06", "watch": "Nuclear fleet output and hyperscaler power-deal/SMR-optionality progress after the PJM auction win"},
+  {"ticker": "DDOG", "date": "2026-08-06", "watch": "AI-observability product traction and net revenue retention vs $1.07-1.08B revenue guide"}
+]
