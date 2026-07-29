@@ -1,0 +1,90 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Drills — Wed 29 July</title><style>
+:root{--ink:#1b1b1a;--mut:#6a6862;--rule:#e2ded6;--bg:#faf8f4;--code:#f2eee6;--acc:#8a5a2b;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+ font:17px/1.72 "Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;}
+.wrap{max-width:44rem;margin:0 auto;padding:3.5rem 1.5rem 6rem;}
+header{border-bottom:2px solid var(--ink);padding-bottom:1.1rem;margin-bottom:2.4rem;}
+.kicker{font:600 12px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.14em;
+ text-transform:uppercase;color:var(--acc);margin-bottom:.7rem;}
+h1{font-size:2.1rem;line-height:1.15;margin:0 0 .6rem;letter-spacing:-.015em;}
+.meta{font:400 14px/1.5 ui-sans-serif,system-ui,sans-serif;color:var(--mut);margin:0;}
+h2{font-size:1.32rem;margin:2.9rem 0 .9rem;letter-spacing:-.01em;
+ padding-top:1.4rem;border-top:1px solid var(--rule);}
+h2:first-of-type{border-top:none;padding-top:0}
+h3{font-size:1.02rem;margin:1.9rem 0 .5rem;color:var(--acc);
+ font:600 15px/1.4 ui-sans-serif,system-ui,sans-serif;}
+p{margin:0 0 1.15rem}
+strong{font-weight:600}
+code{font:14px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;
+ background:var(--code);padding:.12em .38em;border-radius:3px;}
+pre{background:var(--code);border-left:3px solid var(--acc);border-radius:0 5px 5px 0;
+ padding:1rem 1.15rem;overflow-x:auto;margin:0 0 1.3rem;}
+pre code{background:none;padding:0;font-size:13.5px;line-height:1.65;display:block}
+hr{border:none;border-top:1px solid var(--rule);margin:2.8rem 0;}
+ol,ul{margin:0 0 1.2rem;padding-left:1.4rem}
+li{margin-bottom:.55rem}
+em{color:var(--mut)}
+@media (prefers-color-scheme:dark){
+ :root{--ink:#e8e4dc;--mut:#9c968a;--rule:#33312c;--bg:#16150f;--code:#211f19;--acc:#d19a5e;}
+}
+</style></head><body><div class="wrap">
+<header><div class="kicker">Lloyds study · drills · 16:00–17:00</div>
+<h1>Maths placement &amp; first SQL</h1>
+<p class="meta">Wednesday 29 July 2026 · 30 min maths + 30 min SQL</p></header>
+<h2>Part A — Maths placement (16:00, 30 min)</h2>
+<p><strong>The job:</strong> find your true starting rung. Not to score well.</p>
+<p>Go to <strong>khanacademy.org</strong>, make an account, then: <strong>Math → Algebra 1 → Course challenge.</strong>
+That's Khan's own placement test. Give it about 20 minutes.</p>
+<p>Rules for this one only: no calculator, and if you don't know, skip rather than guess. A lucky
+guess places you a rung too high and you'll feel it for a fortnight.</p>
+<p><strong>Report back three things:</strong> your score, the topic names Khan marked as needing work, and any
+question where you understood the words but had no idea what to do. That third one is the most
+useful of the three.</p>
+<p>If Algebra 1 feels like it's coming at you too fast, drop to <strong>Algebra basics → Course challenge</strong>
+and say so. Starting lower costs nothing. Starting too high costs weeks.</p>
+<hr />
+<h2>Part B — SQL L0, first contact (16:30, 30 min)</h2>
+<h3>Setup (~10 min, once)</h3>
+<ol>
+<li>Go to <strong>console.cloud.google.com/bigquery</strong> and sign in with a Google account.</li>
+<li>Accept the terms. You'll land in the <strong>sandbox</strong> — free, and it does <strong>not</strong> ask for a card.
+   If it asks for billing details, you've gone down the wrong path; stop and tell me.</li>
+<li>Create a project when prompted. Call it anything — <code>lloyds-prep</code> is fine.</li>
+<li>In the left <strong>Explorer</strong> panel, click <strong>+ Add</strong> → <strong>Public datasets</strong> → search
+   <strong><code>thelook_ecommerce</code></strong> → add it. It'll appear under <code>bigquery-public-data</code>.</li>
+</ol>
+<h3>Before you write any SQL</h3>
+<p>Expand <code>thelook_ecommerce</code> and look at the tables — <code>users</code>, <code>products</code>, <code>orders</code>, <code>order_items</code>
+and a few more. Click on <strong><code>products</code></strong>, then the <strong>Schema</strong> tab.</p>
+<p>Read the column names and their types. That's it, for two full minutes. You're doing the thing
+your notes described this morning from the other side: here the <em>column</em> carries the type, declared
+up front, enforced by the database. Same idea, opposite arrangement to Python.</p>
+<p><strong>Then click the <code>users</code> table and read its schema too.</strong> You'll need both.</p>
+<h3>The five questions</h3>
+<p>Answer these in SQL. Only <code>SELECT</code>, <code>FROM</code>, <code>WHERE</code>, <code>ORDER BY</code> and <code>LIMIT</code> — no <code>GROUP BY</code>, no
+<code>JOIN</code>, those are later rungs. <strong>You find the column names yourself from the schema.</strong> That's part
+of the drill, not an obstacle to it.</p>
+<ol>
+<li>Show the name and retail price of any 10 products.</li>
+<li>Show the name and price of every product costing more than 100.</li>
+<li>Show the 10 most expensive products, most expensive first.</li>
+<li>Show the first name, last name and city of users in the United Kingdom.</li>
+<li>Show the 5 cheapest products in the Jeans category.</li>
+</ol>
+<p><strong>Write the English question in your notes first, then the SQL underneath it.</strong> Every time. Those
+pairs are not busywork — they become the golden set your capstone gets evaluated against in
+August, so the drilling and the deliverable are literally the same work.</p>
+<h3>One habit to start today</h3>
+<p>Before you hit <strong>Run</strong>, look at the top-right of the editor: BigQuery tells you how much data the
+query will process. Glance at it every single time, from now on.</p>
+<p><code>thelook_ecommerce</code> is tiny and the sandbox gives you 1 TB a month, so nothing you do today can
+cost anything. The point is the reflex. Cost awareness is explicitly in the NPD job description
+under "trade-offs", and a graduate who checks the estimate before running is already behaving like
+someone who's worked with production data.</p>
+<hr />
+<p>Paste the queries and what came back — including anything that errored — and I'll mark them line
+by line. Five correct answers is the L0 checkpoint, but that's not until 3 August; today is first
+contact, so getting stuck is the expected outcome, not a failure.</p></div></body></html>
