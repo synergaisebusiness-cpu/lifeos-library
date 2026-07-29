@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Python L0.1 — Variables and Types</title>
+<style>
+:root{--ink:#1b1b1a;--mut:#6a6862;--rule:#e2ded6;--bg:#faf8f4;--code:#f2eee6;--acc:#8a5a2b;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+ font:17px/1.72 "Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;}
+.wrap{max-width:44rem;margin:0 auto;padding:3.5rem 1.5rem 6rem;}
+header{border-bottom:2px solid var(--ink);padding-bottom:1.1rem;margin-bottom:2.4rem;}
+.kicker{font:600 12px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.14em;
+ text-transform:uppercase;color:var(--acc);margin-bottom:.7rem;}
+h1{font-size:2.1rem;line-height:1.15;margin:0 0 .6rem;letter-spacing:-.015em;}
+.meta{font:400 14px/1.5 ui-sans-serif,system-ui,sans-serif;color:var(--mut);margin:0;}
+h2{font-size:1.32rem;margin:2.9rem 0 .9rem;letter-spacing:-.01em;
+ padding-top:1.4rem;border-top:1px solid var(--rule);}
+h2:first-of-type{border-top:none;padding-top:0}
+h3{font-size:1.02rem;margin:1.9rem 0 .5rem;color:var(--acc);
+ font:600 15px/1.4 ui-sans-serif,system-ui,sans-serif;}
+p{margin:0 0 1.15rem}
+strong{font-weight:600}
+code{font:14px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;
+ background:var(--code);padding:.12em .38em;border-radius:3px;}
+pre{background:var(--code);border-left:3px solid var(--acc);border-radius:0 5px 5px 0;
+ padding:1rem 1.15rem;overflow-x:auto;margin:0 0 1.3rem;}
+pre code{background:none;padding:0;font-size:13.5px;line-height:1.65;display:block}
+hr{border:none;border-top:1px solid var(--rule);margin:2.8rem 0;}
+ol,ul{margin:0 0 1.2rem;padding-left:1.4rem}
+li{margin-bottom:.55rem}
+em{color:var(--mut)}
+@media (prefers-color-scheme:dark){
+ :root{--ink:#e8e4dc;--mut:#9c968a;--rule:#33312c;--bg:#16150f;--code:#211f19;--acc:#d19a5e;}
+}
+</style></head><body><div class="wrap">
+<header>
+<div class="kicker">Lloyds study · deep block</div>
+<h1>Python L0.1 — Variables &amp; Types</h1>
+<p class="meta">Wednesday 29 July 2026 · read time ~20 min · notes before questions</p>
+</header>
+
+
+<p>These are the notes to read before we talk. Read them once through without stopping, then a
+second time with a terminal open, typing the examples yourself. Don't copy-paste — typing is
+where the errors happen, and the errors are the lesson. Mark anything that doesn't land and
+bring it back to the session.</p>
+<hr />
+<h2>Why this rung matters more than it looks</h2>
+<p>Variables and types sound like the boring gate you walk through to get to the real stuff. They
+aren't. Almost every bug you'll hit in the next five weeks — and a decent share of the ones you'll
+hit at Lloyds — is a type bug wearing a disguise. A model returns the string <code>"42"</code> and your code
+tries to add it to a number. A SQL query hands back <code>None</code> where you expected a value. A price
+comes out of an API as text and gets sorted alphabetically, so £9 lands above £100.</p>
+<p>Your capstone is a chain of type conversions: a user's question (text) → a model response (text
+that's supposed to be JSON) → structured data → SQL (text) → query results (numbers, dates,
+nulls) → a written answer (text again). Every arrow in that chain is a place where a type is
+wrong. Getting solid here is not throat-clearing; it's the thing.</p>
+<hr />
+<h2>1. What a variable actually is</h2>
+<p>Most tutorials say a variable is "a box you put a value in." That model is wrong and it will
+mislead you within a fortnight. Here's the accurate one.</p>
+<p>In Python, a value lives somewhere in memory. A variable is a <strong>name that points at a value</strong>.
+Assignment doesn't put a thing into a box — it attaches a label to a thing.</p>
+<pre><code class="language-python">price = 42
+</code></pre>
+<p>Read that as: <em>create the value 42, then point the name <code>price</code> at it.</em> The <code>=</code> is not
+mathematical equality and it's not a claim that two things are equal. It's an instruction, and it
+runs right-to-left: work out the right-hand side, then bind the name on the left to the result.</p>
+<p>This is why the following is not a paradox:</p>
+<pre><code class="language-python">count = 5
+count = count + 1
+</code></pre>
+<p>Line two reads: take whatever <code>count</code> currently points at (5), add 1 to get 6, then re-point the
+name <code>count</code> at 6. In maths <code>count = count + 1</code> is nonsense. In Python it's an instruction, and
+it's one of the most common lines you'll ever write.</p>
+<p>The label model also explains something the box model can't:</p>
+<pre><code class="language-python">a = 10
+b = a
+a = 99
+print(b)   # 10, not 99
+</code></pre>
+<p><code>b = a</code> pointed <code>b</code> at the value <code>a</code> was pointing at — the number 10. Re-pointing <code>a</code> afterwards
+doesn't drag <code>b</code> along. Two labels on the same value; moving one label moves nothing else.</p>
+<p>Hold onto this. When you get to lists at L1 this same model produces behaviour that genuinely
+surprises people, and you'll already have the right mental picture.</p>
+<h3>Naming</h3>
+<p>Python's rules: letters, digits and underscores; can't start with a digit; case-sensitive
+(<code>total</code> and <code>Total</code> are different names); can't be one of Python's reserved words (<code>if</code>, <code>class</code>,
+<code>for</code>, <code>None</code>, and so on).</p>
+<p>The convention — and conventions matter, because at Lloyds your code gets read by other people —
+is <code>snake_case</code>: lowercase words joined by underscores.</p>
+<pre><code class="language-python">customer_count = 1_240        # good (and yes, underscores in numbers are legal and readable)
+customerCount = 1240          # works, but that's JavaScript's convention, not Python's
+c = 1240                      # works, means nothing to the person reading it in March
+</code></pre>
+<p>The real rule: a name should say what the value <em>is</em>, so the line reads like a sentence. You are
+writing for the next person, and about a month from now the next person is you.</p>
+<hr />
+<h2>2. The core types</h2>
+<p>Every value in Python has a type. The type determines what you're allowed to do with the value.
+There are five you need cold at this level.</p>
+<h3><code>int</code> — whole numbers</h3>
+<pre><code class="language-python">customers = 1240
+temperature = -5
+</code></pre>
+<p>No size limit worth worrying about — Python integers grow as large as your memory allows, which
+is unusual among languages and occasionally useful.</p>
+<h3><code>float</code> — numbers with a decimal point</h3>
+<pre><code class="language-python">conversion_rate = 0.034
+average_basket = 42.5
+</code></pre>
+<p>The name is short for "floating-point," which describes how the computer stores them. More on why
+that matters in section 4 — it's the one genuinely surprising thing in these notes.</p>
+<h3><code>str</code> — text, called a "string"</h3>
+<pre><code class="language-python">name = &quot;Jude&quot;
+question = 'How many orders were placed last month?'
+</code></pre>
+<p>Single or double quotes, no difference in meaning — pick one and stay consistent. Use the other
+when your text contains a quote: <code>"it's fine"</code> avoids a fight.</p>
+<p>The critical point: <strong><code>42</code> and <code>"42"</code> are different values of different types.</strong> One is a
+quantity, the other is two characters of text that happen to look like a quantity. Confusing them
+is the single most common beginner bug, and it doesn't stop being common when you're
+professional — it just gets better disguised.</p>
+<h3><code>bool</code> — true or false</h3>
+<pre><code class="language-python">is_active = True
+has_errors = False
+</code></pre>
+<p>Capital T, capital F. These are the answers to yes/no questions and they're what every <code>if</code>
+statement ultimately runs on. Comparisons produce them:</p>
+<pre><code class="language-python">5 &gt; 3        # True
+5 == 3       # False
+</code></pre>
+<p>Note <code>==</code> for comparison versus <code>=</code> for assignment. One equals sign gives a name to a value; two
+equals signs asks whether two values are the same. Mixing these up is a rite of passage.</p>
+<h3><code>None</code> — the absence of a value</h3>
+<pre><code class="language-python">result = None
+</code></pre>
+<p><code>None</code> is Python's way of saying "there is deliberately nothing here." It is <em>not</em> zero, <em>not</em> an
+empty string, and <em>not</em> False — it's the explicit representation of nothing. It's also what a
+function hands back when it doesn't return anything, and it's what you'll see constantly when
+data is missing.</p>
+<p>This one matters for you specifically. When your agent runs SQL and a column has no value, that
+arrives in Python as <code>None</code>. Handling <code>None</code> well is a large fraction of what "reliability"
+means in your job description.</p>
+<h3>Asking what type something is</h3>
+<pre><code class="language-python">type(42)          # &lt;class 'int'&gt;
+type(42.0)        # &lt;class 'float'&gt;
+type(&quot;42&quot;)        # &lt;class 'str'&gt;
+type(True)        # &lt;class 'bool'&gt;
+type(None)        # &lt;class 'NoneType'&gt;
+</code></pre>
+<p><code>type()</code> is your first debugging tool. When something behaves strangely, printing the type of the
+thing involved solves the mystery a genuinely surprising share of the time. Get in the habit now.</p>
+<hr />
+<h2>3. Dynamic typing — and the bridge to SQL</h2>
+<p>Here's a distinction worth holding, because you're climbing the SQL ladder in parallel and the
+two languages disagree on this.</p>
+<p>In SQL, the <strong>column</strong> has the type. A column declared <code>INT64</code> will hold integers and nothing
+else; the database enforces it, and it enforces it before your data ever arrives.</p>
+<p>In Python, the <strong>value</strong> has the type and the name does not. A name can point at an integer now
+and a string ten lines later, and Python won't stop you:</p>
+<pre><code class="language-python">x = 42
+x = &quot;forty-two&quot;    # perfectly legal
+</code></pre>
+<p>This is called dynamic typing. It makes Python fast to write and it makes it easy to write
+something that explodes at three in the morning. Python checks types when the line <em>runs</em>, not
+before — so a type error hides quietly in a branch of code until the day that branch executes.</p>
+<p>The professional answer to this is type hints, which is Python L3 on your ladder, and tests, which
+is L4. For now, just internalise the trade-off: the language is trusting you, and trust has to be
+earned with discipline rather than assumed.</p>
+<hr />
+<h2>4. The float thing (read this twice)</h2>
+<p>Type this into a terminal:</p>
+<pre><code class="language-python">0.1 + 0.2
+</code></pre>
+<p>You get <code>0.30000000000000004</code>.</p>
+<p>This is not a bug in Python. It happens in essentially every mainstream language, and the reason
+is that floats are stored in binary. Some decimal fractions have no exact binary representation —
+in the same way that 1/3 has no exact decimal representation, and 0.333... never quite closes the
+gap no matter how many digits you write. The computer stores the closest value it can, and the
+tiny error surfaces when you add.</p>
+<p>Two consequences you should carry from today.</p>
+<p><strong>Never test floats for exact equality.</strong></p>
+<pre><code class="language-python">0.1 + 0.2 == 0.3     # False
+</code></pre>
+<p>That line is False, and if you'd written it as a check in a program it would have failed a test
+that was actually correct. Compare with a tolerance instead, or avoid the situation.</p>
+<p><strong>Never store money as a float.</strong> This one is directly relevant to where you're about to work.
+Financial code represents money either as integer pence — <code>1250</code> meaning £12.50 — or with
+Python's <code>Decimal</code> type, which does base-10 arithmetic exactly. A rounding error of a
+hundred-millionth of a penny is a curiosity in a demo and an audit finding in a bank.</p>
+<p>You don't need <code>Decimal</code> yet. You do need to have heard this before someone senior mentions it,
+so it lands as recognition rather than news.</p>
+<hr />
+<h2>5. Working with strings</h2>
+<p>Strings are the type you'll touch most, because every question your agent receives and every
+answer it gives is text.</p>
+<p><strong>Joining:</strong></p>
+<pre><code class="language-python">first = &quot;Jude&quot;
+greeting = &quot;Hello, &quot; + first     # &quot;Hello, Jude&quot;
+</code></pre>
+<p>The <code>+</code> works only between two strings. <code>"Hello, " + 42</code> raises a <code>TypeError</code>, because Python
+refuses to guess whether you meant text-joining or arithmetic. This strictness is a feature; some
+languages guess, and their bugs are worse.</p>
+<p><strong>f-strings</strong> — the modern way, and the one to use:</p>
+<pre><code class="language-python">name = &quot;Jude&quot;
+count = 1240
+
+message = f&quot;{name} found {count} customers.&quot;
+# &quot;Jude found 1240 customers.&quot;
+</code></pre>
+<p>The <code>f</code> before the quote turns on substitution, and anything inside <code>{}</code> gets evaluated and
+dropped in as text. You can put real expressions in there:</p>
+<pre><code class="language-python">f&quot;That's {count * 2} after doubling.&quot;
+f&quot;Average: {total / n:.2f}&quot;        # the :.2f formats to two decimal places
+</code></pre>
+<p>f-strings will be how you build prompts for the model and how you format the answers that come
+back. You'll use them daily.</p>
+<p><strong>A few methods worth knowing now:</strong></p>
+<pre><code class="language-python">q = &quot;  How many orders?  &quot;
+
+q.strip()        # &quot;How many orders?&quot;  — removes surrounding whitespace
+q.lower()        # lowercases
+q.upper()        # uppercases
+len(q)           # 21 — length, including the spaces
+&quot;orders&quot; in q    # True — substring check
+</code></pre>
+<p><code>.strip()</code> in particular: user input arrives with stray whitespace constantly, and stripping it is
+the cheapest reliability win there is.</p>
+<p>Note the shape <code>thing.method()</code> — a dot, a name, then brackets. That's you asking a value to do
+something to itself. <code>len()</code> is different: it's a standalone function that takes the value as an
+argument. Both patterns are everywhere; the difference will stop being noticeable within a week.</p>
+<hr />
+<h2>6. Converting between types</h2>
+<p>Since types don't mix freely, you convert deliberately:</p>
+<pre><code class="language-python">int(&quot;42&quot;)        # 42      — text to whole number
+float(&quot;42.5&quot;)    # 42.5    — text to decimal
+str(42)          # &quot;42&quot;    — number to text
+int(42.9)        # 42      — note: truncates toward zero, does NOT round
+round(42.9)      # 43      — this is how you round
+bool(0)          # False
+bool(&quot;&quot;)         # False
+bool(&quot;anything&quot;) # True
+</code></pre>
+<p>Two traps.</p>
+<p><code>int()</code> on a float chops the decimal off rather than rounding — <code>int(42.9)</code> is 42, not 43. If you
+want rounding, ask for it.</p>
+<p>Conversion fails loudly when it can't work:</p>
+<pre><code class="language-python">int(&quot;forty-two&quot;)     # ValueError: invalid literal for int() with base 10: 'forty-two'
+int(&quot;42.5&quot;)          # ValueError too — int() won't parse a decimal point
+</code></pre>
+<p>That second one catches people. <code>"42.5"</code> has to go through <code>float()</code> first.</p>
+<p>Loud failure is the right behaviour. A language that silently turned <code>"forty-two"</code> into 0 would
+hand you a report full of zeros and no indication anything went wrong.</p>
+<hr />
+<h2>7. Reading errors</h2>
+<p>You will see far more errors than working output, forever. This is normal and it is not a signal
+about your ability. Errors are Python telling you precisely what's wrong, in a format that looks
+hostile for about a week and then becomes the fastest debugging tool you have.</p>
+<p>The three you'll meet at this level:</p>
+<p><strong><code>NameError</code></strong> — you used a name that doesn't exist. Usually a typo, or you never assigned it, or
+you assigned it in a line you didn't actually run.</p>
+<pre><code class="language-python">print(totl)     # NameError: name 'totl' is not defined
+</code></pre>
+<p><strong><code>TypeError</code></strong> — the types are wrong for the operation. The classic:</p>
+<pre><code class="language-python">&quot;Total: &quot; + 42  # TypeError: can only concatenate str (not &quot;int&quot;) to str
+</code></pre>
+<p>Fix: <code>"Total: " + str(42)</code>, or better, <code>f"Total: {42}"</code>.</p>
+<p><strong><code>ValueError</code></strong> — right type, impossible value. <code>int("forty-two")</code> above.</p>
+<p>How to read a traceback: <strong>start at the bottom.</strong> The last line names the error type and gives the
+message in English. The line above shows the actual line of your code that failed. Everything in
+between is the chain of calls that got you there, and at this level you can usually ignore it.
+Bottom line first, then the line number. That's the whole technique.</p>
+<hr />
+<h2>The exercises</h2>
+<p>Do these in a terminal. Type them; don't paste. Getting an error is a correct outcome — record
+what it said, because we'll go through them in the session.</p>
+<p>Open a terminal and run <code>python3</code> to get an interactive prompt, where each line runs as you press
+enter. If <code>python3</code> isn't found, tell me and we'll sort the install in the session.</p>
+<p><strong>1. Prediction before execution.</strong> For each line below, write down what you think it produces
+<em>before</em> you run it. Then run it. Where you were wrong is where the learning is — keep those.</p>
+<pre><code class="language-python">type(7)
+type(7.0)
+type(&quot;7&quot;)
+7 + 7
+&quot;7&quot; + &quot;7&quot;
+7 == 7.0
+&quot;7&quot; == 7
+int(&quot;7&quot;) + 7
+</code></pre>
+<p><strong>2. The name-pointing model.</strong> Predict, then run:</p>
+<pre><code class="language-python">a = 5
+b = a
+a = 12
+print(a)
+print(b)
+</code></pre>
+<p>Explain in one sentence why <code>b</code> is what it is, using the word "points."</p>
+<p><strong>3. Build a summary line.</strong> Create three variables — a product name (string), a quantity (int),
+and a unit price (float). Using a single f-string, print a sentence like:</p>
+<p><code>Oat milk: 3 units at £1.29 each, total £3.87</code></p>
+<p>The total must be <strong>calculated</strong>, not typed in, and shown to exactly two decimal places.</p>
+<p><strong>4. Break it deliberately, then fix it.</strong> Write a line that raises a <code>TypeError</code> by adding a
+string to a number. Record the exact message. Then fix it two different ways — once with <code>str()</code>,
+once with an f-string.</p>
+<p><strong>5. The float trap.</strong> Run these and record what you get:</p>
+<pre><code class="language-python">0.1 + 0.2
+0.1 + 0.2 == 0.3
+round(0.1 + 0.2, 2) == 0.3
+</code></pre>
+<p>Then answer in one or two sentences: why would storing a customer's account balance as a float be
+a bad idea at a bank?</p>
+<hr />
+<h2>What we'll do in the session</h2>
+<p>You bring your answers and any errors. We go through the predictions you got wrong first — those
+are the highest-value minutes. Then a few questions from me to check the model has landed rather
+than the syntax, and if that's clean, control flow is tomorrow's block.</p>
+<p>There's no checkpoint today. The Python L0 checkpoint is the CSV summary script, and you attempt
+that cold once variables, control flow and functions are all taught — that's what "attempt first,
+no tutorial" is protecting. Today is notes and reps.</p>
+</div></body></html>
