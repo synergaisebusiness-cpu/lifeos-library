@@ -20,3 +20,17 @@ Nvidia is reportedly in talks to backstop up to $250B in financing for OpenAI's 
 Signal: Nvidia extending from chip vendor into infrastructure financier/guarantor for its largest customer, fueling renewed "circular financing" scrutiny of AI-industry deal structures.
 
 Responding to SemiAnalysis reports of a 12+ month Vera Rubin delay, Huang said the claims are "not true": "Vera Rubin is already in production. Giant amounts of production incoming." [Motley Fool](https://www.fool.com/investing/2026/07/26/nvidias-jensen-huang-confirmed-vera-rubin-chips-ar/)
+
+### 2026-07-29 (jensen-watch)
+Huang visited Washington DC on Jul 28, meeting lawmakers from both parties (incl. Sen. Mark Warner) and Commerce Secretary Howard Lutnick, as the Commerce Department's Bureau of Industry and Security investigates possible violations in Blackwell chip exports to China (no wrongdoing determined). He defended open-weight AI models as essential to safe, widespread AI adoption and reiterated Nvidia's pledge to produce $500B of US technology over four years. [Axios](https://www.axios.com/2026/07/28/nvidia-jensen-huang-lutnick-meeting-china-ai), [Bloomberg](https://www.bloomberg.com/news/articles/2026-07-28/nvidia-ceo-jensen-huang-urges-support-for-open-weight-ai-models)
+Signal: Nvidia managing renewed China-export scrutiny in Washington while leaning on the domestic-manufacturing pledge as its political counterweight.
+
+In a Bloomberg TV interview during his South Korea trip (Jul 27), Huang forecast the semiconductor industry must grow roughly 10x over the next decade to serve computing dominated by machines rather than humans: "100 billion agents and billions of robots" versus today's roughly one billion human computer users. [24/7 Wall St](https://247wallst.com/investing/2026/07/27/nvidia-ceo-huang-chips-industry-must-grow-10x-over-the-next-decade-to-power-100-billion-ai-agents/)
+
+New detail on the Jul 24 Korea AI push (previously logged: SK Group $500B+ deal): Nvidia is also investing $1B for a ~4.5% stake in Naver, funding expansion of Naver's Sejong AI data center from 55MW to 200MW by 2028 (path to 1GW), alongside Brookfield's planned $9B. Huang: "AI factories are the infrastructure nations need to compete and innovate in the intelligence era." [NVIDIA Newsroom](https://nvidianews.nvidia.com/news/naver-nvidia-and-brookfield-to-expand-koreas-national-ai-factory-infrastructure-buildout)
+Signal: Nvidia again taking equity stakes in sovereign-AI infrastructure buildouts (Naver, following the SK pattern), not just selling into them.
+
+At Y Combinator's Startup School (talk published Jul 27), Huang argued AI "kills tasks, not jobs" — calling job-loss fears "exactly backwards" and citing radiology's 12% workforce growth (2010-2022) despite automation fears. He also disclosed Nvidia's physical-AI/robotics business is running at ~$10B annually now, with a path to $100B within 3-10 years, saying "the ChatGPT moment of robots happened a couple of years ago already." [Fortune](https://fortune.com/2026/07/28/nvidia-jensen-huang-ai-killing-tasks-not-jobs/), [BigGo Finance](https://finance.biggo.com/news/c3bc0c0e27a145e1)
+Signal: first concrete revenue figure tying Huang's robotics/physical-AI rhetoric to an actual run-rate and growth target.
+Builder angle: Huang flagged sim-to-real training pipelines as the remaining bottleneck for physical AI — an area still open for tooling.
+
