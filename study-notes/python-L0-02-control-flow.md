@@ -121,9 +121,15 @@ else:
 at the first one that is True.** Everything below the winner is skipped without being evaluated at
 all.
 
-That's why the example above works with `<` on every line and no upper bounds. By the time Python is
-testing `temperature < 20`, it already knows `temperature < 10` was False — so "under 20" can only
+That's why the example above works with `<` on every line and **no lower bounds**. By the time Python
+is testing `temperature < 20`, it already knows `temperature < 10` was False — so "under 20" can only
 mean 10-to-19. The earlier tests do the lower-bound work for you.
+
+Which half comes free depends on the direction you order the chain. Ordered ascending with `<`, as
+above, each branch states its **upper** bound and the lower one is implied. Ordered descending with
+`>=` — distinction first, then merit, then pass — each branch states its **lower** bound and the
+upper one is implied. Both are correct. What's wrong is ascending order with `>=`, because then the
+low branch wins first and swallows everything above it.
 
 And it's why **order changes behaviour**. Reverse those branches:
 
@@ -465,7 +471,9 @@ if temperature < 10
 # SyntaxError: expected ':'
 ```
 
-Python 3.13's messages are unusually good; when it tells you what it expected, believe it.
+Python 3.13's messages are unusually good — it names the missing colon. **You are on 3.9.6, which
+does not.** You get a bare `SyntaxError: invalid syntax` and a `^` caret. On 3.9 the caret position
+is your main clue, so read where it points rather than expecting the message to explain itself.
 
 **`TypeError` from a comparison** — as in `"10" > 5` above. In an `if`, this is nearly always a value
 that arrived as text when you assumed a number. `type()` first, then fix.
@@ -503,7 +511,14 @@ True and False or True
 `"fail"` under 40, `"pass"` from 40 to 59, `"merit"` from 60 to 79, and `"distinction"` from 80 up.
 Test it with 39, 40, 79, 80, and 100.
 
-Then answer in one sentence: why don't you need to write an upper bound on the `"pass"` branch?
+Then two follow-ups:
+
+(a) If you write the chain ascending with `<` — `score < 40`, then `score < 60`, then `score < 80`,
+then `else` — you never write a **lower** bound anywhere. Why not?
+
+(b) Now write it the belt-and-braces way instead, stating both bounds on every branch:
+`40 <= score <= 59`, `60 <= score <= 79`. Run it with `score = 59.5`. Something goes wrong. Work out
+what and why. This is the more useful half of the question.
 
 **3. Break the ordering deliberately.** Take your working chain and move the `"distinction"` branch
 to the top. Run it with `score = 39`. Record what it prints, and write one sentence explaining why —
@@ -559,7 +574,7 @@ by accident is recognition rather than alarm.
 
 Your questions first — including anything in here you'd have written differently, or any sentence
 you had to read twice. Then a few from me, aimed at the model rather than the syntax: I'm going to
-ask you *why* the `elif` chain needs no upper bounds and *what's actually different* between
+ask you *why* an ascending `elif` chain needs no lower bounds and *what's actually different* between
 `if balance:` and `if balance is not None:`, because those two answers are the whole rung. Then
 exercises, marked line by line, errors first.
 

@@ -127,9 +127,14 @@ else:
 <p><strong>The most important sentence in these notes: Python checks the conditions top to bottom and stops
 at the first one that is True.</strong> Everything below the winner is skipped without being evaluated at
 all.</p>
-<p>That's why the example above works with <code>&lt;</code> on every line and no upper bounds. By the time Python is
-testing <code>temperature &lt; 20</code>, it already knows <code>temperature &lt; 10</code> was False — so "under 20" can only
+<p>That's why the example above works with <code>&lt;</code> on every line and <strong>no lower bounds</strong>. By the time Python
+is testing <code>temperature &lt; 20</code>, it already knows <code>temperature &lt; 10</code> was False — so "under 20" can only
 mean 10-to-19. The earlier tests do the lower-bound work for you.</p>
+<p>Which half comes free depends on the direction you order the chain. Ordered ascending with <code>&lt;</code>, as
+above, each branch states its <strong>upper</strong> bound and the lower one is implied. Ordered descending with
+<code>&gt;=</code> — distinction first, then merit, then pass — each branch states its <strong>lower</strong> bound and the
+upper one is implied. Both are correct. What's wrong is ascending order with <code>&gt;=</code>, because then the
+low branch wins first and swallows everything above it.</p>
 <p>And it's why <strong>order changes behaviour</strong>. Reverse those branches:</p>
 <pre><code class="language-python">if temperature &lt; 30:
     print(&quot;Warm&quot;)
@@ -363,7 +368,9 @@ is at the same depth.</p>
     print(&quot;Cold&quot;)
 # SyntaxError: expected ':'
 </code></pre>
-<p>Python 3.13's messages are unusually good; when it tells you what it expected, believe it.</p>
+<p>Python 3.13's messages are unusually good — it names the missing colon. <strong>You are on 3.9.6, which
+does not.</strong> You get a bare <code>SyntaxError: invalid syntax</code> and a <code>^</code> caret. On 3.9 the caret position
+is your main clue, so read where it points rather than expecting the message to explain itself.</p>
 <p><strong><code>TypeError</code> from a comparison</strong> — as in <code>"10" &gt; 5</code> above. In an <code>if</code>, this is nearly always a value
 that arrived as text when you assumed a number. <code>type()</code> first, then fix.</p>
 <p>Reading tracebacks is the same technique as yesterday: <strong>start at the bottom.</strong> Last line = what went
@@ -390,7 +397,12 @@ True and False or True
 <p><strong>2. Bands.</strong> Write an <code>if</code> / <code>elif</code> / <code>else</code> chain that takes a variable <code>score</code> and prints
 <code>"fail"</code> under 40, <code>"pass"</code> from 40 to 59, <code>"merit"</code> from 60 to 79, and <code>"distinction"</code> from 80 up.
 Test it with 39, 40, 79, 80, and 100.</p>
-<p>Then answer in one sentence: why don't you need to write an upper bound on the <code>"pass"</code> branch?</p>
+<p>Then two follow-ups:</p>
+<p>(a) If you write the chain ascending with <code>&lt;</code> — <code>score &lt; 40</code>, then <code>score &lt; 60</code>, then <code>score &lt; 80</code>,
+then <code>else</code> — you never write a <strong>lower</strong> bound anywhere. Why not?</p>
+<p>(b) Now write it the belt-and-braces way instead, stating both bounds on every branch:
+<code>40 &lt;= score &lt;= 59</code>, <code>60 &lt;= score &lt;= 79</code>. Run it with <code>score = 59.5</code>. Something goes wrong. Work out
+what and why. This is the more useful half of the question.</p>
 <p><strong>3. Break the ordering deliberately.</strong> Take your working chain and move the <code>"distinction"</code> branch
 to the top. Run it with <code>score = 39</code>. Record what it prints, and write one sentence explaining why —
 using the word "first".</p>
@@ -429,7 +441,7 @@ by accident is recognition rather than alarm.</p>
 <h2>What we'll do in the session</h2>
 <p>Your questions first — including anything in here you'd have written differently, or any sentence
 you had to read twice. Then a few from me, aimed at the model rather than the syntax: I'm going to
-ask you <em>why</em> the <code>elif</code> chain needs no upper bounds and <em>what's actually different</em> between
+ask you <em>why</em> an ascending <code>elif</code> chain needs no lower bounds and <em>what's actually different</em> between
 <code>if balance:</code> and <code>if balance is not None:</code>, because those two answers are the whole rung. Then
 exercises, marked line by line, errors first.</p>
 <p>No checkpoint today. The Python L0 checkpoint is the CSV summary script, attempted cold on Sunday
