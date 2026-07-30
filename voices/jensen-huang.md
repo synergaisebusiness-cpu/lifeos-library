@@ -34,3 +34,7 @@ At Y Combinator's Startup School (talk published Jul 27), Huang argued AI "kills
 Signal: first concrete revenue figure tying Huang's robotics/physical-AI rhetoric to an actual run-rate and growth target.
 Builder angle: Huang flagged sim-to-real training pipelines as the remaining bottleneck for physical AI — an area still open for tooling.
 
+### 2026-07-30 (jensen-watch)
+New detail from the same Jul 27 Bloomberg TV South Korea interview previously logged (10x semiconductor growth forecast): Huang said "Frankly, I think closed models are cheaper," arguing enterprises often underestimate the total cost of self-hosting open models (training, fine-tuning, maintenance, safeguarding, infrastructure) versus paying for a hosted proprietary model. [Benzinga](https://www.benzinga.com/markets/tech/26/07/60706406/jensen-huang-says-closed-models-are-cheaper-heres-why)
+Signal: adds a cost/TCO nuance alongside his public open-weight advocacy (X post, DC lobbying) — he's not arguing open is always cheaper, just that it should remain available/legal.
+
