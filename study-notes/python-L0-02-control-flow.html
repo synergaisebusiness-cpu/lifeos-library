@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Python L0.2 — Control Flow</title>
+<style>
+:root{--ink:#1b1b1a;--mut:#6a6862;--rule:#e2ded6;--bg:#faf8f4;--code:#f2eee6;--acc:#8a5a2b;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+ font:17px/1.72 "Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;}
+.wrap{max-width:44rem;margin:0 auto;padding:3.5rem 1.5rem 6rem;}
+header{border-bottom:2px solid var(--ink);padding-bottom:1.1rem;margin-bottom:2.4rem;}
+.kicker{font:600 12px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.14em;
+ text-transform:uppercase;color:var(--acc);margin-bottom:.7rem;}
+h1{font-size:2.1rem;line-height:1.15;margin:0 0 .6rem;letter-spacing:-.015em;}
+.meta{font:400 14px/1.5 ui-sans-serif,system-ui,sans-serif;color:var(--mut);margin:0;}
+h2{font-size:1.32rem;margin:2.9rem 0 .9rem;letter-spacing:-.01em;
+ padding-top:1.4rem;border-top:1px solid var(--rule);}
+h2:first-of-type{border-top:none;padding-top:0}
+h3{font-size:1.02rem;margin:1.9rem 0 .5rem;color:var(--acc);
+ font:600 15px/1.4 ui-sans-serif,system-ui,sans-serif;}
+p{margin:0 0 1.15rem}
+strong{font-weight:600}
+code{font:14px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;
+ background:var(--code);padding:.12em .38em;border-radius:3px;}
+pre{background:var(--code);border-left:3px solid var(--acc);border-radius:0 5px 5px 0;
+ padding:1rem 1.15rem;overflow-x:auto;margin:0 0 1.3rem;}
+pre code{background:none;padding:0;font-size:13.5px;line-height:1.65;display:block}
+hr{border:none;border-top:1px solid var(--rule);margin:2.8rem 0;}
+ol,ul{margin:0 0 1.2rem;padding-left:1.4rem}
+li{margin-bottom:.55rem}
+em{color:var(--mut)}
+@media (prefers-color-scheme:dark){
+ :root{--ink:#e8e4dc;--mut:#9c968a;--rule:#33312c;--bg:#16150f;--code:#211f19;--acc:#d19a5e;}
+}
+</style></head><body><div class="wrap">
+<header>
+<div class="kicker">Lloyds study · deep block</div>
+<h1>Python L0.2 — Control Flow</h1>
+<p class="meta">Thursday 30 July 2026 · read time ~20 min · notes before questions</p>
+</header>
+
+<p>Same loop as yesterday. Read these once through without stopping, then a second time with a
+terminal open, typing the examples. Don't paste — typing is where the errors happen and the errors
+are the lesson. Mark anything that doesn't land; bring it back to the session.</p>
+<p>You're on poor sleep today, so the plan is deliberately smaller than usual. One concept —
+<strong>making a decision in code</strong> — and we go slower than feels efficient. If we finish the exercises
+and nothing else, today was a success.</p>
+<hr />
+<h2>Before you read: the 2-minute warm-up</h2>
+<p>Do this first, in the REPL, before the notes. It's hygiene, not a test, and nothing depends on
+getting it right.</p>
+<ol>
+<li>Retype yesterday's summary line from scratch, with <strong>lowercase snake_case names throughout</strong> —
+   <code>product_name</code>, <code>quantity</code>, <code>unit_price</code>, <code>total</code>. Don't look at yesterday's version.</li>
+<li>Run <code>0.7 * 3</code>. Then run <code>f"{0.7 * 3:.2f}"</code>. Look at the two outputs side by side.</li>
+</ol>
+<p>Keep both outputs; paste them into the session with your exercise answers.</p>
+<hr />
+<h2>Why this rung matters more than it looks</h2>
+<p>Yesterday you learned how to hold a value. Today you learn how to <strong>branch</strong> — how a program does
+one thing in one situation and something else in another. That is the entire difference between a
+calculator and a program.</p>
+<p>It matters more than usual for where you're going. Every guardrail in your capstone is a branch: <em>if
+the model's SQL contains anything but <code>SELECT</code>, refuse to run it.</em> Every eval score is a branch: <em>if
+the answer matches the golden answer, count it correct; if the tool returned nothing, count it a
+refusal, not a wrong answer.</em> Every piece of data handling is a branch: <em>if this value is missing,
+do X.</em> When the plan file says "never cut the eval harness," the harness it means is mostly a pile
+of carefully-ordered <code>if</code> statements. This rung is where that starts.</p>
+<p>There's a second reason. Control flow is the first place Python's <strong>layout is part of its grammar</strong>.
+Up to now you could write lines in any style and they'd run. From today, whitespace changes meaning.
+That trips people once, hard, and then never again.</p>
+<hr />
+<h2>1. The shape of a decision</h2>
+<p>Here is the whole idea in four lines:</p>
+<pre><code class="language-python">temperature = 4
+
+if temperature &lt; 10:
+    print(&quot;Cold&quot;)
+</code></pre>
+<p>Read it as: <em>evaluate the thing after <code>if</code>. If it comes out True, run the indented block. If not,
+skip it.</em></p>
+<p>Three parts, and all three are required:</p>
+<ul>
+<li>the keyword <code>if</code></li>
+<li>a <strong>condition</strong> — an expression that produces <code>True</code> or <code>False</code></li>
+<li>a <strong>colon</strong>, then an indented <strong>block</strong> of one or more lines</li>
+</ul>
+<h3>Indentation is syntax, not style</h3>
+<p>The indented lines are the body. Python decides what's inside the <code>if</code> purely by how far the line is
+indented. In most languages that's cosmetic and curly braces do the real work; in Python there are
+no braces, so the whitespace <em>is</em> the structure.</p>
+<pre><code class="language-python">if temperature &lt; 10:
+    print(&quot;Cold&quot;)          # inside the if — only runs when the condition is True
+print(&quot;Done&quot;)              # outside the if — runs every time
+</code></pre>
+<p>The convention, and effectively the rule: <strong>four spaces per level.</strong> Not a tab, not two spaces, not
+sometimes-three. Mixing them is the single most common way to make a file that looks fine and
+refuses to run.</p>
+<p>This is worth connecting to your standing correction about names. Same instinct, different surface:
+Python does not care what you <em>meant</em>, only what you <em>typed</em>. A capital letter where you wanted
+lowercase gives you a <code>NameError</code>; three spaces where you wanted four gives you an
+<code>IndentationError</code>. Neither is a comment on your understanding. Both are the language being exactly
+literal, which is the property that makes it worth trusting.</p>
+<h3><code>else</code> — the other road</h3>
+<pre><code class="language-python">temperature = 22
+
+if temperature &lt; 10:
+    print(&quot;Cold&quot;)
+else:
+    print(&quot;Not cold&quot;)
+</code></pre>
+<p><code>else</code> takes no condition — it's "in every other case." Exactly one of the two blocks runs. Never
+both, never neither.</p>
+<h3><code>elif</code> — more than two roads</h3>
+<p><code>elif</code> is short for "else if". You can have as many as you like.</p>
+<pre><code class="language-python">temperature = 22
+
+if temperature &lt; 10:
+    print(&quot;Cold&quot;)
+elif temperature &lt; 20:
+    print(&quot;Mild&quot;)
+elif temperature &lt; 30:
+    print(&quot;Warm&quot;)
+else:
+    print(&quot;Hot&quot;)
+</code></pre>
+<p><strong>The most important sentence in these notes: Python checks the conditions top to bottom and stops
+at the first one that is True.</strong> Everything below the winner is skipped without being evaluated at
+all.</p>
+<p>That's why the example above works with <code>&lt;</code> on every line and no upper bounds. By the time Python is
+testing <code>temperature &lt; 20</code>, it already knows <code>temperature &lt; 10</code> was False — so "under 20" can only
+mean 10-to-19. The earlier tests do the lower-bound work for you.</p>
+<p>And it's why <strong>order changes behaviour</strong>. Reverse those branches:</p>
+<pre><code class="language-python">if temperature &lt; 30:
+    print(&quot;Warm&quot;)
+elif temperature &lt; 10:
+    print(&quot;Cold&quot;)
+</code></pre>
+<p>Now <code>temperature = 4</code> prints <code>Warm</code>. The <code>Cold</code> branch is unreachable — it can never win, because
+anything under 10 is also under 30 and the first test grabs it. The code is legal, runs without any
+error, and is wrong. This is the flavour of bug this rung produces: no crash, just a quietly
+incorrect answer. You will hit it for real when you write eval scoring bands.</p>
+<p>If a chain of <code>if</code> / <code>elif</code> / <code>else</code> ends in <code>else</code>, exactly one branch always runs. If it has no
+<code>else</code>, it's possible for none to run — which is often fine, but it should be a decision rather than
+an accident.</p>
+<hr />
+<h2>2. Comparison operators</h2>
+<p>These are the expressions that produce the <code>True</code> / <code>False</code> that <code>if</code> needs. Six of them:</p>
+<pre><code class="language-python">5 == 5      # True   — equal to
+5 != 3      # True   — not equal to
+5 &gt; 3       # True   — greater than
+5 &lt; 3       # False  — less than
+5 &gt;= 5      # True   — greater than or equal to
+5 &lt;= 4      # False  — less than or equal to
+</code></pre>
+<p><code>==</code> versus <code>=</code> deserves saying twice, because it's yesterday's lesson wearing a new coat.</p>
+<ul>
+<li><code>=</code> is <strong>assignment</strong>: point this name at that value. It changes the world.</li>
+<li><code>==</code> is a <strong>question</strong>: are these two values the same? It changes nothing; it produces <code>True</code> or
+  <code>False</code>.</li>
+</ul>
+<p>Which brings your other standing correction straight into today's material. <strong>A comparison is an
+expression: it produces a value, it does not re-point a name.</strong></p>
+<pre><code class="language-python">count = 5
+count &gt; 3        # produces True. count is still 5.
+count == 10      # produces False. count is still 5. Nothing was set to 10.
+</code></pre>
+<p><code>count == 10</code> does <em>not</em> make <code>count</code> be 10 and does not attempt to. It asks a question and hands
+back an answer. Modern Python will usually stop you if you write <code>if count = 10:</code> — that's a
+<code>SyntaxError</code> — which is the language protecting you from a mistake that in older languages silently
+destroyed data.</p>
+<h3>Comparisons across types</h3>
+<p>You met most of this yesterday; it lands differently now that it's driving a decision.</p>
+<pre><code class="language-python">7 == 7.0         # True  — int and float compare by numeric value
+&quot;7&quot; == 7         # False — a string is never equal to a number
+&quot;7&quot; == &quot;7.0&quot;     # False — different text
+</code></pre>
+<p>That middle line is a trap you will meet for real. A CSV or an API hands you <code>"7"</code>, you write
+<code>if value == 7:</code>, and the branch never fires. No error, no crash, just a condition that's False
+forever. When a branch mysteriously never runs, <strong>print the type of the thing you're comparing</strong> —
+<code>type(value)</code> — before anything else. Yesterday's habit, today's debugging tool.</p>
+<p>Ordering comparisons across types are stricter. Python 3 refuses:</p>
+<pre><code class="language-python">&quot;10&quot; &gt; 5         # TypeError: '&gt;' not supported between instances of 'str' and 'int'
+</code></pre>
+<p>Good. Python 2 would have answered — with nonsense. This is the same design instinct as
+<code>"Total: " + 42</code> raising rather than guessing.</p>
+<p>Strings do compare with each other, though, and they compare <strong>alphabetically</strong>, character by
+character:</p>
+<pre><code class="language-python">&quot;apple&quot; &lt; &quot;banana&quot;    # True
+&quot;10&quot; &lt; &quot;9&quot;            # True  ← because &quot;1&quot; comes before &quot;9&quot;
+</code></pre>
+<p>That second one is the <code>max(["9","10","100"])</code> lesson from yesterday, in operator form. Text that
+looks numeric does not sort numerically. This is exactly the £9-above-£100 bug from yesterday's
+notes.</p>
+<h3>Chaining</h3>
+<p>Python lets you write a range the way maths does, and it means what you'd hope:</p>
+<pre><code class="language-python">age = 25
+18 &lt;= age &lt; 65        # True
+</code></pre>
+<p>Read as "18 is less than or equal to age, and age is less than 65." Most languages can't do this.
+Use it — it's clearer than the <code>and</code> version.</p>
+<h3><code>is</code> versus <code>==</code>, briefly</h3>
+<p><code>==</code> asks "same value?". <code>is</code> asks "the very same object in memory?" — same label pointing at the
+same thing, in yesterday's picture.</p>
+<p>You need exactly one rule at this level: <strong>check for <code>None</code> with <code>is</code>.</strong></p>
+<pre><code class="language-python">result = None
+
+if result is None:
+    print(&quot;no result&quot;)
+</code></pre>
+<p><code>is not None</code> for the opposite. Don't use <code>is</code> for numbers or strings; it appears to work
+sometimes, which is worse than never working. Section 4 explains why the <code>None</code> check specifically
+matters so much.</p>
+<hr />
+<h2>3. Logical operators — <code>and</code>, <code>or</code>, <code>not</code></h2>
+<p>Three words, used to combine conditions. Python spells them as English words, not symbols.</p>
+<pre><code class="language-python">is_active = True
+balance = 250
+
+if is_active and balance &gt; 100:
+    print(&quot;eligible&quot;)
+</code></pre>
+<ul>
+<li><code>and</code> — True only if <strong>both</strong> sides are True</li>
+<li><code>or</code> — True if <strong>either</strong> side is True (or both)</li>
+<li><code>not</code> — flips it: <code>not True</code> is False</li>
+</ul>
+<pre><code class="language-python">True  and False    # False
+True  or  False    # True
+not True           # False
+not (5 &gt; 3)        # False
+</code></pre>
+<h3>The <code>or</code> trap — the one everybody writes</h3>
+<p>You want "if the status is either open or pending". The natural English shortens to:</p>
+<pre><code class="language-python">if status == &quot;open&quot; or &quot;pending&quot;:       # WRONG
+</code></pre>
+<p>This runs. It never errors. And it's <strong>always True</strong>, whatever <code>status</code> is.</p>
+<p>Why: Python reads it as <code>(status == "open") or ("pending")</code>. Two separate things joined by <code>or</code>. The
+second thing isn't a comparison at all — it's just the string <code>"pending"</code>, sitting there. And a
+non-empty string counts as True (section 4). So the whole condition is <code>something or True</code>, which is
+True forever.</p>
+<p>The fix is to say the comparison twice, or use <code>in</code>:</p>
+<pre><code class="language-python">if status == &quot;open&quot; or status == &quot;pending&quot;:
+    ...
+
+if status in (&quot;open&quot;, &quot;pending&quot;):        # cleaner, and the one to prefer
+    ...
+</code></pre>
+<p>Note the shape of the bug. Legal syntax, no error, silently wrong answer — same family as the
+mis-ordered <code>elif</code>. That family is the reason this rung gets a whole session.</p>
+<h3>Precedence, and the brackets rule</h3>
+<p><code>not</code> binds tightest, then <code>and</code>, then <code>or</code>. So:</p>
+<pre><code class="language-python">a or b and c        # means  a or (b and c)
+</code></pre>
+<p>Don't memorise it. <strong>Use brackets whenever a condition has both <code>and</code> and <code>or</code> in it.</strong> They cost
+nothing, they remove all doubt, and they tell the next reader what you meant — and about a month
+from now the next reader is you.</p>
+<h3>Short-circuiting — and why you'll rely on it</h3>
+<p>Python evaluates left to right and <strong>stops as soon as the answer is settled</strong>.</p>
+<ul>
+<li>With <code>and</code>: if the left side is False, the answer is False regardless — so the right side is never
+  evaluated.</li>
+<li>With <code>or</code>: if the left side is True, the answer is True regardless — so the right side is never
+  evaluated.</li>
+</ul>
+<p>This isn't trivia; it's a working pattern. It lets you put a guard on the left and the risky thing on
+the right:</p>
+<pre><code class="language-python">if result is not None and result &gt; 100:
+    ...
+</code></pre>
+<p>If <code>result</code> is <code>None</code>, the left side is False, Python stops, and <code>result &gt; 100</code> — which would raise a
+<code>TypeError</code> on <code>None</code> — never runs. Swap the order and the same line crashes. You'll write this
+shape constantly once your agent starts handling query results that may be empty.</p>
+<hr />
+<h2>4. Truthiness</h2>
+<p>Here's the part that surprises people, and the part that's most directly about your job.</p>
+<p><code>if</code> doesn't strictly require <code>True</code> or <code>False</code>. Give it any value at all and Python will decide
+whether that value is "truthy" or "falsy".</p>
+<p>The <strong>falsy</strong> values are a short list worth knowing cold:</p>
+<pre><code class="language-python">False
+None
+0
+0.0
+&quot;&quot;          # empty string
+[]          # empty list
+{}          # empty dict
+()          # empty tuple
+</code></pre>
+<p>Everything else is truthy. Any non-zero number, any string with characters in it — including
+<code>"False"</code> and <code>"0"</code>, which are non-empty strings and therefore True — any list with items.</p>
+<pre><code class="language-python">bool(0)          # False
+bool(42)         # True
+bool(&quot;&quot;)         # False
+bool(&quot;0&quot;)        # True   ← non-empty string
+bool([])         # False
+bool([0])        # True   ← the list has an item; what's in it doesn't matter
+</code></pre>
+<p>So this works, and it's idiomatic Python:</p>
+<pre><code class="language-python">rows = []
+
+if rows:
+    print(&quot;got data&quot;)
+else:
+    print(&quot;no rows&quot;)
+</code></pre>
+<p><code>if rows:</code> reads as "if there are any rows". Prefer it to <code>if len(rows) &gt; 0:</code> — shorter, and it's
+what Python programmers expect to see.</p>
+<h3>The trap: falsy is not the same as missing</h3>
+<p>This is the one to carry out of today.</p>
+<pre><code class="language-python">balance = 0
+
+if balance:
+    print(&quot;has a balance&quot;)
+else:
+    print(&quot;no balance&quot;)          # ← this runs
+</code></pre>
+<p>A balance of exactly zero is falsy, so <code>if balance:</code> treats a real, known, correct value of £0
+identically to a value that never arrived. Those are different facts about the world, and in a bank
+they're very different facts.</p>
+<p>When you mean "did this value arrive?", ask that question exactly:</p>
+<pre><code class="language-python">if balance is not None:      # arrived — even if it's 0
+    ...
+
+if balance:                  # arrived AND is non-zero
+    ...
+</code></pre>
+<p>Yesterday's notes said handling <code>None</code> well is a large fraction of what "reliability" means in your
+job. This is the mechanics of it. Your SQL results will contain <code>0</code>, <code>None</code>, and <code>""</code>, they mean
+three different things, and <code>if value:</code> flattens all three into "nope". Choose the question you
+actually mean.</p>
+<hr />
+<h2>5. Nesting, and a word on flat code</h2>
+<p>Blocks can contain blocks:</p>
+<pre><code class="language-python">if is_active:
+    if balance &gt; 100:
+        print(&quot;eligible&quot;)
+</code></pre>
+<p>That works, and sometimes nesting genuinely reflects the logic. But two levels deep is usually a
+sign the condition wants combining instead:</p>
+<pre><code class="language-python">if is_active and balance &gt; 100:
+    print(&quot;eligible&quot;)
+</code></pre>
+<p>Same behaviour, one level, reads as a sentence. The general principle — and it's a real one, not
+tidiness for its own sake: <strong>deeply nested conditions are where bugs live</strong>, because you have to hold
+the whole stack of "we're in the case where..." in your head to read any single line. Flatter code
+holds less.</p>
+<p>Once you have functions tomorrow you get the better tool for this — check the bad cases first, return
+early, and let the main path sit unindented at the bottom. Note it for tomorrow; don't chase it
+today.</p>
+<hr />
+<h2>6. The errors of this rung</h2>
+<p>Three new ones join yesterday's <code>NameError</code>, <code>TypeError</code> and <code>ValueError</code>.</p>
+<p><strong><code>IndentationError</code></strong> — the layout doesn't parse.</p>
+<pre><code class="language-python">if temperature &lt; 10:
+print(&quot;Cold&quot;)
+# IndentationError: expected an indented block after 'if' statement
+</code></pre>
+<p>You promised a block with the colon and didn't provide one. Also fires when levels are inconsistent
+within a block. Almost always: check you're on four spaces, and that everything meant to be together
+is at the same depth.</p>
+<p><strong><code>SyntaxError</code></strong> — usually the missing colon.</p>
+<pre><code class="language-python">if temperature &lt; 10
+    print(&quot;Cold&quot;)
+# SyntaxError: expected ':'
+</code></pre>
+<p>Python 3.13's messages are unusually good; when it tells you what it expected, believe it.</p>
+<p><strong><code>TypeError</code> from a comparison</strong> — as in <code>"10" &gt; 5</code> above. In an <code>if</code>, this is nearly always a value
+that arrived as text when you assumed a number. <code>type()</code> first, then fix.</p>
+<p>Reading tracebacks is the same technique as yesterday: <strong>start at the bottom.</strong> Last line = what went
+wrong, in English. Line above = the line of yours that did it. Ignore the middle at this level.</p>
+<hr />
+<h2>The exercises</h2>
+<p>In the terminal, typed not pasted. Bring your answers <em>and</em> your errors — we go through the errors
+first, and getting one is a correct outcome, not a failure.</p>
+<p>Run <code>python3</code> for the interactive prompt. In the REPL, after a line ending in a colon you'll see
+<code>...</code> — that's Python waiting for the indented block; type four spaces then the line, and press
+enter on a blank line to finish the block. Writing these in a file instead is also fine if you
+prefer.</p>
+<p><strong>1. Prediction before execution.</strong> Write down what each line produces <em>before</em> running it. Keep the
+ones you got wrong — those are the session.</p>
+<pre><code class="language-python">5 == 5.0
+&quot;5&quot; == 5
+&quot;10&quot; &gt; &quot;9&quot;
+3 &lt; 5 &lt; 10
+not 0
+bool(&quot;False&quot;)
+bool([])
+True and False or True
+</code></pre>
+<p><strong>2. Bands.</strong> Write an <code>if</code> / <code>elif</code> / <code>else</code> chain that takes a variable <code>score</code> and prints
+<code>"fail"</code> under 40, <code>"pass"</code> from 40 to 59, <code>"merit"</code> from 60 to 79, and <code>"distinction"</code> from 80 up.
+Test it with 39, 40, 79, 80, and 100.</p>
+<p>Then answer in one sentence: why don't you need to write an upper bound on the <code>"pass"</code> branch?</p>
+<p><strong>3. Break the ordering deliberately.</strong> Take your working chain and move the <code>"distinction"</code> branch
+to the top. Run it with <code>score = 39</code>. Record what it prints, and write one sentence explaining why —
+using the word "first".</p>
+<p><strong>4. The <code>or</code> trap.</strong> Set <code>status = "closed"</code>, then run:</p>
+<pre><code class="language-python">if status == &quot;open&quot; or &quot;pending&quot;:
+    print(&quot;actionable&quot;)
+else:
+    print(&quot;not actionable&quot;)
+</code></pre>
+<p>Record what it prints. Explain in one sentence why, then rewrite the condition two ways so it's
+correct — once with a second <code>==</code>, once with <code>in</code>.</p>
+<p><strong>5. Falsy versus missing.</strong> For each of these three values of <code>balance</code> — <code>0</code>, <code>None</code>, and <code>250</code> —
+run both checks and record all six results:</p>
+<pre><code class="language-python">if balance:
+    print(&quot;truthy&quot;)
+else:
+    print(&quot;falsy&quot;)
+
+if balance is not None:
+    print(&quot;arrived&quot;)
+else:
+    print(&quot;missing&quot;)
+</code></pre>
+<p>Then, in two or three sentences: which of the two checks would you want in code that decides whether
+to send a customer a "your account is empty" message, and what goes wrong if you pick the other one?</p>
+<p><strong>6. Short-circuit guard.</strong> With <code>result = None</code>, run these two lines separately and record what
+happens with each:</p>
+<pre><code class="language-python">result is not None and result &gt; 100
+result &gt; 100 and result is not None
+</code></pre>
+<p>One works and one raises. Explain in one sentence why the order matters.</p>
+<p><strong>7. Break the layout on purpose.</strong> Write an <code>if</code> with no indented body, and an <code>if</code> with no colon.
+Record both exact error messages. You want to have seen these deliberately once so that meeting them
+by accident is recognition rather than alarm.</p>
+<hr />
+<h2>What we'll do in the session</h2>
+<p>Your questions first — including anything in here you'd have written differently, or any sentence
+you had to read twice. Then a few from me, aimed at the model rather than the syntax: I'm going to
+ask you <em>why</em> the <code>elif</code> chain needs no upper bounds and <em>what's actually different</em> between
+<code>if balance:</code> and <code>if balance is not None:</code>, because those two answers are the whole rung. Then
+exercises, marked line by line, errors first.</p>
+<p>No checkpoint today. The Python L0 checkpoint is the CSV summary script, attempted cold on Sunday
+2 August once variables, control flow and functions are all taught. Today is notes and reps —
+and a short day is fine.</p>
+</div></body></html>
