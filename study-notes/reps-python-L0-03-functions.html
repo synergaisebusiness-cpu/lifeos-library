@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reps — Python L0.3, Functions</title>
+<style>
+:root{--ink:#1b1b1a;--mut:#6a6862;--rule:#e2ded6;--bg:#faf8f4;--code:#f2eee6;--acc:#8a5a2b;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+ font:17px/1.72 "Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;}
+.wrap{max-width:44rem;margin:0 auto;padding:3.5rem 1.5rem 6rem;}
+header{border-bottom:2px solid var(--ink);padding-bottom:1.1rem;margin-bottom:2.4rem;}
+.kicker{font:600 12px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.14em;
+ text-transform:uppercase;color:var(--acc);margin-bottom:.7rem;}
+h1{font-size:2.1rem;line-height:1.15;margin:0 0 .6rem;letter-spacing:-.015em;}
+.meta{font:400 14px/1.5 ui-sans-serif,system-ui,sans-serif;color:var(--mut);margin:0;}
+h2{font-size:1.32rem;margin:2.9rem 0 .9rem;letter-spacing:-.01em;
+ padding-top:1.4rem;border-top:1px solid var(--rule);}
+h2:first-of-type{border-top:none;padding-top:0}
+h3{font-size:1.02rem;margin:1.9rem 0 .5rem;color:var(--acc);
+ font:600 15px/1.4 ui-sans-serif,system-ui,sans-serif;}
+p{margin:0 0 1.15rem}
+strong{font-weight:600}
+code{font:14px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;
+ background:var(--code);padding:.12em .38em;border-radius:3px;}
+pre{background:var(--code);border-left:3px solid var(--acc);border-radius:0 5px 5px 0;
+ padding:1rem 1.15rem;overflow-x:auto;margin:0 0 1.3rem;}
+pre code{background:none;padding:0;font-size:13.5px;line-height:1.65;display:block}
+hr{border:none;border-top:1px solid var(--rule);margin:2.8rem 0;}
+ol,ul{margin:0 0 1.2rem;padding-left:1.4rem}
+li{margin-bottom:.55rem}
+em{color:var(--mut)}
+blockquote{margin:0 0 1.2rem;padding:.2rem 0 .2rem 1.1rem;border-left:3px solid var(--rule);color:var(--mut);}
+blockquote p{margin:0 0 .5rem}
+@media (prefers-color-scheme:dark){
+ :root{--ink:#e8e4dc;--mut:#9c968a;--rule:#33312c;--bg:#16150f;--code:#211f19;--acc:#d19a5e;}
+}
+</style></head><body><div class="wrap">
+<header>
+<div class="kicker">Lloyds study · rep sheet</div>
+<h1>Reps — Python L0.3, Functions</h1>
+<p class="meta">Set Friday 31 July 2026 · do today or first thing Saturday · ~15 min</p>
+</header>
+
+<p>Unassisted. No notes open, no chat panel. If you get stuck, leave it blank and move on — a blank is
+data and a borrowed answer isn't.</p>
+<p>Do Part 1 on paper before touching a keyboard. Do Part 2 in <code>practice/reps_l0_03.py</code>.</p>
+<hr />
+<h2>Part 1 — Predict. Write the value <strong>and</strong> its type. (~5 min)</h2>
+<p>Cold. Don't run them until all six are written down.</p>
+<pre><code class="language-python"># 1
+def f(n):
+    if n &gt; 10:
+        return &quot;big&quot;
+print(f(3))
+</code></pre>
+<pre><code class="language-python"># 2
+def g(items):
+    if len(items) == 0:
+        return &quot;empty&quot;
+    return len(items)
+print(g([1, 2, 3]))
+</code></pre>
+<pre><code class="language-python"># 3
+def h(x):
+    print(x)
+print(h(5) is None)
+</code></pre>
+<pre><code class="language-python"># 4
+def area(w, h=2):
+    return w * h
+print(area(3))
+print(area(3, 4))
+print(area(h=5, w=2))
+</code></pre>
+<pre><code class="language-python"># 5
+def check(v):
+    if v:
+        return &quot;yes&quot;
+    return &quot;no&quot;
+print(check(0))
+print(check(&quot;&quot;))
+print(check(&quot;False&quot;))
+</code></pre>
+<pre><code class="language-python"># 6
+def total(a, b):
+    result = a + b
+print(total(2, 3) + 1)
+</code></pre>
+<p>Then run all six and mark yourself. <strong>Note which ones you got wrong before you look at why.</strong></p>
+<hr />
+<h2>Part 2 — Write. (~8 min)</h2>
+<p>In <code>practice/reps_l0_03.py</code>. Every function gets a <code># takes a ___, returns a ___</code> comment above the
+<code>def</code>, written <em>before</em> the body.</p>
+<p><strong>1. <code>safe_divide(a, b)</code></strong>
+Returns <code>a / b</code>. Raises <code>ValueError</code> with a useful message if <code>b</code> is zero.
+Test with <code>safe_divide(10, 4)</code>, then <code>safe_divide(10, 0)</code>.</p>
+<p><strong>2. <code>describe_temp(celsius)</code></strong>
+Returns a <code>str</code> for any number you can give it: freezing, cold, mild, hot — your thresholds, your
+words. <strong>Test it with <code>-5</code>, <code>0</code>, <code>15</code>, <code>40</code>.</strong> Every one of those four must print a sentence. If any
+of them prints <code>None</code>, you've reproduced yesterday's bug and the fix is yours to find.</p>
+<p><strong>3. Rewrite with guard clauses</strong> — no nesting, no <code>else</code>, each failure raising:</p>
+<pre><code class="language-python">def withdraw(account, amount):
+    if account is not None:
+        if account[&quot;active&quot;]:
+            if amount &lt;= account[&quot;balance&quot;]:
+                return account[&quot;balance&quot;] - amount
+            else:
+                return None
+        else:
+            return None
+    else:
+        return None
+</code></pre>
+<p>Test data:</p>
+<pre><code class="language-python">acc = {&quot;active&quot;: True, &quot;balance&quot;: 500}
+print(withdraw(acc, 200))
+</code></pre>
+<hr />
+<h2>Part 3 — One sentence. (~2 min)</h2>
+<p>Write out the difference between these two statements, and say which one is true:</p>
+<ul>
+<li><em>"A function with no <code>return</code> statement returns <code>None</code>."</em></li>
+<li><em>"A function that doesn't </em><em>hit</em><em> a <code>return</code> returns <code>None</code>."</em></li>
+</ul>
+<p>Then say which of the six predictions in Part 1 tests the difference.</p>
+<hr />
+<p>Bring the lot to Saturday's block. Five minutes to mark, then L1.1.</p>
+</div></body></html>
