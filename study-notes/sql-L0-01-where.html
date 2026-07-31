@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SQL L0.1 — Filtering with WHERE</title>
+<style>
+:root{--ink:#1b1b1a;--mut:#6a6862;--rule:#e2ded6;--bg:#faf8f4;--code:#f2eee6;--acc:#8a5a2b;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+ font:17px/1.72 "Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;}
+.wrap{max-width:44rem;margin:0 auto;padding:3.5rem 1.5rem 6rem;}
+header{border-bottom:2px solid var(--ink);padding-bottom:1.1rem;margin-bottom:2.4rem;}
+.kicker{font:600 12px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.14em;
+ text-transform:uppercase;color:var(--acc);margin-bottom:.7rem;}
+h1{font-size:2.1rem;line-height:1.15;margin:0 0 .6rem;letter-spacing:-.015em;}
+.meta{font:400 14px/1.5 ui-sans-serif,system-ui,sans-serif;color:var(--mut);margin:0;}
+h2{font-size:1.32rem;margin:2.9rem 0 .9rem;letter-spacing:-.01em;
+ padding-top:1.4rem;border-top:1px solid var(--rule);}
+h2:first-of-type{border-top:none;padding-top:0}
+h3{font-size:1.02rem;margin:1.9rem 0 .5rem;color:var(--acc);
+ font:600 15px/1.4 ui-sans-serif,system-ui,sans-serif;}
+p{margin:0 0 1.15rem}
+strong{font-weight:600}
+code{font:14px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;
+ background:var(--code);padding:.12em .38em;border-radius:3px;}
+pre{background:var(--code);border-left:3px solid var(--acc);border-radius:0 5px 5px 0;
+ padding:1rem 1.15rem;overflow-x:auto;margin:0 0 1.3rem;}
+pre code{background:none;padding:0;font-size:13.5px;line-height:1.65;display:block}
+hr{border:none;border-top:1px solid var(--rule);margin:2.8rem 0;}
+ol,ul{margin:0 0 1.2rem;padding-left:1.4rem}
+li{margin-bottom:.55rem}
+em{color:var(--mut)}
+blockquote{margin:0 0 1.2rem;padding:.2rem 0 .2rem 1.1rem;border-left:3px solid var(--rule);color:var(--mut);}
+blockquote p{margin:0 0 .5rem}
+@media (prefers-color-scheme:dark){
+ :root{--ink:#e8e4dc;--mut:#9c968a;--rule:#33312c;--bg:#16150f;--code:#211f19;--acc:#d19a5e;}
+}
+</style></head><body><div class="wrap">
+<header>
+<div class="kicker">Lloyds study · taught block</div>
+<h1>SQL L0.1 — Filtering with WHERE</h1>
+<p class="meta">Friday 31 July 2026 · read time ~15 min · notes before questions</p>
+</header>
+
+<p>Read once through, then a second time with the BigQuery console open, typing the examples. All of
+them run against <code>bigquery-public-data.thelook_ecommerce</code> — a fake online clothing shop with real
+structure.</p>
+<p>You did Python this morning, so this file leans on that deliberately. Several things look identical
+and mean something different, and knowing which is which is most of the difficulty at this rung.</p>
+<hr />
+<h2>Why this rung matters more than it looks</h2>
+<p><code>WHERE</code> is the whole capstone in miniature.</p>
+<p>Someone types <em>"how many orders from Texas customers were returned last quarter?"</em> Your agent turns
+that sentence into SQL, and the part that carries almost all the meaning is the <code>WHERE</code> clause. Get
+<code>AND</code> where the sentence said <code>OR</code> and the query still runs, still returns a tidy number, and the
+number is wrong. Nobody sees an error. The model reports it confidently.</p>
+<p>That is this morning's argument again, in a new language, and SQL is <em>worse</em> than Python for it —
+because there's no type system, no traceback, and the output of a wrong query looks exactly like
+the output of a right one. It's a table of numbers either way.</p>
+<p>Which is why the drill format is English question first, then SQL. The English is the specification.
+The SQL is the implementation. Most SQL bugs are a mismatch between the two, not a syntax error.</p>
+<hr />
+<h2>1. The shape</h2>
+<pre><code class="language-sql">SELECT   first_name, last_name, state
+FROM     bigquery-public-data.thelook_ecommerce.users
+WHERE    state = 'Texas'
+</code></pre>
+<p>Three clauses:</p>
+<ul>
+<li><strong><code>SELECT</code></strong> — which <em>columns</em> you want back</li>
+<li><strong><code>FROM</code></strong> — which <em>table</em> they come from</li>
+<li><strong><code>WHERE</code></strong> — which <em>rows</em> to keep</li>
+</ul>
+<p><code>SELECT *</code> means "every column". Fine while exploring, bad habit later — on 31 August you learn that
+BigQuery bills you by bytes scanned, and <code>*</code> scans everything.</p>
+<h3>The one mental model to take from this rung</h3>
+<p><strong>SQL does not run in the order you write it.</strong> It runs:</p>
+<pre><code>FROM   →   WHERE   →   SELECT
+</code></pre>
+<p>Get the table. Throw away rows that fail the test. <em>Then</em> pick the columns.</p>
+<p>This explains things that otherwise look arbitrary. It's why <code>WHERE</code> can filter on a column you
+never <code>SELECT</code>ed — the filtering already happened before the column list mattered. Hold this and
+most of L0 stops being a list of rules.</p>
+<p><strong>The other half of the model:</strong> <code>WHERE</code> is tested <strong>once per row</strong>, independently. There is no
+loop you can see, no <code>for</code>, no index. You write the test for <em>one</em> row and the database applies it
+to all sixty thousand. <code>state = 'Texas'</code> means <em>"for the row in front of me, is the state Texas?"</em>
+That's the whole idea, and it's why SQL feels strange coming from Python — the iteration is implied.</p>
+<hr />
+<h2>2. Four things that differ from Python, and will bite today</h2>
+<p>You've spent three days in Python. These look the same and aren't.</p>
+<h3><code>=</code> not <code>==</code></h3>
+<pre><code class="language-sql">WHERE state = 'Texas'        -- correct
+WHERE state == 'Texas'       -- error in BigQuery
+</code></pre>
+<p>SQL has no assignment operator in this position, so there's no ambiguity to resolve — a single <code>=</code>
+is the comparison. Muscle memory will fight you for a week.</p>
+<h3>Strings go in <strong>single</strong> quotes</h3>
+<pre><code class="language-sql">WHERE state = 'Texas'        -- correct
+WHERE state = &quot;Texas&quot;        -- works in BigQuery, but don't
+</code></pre>
+<p>In Python <code>'x'</code> and <code>"x"</code> are identical. In standard SQL, double quotes mean an <strong>identifier</strong> — a
+column or table name, not text. BigQuery is lenient and accepts both for strings; most other
+databases are not, and Lloyds runs more than BigQuery. Single quotes for text, always.</p>
+<h3>Not-equal is <code>!=</code> or <code>&lt;&gt;</code></h3>
+<p>Both work. <code>&lt;&gt;</code> is the older spelling and you'll see it in inherited code.</p>
+<h3><code>AND</code> / <code>OR</code> / <code>NOT</code>, not <code>and</code> / <code>or</code> / <code>not</code></h3>
+<p>Same words, conventionally uppercase. SQL keywords are case-insensitive — <code>where</code> and <code>WHERE</code> both
+run. <strong>Your data is not.</strong> <code>'texas'</code> and <code>'Texas'</code> are different strings, and a query filtering on
+<code>'texas'</code> returns zero rows with no complaint whatsoever.</p>
+<p>Convention: keywords upper, everything else lower.</p>
+<hr />
+<h2>3. Comparison</h2>
+<pre><code class="language-sql">WHERE retail_price &gt; 50
+WHERE age &lt;= 30
+WHERE category = 'Jeans'
+WHERE status != 'Cancelled'
+</code></pre>
+<p><code>&gt;</code> <code>&lt;</code> <code>&gt;=</code> <code>&lt;=</code> <code>=</code> <code>!=</code> — as you'd expect, and they work on text too (<code>WHERE state &gt; 'M'</code> gives
+you alphabetically-later states, which is occasionally useful and mostly a curiosity).</p>
+<p>Numbers bare, text quoted. <code>WHERE retail_price &gt; '50'</code> is asking a different question and in some
+databases an error.</p>
+<hr />
+<h2>4. <code>AND</code>, <code>OR</code>, <code>NOT</code></h2>
+<pre><code class="language-sql">-- both conditions must hold
+WHERE category = 'Jeans' AND retail_price &gt; 50
+
+-- either will do
+WHERE state = 'Texas' OR state = 'California'
+
+-- flip it
+WHERE NOT status = 'Cancelled'          -- same as status != 'Cancelled'
+</code></pre>
+<h3><code>OR</code> does not carry the comparison across — and here SQL is kinder than Python</h3>
+<p>This is your Wednesday miss, and it's worth seeing what each language does with it.</p>
+<pre><code class="language-sql">WHERE state = 'Texas' OR 'California'        -- WRONG
+WHERE state = 'Texas' OR state = 'California' -- right
+</code></pre>
+<p><code>OR</code> joins two complete conditions. The left-hand side is a test; the right-hand side has to be a
+test too. <code>'California'</code> on its own is a piece of text, not a question.</p>
+<p><strong>In Python that exact mistake runs silently</strong> — <code>status == "open" or "pending"</code> is always truthy,
+so every row passes and nothing complains. <strong>In BigQuery it errors:</strong> <em>"No matching signature for
+operator OR for argument types: BOOL, STRING."</em> The database refuses to guess.</p>
+<p>Same bug, one language screams and one shrugs. Worth noticing which one you found harder to spot.</p>
+<h3>Precedence: <code>AND</code> binds tighter than <code>OR</code></h3>
+<p>The single most expensive thing in this file.</p>
+<pre><code class="language-sql">-- what you probably mean:
+WHERE department = 'Men' AND (category = 'Jeans' OR category = 'Shorts')
+
+-- what you get without brackets:
+WHERE department = 'Men' AND category = 'Jeans' OR category = 'Shorts'
+</code></pre>
+<p>The second one reads to SQL as:</p>
+<pre><code class="language-sql">WHERE (department = 'Men' AND category = 'Jeans') OR (category = 'Shorts')
+</code></pre>
+<p>— so it returns men's jeans <strong>plus every pair of shorts in the shop, including women's</strong>. It runs.
+It returns rows. The row count looks plausible. Nothing is wrong except the answer.</p>
+<p><code>AND</code> before <code>OR</code>, exactly like <code>×</code> before <code>+</code> in arithmetic. <strong>Rule: the moment a <code>WHERE</code> clause
+contains both <code>AND</code> and <code>OR</code>, put brackets in.</strong> Even when you've worked out you don't need them —
+the next person to read it hasn't.</p>
+<hr />
+<h2>5. <code>IN</code> — the tidy <code>OR</code></h2>
+<pre><code class="language-sql">WHERE category = 'Jeans' OR category = 'Shorts' OR category = 'Socks'
+WHERE category IN ('Jeans', 'Shorts', 'Socks')      -- identical, and readable
+</code></pre>
+<p>Same meaning, one line, and no chance of the precedence trap. Use it whenever you're testing one
+column against a list.</p>
+<p><code>NOT IN</code> does the obvious thing:</p>
+<pre><code class="language-sql">WHERE status NOT IN ('Cancelled', 'Returned')
+</code></pre>
+<hr />
+<h2>6. <code>BETWEEN</code> — and the thing people get wrong</h2>
+<pre><code class="language-sql">WHERE age BETWEEN 25 AND 35
+</code></pre>
+<p><strong><code>BETWEEN</code> is inclusive at both ends.</strong> That's <code>age &gt;= 25 AND age &lt;= 35</code>. A 25-year-old is in. A
+35-year-old is in.</p>
+<p>This is your <code>59.5</code> problem from this morning wearing a different hat: the boundary is where the
+bug lives. When the English says "between 25 and 35", find out whether the person asking means
+inclusive. They usually do. They don't always.</p>
+<p>Works on dates too, and that's where it gets sharp — <code>BETWEEN '2026-01-01' AND '2026-03-31'</code> on a
+timestamp column silently excludes almost all of 31 March, because <code>'2026-03-31'</code> means midnight at
+the <em>start</em> of that day. Not today's problem, but remember you read it.</p>
+<hr />
+<h2>7. <code>LIKE</code> — matching part of a string</h2>
+<pre><code class="language-sql">WHERE name LIKE '%Denim%'
+</code></pre>
+<p>Two wildcards, and only two:</p>
+<ul>
+<li><strong><code>%</code></strong> — any number of characters, including none</li>
+<li><strong><code>_</code></strong> — exactly one character</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Pattern</th>
+<th>Matches</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>'%Denim%'</code></td>
+<td>Denim anywhere in the string</td>
+</tr>
+<tr>
+<td><code>'Denim%'</code></td>
+<td>starts with Denim</td>
+</tr>
+<tr>
+<td><code>'%Denim'</code></td>
+<td>ends with Denim</td>
+</tr>
+<tr>
+<td><code>'%@gmail.com'</code></td>
+<td>ends with @gmail.com</td>
+</tr>
+<tr>
+<td><code>'_enim'</code></td>
+<td>five characters, ending <code>enim</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong><code>LIKE</code> is case-sensitive in BigQuery.</strong> <code>'%denim%'</code> and <code>'%Denim%'</code> return different rows. When
+you don't know how the data is capitalised — and you usually don't — normalise both sides:</p>
+<pre><code class="language-sql">WHERE LOWER(name) LIKE '%denim%'
+</code></pre>
+<p>That's the safe default and it's what you'll write in the capstone. Note what it costs, though:
+<code>LOWER(name)</code> runs the function on every row, so the database can't use an index on <code>name</code>. Fine on
+these tables, not fine on a hundred million rows. There's always a trade — that's the 29 August
+session.</p>
+<hr />
+<h2>8. Worked examples</h2>
+<p>Type these. Read each one as English first.</p>
+<p><strong>"Men's jeans over £50."</strong></p>
+<pre><code class="language-sql">SELECT   name, category, department, retail_price
+FROM     bigquery-public-data.thelook_ecommerce.products
+WHERE    department = 'Men'
+  AND    category = 'Jeans'
+  AND    retail_price &gt; 50
+</code></pre>
+<p><strong>"Customers in Texas or California, aged 30 to 40."</strong></p>
+<pre><code class="language-sql">SELECT   first_name, last_name, state, age
+FROM     bigquery-public-data.thelook_ecommerce.users
+WHERE    state IN ('Texas', 'California')
+  AND    age BETWEEN 30 AND 40
+</code></pre>
+<p>Note the brackets you <em>didn't</em> need: <code>IN</code> is a single condition, so there's nothing for <code>AND</code> to
+bind too tightly to. That's the second reason to prefer <code>IN</code> over chained <code>OR</code>s.</p>
+<p><strong>"Gmail users not in the UK."</strong></p>
+<pre><code class="language-sql">SELECT   first_name, email, country
+FROM     bigquery-public-data.thelook_ecommerce.users
+WHERE    email LIKE '%@gmail.com'
+  AND    country != 'United Kingdom'
+</code></pre>
+<p><strong>The precedence one — run both and compare the row counts.</strong></p>
+<pre><code class="language-sql">-- A
+SELECT COUNT(*)
+FROM   bigquery-public-data.thelook_ecommerce.products
+WHERE  department = 'Men' AND category = 'Jeans' OR category = 'Shorts';
+
+-- B
+SELECT COUNT(*)
+FROM   bigquery-public-data.thelook_ecommerce.products
+WHERE  department = 'Men' AND (category = 'Jeans' OR category = 'Shorts');
+</code></pre>
+<p>Both run. Neither errors. One answers the question. <strong>Write down which is bigger and why before you
+run them.</strong></p>
+<hr />
+<h2>9. Reference — the tables you'll use</h2>
+<p><strong><code>bigquery-public-data.thelook_ecommerce.products</code></strong>
+<code>id</code>, <code>name</code>, <code>brand</code>, <code>category</code>, <code>department</code>, <code>cost</code>, <code>retail_price</code>, <code>sku</code></p>
+<p><strong><code>...users</code></strong>
+<code>id</code>, <code>first_name</code>, <code>last_name</code>, <code>email</code>, <code>age</code>, <code>gender</code>, <code>state</code>, <code>city</code>, <code>country</code>,
+<code>traffic_source</code>, <code>created_at</code></p>
+<p><strong><code>...orders</code></strong>
+<code>order_id</code>, <code>user_id</code>, <code>status</code>, <code>gender</code>, <code>num_of_item</code>, <code>created_at</code>, <code>shipped_at</code>,
+<code>delivered_at</code>, <code>returned_at</code></p>
+<hr />
+<h2>Summary</h2>
+<ul>
+<li><code>FROM</code> → <code>WHERE</code> → <code>SELECT</code>. Rows are filtered before columns are chosen.</li>
+<li><code>WHERE</code> is tested once per row. Write the test for one row.</li>
+<li><code>=</code> not <code>==</code>. <code>'single quotes'</code> for text. <code>!=</code> or <code>&lt;&gt;</code> for not-equal.</li>
+<li>Keywords are case-insensitive; <strong>your data is not</strong>.</li>
+<li><strong><code>AND</code> binds tighter than <code>OR</code>.</strong> Both in one clause → use brackets, always.</li>
+<li><code>IN (...)</code> for a list. <code>BETWEEN a AND b</code> is <strong>inclusive</strong> at both ends.</li>
+<li><code>LIKE '%x%'</code> for "contains". Case-sensitive — <code>LOWER()</code> both sides when unsure.</li>
+<li>A wrong <code>WHERE</code> returns a clean table of wrong numbers. There is no error to catch it.</li>
+</ul>
+<p>Next SQL rung (Sat 1 Aug): <strong>NULLs and <code>DISTINCT</code></strong> — where <code>None</code> comes back to find you.</p>
+</div></body></html>
