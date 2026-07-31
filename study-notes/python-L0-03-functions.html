@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Python L0.3 — Functions</title>
+<style>
+:root{--ink:#1b1b1a;--mut:#6a6862;--rule:#e2ded6;--bg:#faf8f4;--code:#f2eee6;--acc:#8a5a2b;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+ font:17px/1.72 "Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;}
+.wrap{max-width:44rem;margin:0 auto;padding:3.5rem 1.5rem 6rem;}
+header{border-bottom:2px solid var(--ink);padding-bottom:1.1rem;margin-bottom:2.4rem;}
+.kicker{font:600 12px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.14em;
+ text-transform:uppercase;color:var(--acc);margin-bottom:.7rem;}
+h1{font-size:2.1rem;line-height:1.15;margin:0 0 .6rem;letter-spacing:-.015em;}
+.meta{font:400 14px/1.5 ui-sans-serif,system-ui,sans-serif;color:var(--mut);margin:0;}
+h2{font-size:1.32rem;margin:2.9rem 0 .9rem;letter-spacing:-.01em;
+ padding-top:1.4rem;border-top:1px solid var(--rule);}
+h2:first-of-type{border-top:none;padding-top:0}
+h3{font-size:1.02rem;margin:1.9rem 0 .5rem;color:var(--acc);
+ font:600 15px/1.4 ui-sans-serif,system-ui,sans-serif;}
+p{margin:0 0 1.15rem}
+strong{font-weight:600}
+code{font:14px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;
+ background:var(--code);padding:.12em .38em;border-radius:3px;}
+pre{background:var(--code);border-left:3px solid var(--acc);border-radius:0 5px 5px 0;
+ padding:1rem 1.15rem;overflow-x:auto;margin:0 0 1.3rem;}
+pre code{background:none;padding:0;font-size:13.5px;line-height:1.65;display:block}
+hr{border:none;border-top:1px solid var(--rule);margin:2.8rem 0;}
+ol,ul{margin:0 0 1.2rem;padding-left:1.4rem}
+li{margin-bottom:.55rem}
+em{color:var(--mut)}
+blockquote{margin:0 0 1.2rem;padding:.2rem 0 .2rem 1.1rem;border-left:3px solid var(--rule);color:var(--mut);}
+blockquote p{margin:0 0 .5rem}
+@media (prefers-color-scheme:dark){
+ :root{--ink:#e8e4dc;--mut:#9c968a;--rule:#33312c;--bg:#16150f;--code:#211f19;--acc:#d19a5e;}
+}
+</style></head><body><div class="wrap">
+<header>
+<div class="kicker">Lloyds study · deep block</div>
+<h1>Python L0.3 — Functions</h1>
+<p class="meta">Friday 31 July 2026 · read time ~25 min · notes before questions</p>
+</header>
+
+<p>Same loop. Read once through without stopping, then a second time with VS Code open, typing the
+examples. Don't paste — typing is where the errors happen and the errors are the lesson.</p>
+<p><strong>One thing changes today: no more REPL.</strong> From now on Python gets written in <code>.py</code> files and run
+from VS Code. The REPL was the obstacle yesterday, and a function is more than one line by
+definition, so the tool has to go. Everything below assumes a file.</p>
+<hr />
+<h2>Before you read: the warm-up (this is yesterday's deferred set)</h2>
+<p>Yesterday's exercise set was deferred, not dropped. It's due now, and it doubles as proof that your
+environment actually runs.</p>
+<p>Make a file <code>practice/control_flow_reps.py</code> and write the following. Run it. Fix what breaks.</p>
+<ol>
+<li>A grade chain: given <code>score = 72</code>, print <code>"distinction"</code> for 80+, <code>"merit"</code> for 60–79,
+   <code>"pass"</code> for 40–59, <code>"fail"</code> below 40. <strong>Write it descending with <code>&gt;=</code>, one bound per branch, no
+   belt-and-braces.</strong> Then change <code>score</code> to <code>59.5</code> and run it again. Yesterday your two-sided
+   version handed <code>59.5</code> a distinction; this version should not.</li>
+<li><code>status = "open"</code>. Print <code>"active"</code> if the status is <code>"open"</code> <strong>or</strong> <code>"pending"</code>, else
+   <code>"inactive"</code>. Write the condition correctly this time — the comparison does not carry across
+   <code>or</code>.</li>
+<li>Three lines that each print a prediction you make <em>before</em> running:
+   <code>print("10" &gt; "9")</code>, <code>print(bool("False"))</code>, <code>print(bool(""))</code>.</li>
+</ol>
+<p>Paste me the file and the terminal output together.</p>
+<hr />
+<h2>Why this rung matters more than it looks</h2>
+<p>Everything you've written so far has been a script: a list of instructions that runs top to bottom
+once. A function is the first thing you build that has a <strong>name, an inside, and a boundary</strong> — you
+hand it something, it hands something back, and you don't have to care how.</p>
+<p>That boundary is the whole job you're heading toward. On <strong>15 August</strong> you sit down to the agent
+moment: you write a function called <code>run_sql()</code>, you describe it to a model, and the model <em>calls
+it</em>. The model never sees inside. It sees a name, what goes in, and what comes back. If your
+function returns the wrong thing when it fails — or worse, returns nothing while looking like it
+worked — the model gets handed a lie and answers confidently from it.</p>
+<p>The eval harness is the same shape from the other side: <code>score(model_answer, golden_answer)</code> takes
+two things and returns a verdict. The guardrails are functions: <code>is_read_only(sql)</code> takes a string
+and returns <code>True</code> or <code>False</code>.</p>
+<p>So today is not "how to avoid repeating yourself". Today is the unit that everything after it is
+made of.</p>
+<hr />
+<h2>1. The shape of a function</h2>
+<pre><code class="language-python">def add_vat(amount):
+    return amount * 1.2
+</code></pre>
+<p>Four parts, all required:</p>
+<ul>
+<li>the keyword <strong><code>def</code></strong></li>
+<li>a <strong>name</strong>, lowercase snake_case, same rule as every other name you write</li>
+<li><strong>parentheses</strong> holding zero or more <strong>parameters</strong> — here, <code>amount</code></li>
+<li>a <strong>colon</strong>, then an indented <strong>body</strong></li>
+</ul>
+<p>Indentation does the same job it did yesterday: it's how Python knows where the function's inside
+begins and ends. Four spaces.</p>
+<p>Writing that <code>def</code> block <strong>does not run it.</strong> Nothing happens. You've defined a shape and given it
+a name; the value <code>1.2</code> doesn't get multiplied by anything yet. To run it you <strong>call</strong> it:</p>
+<pre><code class="language-python">add_vat(50)
+</code></pre>
+<p>Two separate events — defining and calling — and they can be far apart in the file. Define at the
+top, call at the bottom.</p>
+<h3>Parameters vs arguments</h3>
+<p>Worth getting straight now because both words appear in every error message you'll read for the
+next month:</p>
+<ul>
+<li><strong>Parameter</strong> — the name in the <code>def</code> line. <code>amount</code>. It's a placeholder; it has no value yet.</li>
+<li><strong>Argument</strong> — the actual value you pass at the call. <code>50</code>.</li>
+</ul>
+<p><code>amount</code> becomes <code>50</code> for the duration of that one call, and then it's gone.</p>
+<pre><code class="language-python">def greet(first_name, last_name):
+    return f&quot;hello, {first_name} {last_name}&quot;
+
+greet(&quot;jude&quot;, &quot;hill&quot;)
+</code></pre>
+<p>Two parameters, two arguments, matched <strong>by position</strong>. Pass one argument and Python stops you:
+<code>TypeError: greet() missing 1 required positional argument: 'last_name'</code>. Pass three and it stops
+you the same way. That is the language being loud, which is the property you want.</p>
+<hr />
+<h2>2. <code>return</code> — and the thing that is about to bite you</h2>
+<p>This is the section to read twice.</p>
+<p><code>return</code> does two things at once:</p>
+<ol>
+<li>It <strong>ends the function immediately.</strong> Nothing after it in that function runs.</li>
+<li>It <strong>hands a value back</strong> to whoever called it.</li>
+</ol>
+<p>That second one is the part that's easy to say and hard to feel. The value doesn't get printed, it
+doesn't get saved, it doesn't go anywhere on its own. It gets handed back, and it's the caller's job
+to catch it:</p>
+<pre><code class="language-python">total = add_vat(50)     # catch it in a name
+print(add_vat(50))      # or hand it straight to something else
+add_vat(50)             # or drop it on the floor — this line does nothing useful
+</code></pre>
+<h3>The default nobody tells you about</h3>
+<p><strong>A function with no <code>return</code> returns <code>None</code>.</strong></p>
+<p>Not zero. Not an empty string. Not nothing-at-all. It returns the value <code>None</code>, every time,
+silently.</p>
+<pre><code class="language-python">def show_vat(amount):
+    print(amount * 1.2)
+
+x = show_vat(50)
+print(x)
+</code></pre>
+<p>That prints <code>60.0</code> and then <code>None</code>. The first line is the <code>print</code> <em>inside</em> the function doing its
+job. The second is <code>x</code> — which holds what <code>show_vat</code> handed back, and <code>show_vat</code> handed back
+nothing, so <code>x</code> is <code>None</code>.</p>
+<p>Stop on this. Yesterday you read <code>None</code> as "the account is empty", and the correction was that
+<code>None</code> means <strong>"no answer"</strong> — we don't know, there's nothing here, the question wasn't answered.
+Today that exact meaning arrives as a language default, unannounced, in the construct you're
+learning. A function that forgets to return doesn't crash and doesn't complain. It hands back "no
+answer" and your program carries on holding it.</p>
+<p>This is your silent-wrongness pattern with a <code>def</code> in front of it. The reason it's worth a whole
+section is that you will write it accidentally within the week, and it will look fine.</p>
+<h3><code>return</code> vs <code>print</code> — not the same thing, not close</h3>
+<p>The single most common L0 confusion, and the one that makes the 15 August session impossible if it
+isn't dead by then.</p>
+<pre><code class="language-python">def add_vat_a(amount):
+    print(amount * 1.2)      # shows a human a number
+
+def add_vat_b(amount):
+    return amount * 1.2      # hands a value to the program
+</code></pre>
+<p><code>add_vat_a(50) * 2</code> is an error — you can't multiply <code>None</code> by 2. <code>add_vat_b(50) * 2</code> is <code>120.0</code>.</p>
+<p><code>print</code> talks to a person. <code>return</code> talks to the rest of the program. When the model calls your
+<code>run_sql()</code> in a fortnight, there is no person in the loop — a <code>print</code> goes into the void and the
+model receives <code>None</code>. <strong>Functions return. Only the outermost layer prints.</strong></p>
+<h3><code>return</code> stops everything</h3>
+<pre><code class="language-python">def check(n):
+    return n * 2
+    print(&quot;never runs&quot;)
+</code></pre>
+<p>That <code>print</code> is unreachable. Not a warning, not an error — just dead. Useful, and section 5 makes it
+load-bearing.</p>
+<hr />
+<h2>3. Say the type out loud</h2>
+<p>New rule, and it applies to every function you write from today: <strong>before you write the body, say
+what type goes in and what type comes out.</strong> Out loud, using the real words: <code>int</code>, <code>float</code>, <code>str</code>,
+<code>bool</code>, <code>None</code>, <code>list</code>.</p>
+<blockquote>
+<p><code>add_vat</code> takes a <code>float</code> and returns a <code>float</code>.
+<code>is_read_only</code> takes a <code>str</code> and returns a <code>bool</code>.
+<code>greet</code> takes two <code>str</code> and returns a <code>str</code>.
+<code>show_vat</code> takes a <code>float</code> and returns <strong><code>None</code></strong> — which is the tell that it should have been a
+<code>return</code>.</p>
+</blockquote>
+<p>Two reasons this isn't pedantry. First, yesterday "integer" was doing service as a general-purpose
+word for "value" — you called the string <code>"False"</code> an integer twice. That's survivable while you're
+reading code, and fatal once you're debugging it, because <code>type()</code> is your main tool and it tells
+you nothing if <code>int</code> and <code>str</code> are the same word in your head.</p>
+<p>Second, on <strong>7 August</strong> you learn type hints, where this stops being a habit and becomes syntax:</p>
+<pre><code class="language-python">def add_vat(amount: float) -&gt; float:
+    return amount * 1.2
+</code></pre>
+<p>You'll write that in a week. Saying it out loud now means the notation lands as a label for
+something you already do, rather than as a new thing to memorise.</p>
+<hr />
+<h2>4. Defaults and keyword arguments</h2>
+<p>A parameter can carry a fallback:</p>
+<pre><code class="language-python">def add_vat(amount, rate=0.2):
+    return amount * (1 + rate)
+
+add_vat(50)            # 60.0  — uses the default
+add_vat(50, 0.05)      # 52.5  — overrides it
+add_vat(50, rate=0.05) # 52.5  — same, but you can see what 0.05 means
+</code></pre>
+<p>That last form is a <strong>keyword argument</strong>. Once a call has more than two arguments, positional order
+becomes a thing you have to remember and therefore a thing you can get wrong; naming them at the
+call site costs four characters and removes the class of bug. Parameters with defaults must come
+after the ones without.</p>
+<p><strong>One trap, mentioned now so it's not a surprise later:</strong> never use a list or a dict as a default
+value (<code>def f(items=[])</code>). The default is created <em>once</em>, when the function is defined, and shared
+by every call — so it accumulates. You'll meet lists properly tomorrow; for now just know the rule
+and don't do it.</p>
+<hr />
+<h2>5. Bad input: hand back <code>None</code>, or refuse?</h2>
+<p>Here is the choice functions give you that scripts didn't, and it's the argument you and I have
+been having for two days in different costumes.</p>
+<pre><code class="language-python">def divide(a, b):
+    if b == 0:
+        return None          # option 1: hand back &quot;no answer&quot;
+    return a / b
+</code></pre>
+<pre><code class="language-python">def divide(a, b):
+    if b == 0:
+        raise ValueError(&quot;cannot divide by zero&quot;)   # option 2: refuse, loudly
+    return a / b
+</code></pre>
+<p>Option 1 doesn't crash. Option 2 stops the program with a message naming exactly what went wrong
+and exactly where.</p>
+<p>Your instinct so far — three times in two days now, across two subjects — has been to reach for
+option 1, because option 2 "crashes". Run that forward. <code>divide(10, 0)</code> returns <code>None</code>. That <code>None</code>
+gets added to a total, or written to a report, or handed to a model. Nothing errors. Somewhere
+downstream a number is wrong, or a sentence is confidently false, and there is no line number
+attached to it and nothing in the log. You find it, if you find it, three weeks later, by noticing
+the answer looks odd.</p>
+<p>Option 2 costs you one loud failure at 3am and a stack trace pointing at the line. That is not the
+expensive option. <strong>The absence of an error message is not a safety property</strong> — it's the absence
+of a smoke alarm, and this is the argument the entire eval harness rests on. In four weeks you'll
+build a harness whose only job is to make wrongness announce itself, and it will feel obvious then
+because of decisions like this one.</p>
+<p><code>raise ValueError("message")</code> is the whole syntax. There are other error types; <code>ValueError</code> covers
+"you gave me something I can't work with" and is right nine times in ten.</p>
+<p>There is a legitimate use for returning <code>None</code> — "I looked, and there genuinely isn't one." A
+lookup that finds no matching customer returns <code>None</code> honestly. The test is whether the absence is
+<strong>an answer</strong> or <strong>a failure</strong>. No matching customer is an answer. Dividing by zero is a failure.</p>
+<hr />
+<h2>6. Guard clauses, and the end of the staircase</h2>
+<p>Yesterday's notes promised this and deliberately didn't chase it: you wrote nested <code>if</code>s and felt
+the indentation march right across the screen.</p>
+<pre><code class="language-python">def process(order):
+    if order is not None:
+        if order[&quot;amount&quot;] &gt; 0:
+            if order[&quot;status&quot;] == &quot;confirmed&quot;:
+                return order[&quot;amount&quot;] * 1.2
+            else:
+                return None
+        else:
+            return None
+    else:
+        return None
+</code></pre>
+<p>Four levels deep, and the actual work is the one line at the bottom. Every reader has to hold three
+open conditions in their head to reach it.</p>
+<p>Because <code>return</code> exits immediately, you can invert it — <strong>check the bad cases first, leave early,
+and let the main path sit unindented</strong>:</p>
+<pre><code class="language-python">def process(order):
+    if order is None:
+        raise ValueError(&quot;no order given&quot;)
+    if order[&quot;amount&quot;] &lt;= 0:
+        raise ValueError(&quot;amount must be positive&quot;)
+    if order[&quot;status&quot;] != &quot;confirmed&quot;:
+        raise ValueError(&quot;order is not confirmed&quot;)
+
+    return order[&quot;amount&quot;] * 1.2
+</code></pre>
+<p>Those first three are <strong>guard clauses</strong>. Same logic, and now: each failure names itself, the happy
+path is one unindented line at the bottom, and adding a fourth condition means adding a line rather
+than another level of nesting.</p>
+<p>Notice the two corrections met in one shape. The staircase collapses, <em>and</em> the silent <code>None</code>s
+become loud refusals. That isn't a coincidence — deep nesting and silent failure come from the same
+instinct, which is trying to make the function cope with everything rather than saying what it
+requires.</p>
+<hr />
+<h2>7. Docstrings, briefly</h2>
+<p>A string on the first line of the body is a <strong>docstring</strong> — the function's own description of
+itself.</p>
+<pre><code class="language-python">def add_vat(amount, rate=0.2):
+    &quot;&quot;&quot;Return amount with VAT added at rate (default 20%).&quot;&quot;&quot;
+    return amount * (1 + rate)
+</code></pre>
+<p>Worth thirty seconds per function. Two reasons beyond tidiness: <code>help(add_vat)</code> prints it, and on
+15 August the docstring is <strong>literally what the model reads to decide whether to call your
+function</strong>. Bad docstring, wrong tool call. Start the habit now; the payoff has a date on it.</p>
+<hr />
+<h2>8. Predict before you run</h2>
+<p>Cold, on paper, before typing anything. Write the answer <em>and</em> the type.</p>
+<pre><code class="language-python"># 1
+def f(x):
+    x * 2
+print(f(3))
+
+# 2
+def g(x):
+    return x * 2
+    return x * 3
+print(g(3))
+
+# 3
+def h(name=&quot;world&quot;):
+    return f&quot;hello, {name}&quot;
+print(h())
+print(h(&quot;jude&quot;))
+
+# 4
+def k(a, b=1):
+    return a - b
+print(k(10, 3))
+print(k(b=3, a=10))
+
+# 5
+total = 0
+def bump():
+    total = total + 1
+    return total
+print(bump())
+
+# 6
+def describe(n):
+    if n &gt; 0:
+        return &quot;positive&quot;
+    if n &lt; 0:
+        return &quot;negative&quot;
+print(describe(0))
+
+# 7
+def shout(text):
+    print(text.upper())
+result = shout(&quot;hello&quot;)
+print(result)
+
+# 8
+def area(w, h):
+    return w * h
+print(area(&quot;ab&quot;, 3))
+</code></pre>
+<p>Number 5 will error, and the error is the point — bring your prediction of <em>which</em> error. Number 8
+runs and returns something you may not expect; say what type it returns.</p>
+<hr />
+<h2>9. Exercises</h2>
+<p>In <code>practice/functions.py</code>. For each one, write the sentence "takes a <strong><em>, returns a </em></strong>" as a
+comment above the <code>def</code> before you write the body.</p>
+<ol>
+<li>
+<p><strong><code>add_vat(amount, rate=0.2)</code></strong> — returns the amount with VAT. Raise a <code>ValueError</code> if <code>amount</code>
+   is negative. Call it three times: default rate, 5% rate passed positionally, 5% rate passed as a
+   keyword.</p>
+</li>
+<li>
+<p><strong><code>account_message(balance)</code></strong> — yesterday's question, properly this time. Three states:
+   balance is <code>None</code> (we couldn't load it), balance is <code>0</code>, balance is positive. Return the right
+   sentence for each. Yesterday two branches were made to carry three states and the customer whose
+   balance failed to load got told their account was empty. Write it so that can't happen.</p>
+</li>
+<li>
+<p><strong><code>is_read_only(sql)</code></strong> — takes a <code>str</code>, returns a <code>bool</code>. <code>True</code> only if the query starts with
+   <code>select</code> (any capitalisation) and contains none of <code>drop</code>, <code>delete</code>, <code>update</code>, <code>insert</code>. This is
+   a real guardrail from your capstone, four weeks early. Test it with:
+   <code>"SELECT * FROM orders"</code>, <code>"select 1"</code>, <code>"DROP TABLE orders"</code>, <code>"select * from t; drop table t"</code>.
+   The last one is the interesting one — say out loud whether your function catches it before you
+   run it.</p>
+</li>
+<li>
+<p><strong><code>grade(score)</code></strong> — takes a number, returns a <code>str</code>. Refactor the warm-up chain into a function
+   with guard clauses: raise <code>ValueError</code> for anything below 0 or above 100, then the grade. Call it
+   with <code>72</code>, <code>59.5</code>, <code>-4</code>, <code>101</code>.</p>
+</li>
+<li>
+<p><strong>Rewrite this with guard clauses</strong>, no nesting, each failure loud:</p>
+</li>
+</ol>
+<pre><code class="language-python">def ship(order):
+    if order is not None:
+        if order[&quot;paid&quot;]:
+            if order[&quot;address&quot;] != &quot;&quot;:
+                return &quot;shipped&quot;
+            else:
+                return None
+        else:
+            return None
+    else:
+        return None
+</code></pre>
+<p>Paste back the file and the terminal output, together, unedited. Including whatever went red.</p>
+<hr />
+<h2>Summary</h2>
+<ul>
+<li><code>def name(params):</code> defines; <code>name(args)</code> calls. Defining runs nothing.</li>
+<li><strong>A function with no <code>return</code> returns <code>None</code></strong> — silently. "No answer", not zero.</li>
+<li><code>return</code> hands a value to the program and exits immediately. <code>print</code> shows a human. Not the same.</li>
+<li>Say the types out loud before writing the body: <code>int</code>, <code>float</code>, <code>str</code>, <code>bool</code>, <code>None</code>.</li>
+<li>Defaults go last; name your arguments at the call site once there's more than two.</li>
+<li>On bad input, <strong>refuse loudly</strong> (<code>raise ValueError</code>) rather than hand back a quiet <code>None</code>.
+  Return <code>None</code> only when absence is an honest answer.</li>
+<li>Guard clauses first, happy path last and unindented.</li>
+</ul>
+<p>Tomorrow (Sat, 10:00–12:30): <strong>L1.1 — lists and tuples.</strong> Holding many things instead of one.</p>
+</div></body></html>
