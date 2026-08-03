@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Python L1.1 — Lists and Tuples</title>
+<style>
+:root{--ink:#1a1a1a;--mut:#6b6b6b;--rule:#e4e0d8;--bg:#faf9f7;--acc:#8a5a2b;--code:#f3f1ed}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+font:17px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Georgia,serif;}
+.wrap{max-width:760px;margin:0 auto;padding:56px 28px 96px}
+h1{font-size:30px;line-height:1.2;margin:0 0 6px;letter-spacing:-.01em}
+h2{font-size:20px;margin:44px 0 14px;padding-top:20px;border-top:1px solid var(--rule);letter-spacing:-.005em}
+h1+p em,p em:first-child{color:var(--mut)}
+em{font-style:italic}
+p{margin:0 0 14px}
+strong{font-weight:650}
+ul{margin:0 0 14px;padding-left:22px}
+li{margin:0 0 7px}
+hr{border:0;border-top:1px solid var(--rule);margin:34px 0}
+code{background:var(--code);padding:1px 5px;border-radius:4px;
+font:14px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace}
+pre{background:#fff;border:1px solid var(--rule);border-left:3px solid var(--acc);
+border-radius:5px;padding:14px 16px;overflow-x:auto;margin:0 0 16px}
+pre code{background:none;padding:0;font-size:14px;line-height:1.55}
+@media print{body{background:#fff}.wrap{padding:0}pre{break-inside:avoid}}
+</style></head><body><div class="wrap">
+<h1>Python L1.1 — Lists and Tuples</h1>
+<p><em>Lloyds study · deep block · Monday 3 August 2026 · read time ~13 min · notes before questions</em></p>
+<p>Shorter than usual on purpose — the block lost 50 minutes at the front, and the last 15 belong to
+reps now. One idea, taught properly, beats four skimmed.</p>
+<p>Written in <code>.py</code> files run from VS Code, as of 31 Jul. No REPL.</p>
+<hr />
+<h2>Why this rung matters more than it looks</h2>
+<p>Every single thing your capstone touches comes back as a list.</p>
+<p><code>run_sql()</code> returns rows. Rows come back as a <strong>list of tuples</strong> — a list of records, each record a
+fixed group of fields. The golden set is a list of question-and-answer pairs. The eval harness walks
+a list and scores each item. On 15 August, when the model calls your function and gets data back,
+what it gets back is this shape. You cannot hand a model a result set you can't confidently index,
+slice or count.</p>
+<p>So this isn't "collections, for completeness". This is the return type of the entire project.</p>
+<hr />
+<h2>1. A list is an ordered, changeable sequence</h2>
+<pre><code class="language-python">prices = [42, 17, 99]
+</code></pre>
+<p>Square brackets, comma-separated, order is preserved and meaningful. Position 0 is first — always
+0, never 1, and the off-by-one that causes is a rite of passage rather than a sign of anything.</p>
+<pre><code class="language-python">prices[0]     # 42
+prices[2]     # 99
+prices[-1]    # 99   — last item
+prices[-2]    # 17   — second from last
+prices[3]     # IndexError: list index out of range
+</code></pre>
+<p>Negative indices count backwards. <code>[-1]</code> for "the last one" is idiomatic and you'll write it
+constantly — <code>rows[-1]</code> is the most recent row when the query is sorted by date.</p>
+<p>Note what <code>prices[3]</code> does: it <strong>raises</strong>. That's a loud failure, and loud failures are the good
+kind. Hold that thought — this rung's real lesson is about the quiet ones.</p>
+<hr />
+<h2>2. Slicing, and the one thing that trips everyone</h2>
+<p>A slice takes a range and gives you back a <strong>new list</strong>.</p>
+<pre><code class="language-python">prices = [42, 17, 99, 8, 63]
+
+prices[1:3]    # [17, 99]
+prices[:2]     # [42, 17]
+prices[2:]     # [99, 8, 63]
+prices[:]      # [42, 17, 99, 8, 63]  — a full copy
+</code></pre>
+<p><strong>The rule that matters: the start is included, the end is not.</strong> <code>[1:3]</code> gives you positions 1 and
+2, not 1, 2 and 3. This is called a half-open interval, and it looks like a design mistake until you
+notice two things it buys you:</p>
+<ul>
+<li><code>prices[:2]</code> and <code>prices[2:]</code> split the list cleanly with no overlap and nothing lost. The same
+  number appears in both slices and each item lands in exactly one of them.</li>
+<li>The length of <code>prices[a:b]</code> is just <code>b - a</code>. No arithmetic, no fencepost.</li>
+</ul>
+<p>Slicing never raises for being out of range. <code>prices[1:99]</code> gives you everything from position 1
+onward, quietly. That's convenient and it is also the first quiet thing on this rung.</p>
+<hr />
+<h2>3. Changeable — and the bug that comes with it</h2>
+<p>This is where lists differ from everything you've handled so far, and where L0.1's label model comes
+back to collect.</p>
+<pre><code class="language-python">prices = [42, 17, 99]
+prices[0] = 50
+print(prices)      # [50, 17, 99]
+</code></pre>
+<p>The list itself changed. You did not make a new one. Compare with a string, which cannot be changed
+in place at all:</p>
+<pre><code class="language-python">name = &quot;jude&quot;
+name[0] = &quot;J&quot;      # TypeError: 'str' object does not support item assignment
+</code></pre>
+<p>Now the consequence. Remember from L0.1: <strong>a variable is a name pointing at a value, and assignment
+attaches a label.</strong> With numbers that was a harmless bit of pedantry. With lists it is a live bug:</p>
+<pre><code class="language-python">original = [42, 17, 99]
+backup = original          # NOT a copy — a second label on the same list
+backup[0] = 0
+print(original)            # [0, 17, 99]   ← your &quot;backup&quot; edited the original
+</code></pre>
+<p>One list, two names. There was never a second list. Nothing raised, nothing warned, and <code>original</code>
+is now wrong. If that had been a result set you were about to hand a model, the model would answer
+confidently from corrupted data and you would have no error message to follow.</p>
+<p>The fix is to ask for a copy explicitly:</p>
+<pre><code class="language-python">backup = original[:]          # slice-copy
+backup = list(original)       # same thing, says it out loud
+</code></pre>
+<hr />
+<h2>4. Methods — and the theme in a new costume</h2>
+<pre><code class="language-python">prices = [42, 17, 99]
+
+prices.append(8)        # [42, 17, 99, 8]      — one item on the end
+prices.extend([1, 2])   # [42, 17, 99, 8, 1, 2] — each item of another list
+prices.pop()            # returns 2, list is now [42, 17, 99, 8, 1]
+len(prices)             # 5
+99 in prices            # True
+</code></pre>
+<p><code>append</code> versus <code>extend</code> is worth ten seconds: <code>append([1, 2])</code> puts <em>a list</em> on the end as a single
+item, giving you a list containing a list. <code>extend([1, 2])</code> puts the two numbers on. Both are
+correct code and only one is what you meant.</p>
+<p>And now the one to actually remember:</p>
+<pre><code class="language-python">prices = [42, 17, 99]
+
+cheapest_first = prices.sort()
+print(cheapest_first)     # None
+print(prices)             # [17, 42, 99]
+</code></pre>
+<p><code>.sort()</code> sorts the list <strong>in place</strong> and <strong>returns <code>None</code></strong>. Assign it to a name and the name holds
+nothing, while the sorting you asked for happened anyway, invisibly, to the original.</p>
+<p>Read that again and then read your 31 July notes, because <strong>this is the same failure you have now
+met four times</strong>: <code>describe_temp</code> returning <code>None</code> off the end, <code>area("ab", 3)</code> returning
+<code>"ababab"</code>, <code>total()</code> shadowing its own name, and now <code>.sort()</code>. Four different costumes, one
+creature — <em>a wrong answer that does not announce itself</em>.</p>
+<p>When you want a sorted copy and to leave the original alone:</p>
+<pre><code class="language-python">cheapest_first = sorted(prices)      # returns a new list; prices untouched
+</code></pre>
+<p>The naming is the tell, and it's a rule that generalises across Python: <strong>verb methods
+(<code>.sort()</code>, <code>.reverse()</code>, <code>.append()</code>) change the thing and return <code>None</code>. Adjective-ish
+built-ins (<code>sorted()</code>, <code>reversed()</code>) leave it alone and hand you a new one.</strong></p>
+<hr />
+<h2>5. Tuples: the ones that can't change</h2>
+<pre><code class="language-python">row = (&quot;2026-08-03&quot;, &quot;Manchester&quot;, 4210)
+</code></pre>
+<p>Round brackets. Same indexing, same slicing, same <code>len()</code>. One difference: you cannot change it
+after it's made.</p>
+<pre><code class="language-python">row[2] = 5000     # TypeError: 'tuple' object does not support item assignment
+</code></pre>
+<p>Which sounds like a list with a feature removed. It isn't — it's a different intent, and the
+difference is the useful part:</p>
+<ul>
+<li>A <strong>list</strong> is <em>several of the same kind of thing</em>, and how many is a fact about the data.
+  Ten prices. Two hundred rows.</li>
+<li>A <strong>tuple</strong> is <em>one thing with several fields</em>, where the count and the order are fixed by what
+  the thing is. A row. A coordinate. A date-city-revenue record.</li>
+</ul>
+<p><code>len(prices)</code> is a real question. <code>len(row)</code> is always 3 and asking is a bit odd. That's the test.</p>
+<p>This is exactly why database rows come back as tuples: a row of <code>(date, city, revenue)</code> has three
+fields in that order by definition, and code that appends a fourth to a row has misunderstood
+something. The immutability isn't a restriction, it's the schema being enforced.</p>
+<h3>Unpacking — the reason you'll actually like tuples</h3>
+<pre><code class="language-python">row = (&quot;2026-08-03&quot;, &quot;Manchester&quot;, 4210)
+
+date, city, revenue = row
+
+print(f&quot;{city} took £{revenue:,} on {date}&quot;)
+</code></pre>
+<p>Three names bound in one line, positionally. This is how you'll read query results for the rest of
+the project, and it's far better than <code>row[0]</code>, <code>row[1]</code>, <code>row[2]</code> scattered through your code —
+those are unreadable three weeks later and they silently do the wrong thing the day the column order
+changes.</p>
+<p>The count must match exactly, and helpfully this one is <em>loud</em>:</p>
+<pre><code class="language-python">date, city = row     # ValueError: too many values to unpack (expected 2)
+</code></pre>
+<p>Use <code>_</code> for a field you don't need: <code>date, _, revenue = row</code>.</p>
+<hr />
+<h2>6. Walking a list</h2>
+<p>L0.2's control flow, now with something to control:</p>
+<pre><code class="language-python">prices = [42, 17, 99]
+
+for price in prices:
+    if price &gt; 50:
+        print(f&quot;{price} is expensive&quot;)
+</code></pre>
+<p><code>for &lt;name&gt; in &lt;list&gt;:</code> runs the indented block once per item, with the name bound to each item in
+turn. Indentation is grammar here exactly as it was in <code>if</code>.</p>
+<p>And over a list of tuples — the shape you'll actually meet — unpacking works right in the <code>for</code>:</p>
+<pre><code class="language-python">rows = [
+    (&quot;2026-08-01&quot;, &quot;Manchester&quot;, 4210),
+    (&quot;2026-08-02&quot;, &quot;Leeds&quot;, 3980),
+]
+
+for date, city, revenue in rows:
+    print(f&quot;{city}: £{revenue:,}&quot;)
+</code></pre>
+<p>That is a query result being read. You have now written the loop that ends up inside <code>run_sql()</code>.</p>
+<p>One warning worth having early: <strong>do not add to or remove from a list while you're looping over
+it.</strong> It doesn't raise. It skips items. Build a new list instead — which is where comprehensions
+come in tomorrow.</p>
+<hr />
+<h2>Exercises — we do these together, live</h2>
+<ol>
+<li>From <code>prices = [42, 17, 99, 8, 63]</code>: print the first, the last, the middle three, and everything
+   except the first, using slices where a slice is the right tool.</li>
+<li>Make <code>backup</code> a genuine copy of <code>prices</code>. Change <code>backup[0]</code>. Prove <code>prices</code> is untouched by
+   printing both.</li>
+<li>Given <code>prices</code>, produce <strong>a sorted copy</strong> without changing <code>prices</code>, and print both to prove it.
+   Then sort <code>prices</code> in place and print it. Say out loud which of the two returned <code>None</code>.</li>
+<li><code>rows = [("Manchester", 4210), ("Leeds", 3980), ("Bristol", 5120)]</code> — loop with unpacking and
+   print <code>"City took £X"</code> per row, with a thousands separator.</li>
+<li>Same <code>rows</code>: find the city with the highest revenue. No <code>max()</code>, no sorting — a loop and an <code>if</code>.
+   Think about what you initialise your "best so far" to, and why an empty list is the case that
+   catches people.</li>
+<li>Write <code>first_and_last(items)</code> — takes a list, returns a <strong>tuple</strong> of its first and last items.
+   Then decide what it should do for a one-item list, and for an empty one. Your call, but the
+   answer is not "return <code>None</code> and hope".</li>
+</ol>
+<hr />
+<h2>Reps — last 15 minutes, in the room, unassisted</h2>
+<p>New rule from today: no homework, reps happen here. Notes shut, no chat panel. I mark them on the
+spot and L1.1 isn't logged as climbed until they're marked.</p>
+</div></body></html>

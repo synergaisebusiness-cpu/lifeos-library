@@ -25,21 +25,14 @@ pre code{background:none;padding:0;font-size:14px;line-height:1.55}
 @media print{body{background:#fff}.wrap{padding:0}pre{break-inside:avoid}}
 </style></head><body><div class="wrap">
 <h1>Python L0 CHECKPOINT — Variables, Control Flow, Functions</h1>
-<p><em>Monday 3 August 2026 · cold · 35 minutes · unassisted</em></p>
+<p><em>Monday 3 August 2026 · cold · unassisted</em></p>
 <p>Covers L0.1 (29 Jul), L0.2 (30 Jul), L0.3 (31 Jul). This also absorbs the L0.3 rep sheet that was
 never marked — so passing this is what logs L0.3 as climbed.</p>
 <p><strong>Rules.</strong> No notes, no chat panel, no running anything until a part is fully written down. If you
 get stuck, leave it blank and move on — a blank is data, a borrowed answer isn't.</p>
-<p><strong>Confidence column is not optional.</strong> Next to every answer in Part 1 write <strong>A</strong>, <strong>B</strong> or <strong>C</strong>
-before you run anything:</p>
-<ul>
-<li><strong>A</strong> — certain</li>
-<li><strong>B</strong> — fairly sure</li>
-<li><strong>C</strong> — guessing</li>
-</ul>
-<p>This is scored separately from correctness, and it's the more important score. A wrong answer rated
-<strong>A</strong> is the single most dangerous data point this ladder produces, and you generated one on 30 Jul
-across two subjects. We're measuring whether that's fixed.</p>
+<p><strong>Confidence letters.</strong> Next to every answer write <strong>A</strong> (certain), <strong>B</strong> (fairly sure) or <strong>C</strong>
+(guessing) <strong>before you run anything</strong>. Scored separately from correctness, and it's the more
+important score: a wrong answer rated <strong>A</strong> is the most dangerous data point this ladder produces.</p>
 <hr />
 <h2>Part 1 — Predict. Value <strong>and</strong> type. Nothing runs until all eight are written. (~12 min)</h2>
 <p>Every one of these executes without raising. That is the point of the set.</p>
@@ -98,17 +91,34 @@ print(total(100))
 <p>Now run all eight. <strong>Mark which you got wrong before you look at why</strong>, and note every case where
 you rated <strong>A</strong> and were wrong.</p>
 <hr />
-<h2>Part 2 — Write. In <code>practice/checkpoint_l0.py</code>. (~15 min)</h2>
+<h2>Part 2 — Write. (~15 min)</h2>
+<p><strong>File: <code>practice/checkpoint_l0.py</code>, in VS Code. Run it with the play button or
+<code>python practice/checkpoint_l0.py</code> in the terminal.</strong></p>
+<p>Write all four functions first. Put <strong>A / B / C</strong> next to each one — meaning <em>will this run
+correctly first time</em> — <strong>before</strong> you run the file. Then run it once and let everything fail at
+once; that's cheaper than four separate runs.</p>
 <p>Every function gets a <code># takes a ___, returns a ___</code> comment above the <code>def</code>, written <strong>before</strong> the
-body. That comment is part of the answer.</p>
-<p><strong>1. <code>safe_divide(a, b)</code></strong>
-Returns <code>a / b</code>. Raises <code>ValueError</code> with a useful message when <code>b</code> is zero.
-Test: <code>safe_divide(10, 4)</code>, then <code>safe_divide(10, 0)</code>.</p>
-<p><strong>2. <code>describe_temp(celsius)</code></strong>
-Returns a <code>str</code> for <strong>any</strong> number. Your thresholds, your words.
-Test with <code>-5</code>, <code>0</code>, <code>15</code>, <code>40</code>. All four must print a sentence. If any prints <code>None</code>, you've
-reproduced the 31 Jul bug and the fix is yours to find.</p>
-<p><strong>3. Rewrite with guard clauses.</strong> No nesting, no <code>else</code>. Failures raise rather than return <code>None</code>.</p>
+body. That comment is part of the answer and it is marked.</p>
+<p>Note on line 3 of the tests: <strong>once a <code>raise</code> fires, the script stops.</strong> So comment out the lines
+below a deliberate raise, run, then swap which one is live — or wrap them in <code>try</code>/<code>except</code> if you
+already know how. Don't remove the failing test to make the file run clean; that's on the standing
+corrections list.</p>
+<h3>The four</h3>
+<p><strong>1. <code>safe_divide(a, b)</code></strong></p>
+<ul>
+<li>Takes two numbers. Returns the result of <code>a / b</code>.</li>
+<li>If <code>b</code> is zero: <code>raise ValueError</code> with a message that says what went wrong.</li>
+<li>A traceback on the second test line is a <strong>pass</strong>, not a failure. It's what you asked for.</li>
+</ul>
+<p><strong>2. <code>describe_temp(celsius)</code></strong></p>
+<ul>
+<li>Takes a number. Returns a <strong>string</strong> — for <em>every</em> possible number, with no gaps between bands.</li>
+<li>Four bands. Your thresholds, your wording.</li>
+<li>All four test lines must print a sentence. A <code>None</code> means a number fell through your branches —
+  that's the 31 July bug and the fix is yours to find.</li>
+</ul>
+<p><strong>3. <code>withdraw(account, amount)</code></strong></p>
+<p>Rewrite this with guard clauses:</p>
 <pre><code class="language-python">def withdraw(account, amount):
     if account is not None:
         if account[&quot;active&quot;]:
@@ -121,13 +131,65 @@ reproduced the 31 Jul bug and the fix is yours to find.</p>
     else:
         return None
 </code></pre>
-<p>Test: <code>acc = {"active": True, "balance": 500}</code> then <code>withdraw(acc, 200)</code>, then <code>withdraw(acc, 900)</code>.</p>
-<p><strong>4. <code>is_read_only(sql)</code></strong> — this one is your capstone's first guardrail, written five weeks early.
-Takes a string, returns a <code>bool</code>. <code>True</code> only when the statement is a read.
-Test: <code>"SELECT * FROM orders"</code>, <code>"select 1"</code>, <code>"DROP TABLE orders"</code>,
-<code>"SELECT * FROM orders; DELETE FROM orders"</code>.</p>
-<p>The last one is the interesting case. If it returns <code>True</code>, say so in your answer rather than
-patching it quietly — knowing your guardrail is porous is worth more than a guardrail you believe in.</p>
+<ul>
+<li>Takes a dict and a number. Returns the <strong>new balance</strong> after the withdrawal.</li>
+<li>Each invalid case is checked at the top, one condition per guard, and <code>raise</code>s immediately.</li>
+<li>No nesting. No <code>else</code>. Nothing returns <code>None</code>.</li>
+<li>Three invalid cases: no account, account not active, amount larger than the balance.</li>
+</ul>
+<p><strong>4. <code>is_read_only(sql)</code></strong></p>
+<ul>
+<li>Takes a string. Returns <code>True</code> or <code>False</code> and nothing else — no printing inside the function.</li>
+<li><code>True</code> only when the statement is safe to run against the database: it reads, and does nothing
+  else.</li>
+<li><code>False</code> if it contains <code>DROP</code>, <code>DELETE</code>, <code>UPDATE</code> or <code>INSERT</code>.</li>
+<li>Capitalisation must not matter — <code>"select 1"</code> is a valid read.</li>
+</ul>
+<p>This is your capstone's first guardrail, written five weeks early in nothing but L0 syntax.</p>
+<h3>Skeleton — type this into the file</h3>
+<pre><code class="language-python"># practice/checkpoint_l0.py
+
+# takes a ___, returns a ___
+def safe_divide(a, b):
+    ...
+
+
+# takes a ___, returns a ___
+def describe_temp(celsius):
+    ...
+
+
+# takes a ___, returns a ___
+def withdraw(account, amount):
+    ...
+
+
+# takes a ___, returns a ___
+def is_read_only(sql):
+    ...
+
+
+# ---------- tests: do not edit ----------
+
+print(safe_divide(10, 4))                 # expect 2.5
+print(safe_divide(10, 0))                 # expect ValueError: &lt;your message&gt;
+
+for t in [-5, 0, 15, 40]:
+    print(describe_temp(t))               # expect four sentences, no None
+
+acc = {&quot;active&quot;: True, &quot;balance&quot;: 500}
+print(withdraw(acc, 200))                 # expect 300
+print(withdraw(acc, 900))                 # expect a raise
+print(withdraw(None, 50))                 # expect a raise
+
+print(is_read_only(&quot;SELECT * FROM orders&quot;))                     # expect True
+print(is_read_only(&quot;select 1&quot;))                                 # expect True
+print(is_read_only(&quot;DROP TABLE orders&quot;))                        # expect False
+print(is_read_only(&quot;SELECT * FROM orders; DELETE FROM orders&quot;)) # ?
+</code></pre>
+<p>The last line has no expected answer written down <strong>on purpose</strong>. Tell me what yours returns and
+whether you think that is the right answer.</p>
+<p>Paste me the file and the terminal output together.</p>
 <hr />
 <h2>Part 3 — One sentence each. (~4 min)</h2>
 <p><strong>(a)</strong> Which of these is true, and what is the difference between them?</p>
@@ -137,8 +199,8 @@ patching it quietly — knowing your guardrail is porous is worth more than a gu
 </ul>
 <p><strong>(b)</strong> Three of the eight questions in Part 1 are the same underlying failure wearing different
 clothes. Name the failure in one sentence, and say which three.</p>
+<p><strong>(c)</strong> Give the <strong>type</strong> of the printed value in Part 1 questions 1, 2 and 8.</p>
 <hr />
 <h2>What I'm marking</h2>
-<p>Correctness, then calibration, then whether the through-line in <strong>3(b)</strong> landed. Paste Part 1 with
-its confidence letters, the file, and the terminal output together.</p>
+<p>Correctness, then calibration, then whether the through-line in <strong>3(b)</strong> landed.</p>
 </div></body></html>
