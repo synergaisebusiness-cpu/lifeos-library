@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Python L0 Checkpoint — 3 Aug 2026</title>
+<style>
+:root{--ink:#1a1a1a;--mut:#6b6b6b;--rule:#e4e0d8;--bg:#faf9f7;--acc:#8a5a2b;--code:#f3f1ed}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+font:17px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Georgia,serif;}
+.wrap{max-width:760px;margin:0 auto;padding:56px 28px 96px}
+h1{font-size:30px;line-height:1.2;margin:0 0 6px;letter-spacing:-.01em}
+h2{font-size:20px;margin:44px 0 14px;padding-top:20px;border-top:1px solid var(--rule);letter-spacing:-.005em}
+h1+p em,p em:first-child{color:var(--mut)}
+em{font-style:italic}
+p{margin:0 0 14px}
+strong{font-weight:650}
+ul{margin:0 0 14px;padding-left:22px}
+li{margin:0 0 7px}
+hr{border:0;border-top:1px solid var(--rule);margin:34px 0}
+code{background:var(--code);padding:1px 5px;border-radius:4px;
+font:14px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace}
+pre{background:#fff;border:1px solid var(--rule);border-left:3px solid var(--acc);
+border-radius:5px;padding:14px 16px;overflow-x:auto;margin:0 0 16px}
+pre code{background:none;padding:0;font-size:14px;line-height:1.55}
+@media print{body{background:#fff}.wrap{padding:0}pre{break-inside:avoid}}
+</style></head><body><div class="wrap">
+<h1>Python L0 CHECKPOINT — Variables, Control Flow, Functions</h1>
+<p><em>Monday 3 August 2026 · cold · 35 minutes · unassisted</em></p>
+<p>Covers L0.1 (29 Jul), L0.2 (30 Jul), L0.3 (31 Jul). This also absorbs the L0.3 rep sheet that was
+never marked — so passing this is what logs L0.3 as climbed.</p>
+<p><strong>Rules.</strong> No notes, no chat panel, no running anything until a part is fully written down. If you
+get stuck, leave it blank and move on — a blank is data, a borrowed answer isn't.</p>
+<p><strong>Confidence column is not optional.</strong> Next to every answer in Part 1 write <strong>A</strong>, <strong>B</strong> or <strong>C</strong>
+before you run anything:</p>
+<ul>
+<li><strong>A</strong> — certain</li>
+<li><strong>B</strong> — fairly sure</li>
+<li><strong>C</strong> — guessing</li>
+</ul>
+<p>This is scored separately from correctness, and it's the more important score. A wrong answer rated
+<strong>A</strong> is the single most dangerous data point this ladder produces, and you generated one on 30 Jul
+across two subjects. We're measuring whether that's fixed.</p>
+<hr />
+<h2>Part 1 — Predict. Value <strong>and</strong> type. Nothing runs until all eight are written. (~12 min)</h2>
+<p>Every one of these executes without raising. That is the point of the set.</p>
+<pre><code class="language-python"># 1
+def classify(n):
+    if n &gt; 10:
+        return &quot;big&quot;
+    elif n &gt; 5:
+        return &quot;medium&quot;
+
+print(classify(3))
+</code></pre>
+<pre><code class="language-python"># 2
+def line_cost(item, qty):
+    return item * qty
+
+print(line_cost(&quot;£5&quot;, 3))
+</code></pre>
+<pre><code class="language-python"># 3
+score = 72
+
+if score &gt;= 40:
+    grade = &quot;pass&quot;
+elif score &gt;= 60:
+    grade = &quot;merit&quot;
+elif score &gt;= 80:
+    grade = &quot;distinction&quot;
+
+print(grade)
+</code></pre>
+<pre><code class="language-python"># 4
+status = &quot;closed&quot;
+
+if status == &quot;open&quot; or &quot;pending&quot;:
+    print(&quot;active&quot;)
+else:
+    print(&quot;inactive&quot;)
+</code></pre>
+<pre><code class="language-python"># 5
+count = 5
+count == count + 1
+print(count)
+</code></pre>
+<pre><code class="language-python"># 6
+print(0.1 + 0.2 == 0.3)
+</code></pre>
+<pre><code class="language-python"># 7
+print(bool(&quot;False&quot;), bool(&quot;&quot;), bool(&quot;0&quot;))
+</code></pre>
+<pre><code class="language-python"># 8
+def total(price, tax=0.2):
+    total = price * (1 + tax)
+
+print(total(100))
+</code></pre>
+<p>Now run all eight. <strong>Mark which you got wrong before you look at why</strong>, and note every case where
+you rated <strong>A</strong> and were wrong.</p>
+<hr />
+<h2>Part 2 — Write. In <code>practice/checkpoint_l0.py</code>. (~15 min)</h2>
+<p>Every function gets a <code># takes a ___, returns a ___</code> comment above the <code>def</code>, written <strong>before</strong> the
+body. That comment is part of the answer.</p>
+<p><strong>1. <code>safe_divide(a, b)</code></strong>
+Returns <code>a / b</code>. Raises <code>ValueError</code> with a useful message when <code>b</code> is zero.
+Test: <code>safe_divide(10, 4)</code>, then <code>safe_divide(10, 0)</code>.</p>
+<p><strong>2. <code>describe_temp(celsius)</code></strong>
+Returns a <code>str</code> for <strong>any</strong> number. Your thresholds, your words.
+Test with <code>-5</code>, <code>0</code>, <code>15</code>, <code>40</code>. All four must print a sentence. If any prints <code>None</code>, you've
+reproduced the 31 Jul bug and the fix is yours to find.</p>
+<p><strong>3. Rewrite with guard clauses.</strong> No nesting, no <code>else</code>. Failures raise rather than return <code>None</code>.</p>
+<pre><code class="language-python">def withdraw(account, amount):
+    if account is not None:
+        if account[&quot;active&quot;]:
+            if amount &lt;= account[&quot;balance&quot;]:
+                return account[&quot;balance&quot;] - amount
+            else:
+                return None
+        else:
+            return None
+    else:
+        return None
+</code></pre>
+<p>Test: <code>acc = {"active": True, "balance": 500}</code> then <code>withdraw(acc, 200)</code>, then <code>withdraw(acc, 900)</code>.</p>
+<p><strong>4. <code>is_read_only(sql)</code></strong> — this one is your capstone's first guardrail, written five weeks early.
+Takes a string, returns a <code>bool</code>. <code>True</code> only when the statement is a read.
+Test: <code>"SELECT * FROM orders"</code>, <code>"select 1"</code>, <code>"DROP TABLE orders"</code>,
+<code>"SELECT * FROM orders; DELETE FROM orders"</code>.</p>
+<p>The last one is the interesting case. If it returns <code>True</code>, say so in your answer rather than
+patching it quietly — knowing your guardrail is porous is worth more than a guardrail you believe in.</p>
+<hr />
+<h2>Part 3 — One sentence each. (~4 min)</h2>
+<p><strong>(a)</strong> Which of these is true, and what is the difference between them?</p>
+<ul>
+<li><em>"A function with no <code>return</code> statement returns <code>None</code>."</em></li>
+<li><em>"A function that doesn't </em><em>hit</em><em> a <code>return</code> returns <code>None</code>."</em></li>
+</ul>
+<p><strong>(b)</strong> Three of the eight questions in Part 1 are the same underlying failure wearing different
+clothes. Name the failure in one sentence, and say which three.</p>
+<hr />
+<h2>What I'm marking</h2>
+<p>Correctness, then calibration, then whether the through-line in <strong>3(b)</strong> landed. Paste Part 1 with
+its confidence letters, the file, and the terminal output together.</p>
+</div></body></html>
