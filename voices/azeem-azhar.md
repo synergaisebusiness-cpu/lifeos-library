@@ -14,3 +14,6 @@ Jul 6 newsletter ("Data to start your week"): flagged that over 95% of Nvidia Gr
 
 ### 2026-07-30
 Jul 27, "Data to start your week": continues the weekly data-digest series. Jul 26 essay, "Copy that: The curious case of AI distillation": examines China's chip strategy through the distillation lens. Jul 23 piece asked whether Moonshot AI's Kimi K3 (a 2.8T-parameter open MoE model) changes the economics of AI — directly relevant to the efficiency-frontier-vs-raw-compute tension running through this week's chip-sector news. [Exponential View](https://www.exponentialview.co/)
+
+### 2026-08-03
+A busy stretch: Jul 30 essay (with Nathan Warren), "For AI adopters, success and failure look identical — at first," argues early AI adoption is financially indistinguishable from failure — "the learning bill will almost certainly arrive before your returns" — introducing a typology of "Bounded Adopters" vs. "Project Accumulators." [Exponential View](https://www.exponentialview.co/p/ai-adoption-j-curve). Aug 1: a lighter personal "summer reading list" post. Aug 2 issue (EV #595) leads with the Aschenbrenner hedge-fund blowup (see themes/compute.md) as a case study in exponential-market fragility, explicitly noting "Situational Awareness' unraveling is not proof that Leopold's thesis is wrong." [Exponential View](https://www.exponentialview.co/p/ev-595)

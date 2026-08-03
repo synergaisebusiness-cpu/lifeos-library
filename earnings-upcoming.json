@@ -1,13 +1,9 @@
 [
-  {"ticker": "AAPL", "date": "2026-07-30", "watch": "iPhone/Services momentum and AI/capex signal; Tim Cook's final earnings call as CEO before John Ternus succeeds him Sept 1"},
-  {"ticker": "AMZN", "date": "2026-07-30", "watch": "AWS growth (consensus ~31%, BofA sees +33% on Anthropic/OpenAI Bedrock demand) and capex guide; Prime Day timing shift into Q2 as a factor"},
-  {"ticker": "ETN", "date": "2026-07-31", "watch": "Electrical Americas data-center order growth and segment margin trajectory; consensus revenue ~$8.0B (+13.9%), EPS ~$3.08"},
-  {"ticker": "CCJ", "date": "2026-07-31", "watch": "Uranium price realization and Cigar Lake production recovery; consensus EPS down ~49% YoY (date corrected from prior Aug 1 estimate)"},
-  {"ticker": "PLTR", "date": "2026-08-03", "watch": "US commercial/government AI demand growth and Rule-of-40 metrics vs valuation (~71x sales, ~113x forward earnings); consensus adj. EPS ~$0.35, revenue ~$1.81B"},
-  {"ticker": "AMD", "date": "2026-08-04", "watch": "Data Center revenue and early Helios/MI450 shipment commentary after the Anthropic ($5bn investment) and OpenAI/Cerebras deals; consensus EPS ~$1.60"},
-  {"ticker": "ANET", "date": "2026-08-04", "watch": "AI networking demand and progress toward the raised $3.5bn AI revenue target; consensus EPS ~$0.79 (+18% YoY)"},
-  {"ticker": "CAT", "date": "2026-08-04", "watch": "Tariff cost impact (trimmed to $2.2-2.4bn) vs construction/mining/power demand, freshly overshadowed by Baird's July 29 downgrade on data-center-buildout backlash risk; consensus EPS ~$6.25 (+32% YoY)"},
-  {"ticker": "CEG", "date": "2026-08-06", "watch": "Nuclear fleet output and SMR-optionality progress (Blue Energy investment) after the PJM auction win; consensus EPS ~$2.24 (+17% YoY)"},
-  {"ticker": "SIE", "date": "2026-08-06", "watch": "Digital Industries margin recovery and European industrial capex trends (date now confirmed via Siemens' own IR calendar, resolving prior Aug 1 vs Aug 6 conflict)"},
-  {"ticker": "DDOG", "date": "2026-08-06", "watch": "AI-observability product traction and net revenue retention vs ~$1.08B revenue guide, after Jefferies' July 21 downgrade to Hold"}
+  {"ticker": "PLTR", "date": "2026-08-03", "watch": "US commercial/government AI demand growth vs. ~$182 avg analyst PT; consensus adj. EPS ~$0.34, revenue ~$1.81B (+81% YoY); reports AMC today"},
+  {"ticker": "AMD", "date": "2026-08-04", "watch": "Data Center revenue vs. ~$11.3-11.4B consensus (+47% YoY); Wedbush raised PT to $600 (from $450) ahead of the print; consensus EPS ~$1.61-1.64"},
+  {"ticker": "ANET", "date": "2026-08-04", "watch": "AI networking demand; consensus EPS ~$0.79-0.89, revenue ~$2.83B; stock rallied into the print but ~$450M of trailing-90-day insider selling flagged as a sentiment headwind"},
+  {"ticker": "CAT", "date": "2026-08-04", "watch": "Tariff-cost trajectory and data-center-buildout backlash risk (Baird's Jul 29 downgrade); consensus EPS ~$6.25 (+32% YoY), revenue ~$19.31B (+16.6%)"},
+  {"ticker": "CEG", "date": "2026-08-06", "watch": "Nuclear fleet output and SMR-optionality progress; consensus EPS ~$2.24-2.40 (+17-23% YoY), revenue ~$7.49-7.51B"},
+  {"ticker": "SIE", "date": "2026-08-06", "watch": "Digital Industries margin recovery; consensus EPS €2.67, revenue €20.62B; note Siemens Energy (separate entity) reports one day earlier (Aug 5) as a read-through"},
+  {"ticker": "DDOG", "date": "2026-08-06", "watch": "AI-observability traction vs. $1.07-1.08B revenue guide and $0.57-0.59 EPS guide; stock up ~18.9% over the trailing month heading in"}
 ]
