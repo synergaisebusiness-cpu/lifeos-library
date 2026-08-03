@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Company Health — LifeOS</title>
+<style>
+  :root {
+    color-scheme: light;
+    --surface-1: #fcfcfb; --page: #f9f9f7;
+    --ink-1: #0b0b0b; --ink-2: #52514e; --ink-3: #898781;
+    --grid: #e1e0d9; --baseline: #c3c2b7; --ring: rgba(11,11,11,0.10);
+    --bar: #2a78d6; --bar-track: #eeede9;
+    --elite: #0ca30c; --strong: #2a78d6; --solid: #c98500; --watch: #ec835a; --weak: #d03b3b;
+    --chip-ink: #ffffff;
+    --up: #006300; --down: #d03b3b;
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --surface-1: #1a1a19; --page: #0d0d0d;
+    --ink-1: #ffffff; --ink-2: #c3c2b7; --ink-3: #898781;
+    --grid: #2c2c2a; --baseline: #383835; --ring: rgba(255,255,255,0.10);
+    --bar: #3987e5; --bar-track: #262624;
+    --solid: #eda100;
+    --up: #0ca30c;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --surface-1: #1a1a19; --page: #0d0d0d;
+      --ink-1: #ffffff; --ink-2: #c3c2b7; --ink-3: #898781;
+      --grid: #2c2c2a; --baseline: #383835; --ring: rgba(255,255,255,0.10);
+      --bar: #3987e5; --bar-track: #262624;
+      --solid: #eda100;
+      --up: #0ca30c;
+    }
+  }
+  * { box-sizing: border-box; margin: 0; }
+  body {
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    background: var(--page); color: var(--ink-1);
+    padding: 24px 20px 60px; max-width: 1180px; margin: 0 auto;
+    font-size: 14px; line-height: 1.45;
+  }
+  header { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 16px; margin-bottom: 4px; }
+  h1 { font-size: 22px; font-weight: 700; letter-spacing: -0.2px; }
+  .sub { color: var(--ink-2); font-size: 13px; }
+  .note { color: var(--ink-3); font-size: 12.5px; margin: 6px 0 18px; max-width: 860px; }
+  .toolbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 14px; }
+  .toolbar input[type="search"] {
+    padding: 7px 10px; border: 1px solid var(--baseline); border-radius: 8px;
+    background: var(--surface-1); color: var(--ink-1); font-size: 13px; width: 170px;
+  }
+  .seg { display: inline-flex; border: 1px solid var(--baseline); border-radius: 8px; overflow: hidden; background: var(--surface-1); }
+  .seg button {
+    border: none; background: transparent; color: var(--ink-2); padding: 7px 11px;
+    font-size: 12.5px; cursor: pointer; font-family: inherit;
+  }
+  .seg button + button { border-left: 1px solid var(--grid); }
+  .seg button.on { background: var(--bar); color: #fff; }
+  .spacer { flex: 1; }
+  .ghostbtn {
+    border: 1px solid var(--baseline); background: var(--surface-1); color: var(--ink-2);
+    border-radius: 8px; padding: 7px 11px; font-size: 12.5px; cursor: pointer; font-family: inherit;
+  }
+  .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-bottom: 16px; }
+  .kpi { background: var(--surface-1); border: 1px solid var(--ring); border-radius: 12px; padding: 12px 14px; }
+  .kpi .v { font-size: 24px; font-weight: 700; }
+  .kpi .l { font-size: 11.5px; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.4px; margin-top: 2px; }
+  .kpi .d { font-size: 12px; color: var(--ink-2); margin-top: 3px; }
+  .legendrow { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin: 2px 0 14px; font-size: 12px; color: var(--ink-2); }
+  .legendrow .b { display: inline-flex; align-items: center; gap: 5px; }
+  .dot { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(255px, 1fr)); gap: 10px; }
+  .card {
+    background: var(--surface-1); border: 1px solid var(--ring); border-radius: 12px;
+    padding: 13px 14px 11px; cursor: pointer; transition: border-color .12s;
+  }
+  .card:hover { border-color: var(--bar); }
+  .cardtop { display: flex; align-items: center; gap: 10px; }
+  .tick { font-weight: 700; font-size: 15px; }
+  .cname { color: var(--ink-3); font-size: 12px; flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .score { font-size: 26px; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .chip {
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;
+    color: var(--chip-ink); border-radius: 5px; padding: 2px 7px;
+  }
+  .meter { height: 6px; border-radius: 3px; background: var(--bar-track); margin: 9px 0 7px; overflow: hidden; }
+  .meter > div { height: 100%; border-radius: 3px; }
+  .cardmeta { display: flex; justify-content: space-between; font-size: 11.5px; color: var(--ink-3); }
+  .flag { font-size: 11.5px; margin-top: 6px; color: var(--ink-2); }
+  .flag.watchflag::before { content: "⚑ "; color: var(--watch); }
+  .flag.soon::before { content: "◷ "; color: var(--bar); }
+  /* detail overlay */
+  .overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.45); display: none; z-index: 10; }
+  .overlay.open { display: block; }
+  .panel {
+    position: fixed; top: 0; right: 0; bottom: 0; width: min(620px, 96vw);
+    background: var(--page); border-left: 1px solid var(--ring);
+    overflow-y: auto; padding: 22px 24px 40px; z-index: 11;
+    transform: translateX(105%); transition: transform .18s ease-out;
+  }
+  .panel.open { transform: none; }
+  .panel h2 { font-size: 19px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .panel .bigscore { font-size: 34px; font-weight: 700; }
+  .closebtn { position: absolute; top: 16px; right: 18px; }
+  .sect { margin-top: 18px; }
+  .sect h3 { font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--ink-3); margin-bottom: 8px; }
+  .pillar { display: grid; grid-template-columns: 118px 1fr 52px; gap: 10px; align-items: center; margin-bottom: 7px; font-size: 12.5px; }
+  .pillar .pl { color: var(--ink-2); }
+  .pillar .pv { text-align: right; font-variant-numeric: tabular-nums; color: var(--ink-1); }
+  .ptrack { height: 8px; background: var(--bar-track); border-radius: 4px; overflow: hidden; }
+  .ptrack > div { height: 100%; background: var(--bar); border-radius: 4px; }
+  .mrow { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 8px; }
+  .mtile { background: var(--surface-1); border: 1px solid var(--ring); border-radius: 10px; padding: 9px 11px; }
+  .mtile .mv { font-size: 17px; font-weight: 700; }
+  .mtile .ml { font-size: 10.5px; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.4px; }
+  .neg { color: var(--down); } .pos { color: var(--up); }
+  .segrow { display: flex; justify-content: space-between; gap: 12px; padding: 7px 0; border-bottom: 1px solid var(--grid); font-size: 13px; }
+  .segrow:last-child { border-bottom: none; }
+  .segname { color: var(--ink-1); }
+  .segnote { color: var(--ink-3); font-size: 12px; margin-top: 1px; }
+  .segyoy { font-variant-numeric: tabular-nums; font-weight: 600; white-space: nowrap; }
+  .prose { font-size: 13px; color: var(--ink-2); }
+  .prose + .prose { margin-top: 7px; }
+  .prose b { color: var(--ink-1); font-weight: 600; }
+  .callout { background: var(--surface-1); border: 1px solid var(--watch); border-radius: 10px; padding: 10px 12px; font-size: 12.5px; color: var(--ink-2); }
+  .risks li { font-size: 12.5px; color: var(--ink-2); margin: 3px 0 3px 0; }
+  .risks { padding-left: 18px; }
+  .srcs a { color: var(--bar); font-size: 11.5px; word-break: break-all; display: block; margin: 2px 0; text-decoration: none; }
+  .srcs a:hover { text-decoration: underline; }
+  .conf { font-size: 11px; color: var(--ink-3); }
+  table.tbl { width: 100%; border-collapse: collapse; background: var(--surface-1); border: 1px solid var(--ring); border-radius: 12px; overflow: hidden; font-size: 12.5px; }
+  table.tbl th { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--baseline); color: var(--ink-3); font-size: 11px; text-transform: uppercase; letter-spacing: 0.4px; cursor: pointer; white-space: nowrap; }
+  table.tbl td { padding: 7px 10px; border-bottom: 1px solid var(--grid); font-variant-numeric: tabular-nums; }
+  table.tbl tr:last-child td { border-bottom: none; }
+  table.tbl tr:hover td { background: rgba(42,120,214,0.06); cursor: pointer; }
+  .hidden { display: none !important; }
+  footer { margin-top: 26px; color: var(--ink-3); font-size: 11.5px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Company Health</h1>
+  <span class="sub" id="asof"></span>
+  <span class="sub">· 29 holdings · methodology v1.0</span>
+</header>
+<p class="note">Scores the <b>business</b>, not the stock — no prices, no P&amp;L. Six pillars: growth 25 · profitability 20 · cash 20 · balance sheet 15 · moat 15 · execution 5. Re-scored after every earnings report. Informational only — decisions stay with you.</p>
+
+<div class="kpis" id="kpis"></div>
+
+<div class="toolbar">
+  <input type="search" id="q" placeholder="Search ticker or name…">
+  <div class="seg" id="pieFilter">
+    <button data-v="all" class="on">All</button>
+    <button data-v="bankers">Bankers</button>
+    <button data-v="exponential-convergence">Exp. Convergence</button>
+  </div>
+  <div class="seg" id="bandFilter">
+    <button data-v="all" class="on">All bands</button>
+    <button data-v="Elite">Elite</button>
+    <button data-v="Strong">Strong</button>
+    <button data-v="Solid">Solid</button>
+    <button data-v="Watch">Watch</button>
+  </div>
+  <span class="spacer"></span>
+  <button class="ghostbtn" id="viewToggle">Table view</button>
+  <button class="ghostbtn" id="themeToggle">◐</button>
+</div>
+
+<div class="legendrow" id="bandLegend"></div>
+
+<div class="grid" id="grid"></div>
+<div id="tableWrap" class="hidden"></div>
+
+<div class="overlay" id="overlay"></div>
+<aside class="panel" id="panel" aria-label="Company detail"></aside>
+
+<footer>Source of truth: ~/LifeOS/library/company-health/register.json · public reported data only · scores are hypotheses with stated confidence, not advice.</footer>
+
+<script>
+const DATA = __DATA__;
+const BANDCOLOR = { Elite: "var(--elite)", Strong: "var(--strong)", Solid: "var(--solid)", Watch: "var(--watch)", Weak: "var(--weak)" };
+const PLABEL = { growth: "Growth", profitability: "Profitability", cash: "Cash generation", balance_sheet: "Balance sheet", moat: "Moat", execution: "Execution" };
+const CUR = { USD: "$", EUR: "€", CAD: "C$" };
+const state = { q: "", pie: "all", band: "all", view: "grid", sortKey: "score", sortDir: -1 };
+
+function fmtPct(v, signed=true) {
+  if (v === null || v === undefined) return "—";
+  const s = (signed && v > 0 ? "+" : "") + v.toFixed(1).replace(/\.0$/, "") + "%";
+  return s;
+}
+function pctClass(v) { return v === null || v === undefined ? "" : (v < 0 ? "neg" : "pos"); }
+function fmtB(v, cur) {
+  if (v === null || v === undefined) return "—";
+  const sym = CUR[cur] || "";
+  return (v < 0 ? "−" : "") + sym + Math.abs(v).toFixed(1) + "B";
+}
+function soonDays(c) {
+  const m = (c.next_earnings || "").match(/^(\d{4})-(\d{2})-(\d{2})/);
+  if (!m) return null;
+  const d = (new Date(m[1], m[2]-1, m[3]) - new Date(DATA.as_of)) / 86400000;
+  return d >= 0 && d <= 7 ? Math.round(d) : null;
+}
+
+function filtered() {
+  return DATA.companies.filter(c => {
+    if (state.pie !== "all" && !c.pies.includes(state.pie)) return false;
+    if (state.band !== "all" && c.score.band !== state.band) return false;
+    const q = state.q.toLowerCase();
+    if (q && !(c.ticker.toLowerCase().includes(q) || c.name.toLowerCase().includes(q))) return false;
+    return true;
+  });
+}
+
+function renderKpis() {
+  const cs = DATA.companies;
+  const avg = Math.round(cs.reduce((a,c)=>a+c.score.total,0)/cs.length);
+  const counts = {};
+  cs.forEach(c => counts[c.score.band] = (counts[c.score.band]||0)+1);
+  const soon = cs.filter(c => soonDays(c) !== null).sort((a,b)=>soonDays(a)-soonDays(b));
+  const watch = cs.filter(c => c.score.band === "Watch" || c.score.band === "Weak");
+  document.getElementById("kpis").innerHTML = `
+    <div class="kpi"><div class="v">${avg}</div><div class="l">Average score</div><div class="d">across 29 holdings</div></div>
+    <div class="kpi"><div class="v">${counts.Elite||0} / ${counts.Strong||0}</div><div class="l">Elite / Strong</div><div class="d">${(counts.Elite||0)+(counts.Strong||0)} of 29 above 70</div></div>
+    <div class="kpi"><div class="v">${watch.length}</div><div class="l">In watch band</div><div class="d">${watch.map(c=>c.ticker).join(", ")||"none"}</div></div>
+    <div class="kpi"><div class="v">${soon.length}</div><div class="l">Earnings ≤ 7 days</div><div class="d">${soon.map(c=>c.ticker+(soonDays(c)===0?" today":" +"+soonDays(c)+"d")).join(", ")||"none"}</div></div>`;
+}
+
+function renderLegend() {
+  document.getElementById("bandLegend").innerHTML =
+    Object.entries(DATA.scale).map(([b,r]) =>
+      `<span class="b"><span class="dot" style="background:${BANDCOLOR[b]}"></span>${b} ${r}</span>`).join("") +
+    `<span class="b" style="margin-left:auto">⚑ watch note · ◷ reports soon</span>`;
+}
+
+function renderGrid() {
+  const g = document.getElementById("grid");
+  g.innerHTML = filtered().map(c => {
+    const s = c.score, sd = soonDays(c);
+    return `<div class="card" onclick="openPanel('${c.ticker}')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openPanel('${c.ticker}')">
+      <div class="cardtop">
+        <span class="tick">${c.ticker}</span>
+        <span class="cname">${c.name}</span>
+        <span class="score">${s.total}</span>
+      </div>
+      <div class="meter"><div style="width:${s.total}%;background:${BANDCOLOR[s.band]}"></div></div>
+      <div class="cardmeta">
+        <span class="chip" style="background:${BANDCOLOR[s.band]}">${s.band}</span>
+        <span>rev ${fmtPct(c.revenue.latest_q_yoy_pct)} · moat ${c.moat.rating_1to5}/5</span>
+      </div>
+      ${sd !== null ? `<div class="flag soon">reports ${sd===0?"today":"in "+sd+"d"} (${c.next_earnings.slice(0,10)})</div>` : ""}
+      ${c.watch_note ? `<div class="flag watchflag">${c.watch_note.split(":")[0].split(";")[0]}</div>` : ""}
+    </div>`;
+  }).join("");
+}
+
+function renderTable() {
+  const cols = [
+    ["ticker","Ticker", c=>c.ticker],
+    ["score","Score", c=>c.score.total],
+    ["band","Band", c=>c.score.band],
+    ["rev","Rev YoY", c=>c.revenue.latest_q_yoy_pct],
+    ["op","Op margin", c=>c.margins.operating_pct],
+    ["fcf","FCF margin", c=>c.margins.fcf_margin_pct],
+    ["net","Net cash/debt", c=>c.balance_sheet.net_position_b],
+    ["moat","Moat", c=>c.moat.rating_1to5],
+    ["next","Next earnings", c=>c.next_earnings],
+  ];
+  const rows = filtered().slice().sort((a,b) => {
+    const col = cols.find(x=>x[0]===state.sortKey) || cols[1];
+    const va = col[2](a), vb = col[2](b);
+    return (va > vb ? 1 : va < vb ? -1 : 0) * state.sortDir;
+  });
+  document.getElementById("tableWrap").innerHTML = `<table class="tbl">
+    <thead><tr>${cols.map(c=>`<th onclick="sortBy('${c[0]}')">${c[1]}${state.sortKey===c[0]?(state.sortDir<0?" ↓":" ↑"):""}</th>`).join("")}</tr></thead>
+    <tbody>${rows.map(c=>`<tr onclick="openPanel('${c.ticker}')">
+      <td><b>${c.ticker}</b></td>
+      <td><b>${c.score.total}</b></td>
+      <td><span class="chip" style="background:${BANDCOLOR[c.score.band]}">${c.score.band}</span></td>
+      <td class="${pctClass(c.revenue.latest_q_yoy_pct)}">${fmtPct(c.revenue.latest_q_yoy_pct)}</td>
+      <td>${fmtPct(c.margins.operating_pct,false)}</td>
+      <td class="${pctClass(c.margins.fcf_margin_pct)}">${fmtPct(c.margins.fcf_margin_pct,false)}</td>
+      <td class="${c.balance_sheet.net_position_b<0?"neg":"pos"}">${fmtB(c.balance_sheet.net_position_b, c.currency)}</td>
+      <td>${c.moat.rating_1to5}/5</td>
+      <td>${(c.next_earnings||"—").slice(0,30)}</td>
+    </tr>`).join("")}</tbody></table>`;
+}
+
+function sortBy(k) {
+  if (state.sortKey === k) state.sortDir *= -1; else { state.sortKey = k; state.sortDir = -1; }
+  renderTable();
+}
+
+function openPanel(t) {
+  const c = DATA.companies.find(x => x.ticker === t);
+  const s = c.score;
+  const pillars = Object.entries(s.subscores).map(([k,v]) =>
+    `<div class="pillar"><span class="pl">${PLABEL[k]}</span>
+      <div class="ptrack"><div style="width:${100*v.points/v.max}%"></div></div>
+      <span class="pv">${v.points} / ${v.max}</span></div>`).join("");
+  const segs = c.segments.map(sg =>
+    `<div class="segrow"><div><div class="segname">${sg.name}</div><div class="segnote">${sg.note||""}</div></div>
+     <div class="segyoy ${pctClass(sg.latest_q_yoy_pct)}">${fmtPct(sg.latest_q_yoy_pct)}</div></div>`).join("");
+  document.getElementById("panel").innerHTML = `
+    <button class="ghostbtn closebtn" onclick="closePanel()">✕ close</button>
+    <h2>${c.ticker} <span style="font-weight:400;color:var(--ink-2);font-size:14px">${c.name}</span></h2>
+    <div class="sub">${c.sector}</div>
+    <div style="display:flex;align-items:center;gap:12px;margin-top:10px">
+      <span class="bigscore">${s.total}<span style="font-size:15px;color:var(--ink-3)"> /100</span></span>
+      <span class="chip" style="background:${BANDCOLOR[s.band]}">${s.band}</span>
+      <span class="conf">data confidence: ${c.data_confidence} · ${c.last_report.fiscal_quarter}, reported ${c.last_report.report_date}</span>
+    </div>
+    ${c.watch_note ? `<div class="sect"><div class="callout">⚑ ${c.watch_note}</div></div>` : ""}
+    <div class="sect"><h3>Score breakdown</h3>${pillars}</div>
+    <div class="sect"><h3>Key numbers (latest reported, ${c.currency})</h3>
+      <div class="mrow">
+        <div class="mtile"><div class="mv ${pctClass(c.revenue.latest_q_yoy_pct)}">${fmtPct(c.revenue.latest_q_yoy_pct)}</div><div class="ml">Rev YoY (Q)</div></div>
+        <div class="mtile"><div class="mv">${fmtPct(c.revenue.prior_q_yoy_pct)}</div><div class="ml">Prior Q YoY</div></div>
+        <div class="mtile"><div class="mv">${fmtB(c.revenue.ttm_b, c.currency)}</div><div class="ml">Revenue TTM</div></div>
+        <div class="mtile"><div class="mv">${fmtPct(c.margins.gross_pct,false)}</div><div class="ml">Gross margin</div></div>
+        <div class="mtile"><div class="mv">${fmtPct(c.margins.operating_pct,false)}</div><div class="ml">Op margin</div></div>
+        <div class="mtile"><div class="mv ${pctClass(c.margins.fcf_margin_pct)}">${fmtPct(c.margins.fcf_margin_pct,false)}</div><div class="ml">FCF margin</div></div>
+        <div class="mtile"><div class="mv ${c.fcf.ttm_b<0?"neg":""}">${fmtB(c.fcf.ttm_b, c.currency)}</div><div class="ml">FCF TTM</div></div>
+        <div class="mtile"><div class="mv ${c.balance_sheet.net_position_b<0?"neg":"pos"}">${fmtB(c.balance_sheet.net_position_b, c.currency)}</div><div class="ml">Net cash/debt</div></div>
+      </div>
+      <p class="prose" style="margin-top:8px">${c.margins.trend_note}</p>
+      <p class="prose">${c.fcf.note||""}</p>
+      <p class="prose">${c.balance_sheet.note||""}</p>
+    </div>
+    <div class="sect"><h3>Segments — is the whole business growing?</h3>${segs}</div>
+    <div class="sect"><h3>Guidance &amp; execution</h3>
+      <p class="prose"><b>Guidance:</b> ${c.guidance_note}</p>
+      <p class="prose"><b>Execution:</b> ${c.execution_note}</p>
+    </div>
+    <div class="sect"><h3>Moat — ${c.moat.rating_1to5}/5</h3><p class="prose">${c.moat.note}</p></div>
+    <div class="sect"><h3>Risks</h3><ul class="risks">${c.risks.map(r=>`<li>${r}</li>`).join("")}</ul></div>
+    <div class="sect"><h3>Next earnings</h3><p class="prose">${c.next_earnings} — score is reassessed on every report.</p></div>
+    <div class="sect srcs"><h3>Sources</h3>${c.sources.map(u=>`<a href="${u}" target="_blank" rel="noopener">${u.replace(/^https?:\/\//,"").slice(0,80)}</a>`).join("")}</div>`;
+  document.getElementById("overlay").classList.add("open");
+  document.getElementById("panel").classList.add("open");
+}
+function closePanel() {
+  document.getElementById("overlay").classList.remove("open");
+  document.getElementById("panel").classList.remove("open");
+}
+document.getElementById("overlay").addEventListener("click", closePanel);
+document.addEventListener("keydown", e => { if (e.key === "Escape") closePanel(); });
+
+function wireSeg(id, key) {
+  document.getElementById(id).querySelectorAll("button").forEach(b => {
+    b.addEventListener("click", () => {
+      document.getElementById(id).querySelectorAll("button").forEach(x=>x.classList.remove("on"));
+      b.classList.add("on");
+      state[key] = b.dataset.v;
+      rerender();
+    });
+  });
+}
+function rerender() {
+  if (state.view === "grid") { renderGrid(); document.getElementById("grid").classList.remove("hidden"); document.getElementById("tableWrap").classList.add("hidden"); }
+  else { renderTable(); document.getElementById("grid").classList.add("hidden"); document.getElementById("tableWrap").classList.remove("hidden"); }
+}
+document.getElementById("q").addEventListener("input", e => { state.q = e.target.value; rerender(); });
+document.getElementById("viewToggle").addEventListener("click", () => {
+  state.view = state.view === "grid" ? "table" : "grid";
+  document.getElementById("viewToggle").textContent = state.view === "grid" ? "Table view" : "Card view";
+  rerender();
+});
+document.getElementById("themeToggle").addEventListener("click", () => {
+  const r = document.documentElement;
+  const cur = r.dataset.theme || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+  r.dataset.theme = cur === "dark" ? "light" : "dark";
+});
+wireSeg("pieFilter", "pie");
+wireSeg("bandFilter", "band");
+document.getElementById("asof").textContent = "as of " + DATA.as_of;
+renderKpis(); renderLegend(); renderGrid();
+</script>
+</body>
+</html>

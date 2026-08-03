@@ -1,0 +1,3935 @@
+{
+ "as_of": "2026-08-03",
+ "methodology_version": "1.0",
+ "scale": {
+  "Elite": "85-100",
+  "Strong": "70-84",
+  "Solid": "55-69",
+  "Watch": "40-54",
+  "Weak": "0-39"
+ },
+ "companies": [
+  {
+   "ticker": "NVDA",
+   "name": "NVIDIA",
+   "sector": "Semiconductors",
+   "currency": "USD",
+   "last_report": {
+    "fiscal_quarter": "Q1 FY2027 (ended 2026-04-26)",
+    "report_date": "2026-05-20"
+   },
+   "next_earnings": "2026-08-26",
+   "revenue": {
+    "ttm_b": 253.49,
+    "latest_q_b": 81.62,
+    "latest_q_yoy_pct": 85.2,
+    "prior_q_yoy_pct": 73.2
+   },
+   "margins": {
+    "gross_pct": 74.2,
+    "operating_pct": 64.0,
+    "fcf_margin_pct": 47.0,
+    "trend_note": "Margins are expanding vs a year ago (74.9% GM vs 60.5% in the charge-depressed year-ago quarter) and holding stable at ~75% GM / ~65% operating at enormous scale, with Q2 guided flat at 74.9%."
+   },
+   "fcf": {
+    "ttm_b": 119.08,
+    "yoy_pct": 65.2,
+    "note": "TTM FCF of $119.1B, up from $72.1B; Q1 FY27 alone generated $48.6B, a ~60% FCF margin."
+   },
+   "balance_sheet": {
+    "cash_b": 53.17,
+    "total_debt_b": 12.81,
+    "net_position_b": 40.36,
+    "note": "About $40B net cash (cash and investments vs modest legacy debt) plus rising dividend and large buyback \u2014 leverage is a non-issue."
+   },
+   "segments": [
+    {
+     "name": "Data Center",
+     "latest_q_yoy_pct": 92,
+     "note": "$75.2B, ~92% of revenue; compute +77% YoY"
+    },
+    {
+     "name": "Data Center Networking",
+     "latest_q_yoy_pct": 199,
+     "note": "$14.8B; NVLink/InfiniBand/Ethernet attach accelerating"
+    },
+    {
+     "name": "Gaming/ProViz/Auto (other)",
+     "latest_q_yoy_pct": 29,
+     "note": "~$6.4B combined per reported summary; small vs data center"
+    }
+   ],
+   "guidance_note": "Raised: Q2 FY2027 guided to $91.0B \u00b12% (roughly +95% YoY), implying no visible deceleration in AI infrastructure demand into the Rubin cycle.",
+   "execution_note": "Beat estimates again in Q1 FY27 with data center nearly doubling, though the stock slid on the print \u2014 a consistent beat-and-raise record with an ever-higher bar.",
+   "moat": {
+    "rating_1to5": 5,
+    "note": "CUDA software lock-in, full-stack systems (GPU + networking + software) and an annual product cadence competitors haven't matched; the deepest moat in AI compute, though its durability depends on custom-ASIC encroachment staying at the margin."
+   },
+   "risks": [
+    "Hyperscaler customer concentration and their in-house ASIC efforts",
+    "US-China export restrictions",
+    "AI capex cycle sensitivity \u2014 any digestion phase hits hard"
+   ],
+   "data_confidence": "high",
+   "sources": [
+    "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-first-quarter-fiscal-2027",
+    "https://stockanalysis.com/stocks/NVDA/financials/?p=quarterly",
+    "https://stockanalysis.com/stocks/NVDA/statistics/",
+    "https://stockanalysis.com/stocks/NVDA/financials/cash-flow-statement/?p=quarterly",
+    "https://www.cnbc.com/2026/05/20/nvidia-nvda-earnings-report-q1-2027.html"
+   ],
+   "score": {
+    "total": 100,
+    "band": "Elite",
+    "subscores": {
+     "growth": {
+      "points": 25,
+      "max": 25,
+      "detail": {
+       "pace": 15,
+       "acceleration": 5,
+       "breadth": 5
+      }
+     },
+     "profitability": {
+      "points": 20,
+      "max": 20,
+      "detail": {
+       "level": 10,
+       "trend": 10
+      }
+     },
+     "cash": {
+      "points": 20,
+      "max": 20,
+      "detail": {
+       "fcf_margin": 10,
+       "trajectory": 10
+      }
+     },
+     "balance_sheet": {
+      "points": 15,
+      "max": 15,
+      "detail": {
+       "class": "net_cash"
+      }
+     },
+     "moat": {
+      "points": 15,
+      "max": 15,
+      "detail": {
+       "rating": 5
+      }
+     },
+     "execution": {
+      "points": 5,
+      "max": 5,
+      "detail": {
+       "class": "beat_raise"
+      }
+     }
+    },
+    "judgment": {
+     "op_trend": "expanding",
+     "fcf_trend": "surging",
+     "exec_class": "beat_raise",
+     "bs_class": "net_cash"
+    },
+    "history": [
+     {
+      "date": "2026-08-03",
+      "total": 100,
+      "event": "baseline"
+     }
+    ]
+   },
+   "pies": [
+    "bankers"
+   ]
+  },
+  {
+   "ticker": "PLTR",
+   "name": "Palantir Technologies",
+   "sector": "Technology - Software / AI Platforms",
+   "currency": "USD",
+   "last_report": {
+    "fiscal_quarter": "Q1 2026",
+    "report_date": "2026-05-04"
+   },
+   "next_earnings": "2026-08-03 (Q2 2026, after market close today)",
+   "revenue": {
+    "ttm_b": 5.23,
+    "latest_q_b": 1.633,
+    "latest_q_yoy_pct": 84.7,
+    "prior_q_yoy_pct": 70.0
+   },
+   "margins": {
+    "gross_pct": 82.0,
+    "operating_pct": 46.0,
+    "fcf_margin_pct": 57.0,
+    "trend_note": "Margins are expanding sharply: GAAP operating margin reached 46% and adjusted operating margin 60% vs roughly 20%/44% GAAP/adjusted a year earlier, with Rule of 40 at 145."
+   },
+   "fcf": {
+    "ttm_b": 2.2,
+    "yoy_pct": null,
+    "note": "TTM GAAP FCF ~$2.2B per stockanalysis; Q1 2026 adjusted FCF was $925M (57% margin) and FY26 adjusted FCF guided to $4.2-4.4B, so FCF is inflecting steeply upward."
+   },
+   "balance_sheet": {
+    "cash_b": 8.0,
+    "total_debt_b": 0.0,
+    "net_position_b": 8.0,
+    "note": "Fortress balance sheet with $8.0B in cash and US Treasuries and zero debt."
+   },
+   "segments": [
+    {
+     "name": "US commercial",
+     "latest_q_yoy_pct": 133.0,
+     "note": "$595M in Q1 2026; total US revenue crossed 100% YoY growth for the first time (104%)"
+    },
+    {
+     "name": "US government",
+     "latest_q_yoy_pct": 84.0,
+     "note": "$687M in Q1 2026"
+    }
+   ],
+   "guidance_note": "FY2026 revenue guidance raised to $7.65-7.66B (~71% YoY) with US commercial guided to ~120% growth, implying management sees accelerating AI-driven demand.",
+   "execution_note": "Eight consecutive quarterly beats with sequential revenue growth acceleration for six straight quarters (39% to 85% YoY) and guidance raises each quarter.",
+   "moat": {
+    "rating_1to5": 4,
+    "note": "Deeply embedded ontology-based platforms (Gotham/Foundry/AIP) with high switching costs, security clearances and long government relationships; durability strong though enterprise AI competition is intensifying."
+   },
+   "risks": [
+    "Extreme valuation leaves no room for growth deceleration",
+    "Government contract concentration and political exposure",
+    "Q2 report due imminently - data may be superseded within hours"
+   ],
+   "data_confidence": "high",
+   "sources": [
+    "https://www.investing.com/news/company-news/palantir-q1-2026-slides-us-revenue-tops-100-growth-rule-of-40-hits-145-93CH-4657648",
+    "https://stockanalysis.com/stocks/pltr/financials/?p=quarterly",
+    "https://www.cnbc.com/2026/05/04/palantir-pltr-q1-earnings-report-2026.html",
+    "https://eciks.org/13762-11692-palantir-earnings-date-august-3"
+   ],
+   "score": {
+    "total": 97,
+    "band": "Elite",
+    "subscores": {
+     "growth": {
+      "points": 25,
+      "max": 25,
+      "detail": {
+       "pace": 15,
+       "acceleration": 5,
+       "breadth": 5
+      }
+     },
+     "profitability": {
+      "points": 20,
+      "max": 20,
+      "detail": {
+       "level": 10,
+       "trend": 10
+      }
+     },
+     "cash": {
+      "points": 20,
+      "max": 20,
+      "detail": {
+       "fcf_margin": 10,
+       "trajectory": 10
+      }
+     },
+     "balance_sheet": {
+      "points": 15,
+      "max": 15,
+      "detail": {
+       "class": "net_cash"
+      }
+     },
+     "moat": {
+      "points": 12,
+      "max": 15,
+      "detail": {
+       "rating": 4
+      }
+     },
+     "execution": {
+      "points": 5,
+      "max": 5,
+      "detail": {
+       "class": "beat_raise"
+      }
+     }
+    },
+    "judgment": {
+     "op_trend": "expanding",
+     "fcf_trend": "surging",
+     "exec_class": "beat_raise",
+     "bs_class": "net_cash"
+    },
+    "history": [
+     {
+      "date": "2026-08-03",
+      "total": 97,
+      "event": "baseline"
+     }
+    ]
+   },
+   "watch_note": "Reports Q2 2026 today (3 Aug) after US close \u2014 this score is on Q1 data and should be refreshed tomorrow.",
+   "pies": [
+    "bankers"
+   ]
+  },
+  {
+   "ticker": "MU",
+   "name": "Micron Technology",
+   "sector": "Semiconductors (Memory)",
+   "currency": "USD",
+   "last_report": {
+    "fiscal_quarter": "Q3 FY2026 (ended 2026-05-28)",
+    "report_date": "2026-06-24"
+   },
+   "next_earnings": "2026-09-22",
+   "revenue": {
+    "ttm_b": 90.27,
+    "latest_q_b": 41.46,
+    "latest_q_yoy_pct": 345.7,
+    "prior_q_yoy_pct": 196.3
+   },
+   "margins": {
+    "gross_pct": 72.6,
+    "operating_pct": 65.7,
+    "fcf_margin_pct": 29.0,
+    "trend_note": "Margins are expanding explosively: GAAP gross margin hit 84.6% in Q3 FY26 vs 37.7% a year ago as AI memory pricing repriced the whole portfolio, with ~86% guided next quarter."
+   },
+   "fcf": {
+    "ttm_b": 26.17,
+    "yoy_pct": 1291.4,
+    "note": "TTM FCF of $26.2B vs $1.9B a year earlier; Q3 FY26 alone produced $17.6B adjusted FCF despite $7.1B net capex."
+   },
+   "balance_sheet": {
+    "cash_b": 30.2,
+    "total_debt_b": 5.7,
+    "net_position_b": 24.5,
+    "note": "Net cash of roughly $24.5B ($30.2B cash & investments vs $5.7B debt) \u2014 a fortress balance sheet with negligible leverage for a capex-heavy memory maker."
+   },
+   "segments": [
+    {
+     "name": "Cloud Memory",
+     "latest_q_yoy_pct": 307,
+     "note": "$13.77B; HBM/AI cloud demand is the core driver"
+    },
+    {
+     "name": "Core Data Center",
+     "latest_q_yoy_pct": 653,
+     "note": "Fastest-growing unit on AI server memory content"
+    },
+    {
+     "name": "Mobile and Client",
+     "latest_q_yoy_pct": 254,
+     "note": "Repricing of conventional DRAM/NAND lifting legacy end markets"
+    },
+    {
+     "name": "Automotive/Embedded",
+     "latest_q_yoy_pct": 311,
+     "note": "Broad-based pricing tailwind"
+    }
+   ],
+   "guidance_note": "Raised again: Q4 FY26 guided to $50B \u00b1$1B revenue (up ~21% QoQ) at ~86% gross margin, implying the AI memory supercycle is still steepening with multi-year customer agreements adding predictability.",
+   "execution_note": "String of record quarters with results and guidance repeatedly far above expectations through FY2026.",
+   "moat": {
+    "rating_1to5": 3,
+    "note": "One of only three DRAM/HBM players and a leader in HBM4, now signing multi-year supply agreements; still, memory is historically commoditized and cyclical, so the advantage is oligopoly structure more than durable differentiation."
+   },
+   "risks": [
+    "Extreme cyclicality \u2014 current pricing/margins are unprecedented and could mean-revert hard",
+    "HBM competition from SK Hynix and Samsung adding capacity",
+    "Massive capex ramp and customer concentration among AI hyperscalers"
+   ],
+   "data_confidence": "high",
+   "sources": [
+    "https://www.globenewswire.com/news-release/2026/06/24/3317151/14450/en/micron-technology-inc-reports-record-results-for-the-third-quarter-of-fiscal-2026.html",
+    "https://stockanalysis.com/stocks/MU/financials/?p=quarterly",
+    "https://stockanalysis.com/stocks/MU/statistics/",
+    "https://stockanalysis.com/stocks/MU/financials/cash-flow-statement/?p=quarterly"
+   ],
+   "score": {
+    "total": 92,
+    "band": "Elite",
+    "subscores": {
+     "growth": {
+      "points": 25,
+      "max": 25,
+      "detail": {
+       "pace": 15,
+       "acceleration": 5,
+       "breadth": 5
+      }
+     },
+     "profitability": {
+      "points": 20,
+      "max": 20,
+      "detail": {
+       "level": 10,
+       "trend": 10
+      }
+     },
+     "cash": {
+      "points": 18,
+      "max": 20,
+      "detail": {
+       "fcf_margin": 8,
+       "trajectory": 10
+      }
+     },
+     "balance_sheet": {
+      "points": 15,
+      "max": 15,
+      "detail": {
+       "class": "net_cash"
+      }
+     },
+     "moat": {
+      "points": 9,
+      "max": 15,
+      "detail": {
+       "rating": 3
+      }
+     },
+     "execution": {
+      "points": 5,
+      "max": 5,
+      "detail": {
+       "class": "beat_raise"
+      }
+     }
+    },
+    "judgment": {
+     "op_trend": "expanding",
+     "fcf_trend": "surging",
+     "exec_class": "beat_raise",
+     "bs_class": "net_cash"
+    },
+    "history": [
+     {
+      "date": "2026-08-03",
+      "total": 92,
+      "event": "baseline"
+     }
+    ]
+   },
+   "watch_note": "Cyclical-peak economics: today's margins are supercycle pricing, not a structural moat. Score will fall fast when memory pricing turns \u2014 treat the 90s as conditional.",
+   "pies": [
+    "bankers"
+   ]
+  },
+  {
+   "ticker": "AVGO",
+   "name": "Broadcom",
+   "sector": "Semiconductors & Infrastructure Software",
+   "currency": "USD",
+   "last_report": {
+    "fiscal_quarter": "Q2 FY2026 (ended 2026-05-03)",
+    "report_date": "2026-06-03"
+   },
+   "next_earnings": "2026-09-02",
+   "revenue": {
+    "ttm_b": 75.47,
+    "latest_q_b": 22.19,
+    "latest_q_yoy_pct": 47.9,
+    "prior_q_yoy_pct": 29.5
+   },
+   "margins": {
+    "gross_pct": 68.3,
+    "operating_pct": 44.2,
+    "fcf_margin_pct": 43.4,
+    "trend_note": "Margins are expanding: GAAP gross margin 69.5% vs 68.0% a year ago (non-GAAP 77.1%) and GAAP operating margin up ~10pts YoY to 48.6% as AI silicon scales and VMware integration matures."
+   },
+   "fcf": {
+    "ttm_b": 32.76,
+    "yoy_pct": 44.3,
+    "note": "TTM FCF $32.8B vs $22.7B a year earlier; Q2's $10.3B was a record at 46% of revenue."
+   },
+   "balance_sheet": {
+    "cash_b": 19.63,
+    "total_debt_b": 64.91,
+    "net_position_b": -45.28,
+    "note": "Net debt of ~$45B from the VMware acquisition \u2014 the only meaningfully levered name in this group, though ~$33B of annual FCF makes it very serviceable."
+   },
+   "segments": [
+    {
+     "name": "Semiconductor solutions",
+     "latest_q_yoy_pct": 79,
+     "note": "$15.0B; within it, AI semiconductor revenue was $10.8B, up 143% YoY on custom XPUs and networking"
+    },
+    {
+     "name": "Infrastructure software",
+     "latest_q_yoy_pct": 9,
+     "note": "$7.2B; steady VMware-driven subscription growth"
+    }
+   ],
+   "guidance_note": "Raised sharply: Q3 FY26 guided to ~$29.4B (+84% YoY) with AI semiconductor revenue of ~$16B (+200%+ YoY), implying a major step-up in custom AI accelerator shipments.",
+   "execution_note": "Record revenue, operating profit and FCF with results ahead of estimates, though the stock sold off on the print; guidance has been consistently raised through FY26.",
+   "moat": {
+    "rating_1to5": 4,
+    "note": "Near-monopoly franchises in custom AI ASICs/merchant networking silicon plus sticky, mission-critical infrastructure software (VMware); durable, but hyperscaler custom-chip programs are concentrated and contract-dependent."
+   },
+   "risks": [
+    "High absolute leverage (~$65B debt)",
+    "AI XPU revenue concentrated in a handful of hyperscaler design wins",
+    "VMware pricing/renewal backlash in software"
+   ],
+   "data_confidence": "high",
+   "sources": [
+    "https://www.prnewswire.com/news-releases/broadcom-inc-announces-second-quarter-fiscal-year-2026-financial-results-and-quarterly-dividend-302790698.html",
+    "https://stockanalysis.com/stocks/AVGO/financials/?p=quarterly",
+    "https://stockanalysis.com/stocks/AVGO/statistics/",
+    "https://stockanalysis.com/stocks/AVGO/financials/cash-flow-statement/?p=quarterly"
+   ],
+   "score": {
+    "total": 91,
+    "band": "Elite",
+    "subscores": {
+     "growth": {
+      "points": 25,
+      "max": 25,
+      "detail": {
+       "pace": 15,
+       "acceleration": 5,
+       "breadth": 5
+      }
+     },
+     "profitability": {
+      "points": 20,
+      "max": 20,
+      "detail": {
+       "level": 10,
+       "trend": 10
+      }
+     },
+     "cash": {
+      "points": 20,
+      "max": 20,
+      "detail": {
+       "fcf_margin": 10,
+       "trajectory": 10
+      }
+     },
+     "balance_sheet": {
+      "points": 9,
+      "max": 15,
+      "detail": {
+       "class": "moderate"
+      }
+     },
+     "moat": {
+      "points": 12,
+      "max": 15,
+      "detail": {
+       "rating": 4
+      }
+     },
+     "execution": {
+      "points": 5,
+      "max": 5,
+      "detail": {
+       "class": "beat_raise"
+      }
+     }
+    },
+    "judgment": {
+     "op_trend": "expanding",
+     "fcf_trend": "surging",
+     "exec_class": "beat_raise",
+     "bs_class": "moderate"
+    },
+    "history": [
+     {
+      "date": "2026-08-03",
+      "total": 91,
+      "event": "baseline"
+     }
+    ]
+   },
+   "pies": [
+    "bankers"
+   ]
+  },
+  {
+   "ticker": "CRWD",
+   "name": "CrowdStrike Holdings",
+   "sector": "Technology - Cybersecurity Software",
+   "currency": "USD",
+   "last_report": {
+    "fiscal_quarter": "Q1 FY2027 (ended 2026-04-30)",
+    "report_date": "2026-06-03"
+   },
+   "next_earnings": "approx early September 2026 (Q2 FY27)",
+   "revenue": {
+    "ttm_b": 4.79,
+    "latest_q_b": 1.386,
+    "latest_q_yoy_pct": 25.6,
+    "prior_q_yoy_pct": 23.3
+   },
+   "margins": {
+    "gross_pct": 75.0,
+    "operating_pct": -2.0,
+    "fcf_margin_pct": 34.0,
+    "trend_note": "Margins are expanding: non-GAAP operating margin rose to 24% from 18% a year ago, GAAP operating loss narrowed from -$119M to -$31M, and FCF margin jumped from 25% to 34%."
+   },
+   "fcf": {
+    "ttm_b": 1.3,
+    "yoy_pct": null,
+    "note": "Q1 FY27 FCF of $468.5M was up 68% YoY at a 34% margin; TTM FCF ~$1.3B and re-accelerating after the FY26 outage-related drag."
+   },
+   "balance_sheet": {
+    "cash_b": 4.55,
+    "total_debt_b": 0.75,
+    "net_position_b": 3.8,
+    "note": "Net cash of ~$3.8B against a single $750M senior note - very lightly levered."
+   },
+   "segments": [
+    {
+     "name": "Total ARR",
+     "latest_q_yoy_pct": 24.0,
+     "note": "ARR $5.51B; record Q1 net new ARR of $256M, up 32% YoY; NRR not prominently disclosed this quarter"
+    }
+   ],
+   "guidance_note": "FY27 guidance raised, including a 520bp increase to expected net new ARR growth (~27.7%), implying demand re-acceleration on Falcon Flex and AI security adoption.",
+   "execution_note": "Consistent beat-and-raise resumed post the July 2024 outage overhang, with revenue growth re-accelerating (19.8% to 25.6% over five quarters) and record Q1 net new ARR.",
+   "moat": {
+    "rating_1to5": 4,
+    "note": "Platform consolidation moat: single-agent Falcon architecture, network-effect threat data and high switching costs across 30+ modules; durable though Microsoft and Palo Alto compete aggressively."
+   },
+   "risks": [
+    "Intense platform competition from Microsoft Defender and Palo Alto",
+    "GAAP profitability still negative on stock comp and outage-related costs",
+    "High valuation sensitive to any ARR growth slowdown"
+   ],
+   "data_confidence": "high",
+   "sources": [
+    "https://www.businesswire.com/news/home/20260603234051/en/CrowdStrike-Reports-First-Quarter-Fiscal-Year-2027-Financial-Results",
+    "https://stockanalysis.com/stocks/crwd/financials/?p=quarterly",
+    "https://ir.crowdstrike.com/news-releases/news-release-details/crowdstrike-reports-first-quarter-fiscal-year-2027-financial"
+   ],
+   "score": {
+    "total": 87,
+    "band": "Elite",
+    "subscores": {
+     "growth": {
+      "points": 21,
+      "max": 25,
+      "detail": {
+       "pace": 13,
+       "acceleration": 5,
+       "breadth": 3
+      }
+     },
+     "profitability": {
+      "points": 14,
+      "max": 20,
+      "detail": {
+       "level": 4,
+       "trend": 10
+      }
+     },
+     "cash": {
+      "points": 20,
+      "max": 20,
+      "detail": {
+       "fcf_margin": 10,
+       "trajectory": 10
+      }
+     },
+     "balance_sheet": {
+      "points": 15,
+      "max": 15,
+      "detail": {
+       "class": "net_cash"
+      }
+     },
+     "moat": {
+      "points": 12,
+      "max": 15,
+      "detail": {
+       "rating": 4
+      }
+     },
+     "execution": {
+      "points": 5,
+      "max": 5,
+      "detail": {
+       "class": "beat_raise"
+      }
+     }
+    },
+    "judgment": {
+     "op_trend": "expanding",
+     "fcf_trend": "surging",
+     "exec_class": "beat_raise",
+     "bs_class": "net_cash",
+     "nongaap_floor": true
+    },
+    "history": [
+     {
+      "date": "2026-08-03",
+      "total": 87,
+      "event": "baseline"
+     }
+    ]
+   },
+   "pies": [
+    "bankers"
+   ]
+  },
+  {
+   "ticker": "AAPL",
+   "name": "Apple Inc.",
+   "sector": "Technology",
+   "currency": "USD",
+   "last_report": {
+    "fiscal_quarter": "Q3 FY2026 (ended 2026-06-27)",
+    "report_date": "2026-07-30"
+   },
+   "next_earnings": "late October 2026 (est., fiscal Q4 FY26)",
+   "revenue": {
+    "ttm_b": 466.9,
+    "latest_q_b": 109.4,
+    "latest_q_yoy_pct": 16.4,
+    "prior_q_yoy_pct": 16.6
+   },
+   "margins": {
+    "gross_pct": 50.1,
+    "operating_pct": 32.6,
+    "fcf_margin_pct": 29.3,
+    "trend_note": "Margins are expanding sharply: gross margin rose to 50.1% from 46.5% a year ago and operating margin to 32.6% from 30.0%."
+   },
+   "fcf": {
+    "ttm_b": 136.7,
+    "yoy_pct": 42.1,
+    "note": "TTM FCF of ~$136.7B vs ~$96.2B a year earlier, boosted by a record $51.6B FCF December quarter; Apple's capex remains light versus hyperscaler peers."
+   },
+   "balance_sheet": {
+    "cash_b": 146.5,
+    "total_debt_b": 84.3,
+    "net_position_b": 62.2,
+    "note": "~$62B net cash (cash+investments $146.5B vs $84.3B debt); conservatively levered with debt used mainly to fund buybacks."
+   },
+   "segments": [
+    {
+     "name": "iPhone",
+     "latest_q_yoy_pct": 21.8,
+     "note": "$54.3B, June-quarter record"
+    },
+    {
+     "name": "Services",
+     "latest_q_yoy_pct": 12.0,
+     "note": "$30.7B record, though slightly below Street services estimates"
+    },
+    {
+     "name": "Mac",
+     "latest_q_yoy_pct": 29.2,
+     "note": "$10.4B, double-digit growth"
+    },
+    {
+     "name": "iPad",
+     "latest_q_yoy_pct": -5.8,
+     "note": "$6.2B, only declining category"
+    },
+    {
+     "name": "Wearables/Home/Accessories",
+     "latest_q_yoy_pct": 6.8,
+     "note": "$7.9B"
+    }
+   ],
+   "guidance_note": "Results came in at the top of Apple's own $107.2-110B revenue guidance and the company has been guiding to (and delivering) continued double-digit growth, an effectively raised trajectory.",
+   "execution_note": "Clear beat pattern: record June-quarter revenue, EPS ($2.02 vs $1.57 y/y) and segment records, described as blowing past Wall Street estimates again.",
+   "moat": {
+    "rating_1to5": 5,
+    "note": "Ecosystem lock-in across ~2.4B active devices, premium brand and high-margin services attach make the moat exceptionally durable, now reinforced by the new Siri AI launch."
+   },
+   "risks": [
+    "China exposure and tariff/geopolitical risk",
+    "App Store/services regulatory pressure",
+    "Perceived AI lag vs rivals despite Siri revamp"
+   ],
+   "data_confidence": "high",
+   "sources": [
+    "https://stockanalysis.com/stocks/AAPL/financials/?p=quarterly",
+    "https://stockanalysis.com/stocks/AAPL/financials/balance-sheet/?p=quarterly",
+    "https://stockanalysis.com/stocks/AAPL/financials/cash-flow-statement/?p=quarterly",
+    "https://www.macrumors.com/2026/07/30/apple-3q-2026-earnings/",
+    "https://9to5mac.com/2026/07/30/apple-reports-q3-2026-earnings-109-4-billion-in-revenue-up-16/"
+   ],
+   "score": {
+    "total": 86,
+    "band": "Elite",
+    "subscores": {
+     "growth": {
+      "points": 16,
+      "max": 25,
+      "detail": {
+       "pace": 10,
+       "acceleration": 3,
+       "breadth": 3
+      }
+     },
+     "profitability": {
+      "points": 18,
+      "max": 20,
+      "detail": {
+       "level": 8,
+       "trend": 10
+      }
+     },
+     "cash": {
+      "points": 18,
+      "max": 20,
+      "detail": {
+       "fcf_margin": 8,
+       "trajectory": 10
+      }
+     },
+     "balance_sheet": {
+      "points": 15,
+      "max": 15,
+      "detail": {
+       "class": "net_cash"
+      }
+     },
+     "moat": {
+      "points": 15,
+      "max": 15,
+      "detail": {
+       "rating": 5
+      }
+     },
+     "execution": {
+      "points": 4,
+      "max": 5,
+      "detail": {
+       "class": "beat"
+      }
+     }
+    },
+    "judgment": {
+     "op_trend": "expanding",
+     "fcf_trend": "surging",
+     "exec_class": "beat",
+     "bs_class": "net_cash"
+    },
+    "history": [
+     {
+      "date": "2026-08-03",
+      "total": 86,
+      "event": "baseline"
+     }
+    ]
+   },
+   "pies": [
+    "bankers"
+   ]
+  },
+  {
+   "ticker": "AMD",
+   "name": "Advanced Micro Devices",
+   "sector": "Semiconductors",
+   "currency": "USD",
+   "last_report": {
+    "fiscal_quarter": "Q1 2026 (ended 2026-03-31)",
+    "report_date": "2026-05-05"
+   },
+   "next_earnings": "2026-08-04",
+   "revenue": {
+    "ttm_b": 37.45,
+    "latest_q_b": 10.25,
+    "latest_q_yoy_pct": 37.9,
+    "prior_q_yoy_pct": 34.1
+   },
+   "margins": {
+    "gross_pct": 53.1,
+    "operating_pct": 11.8,
+    "fcf_margin_pct": 22.9,
+    "trend_note": "Margins are expanding: GAAP gross margin 52.8% in Q1 2026 vs 50.2% a year ago (non-GAAP 55% vs 54%), with non-GAAP gross margin guided to ~56% and operating leverage improving as Data Center mix grows."
+   },
+   "fcf": {
+    "ttm_b": 8.57,
+    "yoy_pct": 211.4,
+    "note": "TTM FCF $8.6B vs $2.8B in the prior-year period; quarterly FCF has stepped up to a ~$2.4-2.6B run-rate."
+   },
+   "balance_sheet": {
+    "cash_b": 12.35,
+    "total_debt_b": 3.87,
+    "net_position_b": 8.48,
+    "note": "Net cash of ~$8.5B with debt/equity of just 0.06 \u2014 essentially unlevered."
+   },
+   "segments": [
+    {
+     "name": "Data Center",
+     "latest_q_yoy_pct": 57,
+     "note": "$5.8B; now the primary revenue driver on EPYC CPUs and Instinct AI accelerators"
+    },
+    {
+     "name": "Client",
+     "latest_q_yoy_pct": 26,
+     "note": "$2.9B; Ryzen share gains"
+    },
+    {
+     "name": "Gaming",
+     "latest_q_yoy_pct": 11,
+     "note": "$0.72B"
+    },
+    {
+     "name": "Embedded",
+     "latest_q_yoy_pct": 6,
+     "note": "$0.87B; slow recovery"
+    }
+   ],
+   "guidance_note": "Raised: Q2 2026 guided to ~$11.2B (\u00b1$300M), an acceleration to ~46% YoY growth on AI/inference demand, implying the Instinct ramp is broadening.",
+   "execution_note": "Q1 2026 beat on revenue and EPS with above-consensus guidance; shares jumped roughly 14-16% after hours, continuing a recent beat-and-raise pattern.",
+   "moat": {
+    "rating_1to5": 3,
+    "note": "x86 duopoly position, chiplet design leadership and a credible #2 AI accelerator franchise; durable in CPUs, but the AI GPU position remains contested against Nvidia's software ecosystem."
+   },
+   "risks": [
+    "Nvidia's CUDA ecosystem dominance in AI accelerators",
+    "Reliance on TSMC leading-edge capacity",
+    "Client/gaming cyclicality and high earnings-multiple expectations"
+   ],
+   "data_confidence": "high",
+   "sources": [
+    "https://ir.amd.com/news-events/press-releases/detail/1284/amd-reports-first-quarter-2026-financial-results",
+    "https://stockanalysis.com/stocks/AMD/financials/?p=quarterly",
+    "https://stockanalysis.com/stocks/AMD/statistics/",
+    "https://stockanalysis.com/stocks/AMD/financials/cash-flow-statement/?p=quarterly"
+   ],
+   "score": {
+    "total": 84,
+    "band": "Strong",
+    "subscores": {
+     "growth": {
+      "points": 23,
+      "max": 25,
+      "detail": {
+       "pace": 13,
+       "acceleration": 5,
+       "breadth": 5
+      }
+     },
+     "profitability": {
+      "points": 14,
+      "max": 20,
+      "detail": {
+       "level": 4,
+       "trend": 10
+      }
+     },
+     "cash": {
+      "points": 18,
+      "max": 20,
+      "detail": {
+       "fcf_margin": 8,
+       "trajectory": 10
+      }
+     },
+     "balance_sheet": {
+      "points": 15,
+      "max": 15,
+      "detail": {
+       "class": "net_cash"
+      }
+     },
+     "moat": {
+      "points": 9,
+      "max": 15,
+      "detail": {
+       "rating": 3
+      }
+     },
+     "execution": {
+      "points": 5,
+      "max": 5,
+      "detail": {
+       "class": "beat_raise"
+      }
+     }
+    },
+    "judgment": {
+     "op_trend": "expanding",
+     "fcf_trend": "surging",
+     "exec_class": "beat_raise",
+     "bs_class": "net_cash"
+    },
+    "history": [
+     {
+      "date": "2026-08-03",
+      "total": 84,
+      "event": "baseline"
+     }
+    ]
+   },
+   "pies": [
+    "bankers"
+   ]
+  },
+  {
+   "ticker": "ANET",
+   "name": "Arista Networks",
+   "sector": "Networking Equipment",
+   "currency": "USD",
+   "last_report": {
+    "fiscal_quarter": "Q1 2026 (ended 2026-03-31)",
+    "report_date": "2026-05-05"
+   },
+   "next_earnings": "2026-08-04",
+   "revenue": {
+    "ttm_b": 9.71,
+    "latest_q_b": 2.71,
+    "latest_q_yoy_pct": 35.1,
+    "prior_q_yoy_pct": 28.9
+   },
+   "margins": {
+    "gross_pct": 63.5,
+    "operating_pct": 42.8,
+    "fcf_margin_pct": 54.8,
+    "trend_note": "Gross margin is compressing slightly (61.9% in Q1 2026 vs 63.7% a year ago on cloud/AI customer mix) while operating margin holds flat at ~43% GAAP / ~48% non-GAAP."
+   },
+   "fcf": {
+    "ttm_b": 5.32,
+    "yoy_pct": 39.9,
+    "note": "TTM FCF $5.3B vs $3.8B a year earlier, aided by strong deferred revenue/prepayments; Q1 2026 operating cash flow was $1.69B."
+   },
+   "balance_sheet": {
+    "cash_b": 12.35,
+    "total_debt_b": 0.0,
+    "net_position_b": 12.35,
+    "note": "Zero debt and ~$12.4B in cash and investments \u2014 a pristine, unlevered balance sheet."
+   },
+   "segments": [
+    {
+     "name": "Total revenue (no formal segment split)",
+     "latest_q_yoy_pct": 35.1,
+     "note": "Growth led by AI networking (universal AI spine on the 7800, new XPO liquid-cooled optics) for cloud/AI titan customers; ~$3.5B AI revenue target in focus for 2026"
+    }
+   ],
+   "guidance_note": "Effectively maintained but underwhelming: Q2 2026 guided to ~$2.8B (~27% YoY, a deceleration) and the implied 2026 trajectory came in below street hopes, knocking the stock despite the Q1 beat.",
+   "execution_note": "Q1 2026 beat estimates (as in prior quarters) but shares tumbled on softer-than-hoped forward guidance.",
+   "moat": {
+    "rating_1to5": 4,
+    "note": "EOS single-image software stack, deep entrenchment with cloud titans and leadership in high-speed data center Ethernet; durable but exposed to a few giant customers who could shift to white-box or Nvidia networking."
+   },
+   "risks": [
+    "Heavy customer concentration (Microsoft, Meta, large AI builders)",
+    "Competition from Nvidia Ethernet/InfiniBand and white-box switching",
+    "Gross margin pressure from cloud/AI mix"
+   ],
+   "data_confidence": "high",
+   "sources": [
+    "https://www.arista.com/en/company/news/press-release/24017-pr-20260505",
+    "https://stockanalysis.com/stocks/ANET/financials/?p=quarterly",
+    "https://stockanalysis.com/stocks/ANET/statistics/",
+    "https://stockanalysis.com/stocks/ANET/financials/cash-flow-statement/?p=quarterly",
+    "https://finance.yahoo.com/markets/stocks/articles/arista-networks-q1-earnings-beat-212023344.html"
+   ],
+   "score": {
+    "total": 84,
+    "band": "Strong",
+    "subscores": {
+     "growth": {
+      "points": 21,
+      "max": 25,
+      "detail": {
+       "pace": 13,
+       "acceleration": 5,
+       "breadth": 3
+      }
+     },
+     "profitability": {
+      "points": 16,
+      "max": 20,
+      "detail": {
+       "level": 10,
+       "trend": 6
+      }
+     },
+     "cash": {
+      "points": 17,
+      "max": 20,
+      "detail": {
+       "fcf_margin": 10,
+       "trajectory": 7
+      }
+     },
+     "balance_sheet": {
+      "points": 15,
+      "max": 15,
+      "detail": {
+       "class": "net_cash"
+      }
+     },
+     "moat": {
+      "points": 12,
+      "max": 15,
+      "detail": {
+       "rating": 4
+      }
+     },
+     "execution": {
+      "points": 3,
+      "max": 5,
+      "detail": {
+       "class": "inline"
+      }
+     }
+    },
+    "judgment": {
+     "op_trend": "flat",
+     "fcf_trend": "growing",
+     "exec_class": "inline",
+     "bs_class": "net_cash"
+    },
+    "history": [
+     {
+      "date": "2026-08-03",
+      "total": 84,
+      "event": "baseline"
+     }
+    ]
+   },
+   "pies": [
+    "exponential-convergence"
+   ]
+  },
+  {
+   "ticker": "ASML",
+   "name": "ASML Holding",
+   "sector": "Semiconductor Equipment",
+   "currency": "EUR",
+   "last_report": {
+    "fiscal_quarter": "Q2 2026 (ended 2026-06-30)",
+    "report_date": "2026-07-15"
+   },
+   "next_earnings": "approx. 2026-10-14 (mid-October 2026, Q3 report)",
+   "revenue": {
+    "ttm_b": 35.33,
+    "latest_q_b": 9.33,
+    "latest_q_yoy_pct": 21.3,
+    "prior_q_yoy_pct": 13.3
+   },
+   "margins": {
+    "gross_pct": 52.7,
+    "operating_pct": 35.4,
+    "fcf_margin_pct": 28.4,
+    "trend_note": "Margins are expanding modestly \u2014 Q2 gross margin 54.0% vs 53.7% a year ago and operating margin up ~2.4pts YoY, with Q3 gross margin guided higher still at 55-57%."
+   },
+   "fcf": {
+    "ttm_b": 10.04,
+    "yoy_pct": null,
+    "note": "TTM FCF ~\u20ac10.0B but extremely lumpy quarter to quarter (Q4 2025 alone was ~\u20ac11.0B on customer down-payments, Q1 2026 was negative); YoY comparison not meaningful/verifiable from sources."
+   },
+   "balance_sheet": {
+    "cash_b": 7.6,
+    "total_debt_b": 2.0,
+    "net_position_b": 5.6,
+    "note": "Comfortable net cash position (~\u20ac5-6B, converted from USD-reported figures) alongside ongoing buybacks and dividends \u2014 conservatively financed."
+   },
+   "segments": [
+    {
+     "name": "EUV / systems detail",
+     "latest_q_yoy_pct": null,
+     "note": "EUV vs DUV split and net bookings not disclosed in fetched release; company is expanding low-NA EUV capacity ~30% for 2027 with a further ~30% under study for 2028, and cited a High-NA milestone"
+    }
+   ],
+   "guidance_note": "Raised for the second time in 2026: Q3 guided to \u20ac11.0-12.0B and full-year 2026 to \u20ac43-45B (roughly +30%+ YoY) at 54-56% gross margin, on AI-driven demand for advanced logic and memory.",
+   "execution_note": "Q2 2026 beat expectations and guidance was lifted again, extending a beat-and-raise pattern this year.",
+   "moat": {
+    "rating_1to5": 5,
+    "note": "Absolute monopoly on EUV lithography (and High-NA), protected by decades of R&D and an irreplaceable supplier network; as durable as moats get in hardware."
+   },
+   "risks": [
+    "China export-control tightening",
+    "Order/bookings lumpiness tied to a few customers' fab timing (TSMC, Samsung, Intel, memory makers)",
+    "AI capex cycle turn would hit tool orders with a lag"
+   ],
+   "data_confidence": "medium",
+   "sources": [
+    "https://www.globenewswire.com/news-release/2026/07/15/3327450/0/en/asml-reports-9-3-billion-total-net-sales-and-2-9-billion-net-income-in-q2-2026.html",
+    "https://www.asml.com/en/investors/financial-results/q2-2026",
+    "https://stockanalysis.com/stocks/ASML/financials/?p=quarterly",
+    "https://stockanalysis.com/stocks/ASML/statistics/"
+   ],
+   "score": {
+    "total": 83,
+    "band": "Strong",
+    "subscores": {
+     "growth": {
+      "points": 18,
+      "max": 25,
+      "detail": {
+       "pace": 10,
+       "acceleration": 5,
+       "breadth": 3
+      }
+     },
+     "profitability": {
+      "points": 18,
+      "max": 20,
+      "detail": {
+       "level": 8,
+       "trend": 10
+      }
+     },
+     "cash": {
+      "points": 12,
+      "max": 20,
+      "detail": {
+       "fcf_margin": 8,
+       "trajectory": 4
+      }
+     },
+     "balance_sheet": {
+      "points": 15,
+      "max": 15,
+      "detail": {
+       "class": "net_cash"
+      }
+     },
+     "moat": {
+      "points": 15,
+      "max": 15,
+      "detail": {
+       "rating": 5
+      }
+     },
+     "execution": {
+      "points": 5,
+      "max": 5,
+      "detail": {
+       "class": "beat_raise"
+      }
+     }
+    },
+    "judgment": {
+     "op_trend": "expanding",
+     "fcf_trend": "flat",
+     "exec_class": "beat_raise",
+     "bs_class": "net_cash"
+    },
+    "history": [
+     {
+      "date": "2026-08-03",
+      "total": 83,
+      "event": "baseline"
+     }
+    ]
+   },
+   "pies": [
+    "bankers"
+   ]
+  },
+  {
+   "ticker": "ISRG",
+   "name": "Intuitive Surgical",
+   "sector": "Healthcare - Medical Devices / Robotic Surgery",
+   "currency": "USD",
+   "last_report": {
+    "fiscal_quarter": "Q2 2026",
+    "report_date": "2026-07-16"
+   },
+   "next_earnings": "approx mid-October 2026 (Q3 2026)",
+   "revenue": {
+    "ttm_b": 11.03,
+    "latest_q_b": 2.892,
+    "latest_q_yoy_pct": 18.5,
+    "prior_q_yoy_pct": 23.0
+   },
+   "margins": {
+    "gross_pct": 67.8,
+    "operating_pct": 33.6,
+    "fcf_margin_pct": 22.7,
+    "trend_note": "Margins are expanding: GAAP gross margin rose to 67.8% from 66.3% and GAAP operating margin to 33.6% from 30.5% a year ago as da Vinci 5 scales and tariff pressure eased."
+   },
+   "fcf": {
+    "ttm_b": 2.5,
+    "yoy_pct": null,
+    "note": "TTM FCF ~$2.5B (~23% margin) per stockanalysis; cash generation remains strong alongside heavy capacity investment."
+   },
+   "balance_sheet": {
+    "cash_b": 8.63,
+    "total_debt_b": 0.0,
+    "net_position_b": 8.63,
+    "note": "Debt-free with $8.63B in cash and investments - pristine balance sheet."
+   },
+   "segments": [
+    {
+     "name": "Da Vinci procedures",
+     "latest_q_yoy_pct": 15.0,
+     "note": "468 systems placed in Q2 (246 da Vinci 5) vs 395 a year ago"
+    },
+    {
+     "name": "Ion procedures",
+     "latest_q_yoy_pct": 36.0,
+     "note": "55 Ion systems placed; lung biopsy franchise scaling"
+    },
+    {
+     "name": "Instruments & accessories",
+     "latest_q_yoy_pct": 18.0,
+     "note": "$1.73B recurring razor-blade revenue"
+    }
+   ],
+   "guidance_note": "FY2026 da Vinci procedure growth guidance of 13.5-15.5% (targeting midpoint) with non-GAAP gross margin of 68-69%, a broadly maintained outlook implying steady mid-teens growth.",
+   "execution_note": "Continued beat pattern in Q2 with revenue up 19% and non-GAAP EPS of $2.80 well ahead of prior-year $2.19-level comparisons, though procedure growth moderated slightly from Q1.",
+   "moat": {
+    "rating_1to5": 5,
+    "note": "Near-monopoly installed base of surgical robots, surgeon training lock-in, regulatory barriers and a recurring instruments razor-blade model; one of the most durable moats in medtech despite emerging Medtronic/J&J entrants."
+   },
+   "risks": [
+    "Emerging robotic competition (Medtronic Hugo, J&J Ottava)",
+    "Premium valuation vulnerable to procedure-growth deceleration",
+    "Bariatric/GLP-1 drug impact on some procedure categories"
+   ],
+   "data_confidence": "high",
+   "sources": [
+    "https://www.globenewswire.com/news-release/2026/07/16/3328793/7637/en/Intuitive-Announces-Second-Quarter-Earnings.html",
+    "https://stockanalysis.com/stocks/isrg/financials/?p=quarterly",
+    "https://isrg.intuitive.com/news-releases/news-release-details/intuitive-announces-second-quarter-earnings-6/"
+   ],
+   "score": {
+    "total": 83,
+    "band": "Strong",
+    "subscores": {
+     "growth": {
+      "points": 16,
+      "max": 25,
+      "detail": {
+       "pace": 10,
+       "acceleration": 1,
+       "breadth": 5
+      }
+     },
+     "profitability": {
+      "points": 18,
+      "max": 20,
+      "detail": {
+       "level": 8,
+       "trend": 10
+      }
+     },
+     "cash": {
+      "points": 15,
+      "max": 20,
+      "detail": {
+       "fcf_margin": 8,
+       "trajectory": 7
+      }
+     },
+     "balance_sheet": {
+      "points": 15,
+      "max": 15,
+      "detail": {
+       "class": "net_cash"
+      }
+     },
+     "moat": {
+      "points": 15,
+      "max": 15,
+      "detail": {
+       "rating": 5
+      }
+     },
+     "execution": {
+      "points": 4,
+      "max": 5,
+      "detail": {
+       "class": "beat"
+      }
+     }
+    },
+    "judgment": {
+     "op_trend": "expanding",
+     "fcf_trend": "growing",
+     "exec_class": "beat",
+     "bs_class": "net_cash"
+    },
+    "history": [
+     {
+      "date": "2026-08-03",
+      "total": 83,
+      "event": "baseline"
+     }
+    ]
+   },
+   "pies": [
+    "exponential-convergence"
+   ]
+  },
+  {
+   "ticker": "GEV",
+   "name": "GE Vernova Inc.",
+   "sector": "Industrials - Electrical Power Equipment (grid, gas power, wind)",
+   "currency": "USD",
+   "last_report": {
+    "fiscal_quarter": "Q2 2026",
+    "report_date": "2026-07-22"
+   },
+   "next_earnings": "late October 2026 (approx, Q3 2026)",
+   "revenue": {
+    "ttm_b": 41.37,
+    "latest_q_b": 11.1,
+    "latest_q_yoy_pct": 21.9,
+    "prior_q_yoy_pct": 16.3
+   },
+   "margins": {
+    "gross_pct": 20.2,
+    "operating_pct": 4.4,
+    "fcf_margin_pct": 30.1,
+    "trend_note": "Margins are expanding: Q2 2026 adjusted EBITDA margin 11.3% (+340 bps organically YoY) and gross margin ~21.3% vs 20.3% a year ago, with Wind still loss-making but improving toward Q3 breakeven."
+   },
+   "fcf": {
+    "ttm_b": 12.44,
+    "yoy_pct": null,
+    "note": "Q2 2026 FCF $5.1B vs $0.19B a year ago; H1 2026 FCF $9.9B vs ~$1.2B H1 2025 \u2014 heavily boosted by customer advances/down payments on record $24.2B Q2 orders, so TTM FCF overstates run-rate earnings power; prior-year TTM not disclosed so YoY pct set null."
+   },
+   "balance_sheet": {
+    "cash_b": 13.0,
+    "total_debt_b": 2.8,
+    "net_position_b": 10.3,
+    "note": "Fortress balance sheet with ~$10.3B net cash, funding $3.9B YTD shareholder returns with essentially no leverage."
+   },
+   "segments": [
+    {
+     "name": "Power",
+     "latest_q_yoy_pct": 14,
+     "note": "Revenue $5.5B, segment EBITDA margin 18.8%; 20GW gas orders/slot reservations, book-to-bill 3.05x; 116GW gas equipment contracted, targeting 125GW by year-end."
+    },
+    {
+     "name": "Electrification",
+     "latest_q_yoy_pct": 68,
+     "note": "Revenue $3.6B, EBITDA margin 18.4%; Q2 orders $6.4B with ~42% from data-center customers; book-to-bill 1.75x."
+    },
+    {
+     "name": "Wind",
+     "latest_q_yoy_pct": -10,
+     "note": "Revenue $2.0B, EBITDA margin -13.6%; management expects segment breakeven in Q3 2026."
+    }
+   ],
+   "guidance_note": "Raised 2026 guidance on 22 July: revenue to $45.5-46.5B (from $44.5-45.5B) and FCF nearly doubled to $11.5-12.5B (from $6.5-7.5B), with 12-14% adjusted EBITDA margin maintained \u2014 signals demand and cash collection running well ahead of plan; backlog $176B (targeting ~$200B by end-2027), YTD data-center orders >$5B.",
+   "execution_note": "Consistent beat-and-raise pattern: Q2 2026 revenue +22% with 88% organic order growth and record FCF, following raises in prior quarters.",
+   "moat": {
+    "rating_1to5": 4,
+    "note": "Installed base of gas turbines and grid equipment with multi-decade service annuities, sold-out gas turbine slots into 2028+, and only ~3 credible global competitors in heavy-duty gas and HVDC gear give strong pricing power while the AI/electrification capex cycle runs."
+   },
+   "risks": [
+    "Wind segment losses and offshore wind legacy contracts",
+    "FCF quality relies on customer advances that reverse if orders slow",
+    "AI-datacenter capex cycle concentration"
+   ],
+   "data_confidence": "high",
+   "sources": [
+    "https://www.gevernova.com/news/press-releases/ge-vernova-reports-second-quarter-2026-financial-results-raises-2026-financial",
+    "https://www.stocktitan.net/sec-filings/GEV/8-k-ge-vernova-inc-reports-material-event-418293fd2971.html",
+    "https://stockanalysis.com/stocks/GEV/financials/?p=quarterly",
+    "https://monteinvestments.substack.com/p/ge-vernova-nyse-gev-q226-earnings"
+   ],
+   "score": {
+    "total": 82,
+    "band": "Strong",
+    "subscores": {
+     "growth": {
+      "points": 18,
+      "max": 25,
+      "detail": {
+       "pace": 10,
+       "acceleration": 5,
+       "breadth": 3
+      }
+     },
+     "profitability": {
+      "points": 12,
+      "max": 20,
+      "detail": {
+       "level": 2,
+       "trend": 10
+      }
+     },
+     "cash": {
+      "points": 20,
+      "max": 20,
+      "detail": {
+       "fcf_margin": 10,
+       "trajectory": 10
+      }
+     },
+     "balance_sheet": {
+      "points": 15,
+      "max": 15,
+      "detail": {
+       "class": "net_cash"
+      }
+     },
+     "moat": {
+      "points": 12,
+      "max": 15,
+      "detail": {
+       "rating": 4
+      }
+     },
+     "execution": {
+      "points": 5,
+      "max": 5,
+      "detail": {
+       "class": "beat_raise"
+      }
+     }
+    },
+    "judgment": {
+     "op_trend": "expanding",
+     "fcf_trend": "surging",
+     "exec_class": "beat_raise",
+     "bs_class": "net_cash"
+    },
+    "history": [
+     {
+      "date": "2026-08-03",
+      "total": 82,
+      "event": "baseline"
+     }
+    ]
+   },
+   "watch_note": "FCF is flattered by customer advances on record orders; watch what happens to cash conversion if order intake slows.",
+   "pies": [
+    "exponential-convergence"
+   ]
+  },
+  {
+   "ticker": "MSFT",
+   "name": "Microsoft Corporation",
+   "sector": "Technology",
+   "currency": "USD",
+   "last_report": {
+    "fiscal_quarter": "Q4 FY2026 (ended 2026-06-30)",
+    "report_date": "2026-07-29"
+   },
+   "next_earnings": "late October 2026 (est., fiscal Q1 FY27)",
+   "revenue": {
+    "ttm_b": 331.8,
+    "latest_q_b": 90.0,
+    "latest_q_yoy_pct": 17.8,
+    "prior_q_yoy_pct": 18.3
+   },
+   "margins": {
+    "gross_pct": 67.2,
+    "operating_pct": 45.1,
+    "fcf_margin_pct": 20.2,
+    "trend_note": "Gross margin is compressing modestly (67.2% vs ~69% a year ago) on AI-infrastructure depreciation, while operating margin holds roughly flat around 45%."
+   },
+   "fcf": {
+    "ttm_b": 67.0,
+    "yoy_pct": -6.5,
+    "note": "TTM FCF ~$67.0B, down from ~$71.6B, as record AI capex ($41B in Q4 alone, ~2/3 on GPUs/CPUs) outpaces very strong operating cash flow growth."
+   },
+   "balance_sheet": {
+    "cash_b": 76.8,
+    "total_debt_b": 56.8,
+    "net_position_b": 20.0,
+    "note": "~$20B net cash with modest gross debt; balance sheet remains fortress-grade despite the capex surge."
+   },
+   "segments": [
+    {
+     "name": "Azure",
+     "latest_q_yoy_pct": 43.0,
+     "note": "Growth accelerated to 43%; Azure passed $100B in annual revenue for the first time"
+    },
+    {
+     "name": "Intelligent Cloud",
+     "latest_q_yoy_pct": 32.0,
+     "note": "$39.3B in Q4"
+    },
+    {
+     "name": "Microsoft Cloud (total)",
+     "latest_q_yoy_pct": 27.0,
+     "note": "$59.3B in Q4"
+    }
+   ],
+   "guidance_note": "No formal FY27 guidance appeared in the coverage reviewed, but management signaled sustained elevated AI capex (88 datacenters added in FY26) implying a maintained high-growth, high-investment outlook.",
+   "execution_note": "Beat on both lines: revenue $90.0B vs $87.6B consensus and GAAP EPS $4.81 vs $4.24 (flattered by a $3.2B Anthropic investment gain; non-GAAP EPS $4.74, +23%).",
+   "moat": {
+    "rating_1to5": 5,
+    "note": "Enterprise lock-in via Windows/Office/Teams plus Azure switching costs and an AI platform position give a very durable, multi-layered moat."
+   },
+   "risks": [
+    "AI capex and depreciation pressuring FCF and gross margin",
+    "Dependence on sustained AI demand to justify $150B+/yr investment",
+    "Evolving OpenAI/partner dynamics and AI competition"
+   ],
+   "data_confidence": "high",
+   "sources": [
+    "https://stockanalysis.com/stocks/MSFT/financials/?p=quarterly",
+    "https://stockanalysis.com/stocks/MSFT/financials/balance-sheet/?p=quarterly",
+    "https://stockanalysis.com/stocks/MSFT/financials/cash-flow-statement/?p=quarterly",
+    "https://brandclickx.com/microsoft-q4-fy2026-results/",
+    "https://www.microsoft.com/en-us/investor/earnings/fy-2026-q4/press-release-webcast"
+   ],
+   "score": {
+    "total": 78,
+    "band": "Strong",
+    "subscores": {
+     "growth": {
+      "points": 18,
+      "max": 25,
+      "detail": {
+       "pace": 10,
+       "acceleration": 3,
+       "breadth": 5
+      }
+     },
+     "profitability": {
+      "points": 16,
+      "max": 20,
+      "detail": {
+       "level": 10,
+       "trend": 6
+      }
+     },
+     "cash": {
+      "points": 10,
+      "max": 20,
+      "detail": {
+       "fcf_margin": 8,
+       "trajectory": 2
+      }
+     },
+     "balance_sheet": {
+      "points": 15,
+      "max": 15,
+      "detail": {
+       "class": "net_cash"
+      }
+     },
+     "moat": {
+      "points": 15,
+      "max": 15,
+      "detail": {
+       "rating": 5
+      }
+     },
+     "execution": {
+      "points": 4,
+      "max": 5,
+      "detail": {
+       "class": "beat"
+      }
+     }
+    },
+    "judgment": {
+     "op_trend": "flat",
+     "fcf_trend": "declining",
+     "exec_class": "beat",
+     "bs_class": "net_cash"
+    },
+    "history": [
+     {
+      "date": "2026-08-03",
+      "total": 78,
+      "event": "baseline"
+     }
+    ]
+   },
+   "pies": [
+    "bankers"
+   ]
+  },
+  {
+   "ticker": "GOOGL",
+   "name": "Alphabet Inc.",
+   "sector": "Communication Services",
+   "currency": "USD",
+   "last_report": {
+    "fiscal_quarter": "Q2 2026 (ended 2026-06-30)",
+    "report_date": "2026-07-22"
+   },
+   "next_earnings": "late October 2026 (est.)",
+   "revenue": {
+    "ttm_b": 445.9,
+    "latest_q_b": 119.8,
+    "latest_q_yoy_pct": 24.2,
+    "prior_q_yoy_pct": 21.8
+   },
+   "margins": {
+    "gross_pct": 61.7,
+    "operating_pct": 34.0,
+    "fcf_margin_pct": 12.0,
+    "trend_note": "Margins are expanding despite the capex surge: operating margin rose to 34.0% from 32.4% a year ago, helped by Cloud margin jumping to 35.6% from 20.7%."
+   },
+   "fcf": {
+    "ttm_b": 53.3,
+    "yoy_pct": -20.0,
+    "note": "TTM FCF fell ~20% to $53.3B and Q2 FCF was negative (-$5.9B) as capex doubled y/y to $44.9B in the quarter; heavy AI capex is the dominant FCF drag."
+   },
+   "balance_sheet": {
+    "cash_b": 242.5,
+    "total_debt_b": 112.8,
+    "net_position_b": 129.7,
+    "note": "~$130B net cash (cash+investments $242.5B vs $112.8B total debt) - massive liquidity easily funding the AI buildout despite rising debt."
+   },
+   "segments": [
+    {
+     "name": "Google Cloud",
+     "latest_q_yoy_pct": 82.0,
+     "note": "$24.8B, growth surged to 82% with a $514B backlog"
+    },
+    {
+     "name": "Search & Other ads",
+     "latest_q_yoy_pct": 17.0,
+     "note": "$63.3B, accelerating"
+    },
+    {
+     "name": "YouTube Ads",
+     "latest_q_yoy_pct": -1.0,
+     "note": "$7.3B, a rare decline and watch item"
+    }
+   ],
+   "guidance_note": "Alphabet raised 2026 capex guidance to $195-205B from $180-190B - an aggressive investment 'raise' that beat-driven shares sold off on, implying management sees demand far exceeding capacity.",
+   "execution_note": "Beat revenue expectations with accelerating growth (24% vs 14% a year ago), though the stock fell ~4% on the capex hike; recent pattern is consistent beats.",
+   "moat": {
+    "rating_1to5": 5,
+    "note": "Dominant search/ads network effects, YouTube scale, Android distribution and now surging Cloud with a $514B backlog; durable though AI-driven search disruption is the key long-term threat."
+   },
+   "risks": [
+    "FCF erosion from $195-205B capex program",
+    "AI chatbot disruption of search economics; YouTube ads declined",
+    "Antitrust remedies in US/EU"
+   ],
+   "data_confidence": "high",
+   "sources": [
+    "https://stockanalysis.com/stocks/GOOGL/financials/?p=quarterly",
+    "https://stockanalysis.com/stocks/GOOGL/financials/balance-sheet/?p=quarterly",
+    "https://www.investing.com/news/company-news/alphabet-q2-2026-slides-24-revenue-growth-cloud-surges-despite-capex-93CH-4807148",
+    "https://www.insiderfinance.io/news/alphabet-q2-2026-earnings-show-cloud-surge"
+   ],
+   "score": {
+    "total": 78,
+    "band": "Strong",
+    "subscores": {
+     "growth": {
+      "points": 18,
+      "max": 25,
+      "detail": {
+       "pace": 10,
+       "acceleration": 5,
+       "breadth": 3
+      }
+     },
+     "profitability": {
+      "points": 18,
+      "max": 20,
+      "detail": {
+       "level": 8,
+       "trend": 10
+      }
+     },
+     "cash": {
+      "points": 8,
+      "max": 20,
+      "detail": {
+       "fcf_margin": 6,
+       "trajectory": 2
+      }
+     },
+     "balance_sheet": {
+      "points": 15,
+      "max": 15,
+      "detail": {
+       "class": "net_cash"
+      }
+     },
+     "moat": {
+      "points": 15,
+      "max": 15,
+      "detail": {
+       "rating": 5
+      }
+     },
+     "execution": {
+      "points": 4,
+      "max": 5,
+      "detail": {
+       "class": "beat"
+      }
+     }
+    },
+    "judgment": {
+     "op_trend": "expanding",
+     "fcf_trend": "declining",
+     "exec_class": "beat",
+     "bs_class": "net_cash"
+    },
+    "history": [
+     {
+      "date": "2026-08-03",
+      "total": 78,
+      "event": "baseline"
+     }
+    ]
+   },
+   "pies": [
+    "bankers"
+   ]
+  },
+  {
+   "ticker": "DDOG",
+   "name": "Datadog",
+   "sector": "Technology - Observability / Cloud Software",
+   "currency": "USD",
+   "last_report": {
+    "fiscal_quarter": "Q1 2026",
+    "report_date": "2026-05-07"
+   },
+   "next_earnings": "2026-08-06",
+   "revenue": {
+    "ttm_b": 3.65,
+    "latest_q_b": 1.006,
+    "latest_q_yoy_pct": 32.2,
+    "prior_q_yoy_pct": 29.2
+   },
+   "margins": {
+    "gross_pct": 79.0,
+    "operating_pct": 1.0,
+    "fcf_margin_pct": 29.0,
+    "trend_note": "Gross margin steady around 79-80% with non-GAAP operating margin of 22% and FCF margin of 29%; margins roughly flat to modestly compressing as the company invests behind re-accelerating growth (AI-native usage)."
+   },
+   "fcf": {
+    "ttm_b": 1.07,
+    "yoy_pct": null,
+    "note": "Q1 2026 FCF $289M (29% margin); TTM FCF ~$1.07B; Rule of 40 ~61 on growth 32% + FCF margin 29%."
+   },
+   "balance_sheet": {
+    "cash_b": 4.8,
+    "total_debt_b": 0.98,
+    "net_position_b": 3.8,
+    "note": "~$3.8B net cash with only ~$984M of convertible notes - minimal leverage."
+   },
+   "segments": [
+    {
+     "name": "$100k+ ARR customers",
+     "latest_q_yoy_pct": 21.0,
+     "note": "~4,550 customers with $100k+ ARR vs 3,770 a year ago; NRR not specifically disclosed in Q1 release"
+    }
+   ],
+   "guidance_note": "FY2026 revenue guidance of $4.30-4.34B (~29% growth) with Q2 guided to $1.07-1.08B, a raise implying continued growth re-acceleration driven by AI-native customers.",
+   "execution_note": "Long streak of quarterly beats continues, with revenue growth accelerating from 24.6% to 32.2% YoY over the past five quarters.",
+   "moat": {
+    "rating_1to5": 4,
+    "note": "Unified observability/security platform with strong land-and-expand economics and high switching costs once agents and dashboards are embedded; durable but exposed to hyperscaler-native tooling and usage-based spend optimization."
+   },
+   "risks": [
+    "AI-native customer concentration (e.g. OpenAI) could add revenue volatility",
+    "Usage-based model exposed to cloud cost optimization cycles",
+    "Premium valuation requires sustained 30%+ growth"
+   ],
+   "data_confidence": "high",
+   "sources": [
+    "https://www.stocktitan.net/news/DDOG/datadog-announces-first-quarter-2026-financial-wceudctqtekl.html",
+    "https://stockanalysis.com/stocks/ddog/financials/?p=quarterly",
+    "https://www.globenewswire.com/news-release/2026/07/16/3328791/0/en/Datadog-Announces-Date-of-Second-Quarter-Fiscal-Year-2026-Earnings-Call.html"
+   ],
+   "score": {
+    "total": 78,
+    "band": "Strong",
+    "subscores": {
+     "growth": {
+      "points": 21,
+      "max": 25,
+      "detail": {
+       "pace": 13,
+       "acceleration": 5,
+       "breadth": 3
+      }
+     },
+     "profitability": {
+      "points": 10,
+      "max": 20,
+      "detail": {
+       "level": 4,
+       "trend": 6
+      }
+     },
+     "cash": {
+      "points": 15,
+      "max": 20,
+      "detail": {
+       "fcf_margin": 8,
+       "trajectory": 7
+      }
+     },
+     "balance_sheet": {
+      "points": 15,
+      "max": 15,
+      "detail": {
+       "class": "net_cash"
+      }
+     },
+     "moat": {
+      "points": 12,
+      "max": 15,
+      "detail": {
+       "rating": 4
+      }
+     },
+     "execution": {
+      "points": 5,
+      "max": 5,
+      "detail": {
+       "class": "beat_raise"
+      }
+     }
+    },
+    "judgment": {
+     "op_trend": "flat",
+     "fcf_trend": "growing",
+     "exec_class": "beat_raise",
+     "bs_class": "net_cash",
+     "nongaap_floor": true
+    },
+    "history": [
+     {
+      "date": "2026-08-03",
+      "total": 78,
+      "event": "baseline"
+     }
+    ]
+   },
+   "pies": [
+    "exponential-convergence"
+   ]
+  },
+  {
+   "ticker": "SU",
+   "name": "Schneider Electric",
+   "sector": "Industrials - Electrical Equipment & Energy Management",
+   "currency": "EUR",
+   "last_report": {
+    "fiscal_quarter": "H1 2026 (Q2 ended 2026-06-30)",
+    "report_date": "2026-07-30"
+   },
+   "next_earnings": "late October 2026 (Q3 revenue update, approx)",
+   "revenue": {
+    "ttm_b": 40.15,
+    "latest_q_b": 11.5,
+    "latest_q_yoy_pct": 17.0,
+    "prior_q_yoy_pct": 11.2
+   },
+   "margins": {
+    "gross_pct": 42.1,
+    "operating_pct": 17.4,
+    "fcf_margin_pct": 12.6,
+    "trend_note": "Margins are clearly expanding: H1 adjusted EBITA margin of 19.3% is up 120bps YoY on strong volume leverage in Energy Management."
+   },
+   "fcf": {
+    "ttm_b": 5.06,
+    "yoy_pct": null,
+    "note": "H1 2026 FCF of EUR 1.6B was up sharply (reported +244% YoY) on 28% higher operating cash flow; TTM per stockanalysis.com."
+   },
+   "balance_sheet": {
+    "cash_b": 4.63,
+    "total_debt_b": 19.91,
+    "net_position_b": -15.28,
+    "note": "Net debt rose to ~EUR 15.4B from EUR 13.7B at end-2025 on M&A and shareholder returns but leverage remains moderate for the cash generation."
+   },
+   "segments": [
+    {
+     "name": "Energy Management",
+     "latest_q_yoy_pct": 18.0,
+     "note": "Q2 revenue EUR 9.6B, data-center/systems demand the key driver (organic growth)"
+    },
+    {
+     "name": "Industrial Automation",
+     "latest_q_yoy_pct": 11.0,
+     "note": "Q2 organic growth, accelerating from +4.4% in Q1"
+    }
+   ],
+   "guidance_note": "Raised FY2026 targets to 10-13% organic revenue growth (from 7-10%) and 70-100bps organic adjusted EBITA margin expansion (from 50-80bps), implying strengthening demand momentum.",
+   "execution_note": "Record H1 with the highest quarterly revenue in company history (Q2 EUR 11.5B, +17% organic) and net income up 30%, comfortably ahead of expectations.",
+   "moat": {
+    "rating_1to5": 4,
+    "note": "Global leadership in low/medium-voltage electrical distribution and the EcoStruxure software/services ecosystem create sticky, spec-driven demand, reinforced by structural electrification and data-center growth."
+   },
+   "risks": [
+    "Data-center demand concentration",
+    "EUR/USD translation and tariffs",
+    "Discrete automation end-market softness"
+   ],
+   "data_confidence": "high",
+   "sources": [
+    "https://www.investing.com/news/company-news/schneider-electric-h1-2026-slides-record-results-drive-guidance-upgrade-93CH-4822637",
+    "https://stockanalysis.com/quote/epa/SU/statistics/",
+    "https://www.se.com/ww/en/assets/pdf/release-q1-revenues-2026"
+   ],
+   "score": {
+    "total": 76,
+    "band": "Strong",
+    "subscores": {
+     "growth": {
+      "points": 20,
+      "max": 25,
+      "detail": {
+       "pace": 10,
+       "acceleration": 5,
+       "breadth": 5
+      }
+     },
+     "profitability": {
+      "points": 14,
+      "max": 20,
+      "detail": {
+       "level": 4,
+       "trend": 10
+      }
+     },
+     "cash": {
+      "points": 16,
+      "max": 20,
+      "detail": {
+       "fcf_margin": 6,
+       "trajectory": 10
+      }
+     },
+     "balance_sheet": {
+      "points": 9,
+      "max": 15,
+      "detail": {
+       "class": "moderate"
+      }
+     },
+     "moat": {
+      "points": 12,
+      "max": 15,
+      "detail": {
+       "rating": 4
+      }
+     },
+     "execution": {
+      "points": 5,
+      "max": 5,
+      "detail": {
+       "class": "beat_raise"
+      }
+     }
+    },
+    "judgment": {
+     "op_trend": "expanding",
+     "fcf_trend": "surging",
+     "exec_class": "beat_raise",
+     "bs_class": "moderate"
+    },
+    "history": [
+     {
+      "date": "2026-08-03",
+      "total": 76,
+      "event": "baseline"
+     }
+    ]
+   },
+   "pies": [
+    "exponential-convergence"
+   ]
+  },
+  {
+   "ticker": "VRT",
+   "name": "Vertiv Holdings Co",
+   "sector": "Industrials/Technology - Data Center Power & Cooling Infrastructure",
+   "currency": "USD",
+   "last_report": {
+    "fiscal_quarter": "Q2 2026",
+    "report_date": "2026-07-29"
+   },
+   "next_earnings": "late October 2026 (approx, Q3 2026)",
+   "revenue": {
+    "ttm_b": 11.48,
+    "latest_q_b": 3.27,
+    "latest_q_yoy_pct": 24.1,
+    "prior_q_yoy_pct": 30.1
+   },
+   "margins": {
+    "gross_pct": 38.0,
+    "operating_pct": 20.0,
+    "fcf_margin_pct": 25.5,
+    "trend_note": "Margins expanding strongly: Q2 2026 adjusted operating margin 22.6%, up 410 bps YoY, with gross margin ~37.7% vs 34.0% a year ago as pricing more than offsets tariffs."
+   },
+   "fcf": {
+    "ttm_b": 2.93,
+    "yoy_pct": null,
+    "note": "Q2 2026 adjusted FCF $925M, +234% YoY; H1 2026 FCF ~$1.58B vs ~$0.54B H1 2025; prior-year TTM not directly disclosed so YoY pct set null, but trajectory is steeply positive."
+   },
+   "balance_sheet": {
+    "cash_b": 2.81,
+    "total_debt_b": 2.94,
+    "net_position_b": -0.13,
+    "note": "Essentially net-cash-neutral (cash $2.8B vs $2.9B debt) with $5.6B total liquidity \u2014 very low leverage for the growth being funded."
+   },
+   "segments": [
+    {
+     "name": "Americas",
+     "latest_q_yoy_pct": 29.2,
+     "note": "Revenue $2.07B, adjusted operating margin 27.6%; hyperscaler/colocation demand core."
+    },
+    {
+     "name": "Asia Pacific",
+     "latest_q_yoy_pct": 28.5,
+     "note": "Revenue $0.72B, margin 13.3%; broad-based acceleration."
+    },
+    {
+     "name": "EMEA",
+     "latest_q_yoy_pct": 1.7,
+     "note": "Revenue $0.48B, margin 25.7%; regional laggard this cycle."
+    }
+   ],
+   "guidance_note": "Raised FY2026 guidance across all key metrics on 29 July: sales to $13.8-14.2B (~37% growth at midpoint), adjusted EPS to $6.65-6.75 (+~60%) and adjusted FCF to $2.4-2.6B \u2014 Vertiv no longer quantifies backlog in releases (last disclosed: $15.0B at YE2025, +109% YoY) but cites 'strong backlog' and another year of robust orders growth.",
+   "execution_note": "Clear beat-and-raise cadence: Q2 EPS beat (adj EPS +60%) after a Q1 beat-and-raise, though revenue landed only roughly in line with elevated expectations, briefly pressuring the stock.",
+   "moat": {
+    "rating_1to5": 3,
+    "note": "Scale, installed-base service network and deep hyperscaler co-design relationships in power/thermal management (notably liquid cooling) create switching costs, but competition (Schneider, Eaton, emerging cooling players) limits durability versus true franchise moats."
+   },
+   "risks": [
+    "Hyperscaler capex concentration/cyclicality",
+    "Competitive pricing pressure in cooling and power",
+    "Tariff and supply-chain cost exposure"
+   ],
+   "data_confidence": "high",
+   "sources": [
+    "https://www.stocktitan.net/news/VRT/vertiv-reports-strong-second-quarter-2026-with-diluted-eps-growth-of-dnjtqqrixoo1.html",
+    "https://www.prnewswire.com/news-releases/vertiv-reports-strong-second-quarter-2026-with-diluted-eps-growth-of-53-adjusted-diluted-eps-growth-of-60-raises-full-year-2026-guidance-across-all-key-metrics-302837598.html",
+    "https://stockanalysis.com/stocks/VRT/statistics/",
+    "https://stockanalysis.com/stocks/VRT/financials/?p=quarterly",
+    "https://www.investing.com/news/company-news/vertiv-q2-2026-slides-60-eps-growth-raised-fullyear-outlook-93CH-4824148"
+   ],
+   "score": {
+    "total": 74,
+    "band": "Strong",
+    "subscores": {
+     "growth": {
+      "points": 14,
+      "max": 25,
+      "detail": {
+       "pace": 10,
+       "acceleration": 1,
+       "breadth": 3
+      }
+     },
+     "profitability": {
+      "points": 16,
+      "max": 20,
+      "detail": {
+       "level": 6,
+       "trend": 10
+      }
+     },
+     "cash": {
+      "points": 18,
+      "max": 20,
+      "detail": {
+       "fcf_margin": 8,
+       "trajectory": 10
+      }
+     },
+     "balance_sheet": {
+      "points": 12,
+      "max": 15,
+      "detail": {
+       "class": "neutral"
+      }
+     },
+     "moat": {
+      "points": 9,
+      "max": 15,
+      "detail": {
+       "rating": 3
+      }
+     },
+     "execution": {
+      "points": 5,
+      "max": 5,
+      "detail": {
+       "class": "beat_raise"
+      }
+     }
+    },
+    "judgment": {
+     "op_trend": "expanding",
+     "fcf_trend": "surging",
+     "exec_class": "beat_raise",
+     "bs_class": "neutral"
+    },
+    "history": [
+     {
+      "date": "2026-08-03",
+      "total": 74,
+      "event": "baseline"
+     }
+    ]
+   },
+   "pies": [
+    "exponential-convergence"
+   ]
+  },
+  {
+   "ticker": "TMO",
+   "name": "Thermo Fisher Scientific",
+   "sector": "Healthcare - Life Sciences Tools & Services",
+   "currency": "USD",
+   "last_report": {
+    "fiscal_quarter": "Q2 2026",
+    "report_date": "2026-07-23"
+   },
+   "next_earnings": "late October 2026 (approx)",
+   "revenue": {
+    "ttm_b": 46.34,
+    "latest_q_b": 11.99,
+    "latest_q_yoy_pct": 10.5,
+    "prior_q_yoy_pct": 6.2
+   },
+   "margins": {
+    "gross_pct": 41.0,
+    "operating_pct": 17.6,
+    "fcf_margin_pct": 15.8,
+    "trend_note": "Margins are expanding: Q2 GAAP operating margin 17.4% vs 16.9% a year ago and adjusted operating margin 22.8% vs 21.9%."
+   },
+   "fcf": {
+    "ttm_b": 7.32,
+    "yoy_pct": null,
+    "note": "H1 2026 FCF $2.50B vs $1.48B prior year (+69%); TTM FCF per stockanalysis.com, TTM YoY not directly disclosed."
+   },
+   "balance_sheet": {
+    "cash_b": 4.06,
+    "total_debt_b": 42.55,
+    "net_position_b": -38.49,
+    "note": "Net debt elevated after recent M&A but comfortably serviced by ~$7B+ annual FCF; investment-grade leverage profile."
+   },
+   "segments": [
+    {
+     "name": "Life Sciences Solutions",
+     "latest_q_yoy_pct": 12.6,
+     "note": "Bioprocessing-led reacceleration"
+    },
+    {
+     "name": "Analytical Instruments",
+     "latest_q_yoy_pct": 6.9,
+     "note": "Recovering instrument demand"
+    },
+    {
+     "name": "Specialty Diagnostics",
+     "latest_q_yoy_pct": 6.3,
+     "note": "Steady growth"
+    },
+    {
+     "name": "Laboratory Products & Biopharma Services",
+     "latest_q_yoy_pct": 11.6,
+     "note": "Largest segment, strong services demand"
+    }
+   ],
+   "guidance_note": "Raised FY2026 guidance to revenue of $47.4-48.1B and adjusted EPS of $24.93-25.33, implying management sees organic growth reaccelerating.",
+   "execution_note": "Q2 beat revenue estimates by roughly $300M and adjusted EPS by $0.30, continuing a beat-and-raise pattern with organic growth back at 5%.",
+   "moat": {
+    "rating_1to5": 4,
+    "note": "Unmatched scale and breadth in life-science tools, consumables and pharma services create high switching costs and razor-and-blade recurring revenue; durable through funding cycles."
+   },
+   "risks": [
+    "US academic/government research funding cuts",
+    "Pharma policy and tariff exposure",
+    "China demand softness"
+   ],
+   "data_confidence": "high",
+   "sources": [
+    "https://www.stocktitan.net/news/TMO/thermo-fisher-scientific-reports-second-quarter-2026-yiy3xm2n7ozp.html",
+    "https://stockanalysis.com/stocks/TMO/statistics/",
+    "https://stockanalysis.com/stocks/TMO/financials/?p=quarterly",
+    "https://www.gurufocus.com/news/8975616/thermo-fisher-scientific-tmo-reports-strong-q2-2026-earnings-and-raises-guidance"
+   ],
+   "score": {
+    "total": 70,
+    "band": "Strong",
+    "subscores": {
+     "growth": {
+      "points": 17,
+      "max": 25,
+      "detail": {
+       "pace": 7,
+       "acceleration": 5,
+       "breadth": 5
+      }
+     },
+     "profitability": {
+      "points": 14,
+      "max": 20,
+      "detail": {
+       "level": 4,
+       "trend": 10
+      }
+     },
+     "cash": {
+      "points": 16,
+      "max": 20,
+      "detail": {
+       "fcf_margin": 6,
+       "trajectory": 10
+      }
+     },
+     "balance_sheet": {
+      "points": 6,
+      "max": 15,
+      "detail": {
+       "class": "elevated"
+      }
+     },
+     "moat": {
+      "points": 12,
+      "max": 15,
+      "detail": {
+       "rating": 4
+      }
+     },
+     "execution": {
+      "points": 5,
+      "max": 5,
+      "detail": {
+       "class": "beat_raise"
+      }
+     }
+    },
+    "judgment": {
+     "op_trend": "expanding",
+     "fcf_trend": "surging",
+     "exec_class": "beat_raise",
+     "bs_class": "elevated"
+    },
+    "history": [
+     {
+      "date": "2026-08-03",
+      "total": 70,
+      "event": "baseline"
+     }
+    ]
+   },
+   "pies": [
+    "exponential-convergence"
+   ]
+  },
+  {
+   "ticker": "ETN",
+   "name": "Eaton",
+   "sector": "Industrials - Electrical Equipment",
+   "currency": "USD",
+   "last_report": {
+    "fiscal_quarter": "Q2 2026",
+    "report_date": "2026-07-30"
+   },
+   "next_earnings": "early November 2026 (approx)",
+   "revenue": {
+    "ttm_b": 30.03,
+    "latest_q_b": 8.53,
+    "latest_q_yoy_pct": 21.4,
+    "prior_q_yoy_pct": 16.8
+   },
+   "margins": {
+    "gross_pct": 35.9,
+    "operating_pct": 17.7,
+    "fcf_margin_pct": 13.1,
+    "trend_note": "Segment margins hit a record 23.1% and are expanding sequentially, though GAAP gross margin is diluted versus a year ago by recently acquired businesses."
+   },
+   "fcf": {
+    "ttm_b": 3.93,
+    "yoy_pct": null,
+    "note": "TTM FCF summed from quarterly statements; Q2 2026 FCF $874M was up 22% YoY."
+   },
+   "balance_sheet": {
+    "cash_b": 0.7,
+    "total_debt_b": 20.61,
+    "net_position_b": -19.92,
+    "note": "Net debt stepped up to fund acquisitions but remains moderate against $20.3B equity and rapidly growing earnings."
+   },
+   "segments": [
+    {
+     "name": "Electrical Americas",
+     "latest_q_yoy_pct": 18.0,
+     "note": "Organic growth; 27.5% margin, backlog +33% YoY, rolling orders +41%"
+    },
+    {
+     "name": "Electrical Global",
+     "latest_q_yoy_pct": 18.0,
+     "note": "Organic (44% total incl. acquisitions); backlog +103% YoY"
+    },
+    {
+     "name": "Aerospace",
+     "latest_q_yoy_pct": 7.0,
+     "note": "Organic growth; backlog +28% YoY"
+    }
+   ],
+   "guidance_note": "Raised FY2026 organic growth guidance to 11-13% with adjusted EPS of $13.40-13.60 (+12% at midpoint), reflecting accelerating data-center-driven orders and backlog.",
+   "execution_note": "Beat-and-raise quarter: record Q2 revenue of $8.5B with 14% organic growth and adjusted EPS $3.15 topping estimates.",
+   "moat": {
+    "rating_1to5": 4,
+    "note": "Entrenched position in electrical power distribution with spec-driven, code-critical products and multi-year backlog visibility from data-center electrification; durable advantage."
+   },
+   "risks": [
+    "Concentration in data-center capex cycle",
+    "Acquisition integration and margin dilution",
+    "Capacity expansion execution"
+   ],
+   "data_confidence": "high",
+   "sources": [
+    "https://www.businesswire.com/news/home/20260730561562/en/Eaton-Reports-Record-Second-Quarter-2026-Results-with-Strong-Organic-Growth-Accelerating-Orders-and-Backlog-and-Raises-Organic-Growth-Guidance",
+    "https://stockanalysis.com/stocks/ETN/financials/?p=quarterly",
+    "https://stockanalysis.com/stocks/ETN/financials/cash-flow-statement/?p=quarterly",
+    "https://www.investing.com/news/transcripts/earnings-call-transcript-eaton-tops-q2-2026-estimates-and-lifts-outlook-93CH-4829020"
+   ],
+   "score": {
+    "total": 70,
+    "band": "Strong",
+    "subscores": {
+     "growth": {
+      "points": 20,
+      "max": 25,
+      "detail": {
+       "pace": 10,
+       "acceleration": 5,
+       "breadth": 5
+      }
+     },
+     "profitability": {
+      "points": 14,
+      "max": 20,
+      "detail": {
+       "level": 4,
+       "trend": 10
+      }
+     },
+     "cash": {
+      "points": 13,
+      "max": 20,
+      "detail": {
+       "fcf_margin": 6,
+       "trajectory": 7
+      }
+     },
+     "balance_sheet": {
+      "points": 6,
+      "max": 15,
+      "detail": {
+       "class": "elevated"
+      }
+     },
+     "moat": {
+      "points": 12,
+      "max": 15,
+      "detail": {
+       "rating": 4
+      }
+     },
+     "execution": {
+      "points": 5,
+      "max": 5,
+      "detail": {
+       "class": "beat_raise"
+      }
+     }
+    },
+    "judgment": {
+     "op_trend": "expanding",
+     "fcf_trend": "growing",
+     "exec_class": "beat_raise",
+     "bs_class": "elevated"
+    },
+    "history": [
+     {
+      "date": "2026-08-03",
+      "total": 70,
+      "event": "baseline"
+     }
+    ]
+   },
+   "pies": [
+    "exponential-convergence"
+   ]
+  },
+  {
+   "ticker": "NFLX",
+   "name": "Netflix, Inc.",
+   "sector": "Communication Services",
+   "currency": "USD",
+   "last_report": {
+    "fiscal_quarter": "Q2 2026 (ended 2026-06-30)",
+    "report_date": "2026-07-16"
+   },
+   "next_earnings": "mid-October 2026 (est.)",
+   "revenue": {
+    "ttm_b": 48.4,
+    "latest_q_b": 12.6,
+    "latest_q_yoy_pct": 13.4,
+    "prior_q_yoy_pct": 16.2
+   },
+   "margins": {
+    "gross_pct": 51.9,
+    "operating_pct": 33.4,
+    "fcf_margin_pct": 23.1,
+    "trend_note": "Q2 operating margin was roughly flat vs a year ago (33.4% vs 34.1%), but the reaffirmed 31.5% full-year target still implies modest annual margin expansion."
+   },
+   "fcf": {
+    "ttm_b": 11.2,
+    "yoy_pct": 31.2,
+    "note": "TTM FCF ~$11.2B vs ~$8.5B a year earlier; management maintained its ~$12.5B FY2026 FCF target - Netflix is past peak content-spend strain and is not exposed to hyperscaler-style AI capex."
+   },
+   "balance_sheet": {
+    "cash_b": 9.1,
+    "total_debt_b": 14.3,
+    "net_position_b": -5.2,
+    "note": "Modest net debt of ~$5.2B (under 0.5x TTM FCF) - lightly levered with debt comfortably covered by cash generation."
+   },
+   "segments": [
+    {
+     "name": "Streaming (single segment) - Advertising tier",
+     "latest_q_yoy_pct": null,
+     "note": "Ads revenue on track for ~$3B in 2026, the key incremental growth driver; per-segment YoY not disclosed"
+    }
+   ],
+   "guidance_note": "Guidance was trimmed: Q3 revenue guided to $12.86B vs ~$13.0B Street and full-year revenue narrowed to $51.0-51.4B, though the 31.5% margin and ~$12.5B FCF targets were reaffirmed - implying decelerating but profitable growth.",
+   "execution_note": "Q2 was essentially in line (revenue a hair below consensus, EPS $0.80 slight beat), but the stock dropped on the lower Q3 outlook, breaking a long streak of clean beats.",
+   "moat": {
+    "rating_1to5": 4,
+    "note": "Scale advantages in content spend, global distribution and recommendation data sustain leadership, but the moat is narrower than platform peers as content must be continually re-earned and engagement growth has slowed to ~2%."
+   },
+   "risks": [
+    "Decelerating revenue growth and soft (~2%) viewing-hours growth",
+    "Reduced disclosure (viewing data cut) raising transparency concerns",
+    "Ad business must scale to offset maturing subscriptions"
+   ],
+   "data_confidence": "high",
+   "sources": [
+    "https://stockanalysis.com/stocks/NFLX/financials/?p=quarterly",
+    "https://stockanalysis.com/stocks/NFLX/financials/balance-sheet/?p=quarterly",
+    "https://stockanalysis.com/stocks/NFLX/financials/cash-flow-statement/?p=quarterly",
+    "https://www.insiderfinance.io/news/netflix-q2-2026-earnings-cut-viewing-data-trim-guidance",
+    "https://variety.com/2026/tv/news/netflix-q2-2026-earnings-1236812558/"
+   ],
+   "score": {
+    "total": 66,
+    "band": "Solid",
+    "subscores": {
+     "growth": {
+      "points": 11,
+      "max": 25,
+      "detail": {
+       "pace": 7,
+       "acceleration": 1,
+       "breadth": 3
+      }
+     },
+     "profitability": {
+      "points": 14,
+      "max": 20,
+      "detail": {
+       "level": 8,
+       "trend": 6
+      }
+     },
+     "cash": {
+      "points": 15,
+      "max": 20,
+      "detail": {
+       "fcf_margin": 8,
+       "trajectory": 7
+      }
+     },
+     "balance_sheet": {
+      "points": 12,
+      "max": 15,
+      "detail": {
+       "class": "neutral"
+      }
+     },
+     "moat": {
+      "points": 12,
+      "max": 15,
+      "detail": {
+       "rating": 4
+      }
+     },
+     "execution": {
+      "points": 2,
+      "max": 5,
+      "detail": {
+       "class": "mixed"
+      }
+     }
+    },
+    "judgment": {
+     "op_trend": "flat",
+     "fcf_trend": "growing",
+     "exec_class": "mixed",
+     "bs_class": "neutral"
+    },
+    "history": [
+     {
+      "date": "2026-08-03",
+      "total": 66,
+      "event": "baseline"
+     }
+    ]
+   },
+   "pies": [
+    "bankers"
+   ]
+  },
+  {
+   "ticker": "CAT",
+   "name": "Caterpillar",
+   "sector": "Industrials - Construction & Mining Machinery",
+   "currency": "USD",
+   "last_report": {
+    "fiscal_quarter": "Q1 2026",
+    "report_date": "2026-04-30"
+   },
+   "next_earnings": "2026-08-04",
+   "revenue": {
+    "ttm_b": 70.76,
+    "latest_q_b": 17.42,
+    "latest_q_yoy_pct": 22.2,
+    "prior_q_yoy_pct": 18.0
+   },
+   "margins": {
+    "gross_pct": 28.6,
+    "operating_pct": 17.4,
+    "fcf_margin_pct": 11.2,
+    "trend_note": "Margins are slightly compressing despite booming revenue: Q1 adjusted operating margin was 18.0% vs 18.3% a year ago on tariff costs and capacity investment."
+   },
+   "fcf": {
+    "ttm_b": 7.9,
+    "yoy_pct": null,
+    "note": "Q1 industrial (MP&E) FCF roughly $600M vs ~$250M a year earlier; enterprise operating cash flow $1.9B in Q1; TTM per stockanalysis.com."
+   },
+   "balance_sheet": {
+    "cash_b": 3.32,
+    "total_debt_b": 43.07,
+    "net_position_b": -39.75,
+    "note": "Most debt sits in the Cat Financial captive; industrial leverage is low and the company still repurchased $5.0B of stock in Q1."
+   },
+   "segments": [
+    {
+     "name": "Construction Industries",
+     "latest_q_yoy_pct": 38.0,
+     "note": "$7.2B revenue, strongest growth"
+    },
+    {
+     "name": "Resource Industries",
+     "latest_q_yoy_pct": 4.0,
+     "note": "$3.8B revenue, mining steady"
+    },
+    {
+     "name": "Power & Energy (formerly Energy & Transportation)",
+     "latest_q_yoy_pct": 22.0,
+     "note": "$7.0B revenue, data-center/hyperscaler power demand; total backlog record $63B, +79% YoY"
+    }
+   ],
+   "guidance_note": "FY2026 outlook raised to low-double-digit sales growth even while absorbing an estimated $2.2-2.4B of tariff costs that keep margins near the bottom of the target range.",
+   "execution_note": "Q1 was a large beat (adjusted EPS $5.54 vs $4.25 a year ago, revenue +22%) with a record backlog; Q2 results due 4 August 2026.",
+   "moat": {
+    "rating_1to5": 4,
+    "note": "Unrivaled global dealer network, aftermarket parts annuity and brand strength, now amplified by structural power-generation demand; highly durable though cyclical."
+   },
+   "risks": [
+    "Tariff cost absorption of $2.2-2.4B",
+    "Cyclicality if data-center capex slows",
+    "Q2 report imminent - figures may change within days"
+   ],
+   "data_confidence": "high",
+   "sources": [
+    "https://www.caterpillar.com/en/news/corporate-press-releases/h/1q26-results-caterpillar-inc.html",
+    "https://stockanalysis.com/stocks/CAT/statistics/",
+    "https://stockanalysis.com/stocks/CAT/financials/?p=quarterly",
+    "https://finance.biggo.com/news/US_CAT_2026-04-30"
+   ],
+   "score": {
+    "total": 63,
+    "band": "Solid",
+    "subscores": {
+     "growth": {
+      "points": 18,
+      "max": 25,
+      "detail": {
+       "pace": 10,
+       "acceleration": 5,
+       "breadth": 3
+      }
+     },
+     "profitability": {
+      "points": 6,
+      "max": 20,
+      "detail": {
+       "level": 4,
+       "trend": 2
+      }
+     },
+     "cash": {
+      "points": 13,
+      "max": 20,
+      "detail": {
+       "fcf_margin": 6,
+       "trajectory": 7
+      }
+     },
+     "balance_sheet": {
+      "points": 9,
+      "max": 15,
+      "detail": {
+       "class": "moderate"
+      }
+     },
+     "moat": {
+      "points": 12,
+      "max": 15,
+      "detail": {
+       "rating": 4
+      }
+     },
+     "execution": {
+      "points": 5,
+      "max": 5,
+      "detail": {
+       "class": "beat_raise"
+      }
+     }
+    },
+    "judgment": {
+     "op_trend": "compressing",
+     "fcf_trend": "growing",
+     "exec_class": "beat_raise",
+     "bs_class": "moderate"
+    },
+    "history": [
+     {
+      "date": "2026-08-03",
+      "total": 63,
+      "event": "baseline"
+     }
+    ]
+   },
+   "pies": [
+    "exponential-convergence"
+   ]
+  },
+  {
+   "ticker": "META",
+   "name": "Meta Platforms, Inc.",
+   "sector": "Communication Services",
+   "currency": "USD",
+   "last_report": {
+    "fiscal_quarter": "Q2 2026 (ended 2026-06-30)",
+    "report_date": "2026-07-29"
+   },
+   "next_earnings": "late October 2026 (est.)",
+   "revenue": {
+    "ttm_b": 228.2,
+    "latest_q_b": 60.8,
+    "latest_q_yoy_pct": 28.0,
+    "prior_q_yoy_pct": 33.1
+   },
+   "margins": {
+    "gross_pct": 81.4,
+    "operating_pct": 30.9,
+    "fcf_margin_pct": 18.0,
+    "trend_note": "Margins compressed sharply in Q2 (operating 31% vs 43% a year ago), though $2.4B legal charges and $1.18B severance explain most of it - ex-items operating income still grew 9% vs 28% revenue growth."
+   },
+   "fcf": {
+    "ttm_b": 41.0,
+    "yoy_pct": -18.3,
+    "note": "TTM FCF ~$41.0B, down ~18% y/y; Q2 company-defined FCF collapsed 91% to $0.8B as $31.1B quarterly capex consumed nearly all operating cash flow."
+   },
+   "balance_sheet": {
+    "cash_b": 90.3,
+    "total_debt_b": 83.7,
+    "net_position_b": 6.6,
+    "note": "Net cash has shrunk to ~$7B after ~$25B of net debt issuance in H1 2026 to fund AI capex - a clear shift toward leverage for a formerly cash-rich company."
+   },
+   "segments": [
+    {
+     "name": "Family of Apps - Advertising",
+     "latest_q_yoy_pct": 27.0,
+     "note": "$59.4B; impressions +14%, price per ad +12%"
+    },
+    {
+     "name": "Reality Labs",
+     "latest_q_yoy_pct": 16.0,
+     "note": "$431M revenue, $4.62B operating loss (smaller than feared)"
+    }
+   ],
+   "guidance_note": "Q3 revenue guided to $61-64B (midpoint ~1% below consensus) and the 2026 capex floor was raised to $130-145B - growth maintained but spending guidance effectively raised, spooking the market.",
+   "execution_note": "Mixed quarter: revenue beat consensus but GAAP EPS of $6.18 missed by ~14% on legal/severance charges, and shares fell 8-10% after hours.",
+   "moat": {
+    "rating_1to5": 4,
+    "note": "3B+ user network effects and an AI-driven ad machine (impressions and pricing both rising double digits) are highly durable, but the moat doesn't extend to its speculative AI/metaverse bets."
+   },
+   "risks": [
+    "Capex ($130-145B) crushing FCF and now funded partly with debt",
+    "Recurring regulatory/legal charges (EU/US)",
+    "Q3 guide below Street suggests decelerating momentum"
+   ],
+   "data_confidence": "high",
+   "sources": [
+    "https://stockanalysis.com/stocks/META/financials/?p=quarterly",
+    "https://stockanalysis.com/stocks/META/financials/cash-flow-statement/?p=quarterly",
+    "https://www.digitalapplied.com/blog/meta-q2-2026-earnings-ad-strength-capex-selloff",
+    "https://investor.atmeta.com/investor-news/press-release-details/2026/Meta-Reports-Second-Quarter-2026-Results/default.aspx"
+   ],
+   "score": {
+    "total": 63,
+    "band": "Solid",
+    "subscores": {
+     "growth": {
+      "points": 19,
+      "max": 25,
+      "detail": {
+       "pace": 13,
+       "acceleration": 1,
+       "breadth": 5
+      }
+     },
+     "profitability": {
+      "points": 10,
+      "max": 20,
+      "detail": {
+       "level": 8,
+       "trend": 2
+      }
+     },
+     "cash": {
+      "points": 8,
+      "max": 20,
+      "detail": {
+       "fcf_margin": 6,
+       "trajectory": 2
+      }
+     },
+     "balance_sheet": {
+      "points": 12,
+      "max": 15,
+      "detail": {
+       "class": "neutral"
+      }
+     },
+     "moat": {
+      "points": 12,
+      "max": 15,
+      "detail": {
+       "rating": 4
+      }
+     },
+     "execution": {
+      "points": 2,
+      "max": 5,
+      "detail": {
+       "class": "mixed"
+      }
+     }
+    },
+    "judgment": {
+     "op_trend": "compressing",
+     "fcf_trend": "declining",
+     "exec_class": "mixed",
+     "bs_class": "neutral"
+    },
+    "history": [
+     {
+      "date": "2026-08-03",
+      "total": 63,
+      "event": "baseline"
+     }
+    ]
+   },
+   "watch_note": "Q2 optics worse than reality (legal/severance charges), but underlying operating leverage has still turned negative while capex is debt-funded.",
+   "pies": [
+    "bankers"
+   ]
+  },
+  {
+   "ticker": "SIE",
+   "name": "Siemens AG",
+   "sector": "Industrials - Diversified Automation & Electrification",
+   "currency": "EUR",
+   "last_report": {
+    "fiscal_quarter": "FQ2 2026 (ended 2026-03-31)",
+    "report_date": "2026-05-13"
+   },
+   "next_earnings": "2026-08-06",
+   "revenue": {
+    "ttm_b": 79.7,
+    "latest_q_b": 19.8,
+    "latest_q_yoy_pct": 6.0,
+    "prior_q_yoy_pct": 8.0
+   },
+   "margins": {
+    "gross_pct": 38.8,
+    "operating_pct": 11.8,
+    "fcf_margin_pct": 13.3,
+    "trend_note": "Margins are broadly expanding, with Digital Industries recovering to an 18.5% profit margin and Smart Infrastructure at 18.6% in FQ2."
+   },
+   "fcf": {
+    "ttm_b": 10.62,
+    "yoy_pct": null,
+    "note": "FQ2 all-in FCF was EUR 1.7B; FQ1 FCF fell to EUR 0.68B (vs EUR 1.6B) on Mobility working-capital build; TTM per stockanalysis.com."
+   },
+   "balance_sheet": {
+    "cash_b": 8.66,
+    "total_debt_b": 54.16,
+    "net_position_b": -45.5,
+    "note": "Reported debt includes Siemens Financial Services' financing book, so industrial net debt is far lower; balance sheet remains strongly investment grade."
+   },
+   "segments": [
+    {
+     "name": "Digital Industries",
+     "latest_q_yoy_pct": 8.0,
+     "note": "FQ2 comparable revenue growth, orders +13% in FQ1; automation recovery underway, 18.5% margin"
+    },
+    {
+     "name": "Smart Infrastructure",
+     "latest_q_yoy_pct": 10.0,
+     "note": "Record orders (FQ1 +22%), 18.6% margin; electrification and data-center demand"
+    }
+   ],
+   "guidance_note": "FY2026 outlook confirmed at group level in May after being raised at Q1 (EPS pre-PPA lifted to EUR 10.70-11.10), with group orders +18%, book-to-bill 1.22 and a record ~EUR 120B backlog underpinning it.",
+   "execution_note": "Strong delivery pattern: FQ2 net income EUR 2.2B with orders well ahead of revenue, following an FQ1 beat that triggered a guidance raise.",
+   "moat": {
+    "rating_1to5": 4,
+    "note": "Massive installed base in factory automation and building/grid infrastructure plus the Xcelerator software stack create deep switching costs; durable across cycles."
+   },
+   "risks": [
+    "China/discrete automation cycle",
+    "Mobility project execution and working capital",
+    "Macro/tariff uncertainty flagged by management"
+   ],
+   "data_confidence": "high",
+   "sources": [
+    "https://assets.new.siemens.com/siemens/assets/api/uuid:b776bca3-2e57-41cb-bac4-319e0829bcfd/2026-q2-press-release-en.pdf",
+    "https://press.siemens.com/global/en/pressrelease/strong-start-fiscal-2026-outlook-raised",
+    "https://stockanalysis.com/quote/etr/SIE/statistics/"
+   ],
+   "score": {
+    "total": 62,
+    "band": "Solid",
+    "subscores": {
+     "growth": {
+      "points": 12,
+      "max": 25,
+      "detail": {
+       "pace": 4,
+       "acceleration": 3,
+       "breadth": 5
+      }
+     },
+     "profitability": {
+      "points": 14,
+      "max": 20,
+      "detail": {
+       "level": 4,
+       "trend": 10
+      }
+     },
+     "cash": {
+      "points": 10,
+      "max": 20,
+      "detail": {
+       "fcf_margin": 6,
+       "trajectory": 4
+      }
+     },
+     "balance_sheet": {
+      "points": 9,
+      "max": 15,
+      "detail": {
+       "class": "moderate"
+      }
+     },
+     "moat": {
+      "points": 12,
+      "max": 15,
+      "detail": {
+       "rating": 4
+      }
+     },
+     "execution": {
+      "points": 5,
+      "max": 5,
+      "detail": {
+       "class": "beat_raise"
+      }
+     }
+    },
+    "judgment": {
+     "op_trend": "expanding",
+     "fcf_trend": "flat",
+     "exec_class": "beat_raise",
+     "bs_class": "moderate"
+    },
+    "history": [
+     {
+      "date": "2026-08-03",
+      "total": 62,
+      "event": "baseline"
+     }
+    ]
+   },
+   "pies": [
+    "exponential-convergence"
+   ]
+  },
+  {
+   "ticker": "CEG",
+   "name": "Constellation Energy Corporation",
+   "sector": "Utilities - Independent Power / Nuclear Generation",
+   "currency": "USD",
+   "last_report": {
+    "fiscal_quarter": "Q1 2026",
+    "report_date": "2026-05-11"
+   },
+   "next_earnings": "2026-08-06",
+   "revenue": {
+    "ttm_b": 29.87,
+    "latest_q_b": 11.12,
+    "latest_q_yoy_pct": 63.9,
+    "prior_q_yoy_pct": 12.9
+   },
+   "margins": {
+    "gross_pct": 22.8,
+    "operating_pct": 16.6,
+    "fcf_margin_pct": 3.8,
+    "trend_note": "Margins expanding sharply: Q1 2026 operating margin ~21% vs 6.6% a year ago on Calpine consolidation, nuclear PTC floor support and favorable market conditions."
+   },
+   "fcf": {
+    "ttm_b": 1.14,
+    "yoy_pct": null,
+    "note": "TTM FCF ~$1.1B is noisy: Q1 2026 FCF was -$0.85B (operating cash flow only $425M) on Calpine deal costs, working capital and heavy capex; prior-year TTM base not cleanly comparable pre/post Calpine, so YoY set null."
+   },
+   "balance_sheet": {
+    "cash_b": 1.17,
+    "total_debt_b": 22.1,
+    "net_position_b": -20.9,
+    "note": "Leverage stepped up materially with the January 2026 Calpine close ($5.1B short-term borrowings plus ~$17.0B long-term debt vs ~$1.2B cash), shifting CEG from a lightly-levered to a conventionally-levered IPP balance sheet."
+   },
+   "segments": [
+    {
+     "name": "Nuclear fleet",
+     "latest_q_yoy_pct": null,
+     "note": "Q1 2026 output 44,666 GWh at 92.3% capacity factor (ex-Salem/STP); nuclear PTC underpins downside."
+    },
+    {
+     "name": "Calpine (gas & geothermal)",
+     "latest_q_yoy_pct": null,
+     "note": "Consolidated from January 2026; drove most of the +64% revenue jump and adjusted EPS accretion."
+    },
+    {
+     "name": "Data-center contracting",
+     "latest_q_yoy_pct": null,
+     "note": "CyrusOne Freestone net-metering approval plus exclusive Phase 2 (+380 MW); management frames $0.20-0.50 EPS per 1,000 MW deployed."
+    }
+   ],
+   "guidance_note": "Affirmed FY2026 adjusted operating EPS guidance of $11.00-12.00 (vs $2.74 delivered in Q1 vs $2.14 prior year), implying confidence in Calpine accretion and data-center monetization; Q2 2026 results due 6 Aug 2026.",
+   "execution_note": "Q1 2026 beat expectations (GAAP EPS $4.49 vs $0.38 prior year; adjusted EPS +28% YoY) continuing a pattern of meeting-or-beating while integrating Calpine.",
+   "moat": {
+    "rating_1to5": 4,
+    "note": "Largest US nuclear fleet \u2014 an effectively irreplicable, carbon-free baseload asset with PTC-floor downside protection and unique leverage to premium 24/7 power deals with hyperscalers; commodity power price exposure tempers but does not erase the advantage."
+   },
+   "risks": [
+    "Calpine integration and elevated leverage",
+    "Power price / policy (PTC, PJM auction) exposure",
+    "Timing and regulatory approval of data-center deals"
+   ],
+   "data_confidence": "high",
+   "sources": [
+    "https://www.stocktitan.net/sec-filings/CEG/8-k-constellation-energy-corp-reports-material-event-111d3b4cfb03.html",
+    "https://stockanalysis.com/stocks/CEG/financials/?p=quarterly",
+    "https://www.macrotrends.net/stocks/charts/CEG/constellation-energy/cash-on-hand",
+    "https://investors.constellationenergy.com/events/event-details/q2-2026-constellation-energy-corporation-earnings-conference-call"
+   ],
+   "score": {
+    "total": 61,
+    "band": "Solid",
+    "subscores": {
+     "growth": {
+      "points": 23,
+      "max": 25,
+      "detail": {
+       "pace": 15,
+       "acceleration": 5,
+       "breadth": 3
+      }
+     },
+     "profitability": {
+      "points": 14,
+      "max": 20,
+      "detail": {
+       "level": 4,
+       "trend": 10
+      }
+     },
+     "cash": {
+      "points": 5,
+      "max": 20,
+      "detail": {
+       "fcf_margin": 3,
+       "trajectory": 2
+      }
+     },
+     "balance_sheet": {
+      "points": 3,
+      "max": 15,
+      "detail": {
+       "class": "heavy"
+      }
+     },
+     "moat": {
+      "points": 12,
+      "max": 15,
+      "detail": {
+       "rating": 4
+      }
+     },
+     "execution": {
+      "points": 4,
+      "max": 5,
+      "detail": {
+       "class": "beat"
+      }
+     }
+    },
+    "judgment": {
+     "op_trend": "expanding",
+     "fcf_trend": "declining",
+     "exec_class": "beat",
+     "bs_class": "heavy"
+    },
+    "history": [
+     {
+      "date": "2026-08-03",
+      "total": 61,
+      "event": "baseline"
+     }
+    ]
+   },
+   "watch_note": "Calpine consolidation makes YoY comparisons noisy for ~3 more quarters; leverage stepped up materially.",
+   "pies": [
+    "exponential-convergence"
+   ]
+  },
+  {
+   "ticker": "AMZN",
+   "name": "Amazon.com, Inc.",
+   "sector": "Consumer Discretionary",
+   "currency": "USD",
+   "last_report": {
+    "fiscal_quarter": "Q2 2026 (ended 2026-06-30)",
+    "report_date": "2026-07-30"
+   },
+   "next_earnings": "late October 2026 (est.)",
+   "revenue": {
+    "ttm_b": 775.7,
+    "latest_q_b": 200.6,
+    "latest_q_yoy_pct": 19.6,
+    "prior_q_yoy_pct": 16.6
+   },
+   "margins": {
+    "gross_pct": 52.3,
+    "operating_pct": 13.7,
+    "fcf_margin_pct": -1.0,
+    "trend_note": "Operating margins are expanding strongly (13.7% vs 11.4% a year ago; operating income +43% to $27.5B) even as FCF margin turned negative on AI capex."
+   },
+   "fcf": {
+    "ttm_b": -7.6,
+    "yoy_pct": null,
+    "note": "Company-reported TTM FCF swung to a -$7.6B outflow from +$18.2B a year earlier (yoy % not meaningful on a sign flip); driven by AI/datacenter capex with 2026 capex guided to ~$220B."
+   },
+   "balance_sheet": {
+    "cash_b": 123.0,
+    "total_debt_b": 223.2,
+    "net_position_b": -100.2,
+    "note": "Net debt of ~$100B, though total debt includes large operating/finance lease obligations; leverage is comfortably serviceable given $27.5B quarterly operating income."
+   },
+   "segments": [
+    {
+     "name": "AWS",
+     "latest_q_yoy_pct": 37.0,
+     "note": "$42.2B, fastest growth in 18 quarters, ~39% operating margin, $16.6B operating income"
+    }
+   ],
+   "guidance_note": "Q3 guidance of $197-202B (~9-12% y/y) alongside a raised ~$220B 2026 capex plan - growth outlook maintained while investment guidance was raised again.",
+   "execution_note": "Topped Q2 estimates with accelerating AWS; headline net income of $62.6B was inflated by a $53.4B pre-tax Anthropic revaluation gain, so quality of the beat rests on the $27.5B operating income (+43%).",
+   "moat": {
+    "rating_1to5": 5,
+    "note": "Prime/logistics scale economies plus AWS switching costs and re-accelerating cloud leadership; among the most durable moats in commerce and infrastructure."
+   },
+   "risks": [
+    "Negative FCF from ~$220B capex until AI ROI proves out",
+    "Consumer spending/tariff sensitivity in retail",
+    "Rising debt and lease obligations"
+   ],
+   "data_confidence": "high",
+   "sources": [
+    "https://stockanalysis.com/stocks/AMZN/financials/?p=quarterly",
+    "https://stockanalysis.com/stocks/AMZN/financials/balance-sheet/?p=quarterly",
+    "https://ask-ayo.com/investing/amazon/amazon-q2-2026-earnings",
+    "https://www.aboutamazon.com/news/company-news/amazon-earnings-q2-2026-report"
+   ],
+   "score": {
+    "total": 60,
+    "band": "Solid",
+    "subscores": {
+     "growth": {
+      "points": 18,
+      "max": 25,
+      "detail": {
+       "pace": 10,
+       "acceleration": 5,
+       "breadth": 3
+      }
+     },
+     "profitability": {
+      "points": 14,
+      "max": 20,
+      "detail": {
+       "level": 4,
+       "trend": 10
+      }
+     },
+     "cash": {
+      "points": 0,
+      "max": 20,
+      "detail": {
+       "fcf_margin": 0,
+       "trajectory": 0
+      }
+     },
+     "balance_sheet": {
+      "points": 9,
+      "max": 15,
+      "detail": {
+       "class": "moderate"
+      }
+     },
+     "moat": {
+      "points": 15,
+      "max": 15,
+      "detail": {
+       "rating": 5
+      }
+     },
+     "execution": {
+      "points": 4,
+      "max": 5,
+      "detail": {
+       "class": "beat"
+      }
+     }
+    },
+    "judgment": {
+     "op_trend": "expanding",
+     "fcf_trend": "negative",
+     "exec_class": "beat",
+     "bs_class": "moderate"
+    },
+    "history": [
+     {
+      "date": "2026-08-03",
+      "total": 60,
+      "event": "baseline"
+     }
+    ]
+   },
+   "watch_note": "Operating income quality is strong (+43%); the FCF hole is a deliberate capex bet. Watch AWS growth vs capex trajectory.",
+   "pies": [
+    "bankers",
+    "exponential-convergence"
+   ]
+  },
+  {
+   "ticker": "TSLA",
+   "name": "Tesla",
+   "sector": "Consumer Cyclical - Auto Manufacturers / Energy",
+   "currency": "USD",
+   "last_report": {
+    "fiscal_quarter": "Q2 2026",
+    "report_date": "2026-07-22"
+   },
+   "next_earnings": "approx late October 2026 (Q3 2026)",
+   "revenue": {
+    "ttm_b": 103.6,
+    "latest_q_b": 28.24,
+    "latest_q_yoy_pct": 25.5,
+    "prior_q_yoy_pct": 15.8
+   },
+   "margins": {
+    "gross_pct": 16.8,
+    "operating_pct": 1.4,
+    "fcf_margin_pct": -3.9,
+    "trend_note": "Margins are compressing hard: operating margin fell to 1.4% from 4.1% a year ago and gross margin slipped to 16.8% from 17.2%, as pricing, mix and surging AI/robotaxi spend outweigh record volume."
+   },
+   "fcf": {
+    "ttm_b": 3.8,
+    "yoy_pct": null,
+    "note": "Q2 2026 FCF was negative $1.09B (OCF $4.70B minus record $5.79B capex) - first cash-burning quarter since early 2024; management says FCF could remain negative through end-2026 on >$25B FY26 capex."
+   },
+   "balance_sheet": {
+    "cash_b": 43.5,
+    "total_debt_b": 9.3,
+    "net_position_b": 34.2,
+    "note": "~$34B net cash gives ample capacity to fund the AI capex surge despite negative FCF; leverage minimal."
+   },
+   "segments": [
+    {
+     "name": "Automotive",
+     "latest_q_yoy_pct": 23.0,
+     "note": "$20.52B; deliveries 480,126, +25% YoY - best Q2 ever, a rebound after 2025's delivery declines"
+    },
+    {
+     "name": "Energy generation & storage",
+     "latest_q_yoy_pct": 13.0,
+     "note": "$3.14B revenue; 13.5 GWh deployed vs 9.6 GWh a year ago (+41% in GWh)"
+    },
+    {
+     "name": "Services & other",
+     "latest_q_yoy_pct": 50.0,
+     "note": "$4.58B, record profitability"
+    }
+   ],
+   "guidance_note": "No formal guidance, but management flagged FY26 capex above $25B with spending rising for 2-3 more years and possibly negative FCF through 2026, implying near-term profitability sacrificed for AI/robotaxi optionality.",
+   "execution_note": "Q2 2026 beat on revenue with record deliveries but missed on EPS ($0.33 non-GAAP vs ~$0.53 expected) as operating income fell 57% - a revenue-strong, margin-weak pattern.",
+   "moat": {
+    "rating_1to5": 3,
+    "note": "Scale manufacturing, charging network, brand and a large real-world driving data asset for autonomy; but the auto moat is eroding under Chinese EV competition and the FSD/robotaxi moat remains unproven."
+   },
+   "risks": [
+    "Operating margin near breakeven with negative FCF during capex surge",
+    "Intensifying EV price competition, especially from China",
+    "Valuation dependent on unproven robotaxi/Optimus payoff"
+   ],
+   "data_confidence": "high",
+   "sources": [
+    "https://electrek.co/2026/07/22/tesla-tsla-q2-2026-financial-results/",
+    "https://www.kucoin.com/blog/tesla-q2-2026-earnings-report",
+    "https://stockanalysis.com/stocks/tsla/financials/?p=quarterly",
+    "https://stockanalysis.com/stocks/tsla/financials/balance-sheet/?p=quarterly",
+    "https://ir.tesla.com/press-release/tesla-second-quarter-2026-production-deliveries-and-deployments"
+   ],
+   "score": {
+    "total": 53,
+    "band": "Watch",
+    "subscores": {
+     "growth": {
+      "points": 23,
+      "max": 25,
+      "detail": {
+       "pace": 13,
+       "acceleration": 5,
+       "breadth": 5
+      }
+     },
+     "profitability": {
+      "points": 4,
+      "max": 20,
+      "detail": {
+       "level": 2,
+       "trend": 2
+      }
+     },
+     "cash": {
+      "points": 0,
+      "max": 20,
+      "detail": {
+       "fcf_margin": 0,
+       "trajectory": 0
+      }
+     },
+     "balance_sheet": {
+      "points": 15,
+      "max": 15,
+      "detail": {
+       "class": "net_cash"
+      }
+     },
+     "moat": {
+      "points": 9,
+      "max": 15,
+      "detail": {
+       "rating": 3
+      }
+     },
+     "execution": {
+      "points": 2,
+      "max": 5,
+      "detail": {
+       "class": "mixed"
+      }
+     }
+    },
+    "judgment": {
+     "op_trend": "compressing",
+     "fcf_trend": "negative",
+     "exec_class": "mixed",
+     "bs_class": "net_cash"
+    },
+    "history": [
+     {
+      "date": "2026-08-03",
+      "total": 53,
+      "event": "baseline"
+     }
+    ]
+   },
+   "watch_note": "Revenue re-accelerated but the profit engine is near stall (1.4% op margin); the score reflects fundamentals today, not robotaxi optionality.",
+   "pies": [
+    "bankers",
+    "exponential-convergence"
+   ]
+  },
+  {
+   "ticker": "FCX",
+   "name": "Freeport-McMoRan Inc.",
+   "sector": "Materials - Copper (and gold/molybdenum) Mining",
+   "currency": "USD",
+   "last_report": {
+    "fiscal_quarter": "Q2 2026",
+    "report_date": "2026-07-23"
+   },
+   "next_earnings": "late October 2026 (approx, Q3 2026)",
+   "revenue": {
+    "ttm_b": 25.87,
+    "latest_q_b": 7.03,
+    "latest_q_yoy_pct": -7.3,
+    "prior_q_yoy_pct": 8.8
+   },
+   "margins": {
+    "gross_pct": 38.3,
+    "operating_pct": 27.3,
+    "fcf_margin_pct": 6.8,
+    "trend_note": "Margins recovering rather than cleanly expanding: record realized copper ($6.17/lb) lifted Q2 2026 gross margin to ~38.5% (vs ~35% in Q1 and 26.7% in Q4 2025), but $284M of Grasberg idle-facility/restoration costs and lower volumes keep profitability below full potential."
+   },
+   "fcf": {
+    "ttm_b": 1.76,
+    "yoy_pct": null,
+    "note": "Q2 2026 FCF ~$944M ($2,048M operating cash flow less $1,104M capex); H1 2026 FCF ~$1.47B vs ~$0.82B H1 2025; prior-year TTM base not verified so YoY pct null."
+   },
+   "balance_sheet": {
+    "cash_b": 4.08,
+    "total_debt_b": 9.39,
+    "net_position_b": -5.31,
+    "note": "Moderate leverage: company-defined net debt is only ~$2.1B (excluding PTFI downstream smelter facility debt), comfortably within its $3-4B target framework given ~$8.3B expected 2026 operating cash flow."
+   },
+   "segments": [
+    {
+     "name": "Copper",
+     "latest_q_yoy_pct": null,
+     "note": "Q2 sales 710M lbs at record $6.17/lb realized (US COMEX premium post-tariff), unit net cash cost $1.97/lb; FY26 guidance ~3.1B lbs as Grasberg ramps back (65% rate in H2 2026, ~full capacity end-2027 after the 2025 mud-rush incident)."
+    },
+    {
+     "name": "Gold",
+     "latest_q_yoy_pct": null,
+     "note": "Q2 sales 123k oz at $4,520/oz realized; FY26 guidance ~650k oz \u2014 gold by-product credits materially cushion costs."
+    }
+   ],
+   "guidance_note": "Guidance effectively raised/firmed: FY2026 copper sales ~3.1B lbs and gold ~650k oz with ~$8.3B operating cash flow and ~$4.3B capex, as the Grasberg recovery tracks on schedule \u2014 implying strong H2 volume and cash-flow acceleration.",
+   "execution_note": "Q2 2026 was a beat (adjusted EPS $0.74, net income $984M) and the Grasberg ramp-up has met or exceeded the recovery timeline laid out after the incident.",
+   "moat": {
+    "rating_1to5": 4,
+    "note": "Irreplaceable tier-one assets (Grasberg among the world's largest/lowest-cost copper-gold deposits, plus large-scale Americas leaching growth) confer a durable cost/resource moat, though it is a price-taker on a cyclical commodity."
+   },
+   "risks": [
+    "Grasberg ramp-up execution risk",
+    "Copper price and US premium volatility",
+    "Indonesia regulatory/fiscal and smelter obligations"
+   ],
+   "data_confidence": "high",
+   "sources": [
+    "https://www.stocktitan.net/sec-filings/FCX/8-k-freeport-mcmoran-inc-reports-material-event-4d50c58d801a.html",
+    "https://s22.q4cdn.com/529358580/files/doc_news/2026/FCX_260723_2Q_2026_Earnings_Release.pdf",
+    "https://stockanalysis.com/stocks/FCX/statistics/",
+    "https://stockanalysis.com/stocks/FCX/financials/?p=quarterly"
+   ],
+   "score": {
+    "total": 52,
+    "band": "Watch",
+    "subscores": {
+     "growth": {
+      "points": 5,
+      "max": 25,
+      "detail": {
+       "pace": 1,
+       "acceleration": 1,
+       "breadth": 3
+      }
+     },
+     "profitability": {
+      "points": 12,
+      "max": 20,
+      "detail": {
+       "level": 6,
+       "trend": 6
+      }
+     },
+     "cash": {
+      "points": 10,
+      "max": 20,
+      "detail": {
+       "fcf_margin": 3,
+       "trajectory": 7
+      }
+     },
+     "balance_sheet": {
+      "points": 9,
+      "max": 15,
+      "detail": {
+       "class": "moderate"
+      }
+     },
+     "moat": {
+      "points": 12,
+      "max": 15,
+      "detail": {
+       "rating": 4
+      }
+     },
+     "execution": {
+      "points": 4,
+      "max": 5,
+      "detail": {
+       "class": "beat"
+      }
+     }
+    },
+    "judgment": {
+     "op_trend": "flat",
+     "fcf_trend": "growing",
+     "exec_class": "beat",
+     "bs_class": "moderate"
+    },
+    "history": [
+     {
+      "date": "2026-08-03",
+      "total": 52,
+      "event": "baseline"
+     }
+    ]
+   },
+   "pies": [
+    "exponential-convergence"
+   ]
+  },
+  {
+   "ticker": "ORCL",
+   "name": "Oracle",
+   "sector": "Technology - Enterprise Software / Cloud Infrastructure",
+   "currency": "USD",
+   "last_report": {
+    "fiscal_quarter": "Q4 FY2026 (ended 2026-05-31)",
+    "report_date": "2026-06-10"
+   },
+   "next_earnings": "approx mid-September 2026 (Q1 FY27)",
+   "revenue": {
+    "ttm_b": 67.4,
+    "latest_q_b": 19.18,
+    "latest_q_yoy_pct": 20.6,
+    "prior_q_yoy_pct": 21.7
+   },
+   "margins": {
+    "gross_pct": 67.0,
+    "operating_pct": 30.6,
+    "fcf_margin_pct": -35.2,
+    "trend_note": "Operating margins broadly stable (FY26 GAAP operating income +17% in line with revenue; non-GAAP +16%) but gross margin is drifting down as low-margin IaaS mixes up, and FCF margin has collapsed deeply negative on AI capex."
+   },
+   "fcf": {
+    "ttm_b": -23.7,
+    "yoy_pct": null,
+    "note": "FY26 operating cash flow of $32.0B (+54%) was overwhelmed by capex, driving FCF to negative $23.7B; FCF was roughly breakeven a year earlier, so the swing is entirely AI data-center buildout."
+   },
+   "balance_sheet": {
+    "cash_b": 31.9,
+    "total_debt_b": 156.2,
+    "net_position_b": -124.3,
+    "note": "Heavily levered with ~$156B total debt (incl. leases) vs ~$32B cash, a ~$124B net debt position that is growing to fund the $638B RPO backlog buildout."
+   },
+   "segments": [
+    {
+     "name": "Cloud IaaS (OCI)",
+     "latest_q_yoy_pct": 93.0,
+     "note": "$5.8B in Q4 FY26"
+    },
+    {
+     "name": "Cloud SaaS",
+     "latest_q_yoy_pct": 10.0,
+     "note": "$4.1B in Q4 FY26"
+    },
+    {
+     "name": "Total cloud",
+     "latest_q_yoy_pct": 47.0,
+     "note": "$9.9B; RPO backlog $638B, up 363% YoY"
+    }
+   ],
+   "guidance_note": "FY2027 guidance calls for accelerating 27-29% total revenue growth and 57-64% cloud growth with non-GAAP EPS raised to ~$8.05, implying the massive backlog is converting but at heavy capital cost.",
+   "execution_note": "Record Q4 with revenue and EPS ahead of expectations and accelerating cloud momentum, though the market is focused on whether negative FCF and rising debt can fund the backlog.",
+   "moat": {
+    "rating_1to5": 4,
+    "note": "Entrenched database and mission-critical ERP installed base with extreme switching costs, now paired with contracted AI infrastructure demand ($638B RPO); durable core, but the newer OCI moat versus hyperscalers is less proven."
+   },
+   "risks": [
+    "Deeply negative FCF and ~$124B net debt while capex escalates",
+    "AI backlog concentration (large single customers like OpenAI) and execution/financing risk",
+    "IaaS mix shift compressing gross margins"
+   ],
+   "data_confidence": "high",
+   "sources": [
+    "https://www.oracle.com/news/announcement/q4fy26-earnings-release-2026-06-10/",
+    "https://stockanalysis.com/stocks/orcl/financials/?p=quarterly",
+    "https://stockanalysis.com/stocks/orcl/financials/balance-sheet/?p=quarterly",
+    "https://erp.today/oracle-q4-2026-earnings-ai-cloud-backlog-funding/"
+   ],
+   "score": {
+    "total": 52,
+    "band": "Watch",
+    "subscores": {
+     "growth": {
+      "points": 18,
+      "max": 25,
+      "detail": {
+       "pace": 10,
+       "acceleration": 3,
+       "breadth": 5
+      }
+     },
+     "profitability": {
+      "points": 14,
+      "max": 20,
+      "detail": {
+       "level": 8,
+       "trend": 6
+      }
+     },
+     "cash": {
+      "points": 0,
+      "max": 20,
+      "detail": {
+       "fcf_margin": 0,
+       "trajectory": 0
+      }
+     },
+     "balance_sheet": {
+      "points": 3,
+      "max": 15,
+      "detail": {
+       "class": "heavy"
+      }
+     },
+     "moat": {
+      "points": 12,
+      "max": 15,
+      "detail": {
+       "rating": 4
+      }
+     },
+     "execution": {
+      "points": 5,
+      "max": 5,
+      "detail": {
+       "class": "beat_raise"
+      }
+     }
+    },
+    "judgment": {
+     "op_trend": "flat",
+     "fcf_trend": "negative",
+     "exec_class": "beat_raise",
+     "bs_class": "heavy"
+    },
+    "history": [
+     {
+      "date": "2026-08-03",
+      "total": 52,
+      "event": "baseline"
+     }
+    ]
+   },
+   "watch_note": "Growth is real but debt-funded: -$24B FCF and ~$124B net debt. The bet is the $638B backlog converts before financing costs bite.",
+   "pies": [
+    "bankers"
+   ]
+  },
+  {
+   "ticker": "CCJ",
+   "name": "Cameco Corporation",
+   "sector": "Energy - Uranium Mining & Nuclear Fuel Cycle",
+   "currency": "CAD",
+   "last_report": {
+    "fiscal_quarter": "Q2 2026",
+    "report_date": "2026-07-31"
+   },
+   "next_earnings": "early November 2026 (approx, Q3 2026)",
+   "revenue": {
+    "ttm_b": 3.48,
+    "latest_q_b": 0.81,
+    "latest_q_yoy_pct": -7.2,
+    "prior_q_yoy_pct": 7.1
+   },
+   "margins": {
+    "gross_pct": 35.1,
+    "operating_pct": 13.7,
+    "fcf_margin_pct": 16.0,
+    "trend_note": "Core uranium margins are expanding (Q2 realized price US$67.79/lb, +18% YoY, against C$58.05/lb inventory cost) but consolidated earnings compressed YoY because Westinghouse equity earnings lapped a ~US$170M Czech Dukovany contribution."
+   },
+   "fcf": {
+    "ttm_b": 0.55,
+    "yoy_pct": null,
+    "note": "Approximate: US$0.40B TTM FCF converted to CAD; quarterly cash flow is very lumpy from delivery timing (Q2 2026 operating cash flow only C$131M vs C$465M a year ago; H1 C$109M), plus US$124M Inkai dividend received in Q2."
+   },
+   "balance_sheet": {
+    "cash_b": 1.1,
+    "total_debt_b": 1.0,
+    "net_position_b": 0.1,
+    "note": "Slight net-cash position (C$1.1B cash vs C$1.0B debt) plus C$1.0B undrawn revolver \u2014 conservative, low-leverage balance sheet by design."
+   },
+   "segments": [
+    {
+     "name": "Uranium",
+     "latest_q_yoy_pct": -6.5,
+     "note": "Q2 revenue C$659M on 7.1M lbs delivered (deliberately lower 2026 deliveries from contracting discipline); production 3.9M lbs in Q2, FY guidance 19.5-21.5M lbs unchanged; contract book averages >28M lbs/yr committed through 2030, heavier 2026-28, deliberately open 2029-30 to capture higher prices."
+    },
+    {
+     "name": "Fuel services",
+     "latest_q_yoy_pct": null,
+     "note": "Q2 earnings before taxes C$44M, adjusted EBITDA C$54M; FY guidance 13-14M kgU unchanged."
+    },
+    {
+     "name": "Westinghouse (49%)",
+     "latest_q_yoy_pct": null,
+     "note": "Q2 share of net loss C$10M but adjusted EBITDA C$163M; YoY decline reflects absence of prior-year Dukovany project milestone."
+    }
+   ],
+   "guidance_note": "Raised 2026 consolidated revenue outlook to C$3.32-3.57B (uranium segment C$2.70-2.91B) on higher expected realized prices (US$91-96/lb term-book average) and USD strength, with production guidance unchanged \u2014 pricing tailwind, volume discipline.",
+   "execution_note": "Q2 2026 missed consensus estimates (adjusted net earnings C$77M, down YoY) yet shares rose on the raised revenue outlook and strengthening long-term contracting cycle; results are habitually lumpy versus quarterly estimates.",
+   "moat": {
+    "rating_1to5": 4,
+    "note": "Tier-one low-cost assets (McArthur River/Cigar Lake, JV Inkai), Western-conversion scarcity, and the 49% Westinghouse stake give integrated exposure across the nuclear fuel cycle with high barriers to entry; long-term contract book de-risks but also caps spot upside."
+   },
+   "risks": [
+    "Delivery/earnings lumpiness vs quarterly expectations",
+    "Westinghouse equity-earnings volatility",
+    "Kazakh JV (Inkai) supply and geopolitical risk"
+   ],
+   "data_confidence": "medium",
+   "sources": [
+    "https://www.cameco.com/media/news/cameco-reports-2026-second-quarter-results",
+    "https://investingnews.com/cameco-reports-second-quarter-results-year-to-date-performance-on-track-production-outlook-unchanged-strategically-positioned-across-the-nuclear-fuel-cycle-significant-support-for-nuclear-energy-reinf/",
+    "https://www.stocktitan.net/sec-filings/CCJ/6-k-cameco-corp-current-report-foreign-issuer-85b37242cf50.html",
+    "https://www.nasdaq.com/press-release/cameco-announces-2025-results-solid-fourth-quarter-and-2025-performance-increasing",
+    "https://stockanalysis.com/stocks/CCJ/statistics/"
+   ],
+   "score": {
+    "total": 50,
+    "band": "Watch",
+    "subscores": {
+     "growth": {
+      "points": 5,
+      "max": 25,
+      "detail": {
+       "pace": 1,
+       "acceleration": 1,
+       "breadth": 3
+      }
+     },
+     "profitability": {
+      "points": 10,
+      "max": 20,
+      "detail": {
+       "level": 4,
+       "trend": 6
+      }
+     },
+     "cash": {
+      "points": 8,
+      "max": 20,
+      "detail": {
+       "fcf_margin": 6,
+       "trajectory": 2
+      }
+     },
+     "balance_sheet": {
+      "points": 12,
+      "max": 15,
+      "detail": {
+       "class": "neutral"
+      }
+     },
+     "moat": {
+      "points": 12,
+      "max": 15,
+      "detail": {
+       "rating": 4
+      }
+     },
+     "execution": {
+      "points": 3,
+      "max": 5,
+      "detail": {
+       "class": "inline"
+      }
+     }
+    },
+    "judgment": {
+     "op_trend": "flat",
+     "fcf_trend": "declining",
+     "exec_class": "inline",
+     "bs_class": "neutral"
+    },
+    "history": [
+     {
+      "date": "2026-08-03",
+      "total": 50,
+      "event": "baseline"
+     }
+    ]
+   },
+   "pies": [
+    "exponential-convergence"
+   ]
+  },
+  {
+   "ticker": "DE",
+   "name": "Deere & Co",
+   "sector": "Industrials - Agricultural & Construction Machinery",
+   "currency": "USD",
+   "last_report": {
+    "fiscal_quarter": "FQ2 2026 (ended 2026-05-03)",
+    "report_date": "2026-05-21"
+   },
+   "next_earnings": "2026-08-20",
+   "revenue": {
+    "ttm_b": 47.34,
+    "latest_q_b": 13.37,
+    "latest_q_yoy_pct": 4.7,
+    "prior_q_yoy_pct": 13.0
+   },
+   "margins": {
+    "gross_pct": 26.0,
+    "operating_pct": 13.8,
+    "fcf_margin_pct": 8.0,
+    "trend_note": "Margins are modestly compressing: Q2 net income fell 2% on 5% higher revenue as large-ag pricing/mix weakness offset a construction surge."
+   },
+   "fcf": {
+    "ttm_b": 3.77,
+    "yoy_pct": null,
+    "note": "TTM FCF per stockanalysis.com; captive John Deere Financial operations distort consolidated FCF comparisons."
+   },
+   "balance_sheet": {
+    "cash_b": 6.35,
+    "total_debt_b": 64.53,
+    "net_position_b": -58.18,
+    "note": "Headline net debt is large but the vast majority sits in the captive finance arm; equipment-operations leverage is conservative."
+   },
+   "segments": [
+    {
+     "name": "Production & Precision Agriculture",
+     "latest_q_yoy_pct": -14.0,
+     "note": "Large-ag downturn continuing, $4.50B revenue"
+    },
+    {
+     "name": "Small Agriculture & Turf",
+     "latest_q_yoy_pct": 16.0,
+     "note": "Recovering, $3.49B revenue"
+    },
+    {
+     "name": "Construction & Forestry",
+     "latest_q_yoy_pct": 29.0,
+     "note": "Strongest segment, $3.79B revenue; no consolidated backlog figure disclosed"
+    }
+   ],
+   "guidance_note": "FY2026 net income guided to $4.5-5.0B with the sales outlook raised at Q2, and management signaling the agricultural cycle should bottom in 2026.",
+   "execution_note": "FQ2 beat expectations on both revenue ($13.37B) and EPS ($6.55) even as profit dipped 2% YoY, extending a consistent beat record through the ag downturn.",
+   "moat": {
+    "rating_1to5": 4,
+    "note": "Dominant dealer network, brand loyalty and an expanding precision-ag software/autonomy ecosystem create high switching costs; durable but cyclical."
+   },
+   "risks": [
+    "Prolonged farm-income downturn in large ag",
+    "Tariffs and input-cost inflation",
+    "Elevated used-equipment inventories pressuring new sales"
+   ],
+   "data_confidence": "high",
+   "sources": [
+    "https://www.prnewswire.com/news-releases/deere-reports-second-quarter-net-income-of-1-773-billion-302778847.html",
+    "https://stockanalysis.com/stocks/DE/statistics/",
+    "https://finance.biggo.com/news/US_DE_2026-05-21"
+   ],
+   "score": {
+    "total": 46,
+    "band": "Watch",
+    "subscores": {
+     "growth": {
+      "points": 8,
+      "max": 25,
+      "detail": {
+       "pace": 4,
+       "acceleration": 1,
+       "breadth": 3
+      }
+     },
+     "profitability": {
+      "points": 6,
+      "max": 20,
+      "detail": {
+       "level": 4,
+       "trend": 2
+      }
+     },
+     "cash": {
+      "points": 7,
+      "max": 20,
+      "detail": {
+       "fcf_margin": 3,
+       "trajectory": 4
+      }
+     },
+     "balance_sheet": {
+      "points": 9,
+      "max": 15,
+      "detail": {
+       "class": "moderate"
+      }
+     },
+     "moat": {
+      "points": 12,
+      "max": 15,
+      "detail": {
+       "rating": 4
+      }
+     },
+     "execution": {
+      "points": 4,
+      "max": 5,
+      "detail": {
+       "class": "beat"
+      }
+     }
+    },
+    "judgment": {
+     "op_trend": "compressing",
+     "fcf_trend": "flat",
+     "exec_class": "beat",
+     "bs_class": "moderate"
+    },
+    "history": [
+     {
+      "date": "2026-08-03",
+      "total": 46,
+      "event": "baseline"
+     }
+    ]
+   },
+   "pies": [
+    "exponential-convergence"
+   ]
+  }
+ ]
+}
