@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Python L1.2 — Dictionaries and Sets</title>
+<style>
+:root{--ink:#1a1a1a;--mut:#6b6b6b;--rule:#e4e0d8;--bg:#faf9f7;--acc:#8a5a2b;--code:#f3f1ed}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+font:17px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Georgia,serif;}
+.wrap{max-width:760px;margin:0 auto;padding:56px 28px 96px}
+h1{font-size:30px;line-height:1.2;margin:0 0 6px;letter-spacing:-.01em}
+h2{font-size:20px;margin:44px 0 14px;padding-top:20px;border-top:1px solid var(--rule);letter-spacing:-.005em}
+h1+p em,p em:first-child{color:var(--mut)}
+em{font-style:italic}
+p{margin:0 0 14px}
+strong{font-weight:650}
+ul{margin:0 0 14px;padding-left:22px}
+li{margin:0 0 7px}
+hr{border:0;border-top:1px solid var(--rule);margin:34px 0}
+code{background:var(--code);padding:1px 5px;border-radius:4px;
+font:14px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace}
+pre{background:#fff;border:1px solid var(--rule);border-left:3px solid var(--acc);
+border-radius:5px;padding:14px 16px;overflow-x:auto;margin:0 0 16px}
+pre code{background:none;padding:0;font-size:14px;line-height:1.55}
+@media print{body{background:#fff}.wrap{padding:0}pre{break-inside:avoid}}
+</style></head><body><div class="wrap">
+<h1>Python L1.2 — Dictionaries and Sets</h1>
+<p><em>Lloyds study · deep block · Tuesday 4 August 2026 · read time ~13 min · notes before questions</em></p>
+<p>Same loop. Read once through, then again with VS Code open, typing the examples.</p>
+<p>You've already used a dictionary this week without being taught one — <code>account["active"]</code> in
+yesterday's <code>withdraw</code>, which you wrote as <code>account.balance</code> and then as <code>account == "active"</code>. Both
+of those were reasonable guesses at a thing nobody had shown you. Here's the thing.</p>
+<hr />
+<h2>Why this rung matters more than it looks</h2>
+<p>A list answers <em>what's in position 3</em>. A dictionary answers <em>what's the value of <code>revenue</code></em>.</p>
+<p>That difference is the whole shape of your capstone. When a model replies to you it doesn't hand
+back item 0 and item 1 — it hands back JSON, and JSON becomes a Python dictionary the moment it
+arrives:</p>
+<pre><code class="language-python">{&quot;sql&quot;: &quot;SELECT ...&quot;, &quot;confidence&quot;: 0.8, &quot;reasoning&quot;: &quot;...&quot;}
+</code></pre>
+<p>On 14 August you'll spend a whole block on structured output, and structured output means <em>this
+shape</em>. Every API response, every config file, every row you want to read by column name rather
+than by counting commas — dictionaries. If lists were the return type of the project, dicts are the
+language the model speaks to you in.</p>
+<hr />
+<h2>1. A dictionary is lookup by name</h2>
+<pre><code class="language-python">account = {&quot;active&quot;: True, &quot;balance&quot;: 500}
+</code></pre>
+<p>Curly braces, and each entry is a <strong>key</strong> and a <strong>value</strong> separated by a colon. You look things up
+by key:</p>
+<pre><code class="language-python">account[&quot;balance&quot;]     # 500
+account[&quot;active&quot;]      # True
+</code></pre>
+<p>That's the answer to yesterday. <code>account["active"]</code> reaches in and pulls out <code>True</code> — which is
+already a boolean, so <code>if not account["active"]:</code> reads exactly as <em>if the account is not active</em>.
+No comparison needed, because there's nothing to compare it to.</p>
+<p>Keys are almost always strings. Values can be anything — numbers, strings, booleans, lists, other
+dictionaries.</p>
+<p>Order is not the point. <code>{"a": 1, "b": 2}</code> and <code>{"b": 2, "a": 1}</code> hold the same information, and you
+never index a dict by position. If you find yourself wanting item 0, you wanted a list.</p>
+<hr />
+<h2>2. The two ways to read a key, and why it matters</h2>
+<p>This is the important section on this rung.</p>
+<pre><code class="language-python">account = {&quot;active&quot;: True, &quot;balance&quot;: 500}
+
+account[&quot;balance&quot;]      # 500
+account[&quot;overdraft&quot;]    # KeyError: 'overdraft'
+</code></pre>
+<p>Square brackets on a missing key <strong>raise</strong>. Loud, immediate, points at the exact key you got wrong.</p>
+<pre><code class="language-python">account.get(&quot;overdraft&quot;)        # None
+account.get(&quot;overdraft&quot;, 0)     # 0
+</code></pre>
+<p><code>.get()</code> does not raise. A missing key gives you <code>None</code>, or whatever default you pass as the second
+argument. It is quiet, and quiet is the thing you've spent a week learning to distrust.</p>
+<p>Look at what that does downstream:</p>
+<pre><code class="language-python">balance = account.get(&quot;balence&quot;)     # typo'd key
+print(balance + 100)                 # TypeError: unsupported operand type(s)
+</code></pre>
+<p>The typo is on line one. The explosion is on line two, and the error message talks about addition,
+which is not where the problem is. With <code>account["balence"]</code> you'd have got a <code>KeyError</code> naming the
+exact typo, on the exact line.</p>
+<p>Worse — if the value only gets printed rather than added:</p>
+<pre><code class="language-python">print(f&quot;Balance: {account.get('balence')}&quot;)     # Balance: None
+</code></pre>
+<p>No error at all. A report goes out saying <code>None</code>.</p>
+<p><strong>Rule of thumb: use <code>[]</code> by default.</strong> You <em>want</em> the crash when a key you were relying on isn't
+there. Reach for <code>.get()</code> only when a key being absent is a normal, expected state and you have a
+sensible default — <code>settings.get("timeout", 30)</code>. <code>.get()</code> on data you assumed was there is how you
+end up debugging line 40 for a mistake made on line 2.</p>
+<hr />
+<h2>3. Changing a dictionary</h2>
+<pre><code class="language-python">account[&quot;balance&quot;] = 300        # change an existing key
+account[&quot;overdraft&quot;] = 250      # add a new one — same syntax
+del account[&quot;overdraft&quot;]        # remove
+</code></pre>
+<p>Note that adding and changing look identical. There's no "new key" operator, which means a typo'd
+key on the left-hand side silently <em>creates</em> a second key rather than updating the one you meant:</p>
+<pre><code class="language-python">account[&quot;balence&quot;] = 300
+print(account)    # {'active': True, 'balance': 500, 'balence': 300}
+</code></pre>
+<p>Both are now sitting there, no complaint, and the one everything else reads is unchanged. Same
+creature, new costume.</p>
+<p>And the point from L1.1 that transfers directly: <strong>dictionaries are mutable, so passing one into a
+function hands over the real thing, not a copy.</strong> Yesterday's <code>withdraw</code> doing
+<code>account["balance"] -= amount</code> changed the caller's account permanently. If you want to be safe,
+<code>account.copy()</code> first — exactly as with lists.</p>
+<hr />
+<h2>4. Checking before you reach</h2>
+<pre><code class="language-python">&quot;balance&quot; in account        # True  — checks KEYS, not values
+500 in account              # False — 500 is a value, not a key
+</code></pre>
+<p><code>in</code> on a dictionary asks about keys. That gives you the safe pattern when you're unsure:</p>
+<pre><code class="language-python">if &quot;overdraft&quot; in account:
+    use(account[&quot;overdraft&quot;])
+</code></pre>
+<p>...which is a guard clause, same as the ones you wrote yesterday.</p>
+<hr />
+<h2>5. Looping over a dictionary</h2>
+<p>Plain iteration gives you <strong>keys</strong>:</p>
+<pre><code class="language-python">for key in account:
+    print(key)              # active, balance
+</code></pre>
+<p>Usually you want both, and this is where L1.1's unpacking pays off:</p>
+<pre><code class="language-python">for key, value in account.items():
+    print(f&quot;{key}: {value}&quot;)
+</code></pre>
+<p><code>.items()</code> hands you each entry as a <strong>tuple of (key, value)</strong>, and <code>key, value</code> unpacks it — the
+same move as <code>for city, revenue in rows</code>. That's why tuples came first.</p>
+<p><code>.keys()</code> and <code>.values()</code> exist for when you want one or the other. <code>.values()</code> is the one you'll
+use for sums: <code>sum(account.values())</code> where the values are numbers.</p>
+<hr />
+<h2>6. The shape your data actually arrives in</h2>
+<p>Real data nests. Two combinations do almost all the work:</p>
+<p><strong>A list of dictionaries</strong> — many records, each with named fields. This is what an API returns and
+what a query result looks like when you ask for it by name:</p>
+<pre><code class="language-python">rows = [
+    {&quot;city&quot;: &quot;Manchester&quot;, &quot;revenue&quot;: 4210},
+    {&quot;city&quot;: &quot;Leeds&quot;, &quot;revenue&quot;: 3980},
+]
+
+for row in rows:
+    print(f&quot;{row['city']}: £{row['revenue']:,}&quot;)
+</code></pre>
+<p>Note the quote-swap inside the f-string — outer double, inner single, or Python can't tell where the
+string ends.</p>
+<p><strong>A dictionary of lists</strong> — one record with a field that holds several things:</p>
+<pre><code class="language-python">report = {&quot;city&quot;: &quot;Manchester&quot;, &quot;months&quot;: [4210, 3980, 5120]}
+report[&quot;months&quot;][0]     # 4210 — read it left to right: the months, then the first
+</code></pre>
+<p>Nothing new here, just the two ideas stacked. Read the brackets left to right and it stays simple.</p>
+<hr />
+<h2>7. Sets, briefly</h2>
+<p>A set is a collection with <strong>no duplicates and no order</strong>:</p>
+<pre><code class="language-python">cities = {&quot;Manchester&quot;, &quot;Leeds&quot;, &quot;Manchester&quot;}
+print(cities)          # {'Leeds', 'Manchester'} — the duplicate is gone
+</code></pre>
+<p>Curly braces like a dict, but no colons — entries, not pairs. (<code>{}</code> on its own is an empty dict, not
+an empty set. Empty set is <code>set()</code>. Mild trap, worth knowing once.)</p>
+<p>Two things it's genuinely good for:</p>
+<p><strong>De-duplicating.</strong> <code>set(my_list)</code> collapses duplicates; <code>list(set(my_list))</code> gets you back a list
+with the repeats gone — though the order is lost, so sort it after if order mattered.</p>
+<p><strong>Asking whether something is present.</strong> <code>x in my_set</code> is fast no matter how large the set is, where
+<code>x in my_list</code> checks items one at a time. On five items you'll never notice. On a banned-words
+check running against every query your agent generates, you will.</p>
+<p>Which is your guardrail from yesterday:</p>
+<pre><code class="language-python">BANNED = {&quot;drop&quot;, &quot;delete&quot;, &quot;update&quot;, &quot;insert&quot;}
+</code></pre>
+<p>A fixed collection of unique things you only ever ask <em>is this in there</em> — that's a set's exact job
+description.</p>
+<hr />
+<h2>Exercises — live, together</h2>
+<ol>
+<li><code>account = {"active": True, "balance": 500}</code>. Print the balance. Then try to print
+   <code>account["overdraft"]</code> and read the error. Then get it with <code>.get()</code> and a default of <code>0</code>.</li>
+<li>Add an <code>"overdraft"</code> key of 250. Change the balance to 300. Delete the overdraft. Print the dict
+   after each step.</li>
+<li>Write <code>describe_account(account)</code> — takes a dict, returns a string like
+   <code>"Active account with a balance of £500"</code>. Handle an inactive account differently. Use guard
+   clauses, and decide deliberately whether a missing <code>"balance"</code> key should crash or default.</li>
+<li><code>rows = [{"city": "Manchester", "revenue": 4210}, {"city": "Leeds", "revenue": 3980}, {"city": "Bristol", "revenue": 5120}]</code>
+   — loop and print each city with its revenue, thousands-separated.</li>
+<li>Same <code>rows</code>: return the city with the highest revenue. Seed with <code>None</code>, not <code>0</code> — you know why
+   as of yesterday.</li>
+<li>Rewrite <code>is_read_only(sql)</code> using a <strong>set</strong> of banned words instead of a list. Nothing else
+   changes. Say what the set buys you and what it costs.</li>
+<li><code>["drop", "select", "drop", "update", "select"]</code> → a list of the unique words, alphabetically.</li>
+</ol>
+<hr />
+<h2>Reps — last 15 minutes, in the room, unassisted</h2>
+<p>Marked on the spot. L1.2 isn't logged as climbed until they're marked.</p>
+</div></body></html>
