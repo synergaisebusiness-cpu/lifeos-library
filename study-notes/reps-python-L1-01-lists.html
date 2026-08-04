@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Reps — Python L1.1, Lists</title>
+<style>
+:root{--ink:#1a1a1a;--mut:#6b6b6b;--rule:#e4e0d8;--bg:#faf9f7;--acc:#8a5a2b;--code:#f3f1ed}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+font:17px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Georgia,serif;}
+.wrap{max-width:760px;margin:0 auto;padding:56px 28px 96px}
+h1{font-size:30px;line-height:1.2;margin:0 0 6px;letter-spacing:-.01em}
+h2{font-size:20px;margin:44px 0 14px;padding-top:20px;border-top:1px solid var(--rule);letter-spacing:-.005em}
+h1+p em,p em:first-child{color:var(--mut)}
+em{font-style:italic}
+p{margin:0 0 14px}
+strong{font-weight:650}
+ul{margin:0 0 14px;padding-left:22px}
+li{margin:0 0 7px}
+hr{border:0;border-top:1px solid var(--rule);margin:34px 0}
+code{background:var(--code);padding:1px 5px;border-radius:4px;
+font:14px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace}
+pre{background:#fff;border:1px solid var(--rule);border-left:3px solid var(--acc);
+border-radius:5px;padding:14px 16px;overflow-x:auto;margin:0 0 16px}
+pre code{background:none;padding:0;font-size:14px;line-height:1.55}
+@media print{body{background:#fff}.wrap{padding:0}pre{break-inside:avoid}}
+</style></head><body><div class="wrap">
+<h1>Reps — Python L1.1, Lists</h1>
+<p><em>Tuesday 4 August 2026 · 15 min · unassisted · marked on the spot</em></p>
+<p>Notes shut. No chat panel. A blank is data, a borrowed answer isn't.</p>
+<p><strong>Confidence is part of the answer this time, not a separate column.</strong> Write every Part 1 answer in
+this exact form:</p>
+<pre><code>1. [20, 30] — B
+</code></pre>
+<p>Value, then a dash, then <strong>A</strong> (certain), <strong>B</strong> (fairly sure) or <strong>C</strong> (guessing). An answer without
+a letter is an incomplete answer and I'll mark it as blank.</p>
+<hr />
+<h2>Part 1 — Predict. Nothing runs until all six are written. (~6 min)</h2>
+<pre><code class="language-python"># 1
+items = [10, 20, 30, 40, 50]
+print(items[1:3])
+print(items[-2])
+print(items[2:99])
+</code></pre>
+<pre><code class="language-python"># 2
+a = [1, 2, 3]
+b = a
+b.append(4)
+print(a)
+</code></pre>
+<pre><code class="language-python"># 3
+a = [1, 2, 3]
+b = a[:]
+b.append(4)
+print(a)
+print(b)
+</code></pre>
+<pre><code class="language-python"># 4
+nums = [3, 1, 2]
+result = nums.sort()
+print(result)
+print(nums)
+</code></pre>
+<pre><code class="language-python"># 5
+nums = [3, 1, 2]
+result = sorted(nums)
+print(result)
+print(nums)
+</code></pre>
+<pre><code class="language-python"># 6
+a = [1, 2]
+a.append([3, 4])
+print(a)
+print(len(a))
+</code></pre>
+<p>Then run all six and mark yourself before you look at why.</p>
+<hr />
+<h2>Part 2 — Write. <code>practice/reps_l1_01.py</code>. (~7 min)</h2>
+<p>Both functions get a <code># takes a ___, returns a ___</code> comment above the <code>def</code>, written first.
+Put <strong>A / B / C</strong> on the same line as each <code>def</code> as a trailing comment before you run the file.</p>
+<p><strong>1. <code>with_added(items, value)</code></strong></p>
+<ul>
+<li>Takes a list and a value. Returns a <strong>new</strong> list containing everything in <code>items</code> plus <code>value</code> on
+  the end.</li>
+<li>The list passed in must be unchanged afterwards. That is the whole exercise.</li>
+</ul>
+<p><strong>2. <code>top_n(numbers, n)</code></strong></p>
+<ul>
+<li>Takes a list of numbers and a whole number <code>n</code>. Returns a list of the <code>n</code> largest, highest first.</li>
+<li><code>numbers</code> must be unchanged afterwards.</li>
+<li>If <code>n</code> is bigger than the list, return everything you have rather than raising.</li>
+</ul>
+<pre><code class="language-python"># practice/reps_l1_01.py
+
+# takes a ___, returns a ___
+def with_added(items, value):
+    ...
+
+
+# takes a ___, returns a ___
+def top_n(numbers, n):
+    ...
+
+
+# ---------- tests: do not edit ----------
+
+original = [1, 2, 3]
+print(with_added(original, 4))    # expect [1, 2, 3, 4]
+print(original)                   # expect [1, 2, 3]  &lt;- unchanged
+
+scores = [42, 17, 99, 8, 63]
+print(top_n(scores, 3))           # expect [99, 63, 42]
+print(scores)                     # expect [42, 17, 99, 8, 63]  &lt;- unchanged
+print(top_n(scores, 99))          # expect all five, highest first
+</code></pre>
+<hr />
+<h2>Part 3 — One sentence. (~2 min)</h2>
+<p><code>nums.sort()</code> gives you <code>None</code>. <code>sorted(nums)</code> gives you a list. State the rule that tells you which
+kind of thing a Python method hands back, without having to memorise the list.</p>
+</div></body></html>
