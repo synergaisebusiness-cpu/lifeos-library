@@ -10,19 +10,19 @@
     --surface-1: #fcfcfb; --page: #f9f9f7;
     --ink-1: #0b0b0b; --ink-2: #52514e; --ink-3: #898781;
     --grid: #e1e0d9; --baseline: #c3c2b7; --ring: rgba(11,11,11,0.10);
-    --bar: #2a78d6; --bar-track: #eeede9;
+    --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --s4: #eda100; --s5: #e87ba4;
+    --track: #eeede9;
     --elite: #0ca30c; --strong: #2a78d6; --solid: #c98500; --watch: #ec835a; --weak: #d03b3b;
-    --chip-ink: #ffffff;
     --up: #006300; --down: #d03b3b;
   }
+  :root[data-theme="dark"], :root:not([data-theme="light"]) {}
   :root[data-theme="dark"] {
     color-scheme: dark;
     --surface-1: #1a1a19; --page: #0d0d0d;
     --ink-1: #ffffff; --ink-2: #c3c2b7; --ink-3: #898781;
     --grid: #2c2c2a; --baseline: #383835; --ring: rgba(255,255,255,0.10);
-    --bar: #3987e5; --bar-track: #262624;
-    --solid: #eda100;
-    --up: #0ca30c;
+    --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500; --s5: #d55181;
+    --track: #262624; --solid: #eda100; --up: #0ca30c;
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
@@ -30,9 +30,8 @@
       --surface-1: #1a1a19; --page: #0d0d0d;
       --ink-1: #ffffff; --ink-2: #c3c2b7; --ink-3: #898781;
       --grid: #2c2c2a; --baseline: #383835; --ring: rgba(255,255,255,0.10);
-      --bar: #3987e5; --bar-track: #262624;
-      --solid: #eda100;
-      --up: #0ca30c;
+      --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500; --s5: #d55181;
+      --track: #262624; --solid: #eda100; --up: #0ca30c;
     }
   }
   * { box-sizing: border-box; margin: 0; }
@@ -42,28 +41,22 @@
     padding: 24px 20px 60px; max-width: 1180px; margin: 0 auto;
     font-size: 14px; line-height: 1.45;
   }
-  header { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 16px; margin-bottom: 4px; }
+  header { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 16px; }
   h1 { font-size: 22px; font-weight: 700; letter-spacing: -0.2px; }
   .sub { color: var(--ink-2); font-size: 13px; }
-  .note { color: var(--ink-3); font-size: 12.5px; margin: 6px 0 18px; max-width: 860px; }
-  .toolbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 14px; }
+  .note { color: var(--ink-3); font-size: 12.5px; margin: 6px 0 16px; max-width: 900px; }
+  .toolbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 12px; }
   .toolbar input[type="search"] {
     padding: 7px 10px; border: 1px solid var(--baseline); border-radius: 8px;
     background: var(--surface-1); color: var(--ink-1); font-size: 13px; width: 170px;
   }
   .seg { display: inline-flex; border: 1px solid var(--baseline); border-radius: 8px; overflow: hidden; background: var(--surface-1); }
-  .seg button {
-    border: none; background: transparent; color: var(--ink-2); padding: 7px 11px;
-    font-size: 12.5px; cursor: pointer; font-family: inherit;
-  }
+  .seg button { border: none; background: transparent; color: var(--ink-2); padding: 7px 11px; font-size: 12.5px; cursor: pointer; font-family: inherit; }
   .seg button + button { border-left: 1px solid var(--grid); }
-  .seg button.on { background: var(--bar); color: #fff; }
+  .seg button.on { background: var(--s1); color: #fff; }
   .spacer { flex: 1; }
-  .ghostbtn {
-    border: 1px solid var(--baseline); background: var(--surface-1); color: var(--ink-2);
-    border-radius: 8px; padding: 7px 11px; font-size: 12.5px; cursor: pointer; font-family: inherit;
-  }
-  .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-bottom: 16px; }
+  .ghostbtn { border: 1px solid var(--baseline); background: var(--surface-1); color: var(--ink-2); border-radius: 8px; padding: 7px 11px; font-size: 12.5px; cursor: pointer; font-family: inherit; }
+  .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-bottom: 14px; }
   .kpi { background: var(--surface-1); border: 1px solid var(--ring); border-radius: 12px; padding: 12px 14px; }
   .kpi .v { font-size: 24px; font-weight: 700; }
   .kpi .l { font-size: 11.5px; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.4px; margin-top: 2px; }
@@ -71,65 +64,65 @@
   .legendrow { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin: 2px 0 14px; font-size: 12px; color: var(--ink-2); }
   .legendrow .b { display: inline-flex; align-items: center; gap: 5px; }
   .dot { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
-  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(255px, 1fr)); gap: 10px; }
-  .card {
-    background: var(--surface-1); border: 1px solid var(--ring); border-radius: 12px;
-    padding: 13px 14px 11px; cursor: pointer; transition: border-color .12s;
-  }
-  .card:hover { border-color: var(--bar); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(258px, 1fr)); gap: 10px; }
+  .card { background: var(--surface-1); border: 1px solid var(--ring); border-radius: 12px; padding: 13px 14px 11px; cursor: pointer; transition: border-color .12s; }
+  .card:hover { border-color: var(--s1); }
   .cardtop { display: flex; align-items: center; gap: 10px; }
   .tick { font-weight: 700; font-size: 15px; }
   .cname { color: var(--ink-3); font-size: 12px; flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .score { font-size: 26px; font-weight: 700; font-variant-numeric: tabular-nums; }
-  .chip {
-    font-size: 10.5px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;
-    color: var(--chip-ink); border-radius: 5px; padding: 2px 7px;
-  }
-  .meter { height: 6px; border-radius: 3px; background: var(--bar-track); margin: 9px 0 7px; overflow: hidden; }
+  .chip { font-size: 10.5px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; color: #fff; border-radius: 5px; padding: 2px 7px; }
+  .meter { height: 6px; border-radius: 3px; background: var(--track); margin: 9px 0 7px; overflow: hidden; }
   .meter > div { height: 100%; border-radius: 3px; }
-  .cardmeta { display: flex; justify-content: space-between; font-size: 11.5px; color: var(--ink-3); }
+  .cardmeta { display: flex; justify-content: space-between; font-size: 11.5px; color: var(--ink-3); align-items: center; }
+  .spark { display: block; margin-top: 8px; }
   .flag { font-size: 11.5px; margin-top: 6px; color: var(--ink-2); }
   .flag.watchflag::before { content: "⚑ "; color: var(--watch); }
-  .flag.soon::before { content: "◷ "; color: var(--bar); }
-  /* detail overlay */
+  .flag.soon::before { content: "◷ "; color: var(--s1); }
+  /* detail */
   .overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.45); display: none; z-index: 10; }
   .overlay.open { display: block; }
-  .panel {
-    position: fixed; top: 0; right: 0; bottom: 0; width: min(620px, 96vw);
-    background: var(--page); border-left: 1px solid var(--ring);
-    overflow-y: auto; padding: 22px 24px 40px; z-index: 11;
-    transform: translateX(105%); transition: transform .18s ease-out;
-  }
+  .panel { position: fixed; top: 0; right: 0; bottom: 0; width: min(720px, 97vw); background: var(--page); border-left: 1px solid var(--ring); overflow-y: auto; padding: 22px 24px 50px; z-index: 11; transform: translateX(105%); transition: transform .18s ease-out; }
   .panel.open { transform: none; }
   .panel h2 { font-size: 19px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-  .panel .bigscore { font-size: 34px; font-weight: 700; }
+  .bigscore { font-size: 34px; font-weight: 700; }
   .closebtn { position: absolute; top: 16px; right: 18px; }
-  .sect { margin-top: 18px; }
-  .sect h3 { font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--ink-3); margin-bottom: 8px; }
+  .sect { margin-top: 20px; }
+  .sect h3 { font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--ink-3); margin-bottom: 8px; display:flex; align-items:center; gap:10px; flex-wrap:wrap;}
   .pillar { display: grid; grid-template-columns: 118px 1fr 52px; gap: 10px; align-items: center; margin-bottom: 7px; font-size: 12.5px; }
   .pillar .pl { color: var(--ink-2); }
-  .pillar .pv { text-align: right; font-variant-numeric: tabular-nums; color: var(--ink-1); }
-  .ptrack { height: 8px; background: var(--bar-track); border-radius: 4px; overflow: hidden; }
-  .ptrack > div { height: 100%; background: var(--bar); border-radius: 4px; }
-  .mrow { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 8px; }
+  .pillar .pv { text-align: right; font-variant-numeric: tabular-nums; }
+  .ptrack { height: 8px; background: var(--track); border-radius: 4px; overflow: hidden; }
+  .ptrack > div { height: 100%; background: var(--s1); border-radius: 4px; }
+  .mrow { display: grid; grid-template-columns: repeat(auto-fit, minmax(118px, 1fr)); gap: 8px; }
   .mtile { background: var(--surface-1); border: 1px solid var(--ring); border-radius: 10px; padding: 9px 11px; }
   .mtile .mv { font-size: 17px; font-weight: 700; }
   .mtile .ml { font-size: 10.5px; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.4px; }
+  .mtile .mr { font-size: 10.5px; margin-top: 2px; font-weight: 600; }
   .neg { color: var(--down); } .pos { color: var(--up); }
+  .rank-top10 { color: var(--up); } .rank-top25 { color: var(--s1); }
+  .rank-abovemedian { color: var(--ink-2); } .rank-belowmedian { color: var(--solid); } .rank-bottom25 { color: var(--down); }
   .segrow { display: flex; justify-content: space-between; gap: 12px; padding: 7px 0; border-bottom: 1px solid var(--grid); font-size: 13px; }
   .segrow:last-child { border-bottom: none; }
-  .segname { color: var(--ink-1); }
   .segnote { color: var(--ink-3); font-size: 12px; margin-top: 1px; }
   .segyoy { font-variant-numeric: tabular-nums; font-weight: 600; white-space: nowrap; }
   .prose { font-size: 13px; color: var(--ink-2); }
   .prose + .prose { margin-top: 7px; }
   .prose b { color: var(--ink-1); font-weight: 600; }
   .callout { background: var(--surface-1); border: 1px solid var(--watch); border-radius: 10px; padding: 10px 12px; font-size: 12.5px; color: var(--ink-2); }
-  .risks li { font-size: 12.5px; color: var(--ink-2); margin: 3px 0 3px 0; }
+  .risks li { font-size: 12.5px; color: var(--ink-2); margin: 3px 0; }
   .risks { padding-left: 18px; }
-  .srcs a { color: var(--bar); font-size: 11.5px; word-break: break-all; display: block; margin: 2px 0; text-decoration: none; }
+  .srcs a { color: var(--s1); font-size: 11.5px; word-break: break-all; display: block; margin: 2px 0; text-decoration: none; }
   .srcs a:hover { text-decoration: underline; }
   .conf { font-size: 11px; color: var(--ink-3); }
+  .chartbox { background: var(--surface-1); border: 1px solid var(--ring); border-radius: 12px; padding: 12px 12px 6px; position: relative; }
+  .chartbox + .chartbox { margin-top: 10px; }
+  .clegend { display: flex; flex-wrap: wrap; gap: 12px; font-size: 11.5px; color: var(--ink-2); margin: 2px 0 6px; }
+  .clegend span { display: inline-flex; align-items: center; gap: 5px; }
+  .cnote { font-size: 11px; color: var(--ink-3); margin-top: 4px; }
+  svg text { font-family: inherit; }
+  .tip { position: fixed; pointer-events: none; background: var(--ink-1); color: var(--page); font-size: 11.5px; padding: 5px 8px; border-radius: 6px; opacity: 0; transition: opacity .1s; z-index: 40; white-space: pre; font-variant-numeric: tabular-nums; }
+  .tip.on { opacity: 1; }
   table.tbl { width: 100%; border-collapse: collapse; background: var(--surface-1); border: 1px solid var(--ring); border-radius: 12px; overflow: hidden; font-size: 12.5px; }
   table.tbl th { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--baseline); color: var(--ink-3); font-size: 11px; text-transform: uppercase; letter-spacing: 0.4px; cursor: pointer; white-space: nowrap; }
   table.tbl td { padding: 7px 10px; border-bottom: 1px solid var(--grid); font-variant-numeric: tabular-nums; }
@@ -143,9 +136,9 @@
 <header>
   <h1>Company Health</h1>
   <span class="sub" id="asof"></span>
-  <span class="sub">· 29 holdings · methodology v1.0</span>
+  <span class="sub">· 29 holdings · methodology v1.1</span>
 </header>
-<p class="note">Scores the <b>business</b>, not the stock — no prices, no P&amp;L. Six pillars: growth 25 · profitability 20 · cash 20 · balance sheet 15 · moat 15 · execution 5. Re-scored after every earnings report. Informational only — decisions stay with you.</p>
+<p class="note">Scores the <b>business</b>, not the stock — no prices, no P&amp;L. Six pillars: growth 25 · profitability 20 · cash 20 · balance sheet 15 · moat 15 · execution 5. Scored on an <b>absolute rubric and ranked against the whole market</b>, not against each other. Re-scored after every earnings report. Informational only — decisions stay with you.</p>
 
 <div class="kpis" id="kpis"></div>
 
@@ -169,19 +162,19 @@
 </div>
 
 <div class="legendrow" id="bandLegend"></div>
-
 <div class="grid" id="grid"></div>
 <div id="tableWrap" class="hidden"></div>
 
 <div class="overlay" id="overlay"></div>
 <aside class="panel" id="panel" aria-label="Company detail"></aside>
+<div class="tip" id="tip"></div>
 
 <footer>Source of truth: ~/LifeOS/library/company-health/register.json · public reported data only · scores are hypotheses with stated confidence, not advice.</footer>
 
 <script>
 const DATA = {
- "as_of": "2026-08-03",
- "methodology_version": "1.0",
+ "as_of": "2026-08-04",
+ "methodology_version": "1.1",
  "scale": {
   "Elite": "85-100",
   "Strong": "70-84",
@@ -326,7 +319,269 @@ const DATA = {
    },
    "pies": [
     "bankers"
-   ]
+   ],
+   "financial_history": {
+    "quarterly": [
+     {
+      "q": "2022Q1",
+      "fiscal": "Q4 FY22",
+      "rev_b": 7.643,
+      "gross_pct": 65.4,
+      "op_pct": 38.9,
+      "fcf_b": 2.76
+     },
+     {
+      "q": "2022Q2",
+      "fiscal": "Q1 FY23",
+      "rev_b": 8.288,
+      "gross_pct": 65.5,
+      "op_pct": 22.5,
+      "fcf_b": 1.37
+     },
+     {
+      "q": "2022Q3",
+      "fiscal": "Q2 FY23",
+      "rev_b": 6.704,
+      "gross_pct": 43.5,
+      "op_pct": 7.4,
+      "fcf_b": 0.837
+     },
+     {
+      "q": "2022Q4",
+      "fiscal": "Q3 FY23",
+      "rev_b": 5.931,
+      "gross_pct": 53.6,
+      "op_pct": 10.1,
+      "fcf_b": -0.138
+     },
+     {
+      "q": "2023Q1",
+      "fiscal": "Q4 FY23",
+      "rev_b": 6.051,
+      "gross_pct": 63.3,
+      "op_pct": 20.8,
+      "fcf_b": 1.739
+     },
+     {
+      "q": "2023Q2",
+      "fiscal": "Q1 FY24",
+      "rev_b": 7.192,
+      "gross_pct": 64.6,
+      "op_pct": 29.8,
+      "fcf_b": 2.663
+     },
+     {
+      "q": "2023Q3",
+      "fiscal": "Q2 FY24",
+      "rev_b": 13.507,
+      "gross_pct": 70.1,
+      "op_pct": 50.3,
+      "fcf_b": 6.059
+     },
+     {
+      "q": "2023Q4",
+      "fiscal": "Q3 FY24",
+      "rev_b": 18.12,
+      "gross_pct": 74.0,
+      "op_pct": 57.5,
+      "fcf_b": 7.054
+     },
+     {
+      "q": "2024Q1",
+      "fiscal": "Q4 FY24",
+      "rev_b": 22.103,
+      "gross_pct": 76.0,
+      "op_pct": 61.6,
+      "fcf_b": 11.245
+     },
+     {
+      "q": "2024Q2",
+      "fiscal": "Q1 FY25",
+      "rev_b": 26.044,
+      "gross_pct": 78.4,
+      "op_pct": 64.9,
+      "fcf_b": 14.976
+     },
+     {
+      "q": "2024Q3",
+      "fiscal": "Q2 FY25",
+      "rev_b": 30.04,
+      "gross_pct": 75.2,
+      "op_pct": 62.1,
+      "fcf_b": 13.511
+     },
+     {
+      "q": "2024Q4",
+      "fiscal": "Q3 FY25",
+      "rev_b": 35.082,
+      "gross_pct": 74.6,
+      "op_pct": 62.3,
+      "fcf_b": 16.814
+     },
+     {
+      "q": "2025Q1",
+      "fiscal": "Q4 FY25",
+      "rev_b": 39.331,
+      "gross_pct": 73.0,
+      "op_pct": 61.1,
+      "fcf_b": 15.552
+     },
+     {
+      "q": "2025Q2",
+      "fiscal": "Q1 FY26",
+      "rev_b": 44.062,
+      "gross_pct": 60.5,
+      "op_pct": 49.1,
+      "fcf_b": 26.187
+     },
+     {
+      "q": "2025Q3",
+      "fiscal": "Q2 FY26",
+      "rev_b": 46.743,
+      "gross_pct": 72.4,
+      "op_pct": 60.8,
+      "fcf_b": 13.47
+     },
+     {
+      "q": "2025Q4",
+      "fiscal": "Q3 FY26",
+      "rev_b": 57.006,
+      "gross_pct": 73.4,
+      "op_pct": 63.2,
+      "fcf_b": 22.115
+     },
+     {
+      "q": "2026Q1",
+      "fiscal": "Q4 FY26",
+      "rev_b": 68.127,
+      "gross_pct": 75.0,
+      "op_pct": 65.0,
+      "fcf_b": 34.904
+     },
+     {
+      "q": "2026Q2",
+      "fiscal": "Q1 FY27",
+      "rev_b": 81.615,
+      "gross_pct": 74.9,
+      "op_pct": 65.6,
+      "fcf_b": 48.587
+     }
+    ],
+    "segments": [
+     {
+      "name": "Data Center and AI",
+      "unit": "revenue_b",
+      "series": [
+       {
+        "q": "2024Q1",
+        "v": 18.404
+       },
+       {
+        "q": "2024Q2",
+        "v": 22.563
+       },
+       {
+        "q": "2024Q3",
+        "v": 26.272
+       },
+       {
+        "q": "2024Q4",
+        "v": 30.771
+       },
+       {
+        "q": "2025Q1",
+        "v": 35.58
+       },
+       {
+        "q": "2025Q2",
+        "v": 39.112
+       },
+       {
+        "q": "2025Q3",
+        "v": 41.096
+       },
+       {
+        "q": "2025Q4",
+        "v": 51.215
+       },
+       {
+        "q": "2026Q1",
+        "v": 62.314
+       },
+       {
+        "q": "2026Q2",
+        "v": 75.246
+       }
+      ]
+     },
+     {
+      "name": "Gaming, devices and automotive",
+      "unit": "revenue_b",
+      "series": [
+       {
+        "q": "2024Q1",
+        "v": 3.699
+       },
+       {
+        "q": "2024Q2",
+        "v": 3.481
+       },
+       {
+        "q": "2024Q3",
+        "v": 3.768
+       },
+       {
+        "q": "2024Q4",
+        "v": 4.311
+       },
+       {
+        "q": "2025Q1",
+        "v": 3.751
+       },
+       {
+        "q": "2025Q2",
+        "v": 4.95
+       },
+       {
+        "q": "2025Q3",
+        "v": 5.647
+       },
+       {
+        "q": "2025Q4",
+        "v": 5.791
+       },
+       {
+        "q": "2026Q1",
+        "v": 5.813
+       },
+       {
+        "q": "2026Q2",
+        "v": 6.369
+       }
+      ]
+     }
+    ],
+    "notes": "Fiscal year ends late Jan; quarters labelled by calendar quarter of period end. 2025Q2 gross margin dip reflects the $4.5B H20 China charge."
+   },
+   "market_context": {
+    "rev_growth": {
+     "value": 85.2,
+     "rank": "top 10%",
+     "vs_sp500_aggregate": 71.1
+    },
+    "op_margin": {
+     "value": 64.0,
+     "rank": "top 10%"
+    },
+    "gross_margin": {
+     "value": 74.2,
+     "rank": "top 10%"
+    },
+    "fcf_margin": {
+     "value": 47.0,
+     "rank": "top 10%"
+    }
+   }
   },
   {
    "ticker": "PLTR",
@@ -334,62 +589,65 @@ const DATA = {
    "sector": "Technology - Software / AI Platforms",
    "currency": "USD",
    "last_report": {
-    "fiscal_quarter": "Q1 2026",
-    "report_date": "2026-05-04"
+    "fiscal_quarter": "Q2 2026",
+    "report_date": "2026-08-03"
    },
-   "next_earnings": "2026-08-03 (Q2 2026, after market close today)",
+   "next_earnings": "early November 2026 (approx, Q3 2026)",
    "revenue": {
-    "ttm_b": 5.23,
-    "latest_q_b": 1.633,
-    "latest_q_yoy_pct": 84.7,
-    "prior_q_yoy_pct": 70.0
+    "ttm_b": 6.156,
+    "latest_q_b": 1.936,
+    "latest_q_yoy_pct": 93.0,
+    "prior_q_yoy_pct": 84.7
    },
    "margins": {
-    "gross_pct": 82.0,
-    "operating_pct": 46.0,
-    "fcf_margin_pct": 57.0,
-    "trend_note": "Margins are expanding sharply: GAAP operating margin reached 46% and adjusted operating margin 60% vs roughly 20%/44% GAAP/adjusted a year earlier, with Rule of 40 at 145."
+    "gross_pct": 84.7,
+    "operating_pct": 47.1,
+    "fcf_margin_pct": 62.1,
+    "trend_note": "Margins still expanding: GAAP operating margin 47.1% vs 26.8% a year ago, adjusted operating margin 62%, and a Rule of 40 score of 155. Gross margin eased slightly from Q1's 86.8% to 84.7%."
    },
    "fcf": {
-    "ttm_b": 2.2,
-    "yoy_pct": null,
-    "note": "TTM GAAP FCF ~$2.2B per stockanalysis; Q1 2026 adjusted FCF was $925M (57% margin) and FY26 adjusted FCF guided to $4.2-4.4B, so FCF is inflecting steeply upward."
+    "ttm_b": 3.358,
+    "yoy_pct": 130.0,
+    "note": "Q2 2026 alone generated $1.20B of FCF at a 62% margin, up from $0.53B a year earlier; TTM FCF now ~$3.4B against effectively no capex ($14.6M in the quarter)."
    },
    "balance_sheet": {
-    "cash_b": 8.0,
+    "cash_b": 9.2,
     "total_debt_b": 0.0,
-    "net_position_b": 8.0,
-    "note": "Fortress balance sheet with $8.0B in cash and US Treasuries and zero debt."
+    "net_position_b": 9.2,
+    "note": "Cash and Treasuries of $9.2B with no debt \u2014 the balance sheet is pure optionality."
    },
    "segments": [
     {
-     "name": "US commercial",
-     "latest_q_yoy_pct": 133.0,
-     "note": "$595M in Q1 2026; total US revenue crossed 100% YoY growth for the first time (104%)"
+     "name": "US Commercial",
+     "latest_q_yoy_pct": 149.0,
+     "note": "$764M in Q2 2026; FY26 guide raised to over $3.424B"
     },
     {
-     "name": "US government",
-     "latest_q_yoy_pct": 84.0,
-     "note": "$687M in Q1 2026"
+     "name": "US Government",
+     "latest_q_yoy_pct": 90.0,
+     "note": "$809M in Q2 2026"
+    },
+    {
+     "name": "US total",
+     "latest_q_yoy_pct": 115.0,
+     "note": "$1.573B, ~81% of total revenue"
     }
    ],
-   "guidance_note": "FY2026 revenue guidance raised to $7.65-7.66B (~71% YoY) with US commercial guided to ~120% growth, implying management sees accelerating AI-driven demand.",
-   "execution_note": "Eight consecutive quarterly beats with sequential revenue growth acceleration for six straight quarters (39% to 85% YoY) and guidance raises each quarter.",
+   "guidance_note": "Raised again: FY2026 revenue guidance lifted to $8.150-8.158B (~82% YoY) and US commercial to over $3.424B (at least 134% YoY), with Q3 guided to $2.160-2.164B.",
+   "execution_note": "Ninth consecutive beat-and-raise. Revenue +93% YoY with US revenue +115%, GAAP operating margin 47% and a Rule of 40 score of 155.",
    "moat": {
     "rating_1to5": 4,
     "note": "Deeply embedded ontology-based platforms (Gotham/Foundry/AIP) with high switching costs, security clearances and long government relationships; durability strong though enterprise AI competition is intensifying."
    },
    "risks": [
-    "Extreme valuation leaves no room for growth deceleration",
+    "Valuation leaves no room for growth deceleration",
     "Government contract concentration and political exposure",
-    "Q2 report due imminently - data may be superseded within hours"
+    "Comparisons get materially harder from here as the base scales"
    ],
    "data_confidence": "high",
    "sources": [
-    "https://www.investing.com/news/company-news/palantir-q1-2026-slides-us-revenue-tops-100-growth-rule-of-40-hits-145-93CH-4657648",
-    "https://stockanalysis.com/stocks/pltr/financials/?p=quarterly",
-    "https://www.cnbc.com/2026/05/04/palantir-pltr-q1-earnings-report-2026.html",
-    "https://eciks.org/13762-11692-palantir-earnings-date-august-3"
+    "https://www.sec.gov/Archives/edgar/data/1321655/000132165526000039/a2026q2ex991pressrelease.htm",
+    "https://stockanalysis.com/stocks/PLTR/financials/?p=quarterly"
    ],
    "score": {
     "total": 97,
@@ -453,13 +711,240 @@ const DATA = {
       "date": "2026-08-03",
       "total": 97,
       "event": "baseline"
+     },
+     {
+      "date": "2026-08-04",
+      "total": 97,
+      "event": "Q2 2026 report \u2014 data refreshed, score unchanged (already maxed on growth, profitability, cash and balance sheet)"
      }
     ]
    },
-   "watch_note": "Reports Q2 2026 today (3 Aug) after US close \u2014 this score is on Q1 data and should be refreshed tomorrow.",
+   "watch_note": "Growth is exceptional and now genuinely profitable \u2014 but the score measures the business today, not the price paid for it. At 93% growth the law of large numbers is the main forward risk.",
    "pies": [
     "bankers"
-   ]
+   ],
+   "financial_history": {
+    "quarterly": [
+     {
+      "q": "2022Q1",
+      "fiscal": "Q1 2022",
+      "rev_b": 0.4464,
+      "gross_pct": 78.85,
+      "op_pct": -8.84,
+      "fcf_b": 0.0203
+     },
+     {
+      "q": "2022Q2",
+      "fiscal": "Q2 2022",
+      "rev_b": 0.473,
+      "gross_pct": 78.39,
+      "op_pct": -8.83,
+      "fcf_b": 0.057
+     },
+     {
+      "q": "2022Q3",
+      "fiscal": "Q3 2022",
+      "rev_b": 0.4779,
+      "gross_pct": 77.48,
+      "op_pct": -13.01,
+      "fcf_b": 0.0326
+     },
+     {
+      "q": "2022Q4",
+      "fiscal": "Q4 2022",
+      "rev_b": 0.5086,
+      "gross_pct": 79.49,
+      "op_pct": -3.5,
+      "fcf_b": 0.0739
+     },
+     {
+      "q": "2023Q1",
+      "fiscal": "Q1 2023",
+      "rev_b": 0.5252,
+      "gross_pct": 79.5,
+      "op_pct": 0.78,
+      "fcf_b": 0.1826
+     },
+     {
+      "q": "2023Q2",
+      "fiscal": "Q2 2023",
+      "rev_b": 0.5333,
+      "gross_pct": 79.96,
+      "op_pct": 1.89,
+      "fcf_b": 0.0863
+     },
+     {
+      "q": "2023Q3",
+      "fiscal": "Q3 2023",
+      "rev_b": 0.5582,
+      "gross_pct": 80.66,
+      "op_pct": 7.16,
+      "fcf_b": 0.1319
+     },
+     {
+      "q": "2023Q4",
+      "fiscal": "Q4 2023",
+      "rev_b": 0.6084,
+      "gross_pct": 82.14,
+      "op_pct": 10.82,
+      "fcf_b": 0.2963
+     },
+     {
+      "q": "2024Q1",
+      "fiscal": "Q1 2024",
+      "rev_b": 0.6343,
+      "gross_pct": 81.67,
+      "op_pct": 12.75,
+      "fcf_b": 0.1269
+     },
+     {
+      "q": "2024Q2",
+      "fiscal": "Q2 2024",
+      "rev_b": 0.6781,
+      "gross_pct": 81.04,
+      "op_pct": 15.53,
+      "fcf_b": 0.1413
+     },
+     {
+      "q": "2024Q3",
+      "fiscal": "Q3 2024",
+      "rev_b": 0.7255,
+      "gross_pct": 79.79,
+      "op_pct": 15.59,
+      "fcf_b": 0.4158
+     },
+     {
+      "q": "2024Q4",
+      "fiscal": "Q4 2024",
+      "rev_b": 0.8275,
+      "gross_pct": 78.91,
+      "op_pct": 1.33,
+      "fcf_b": 0.4572
+     },
+     {
+      "q": "2025Q1",
+      "fiscal": "Q1 2025",
+      "rev_b": 0.8839,
+      "gross_pct": 80.43,
+      "op_pct": 19.92,
+      "fcf_b": 0.3041
+     },
+     {
+      "q": "2025Q2",
+      "fiscal": "Q2 2025",
+      "rev_b": 1.004,
+      "gross_pct": 80.78,
+      "op_pct": 26.83,
+      "fcf_b": 0.5316
+     },
+     {
+      "q": "2025Q3",
+      "fiscal": "Q3 2025",
+      "rev_b": 1.181,
+      "gross_pct": 82.45,
+      "op_pct": 33.3,
+      "fcf_b": 0.5009
+     },
+     {
+      "q": "2025Q4",
+      "fiscal": "Q4 2025",
+      "rev_b": 1.407,
+      "gross_pct": 84.65,
+      "op_pct": 40.9,
+      "fcf_b": 0.764
+     },
+     {
+      "q": "2026Q1",
+      "fiscal": "Q1 2026",
+      "rev_b": 1.633,
+      "gross_pct": 86.78,
+      "op_pct": 46.18,
+      "fcf_b": 0.8918
+     },
+     {
+      "q": "2026Q2",
+      "fiscal": "Q2 2026",
+      "rev_b": 1.935,
+      "gross_pct": 84.66,
+      "op_pct": 47.12,
+      "fcf_b": 1.2016
+     }
+    ],
+    "segments": [
+     {
+      "name": "US Commercial",
+      "unit": "revenue_b",
+      "series": [
+       {
+        "q": "2025Q2",
+        "v": 0.306
+       },
+       {
+        "q": "2025Q3",
+        "v": 0.397
+       },
+       {
+        "q": "2025Q4",
+        "v": 0.507
+       },
+       {
+        "q": "2026Q1",
+        "v": 0.595
+       },
+       {
+        "q": "2026Q2",
+        "v": 0.764
+       }
+      ]
+     },
+     {
+      "name": "US Government",
+      "unit": "revenue_b",
+      "series": [
+       {
+        "q": "2025Q2",
+        "v": 0.426
+       },
+       {
+        "q": "2025Q3",
+        "v": 0.486
+       },
+       {
+        "q": "2025Q4",
+        "v": 0.57
+       },
+       {
+        "q": "2026Q1",
+        "v": 0.687
+       },
+       {
+        "q": "2026Q2",
+        "v": 0.809
+       }
+      ]
+     }
+    ],
+    "notes": "2026Q2 reported 3 Aug 2026. Margins computed from GAAP gross profit $1,638.6M and operating income $912.0M on revenue $1,935.5M."
+   },
+   "market_context": {
+    "rev_growth": {
+     "value": 93.0,
+     "rank": "top 10%",
+     "vs_sp500_aggregate": 78.9
+    },
+    "op_margin": {
+     "value": 47.1,
+     "rank": "top 10%"
+    },
+    "gross_margin": {
+     "value": 84.7,
+     "rank": "top 10%"
+    },
+    "fcf_margin": {
+     "value": 62.1,
+     "rank": "top 10%"
+    }
+   }
   },
   {
    "ticker": "MU",
@@ -602,7 +1087,281 @@ const DATA = {
    "watch_note": "Cyclical-peak economics: today's margins are supercycle pricing, not a structural moat. Score will fall fast when memory pricing turns \u2014 treat the 90s as conditional.",
    "pies": [
     "bankers"
-   ]
+   ],
+   "financial_history": {
+    "quarterly": [
+     {
+      "q": "2022Q1",
+      "fiscal": "Q2 FY22",
+      "rev_b": 7.786,
+      "gross_pct": 47.2,
+      "op_pct": 32.7,
+      "fcf_b": 1.017
+     },
+     {
+      "q": "2022Q2",
+      "fiscal": "Q3 FY22",
+      "rev_b": 8.642,
+      "gross_pct": 46.7,
+      "op_pct": 34.8,
+      "fcf_b": 1.26
+     },
+     {
+      "q": "2022Q3",
+      "fiscal": "Q4 FY22",
+      "rev_b": 6.643,
+      "gross_pct": 39.5,
+      "op_pct": 22.9,
+      "fcf_b": 0.164
+     },
+     {
+      "q": "2022Q4",
+      "fiscal": "Q1 FY23",
+      "rev_b": 4.085,
+      "gross_pct": 21.9,
+      "op_pct": -5.1,
+      "fcf_b": -1.506
+     },
+     {
+      "q": "2023Q1",
+      "fiscal": "Q2 FY23",
+      "rev_b": 3.693,
+      "gross_pct": -32.7,
+      "op_pct": -62.4,
+      "fcf_b": -1.862
+     },
+     {
+      "q": "2023Q2",
+      "fiscal": "Q3 FY23",
+      "rev_b": 3.752,
+      "gross_pct": -17.8,
+      "op_pct": -46.9,
+      "fcf_b": -1.537
+     },
+     {
+      "q": "2023Q3",
+      "fiscal": "Q4 FY23",
+      "rev_b": 4.01,
+      "gross_pct": -10.9,
+      "op_pct": -36.7,
+      "fcf_b": -1.212
+     },
+     {
+      "q": "2023Q4",
+      "fiscal": "Q1 FY24",
+      "rev_b": 4.726,
+      "gross_pct": -0.7,
+      "op_pct": -23.9,
+      "fcf_b": -0.395
+     },
+     {
+      "q": "2024Q1",
+      "fiscal": "Q2 FY24",
+      "rev_b": 5.824,
+      "gross_pct": 18.5,
+      "op_pct": 3.3,
+      "fcf_b": -0.165
+     },
+     {
+      "q": "2024Q2",
+      "fiscal": "Q3 FY24",
+      "rev_b": 6.811,
+      "gross_pct": 26.9,
+      "op_pct": 10.6,
+      "fcf_b": 0.396
+     },
+     {
+      "q": "2024Q3",
+      "fiscal": "Q4 FY24",
+      "rev_b": 7.75,
+      "gross_pct": 35.3,
+      "op_pct": 19.6,
+      "fcf_b": 0.285
+     },
+     {
+      "q": "2024Q4",
+      "fiscal": "Q1 FY25",
+      "rev_b": 8.709,
+      "gross_pct": 38.4,
+      "op_pct": 25.0,
+      "fcf_b": 0.038
+     },
+     {
+      "q": "2025Q1",
+      "fiscal": "Q2 FY25",
+      "rev_b": 8.053,
+      "gross_pct": 36.8,
+      "op_pct": 22.0,
+      "fcf_b": -0.113
+     },
+     {
+      "q": "2025Q2",
+      "fiscal": "Q3 FY25",
+      "rev_b": 9.301,
+      "gross_pct": 37.7,
+      "op_pct": 23.3,
+      "fcf_b": 1.671
+     },
+     {
+      "q": "2025Q3",
+      "fiscal": "Q4 FY25",
+      "rev_b": 11.315,
+      "gross_pct": 44.7,
+      "op_pct": 32.3,
+      "fcf_b": 0.072
+     },
+     {
+      "q": "2025Q4",
+      "fiscal": "Q1 FY26",
+      "rev_b": 13.643,
+      "gross_pct": 56.0,
+      "op_pct": 45.0,
+      "fcf_b": 3.022
+     },
+     {
+      "q": "2026Q1",
+      "fiscal": "Q2 FY26",
+      "rev_b": 23.86,
+      "gross_pct": 74.4,
+      "op_pct": 67.6,
+      "fcf_b": 5.516
+     },
+     {
+      "q": "2026Q2",
+      "fiscal": "Q3 FY26",
+      "rev_b": 41.456,
+      "gross_pct": 84.6,
+      "op_pct": 80.4,
+      "fcf_b": 17.562
+     }
+    ],
+    "segments": [
+     {
+      "name": "Cloud Memory",
+      "unit": "revenue_b",
+      "series": [
+       {
+        "q": "2025Q2",
+        "v": 3.386
+       },
+       {
+        "q": "2025Q3",
+        "v": 4.543
+       },
+       {
+        "q": "2025Q4",
+        "v": 5.284
+       },
+       {
+        "q": "2026Q1",
+        "v": 7.749
+       },
+       {
+        "q": "2026Q2",
+        "v": 13.769
+       }
+      ]
+     },
+     {
+      "name": "Core Data Center",
+      "unit": "revenue_b",
+      "series": [
+       {
+        "q": "2025Q2",
+        "v": 1.53
+       },
+       {
+        "q": "2025Q3",
+        "v": 1.577
+       },
+       {
+        "q": "2025Q4",
+        "v": 2.379
+       },
+       {
+        "q": "2026Q1",
+        "v": 5.687
+       },
+       {
+        "q": "2026Q2",
+        "v": 11.524
+       }
+      ]
+     },
+     {
+      "name": "Mobile and Client",
+      "unit": "revenue_b",
+      "series": [
+       {
+        "q": "2025Q2",
+        "v": 3.255
+       },
+       {
+        "q": "2025Q3",
+        "v": 3.76
+       },
+       {
+        "q": "2025Q4",
+        "v": 4.255
+       },
+       {
+        "q": "2026Q1",
+        "v": 7.711
+       },
+       {
+        "q": "2026Q2",
+        "v": 11.521
+       }
+      ]
+     },
+     {
+      "name": "Automotive and Embedded",
+      "unit": "revenue_b",
+      "series": [
+       {
+        "q": "2025Q2",
+        "v": 1.127
+       },
+       {
+        "q": "2025Q3",
+        "v": 1.434
+       },
+       {
+        "q": "2025Q4",
+        "v": 1.72
+       },
+       {
+        "q": "2026Q1",
+        "v": 2.708
+       },
+       {
+        "q": "2026Q2",
+        "v": 4.634
+       }
+      ]
+     }
+    ],
+    "notes": "Fiscal year ends Aug/Sep; quarters labelled by calendar quarter of fiscal period end. Business-unit structure changed in FY2025 so segment series starts fiscal Q3 FY25."
+   },
+   "market_context": {
+    "rev_growth": {
+     "value": 345.7,
+     "rank": "top 10%",
+     "vs_sp500_aggregate": 331.6
+    },
+    "op_margin": {
+     "value": 65.7,
+     "rank": "top 10%"
+    },
+    "gross_margin": {
+     "value": 72.6,
+     "rank": "top 10%"
+    },
+    "fcf_margin": {
+     "value": 29.0,
+     "rank": "top 10%"
+    }
+   }
   },
   {
    "ticker": "AVGO",
@@ -734,7 +1493,221 @@ const DATA = {
    },
    "pies": [
     "bankers"
-   ]
+   ],
+   "financial_history": {
+    "quarterly": [
+     {
+      "q": "2022Q1",
+      "fiscal": "Q1 FY22",
+      "rev_b": 7.706,
+      "gross_pct": 65.5,
+      "op_pct": 40.3,
+      "fcf_b": 3.385
+     },
+     {
+      "q": "2022Q2",
+      "fiscal": "Q2 FY22",
+      "rev_b": 8.103,
+      "gross_pct": 67.1,
+      "op_pct": 41.9,
+      "fcf_b": 4.158
+     },
+     {
+      "q": "2022Q3",
+      "fiscal": "Q3 FY22",
+      "rev_b": 8.464,
+      "gross_pct": 67.1,
+      "op_pct": 44.2,
+      "fcf_b": 4.308
+     },
+     {
+      "q": "2022Q4",
+      "fiscal": "Q4 FY22",
+      "rev_b": 8.93,
+      "gross_pct": 66.4,
+      "op_pct": 44.6,
+      "fcf_b": 4.461
+     },
+     {
+      "q": "2023Q1",
+      "fiscal": "Q1 FY23",
+      "rev_b": 8.915,
+      "gross_pct": 67.4,
+      "op_pct": 46.0,
+      "fcf_b": 3.933
+     },
+     {
+      "q": "2023Q2",
+      "fiscal": "Q2 FY23",
+      "rev_b": 8.733,
+      "gross_pct": 70.0,
+      "op_pct": 45.9,
+      "fcf_b": 4.38
+     },
+     {
+      "q": "2023Q3",
+      "fiscal": "Q3 FY23",
+      "rev_b": 8.876,
+      "gross_pct": 69.5,
+      "op_pct": 43.4,
+      "fcf_b": 4.597
+     },
+     {
+      "q": "2023Q4",
+      "fiscal": "Q4 FY23",
+      "rev_b": 9.295,
+      "gross_pct": 68.9,
+      "op_pct": 45.6,
+      "fcf_b": 4.723
+     },
+     {
+      "q": "2024Q1",
+      "fiscal": "Q1 FY24",
+      "rev_b": 11.961,
+      "gross_pct": 61.7,
+      "op_pct": 17.4,
+      "fcf_b": 4.693
+     },
+     {
+      "q": "2024Q2",
+      "fiscal": "Q2 FY24",
+      "rev_b": 12.487,
+      "gross_pct": 62.3,
+      "op_pct": 23.7,
+      "fcf_b": 4.448
+     },
+     {
+      "q": "2024Q3",
+      "fiscal": "Q3 FY24",
+      "rev_b": 13.072,
+      "gross_pct": 63.9,
+      "op_pct": 29.0,
+      "fcf_b": 4.791
+     },
+     {
+      "q": "2024Q4",
+      "fiscal": "Q4 FY24",
+      "rev_b": 14.054,
+      "gross_pct": 64.1,
+      "op_pct": 32.9,
+      "fcf_b": 5.482
+     },
+     {
+      "q": "2025Q1",
+      "fiscal": "Q1 FY25",
+      "rev_b": 14.916,
+      "gross_pct": 68.0,
+      "op_pct": 42.0,
+      "fcf_b": 6.013
+     },
+     {
+      "q": "2025Q2",
+      "fiscal": "Q2 FY25",
+      "rev_b": 15.004,
+      "gross_pct": 68.0,
+      "op_pct": 38.9,
+      "fcf_b": 6.411
+     },
+     {
+      "q": "2025Q3",
+      "fiscal": "Q3 FY25",
+      "rev_b": 15.952,
+      "gross_pct": 67.1,
+      "op_pct": 36.9,
+      "fcf_b": 7.024
+     },
+     {
+      "q": "2025Q4",
+      "fiscal": "Q4 FY25",
+      "rev_b": 18.015,
+      "gross_pct": 68.0,
+      "op_pct": 41.7,
+      "fcf_b": 7.466
+     },
+     {
+      "q": "2026Q1",
+      "fiscal": "Q1 FY26",
+      "rev_b": 19.311,
+      "gross_pct": 68.1,
+      "op_pct": 44.3,
+      "fcf_b": 8.01
+     },
+     {
+      "q": "2026Q2",
+      "fiscal": "Q2 FY26",
+      "rev_b": 22.187,
+      "gross_pct": 69.5,
+      "op_pct": 48.6,
+      "fcf_b": 10.262
+     }
+    ],
+    "segments": [
+     {
+      "name": "Semiconductor Solutions",
+      "unit": "revenue_b",
+      "series": [
+       {
+        "q": "2024Q4",
+        "v": 8.23
+       },
+       {
+        "q": "2025Q2",
+        "v": 8.408
+       },
+       {
+        "q": "2025Q4",
+        "v": 11.072
+       },
+       {
+        "q": "2026Q2",
+        "v": 15.009
+       }
+      ]
+     },
+     {
+      "name": "Infrastructure Software",
+      "unit": "revenue_b",
+      "series": [
+       {
+        "q": "2024Q4",
+        "v": 5.824
+       },
+       {
+        "q": "2025Q2",
+        "v": 6.596
+       },
+       {
+        "q": "2025Q4",
+        "v": 6.943
+       },
+       {
+        "q": "2026Q2",
+        "v": 7.178
+       }
+      ]
+     }
+    ],
+    "notes": "Fiscal year ends ~Oct/Nov. VMware acquisition closed Nov 2023 \u2014 FY24+ software revenue and GAAP margins break vs prior quarters. Segment series is alternating quarters from press releases."
+   },
+   "market_context": {
+    "rev_growth": {
+     "value": 47.9,
+     "rank": "top 10%",
+     "vs_sp500_aggregate": 33.8
+    },
+    "op_margin": {
+     "value": 44.2,
+     "rank": "top 10%"
+    },
+    "gross_margin": {
+     "value": 68.3,
+     "rank": "top 10%"
+    },
+    "fcf_margin": {
+     "value": 43.4,
+     "rank": "top 10%"
+    }
+   }
   },
   {
    "ticker": "CRWD",
@@ -861,7 +1834,176 @@ const DATA = {
    },
    "pies": [
     "bankers"
-   ]
+   ],
+   "financial_history": {
+    "quarterly": [
+     {
+      "q": "2022Q1",
+      "fiscal": "Q4 FY22",
+      "rev_b": 0.431,
+      "gross_pct": 73.87,
+      "op_pct": -5.46,
+      "fcf_b": 0.133
+     },
+     {
+      "q": "2022Q2",
+      "fiscal": "Q1 FY23",
+      "rev_b": 0.4878,
+      "gross_pct": 74.0,
+      "op_pct": -4.9,
+      "fcf_b": 0.1628
+     },
+     {
+      "q": "2022Q3",
+      "fiscal": "Q2 FY23",
+      "rev_b": 0.5352,
+      "gross_pct": 73.73,
+      "op_pct": -9.03,
+      "fcf_b": 0.1438
+     },
+     {
+      "q": "2022Q4",
+      "fiscal": "Q3 FY23",
+      "rev_b": 0.5809,
+      "gross_pct": 72.76,
+      "op_pct": -9.71,
+      "fcf_b": 0.1816
+     },
+     {
+      "q": "2023Q1",
+      "fiscal": "Q4 FY23",
+      "rev_b": 0.6374,
+      "gross_pct": 72.45,
+      "op_pct": -9.65,
+      "fcf_b": 0.2179
+     },
+     {
+      "q": "2023Q2",
+      "fiscal": "Q1 FY24",
+      "rev_b": 0.6926,
+      "gross_pct": 75.57,
+      "op_pct": -2.81,
+      "fcf_b": 0.2386
+     },
+     {
+      "q": "2023Q3",
+      "fiscal": "Q2 FY24",
+      "rev_b": 0.7316,
+      "gross_pct": 75.0,
+      "op_pct": -2.1,
+      "fcf_b": 0.2044
+     },
+     {
+      "q": "2023Q4",
+      "fiscal": "Q3 FY24",
+      "rev_b": 0.786,
+      "gross_pct": 75.19,
+      "op_pct": 0.4,
+      "fcf_b": 0.2523
+     },
+     {
+      "q": "2024Q1",
+      "fiscal": "Q4 FY24",
+      "rev_b": 0.8453,
+      "gross_pct": 74.95,
+      "op_pct": 3.51,
+      "fcf_b": 0.2944
+     },
+     {
+      "q": "2024Q2",
+      "fiscal": "Q1 FY25",
+      "rev_b": 0.921,
+      "gross_pct": 75.57,
+      "op_pct": 0.75,
+      "fcf_b": 0.3336
+     },
+     {
+      "q": "2024Q3",
+      "fiscal": "Q2 FY25",
+      "rev_b": 0.9639,
+      "gross_pct": 75.37,
+      "op_pct": 1.42,
+      "fcf_b": 0.2874
+     },
+     {
+      "q": "2024Q4",
+      "fiscal": "Q3 FY25",
+      "rev_b": 1.01,
+      "gross_pct": 74.75,
+      "op_pct": -5.52,
+      "fcf_b": 0.2474
+     },
+     {
+      "q": "2025Q1",
+      "fiscal": "Q4 FY25",
+      "rev_b": 1.059,
+      "gross_pct": 74.27,
+      "op_pct": -7.49,
+      "fcf_b": 0.2585
+     },
+     {
+      "q": "2025Q2",
+      "fiscal": "Q1 FY26",
+      "rev_b": 1.103,
+      "gross_pct": 73.91,
+      "op_pct": -10.76,
+      "fcf_b": 0.2984
+     },
+     {
+      "q": "2025Q3",
+      "fiscal": "Q2 FY26",
+      "rev_b": 1.169,
+      "gross_pct": 73.46,
+      "op_pct": -9.66,
+      "fcf_b": 0.3023
+     },
+     {
+      "q": "2025Q4",
+      "fiscal": "Q3 FY26",
+      "rev_b": 1.234,
+      "gross_pct": 75.06,
+      "op_pct": -5.63,
+      "fcf_b": 0.3142
+     },
+     {
+      "q": "2026Q1",
+      "fiscal": "Q4 FY26",
+      "rev_b": 1.305,
+      "gross_pct": 75.8,
+      "op_pct": -0.53,
+      "fcf_b": 0.3954
+     },
+     {
+      "q": "2026Q2",
+      "fiscal": "Q1 FY27",
+      "rev_b": 1.386,
+      "gross_pct": 75.3,
+      "op_pct": -2.21,
+      "fcf_b": 0.4933
+     }
+    ],
+    "segments": [],
+    "notes": "Fiscal year ends 31 Jan. GAAP operating margin is negative through most of the period on heavy stock-based compensation; non-GAAP operating margin is ~24%."
+   },
+   "market_context": {
+    "rev_growth": {
+     "value": 25.6,
+     "rank": "top 10%",
+     "vs_sp500_aggregate": 11.5
+    },
+    "op_margin": {
+     "value": -2.0,
+     "rank": "bottom 25%"
+    },
+    "gross_margin": {
+     "value": 75.0,
+     "rank": "top 10%"
+    },
+    "fcf_margin": {
+     "value": 34.0,
+     "rank": "top 10%"
+    }
+   }
   },
   {
    "ticker": "AAPL",
@@ -1009,7 +2151,367 @@ const DATA = {
    },
    "pies": [
     "bankers"
-   ]
+   ],
+   "financial_history": {
+    "quarterly": [
+     {
+      "q": "2022Q1",
+      "fiscal": "Q2 FY22",
+      "rev_b": 97.278,
+      "gross_pct": 43.75,
+      "op_pct": 30.82,
+      "fcf_b": 25.652
+     },
+     {
+      "q": "2022Q2",
+      "fiscal": "Q3 FY22",
+      "rev_b": 82.959,
+      "gross_pct": 43.26,
+      "op_pct": 27.82,
+      "fcf_b": 20.79
+     },
+     {
+      "q": "2022Q3",
+      "fiscal": "Q4 FY22",
+      "rev_b": 90.146,
+      "gross_pct": 42.26,
+      "op_pct": 27.62,
+      "fcf_b": 20.838
+     },
+     {
+      "q": "2022Q4",
+      "fiscal": "Q1 FY23",
+      "rev_b": 117.154,
+      "gross_pct": 42.96,
+      "op_pct": 30.74,
+      "fcf_b": 30.218
+     },
+     {
+      "q": "2023Q1",
+      "fiscal": "Q2 FY23",
+      "rev_b": 94.836,
+      "gross_pct": 44.26,
+      "op_pct": 29.86,
+      "fcf_b": 25.644
+     },
+     {
+      "q": "2023Q2",
+      "fiscal": "Q3 FY23",
+      "rev_b": 81.797,
+      "gross_pct": 44.52,
+      "op_pct": 28.12,
+      "fcf_b": 24.287
+     },
+     {
+      "q": "2023Q3",
+      "fiscal": "Q4 FY23",
+      "rev_b": 89.498,
+      "gross_pct": 45.17,
+      "op_pct": 30.13,
+      "fcf_b": 19.435
+     },
+     {
+      "q": "2023Q4",
+      "fiscal": "Q1 FY24",
+      "rev_b": 119.575,
+      "gross_pct": 45.88,
+      "op_pct": 33.76,
+      "fcf_b": 37.503
+     },
+     {
+      "q": "2024Q1",
+      "fiscal": "Q2 FY24",
+      "rev_b": 90.753,
+      "gross_pct": 46.58,
+      "op_pct": 30.74,
+      "fcf_b": 20.694
+     },
+     {
+      "q": "2024Q2",
+      "fiscal": "Q3 FY24",
+      "rev_b": 85.777,
+      "gross_pct": 46.26,
+      "op_pct": 29.56,
+      "fcf_b": 26.707
+     },
+     {
+      "q": "2024Q3",
+      "fiscal": "Q4 FY24",
+      "rev_b": 94.93,
+      "gross_pct": 46.22,
+      "op_pct": 31.17,
+      "fcf_b": 23.903
+     },
+     {
+      "q": "2024Q4",
+      "fiscal": "Q1 FY25",
+      "rev_b": 124.3,
+      "gross_pct": 46.88,
+      "op_pct": 34.46,
+      "fcf_b": 26.995
+     },
+     {
+      "q": "2025Q1",
+      "fiscal": "Q2 FY25",
+      "rev_b": 95.359,
+      "gross_pct": 47.05,
+      "op_pct": 31.03,
+      "fcf_b": 20.881
+     },
+     {
+      "q": "2025Q2",
+      "fiscal": "Q3 FY25",
+      "rev_b": 94.036,
+      "gross_pct": 46.49,
+      "op_pct": 29.99,
+      "fcf_b": 24.405
+     },
+     {
+      "q": "2025Q3",
+      "fiscal": "Q4 FY25",
+      "rev_b": 102.466,
+      "gross_pct": 47.18,
+      "op_pct": 31.65,
+      "fcf_b": 26.486
+     },
+     {
+      "q": "2025Q4",
+      "fiscal": "Q1 FY26",
+      "rev_b": 143.756,
+      "gross_pct": 48.16,
+      "op_pct": 35.37,
+      "fcf_b": 51.552
+     },
+     {
+      "q": "2026Q1",
+      "fiscal": "Q2 FY26",
+      "rev_b": 111.184,
+      "gross_pct": 49.27,
+      "op_pct": 32.28,
+      "fcf_b": 26.731
+     },
+     {
+      "q": "2026Q2",
+      "fiscal": "Q3 FY26",
+      "rev_b": 109.417,
+      "gross_pct": 50.06,
+      "op_pct": 32.62,
+      "fcf_b": 31.914
+     }
+    ],
+    "segments": [
+     {
+      "name": "iPhone",
+      "unit": "revenue_b",
+      "series": [
+       {
+        "q": "2024Q3",
+        "v": 46.222
+       },
+       {
+        "q": "2024Q4",
+        "v": 69.138
+       },
+       {
+        "q": "2025Q1",
+        "v": 46.841
+       },
+       {
+        "q": "2025Q2",
+        "v": 44.582
+       },
+       {
+        "q": "2025Q3",
+        "v": 49.025
+       },
+       {
+        "q": "2025Q4",
+        "v": 85.269
+       },
+       {
+        "q": "2026Q1",
+        "v": 56.994
+       },
+       {
+        "q": "2026Q2",
+        "v": 54.252
+       }
+      ]
+     },
+     {
+      "name": "Services",
+      "unit": "revenue_b",
+      "series": [
+       {
+        "q": "2024Q3",
+        "v": 24.972
+       },
+       {
+        "q": "2024Q4",
+        "v": 26.34
+       },
+       {
+        "q": "2025Q1",
+        "v": 26.645
+       },
+       {
+        "q": "2025Q2",
+        "v": 27.423
+       },
+       {
+        "q": "2025Q3",
+        "v": 28.75
+       },
+       {
+        "q": "2025Q4",
+        "v": 30.013
+       },
+       {
+        "q": "2026Q1",
+        "v": 30.976
+       },
+       {
+        "q": "2026Q2",
+        "v": 30.739
+       }
+      ]
+     },
+     {
+      "name": "Mac",
+      "unit": "revenue_b",
+      "series": [
+       {
+        "q": "2024Q3",
+        "v": 7.744
+       },
+       {
+        "q": "2024Q4",
+        "v": 8.987
+       },
+       {
+        "q": "2025Q1",
+        "v": 7.949
+       },
+       {
+        "q": "2025Q2",
+        "v": 8.046
+       },
+       {
+        "q": "2025Q3",
+        "v": 8.726
+       },
+       {
+        "q": "2025Q4",
+        "v": 8.386
+       },
+       {
+        "q": "2026Q1",
+        "v": 8.399
+       },
+       {
+        "q": "2026Q2",
+        "v": 10.352
+       }
+      ]
+     },
+     {
+      "name": "iPad",
+      "unit": "revenue_b",
+      "series": [
+       {
+        "q": "2024Q3",
+        "v": 6.95
+       },
+       {
+        "q": "2024Q4",
+        "v": 8.088
+       },
+       {
+        "q": "2025Q1",
+        "v": 6.402
+       },
+       {
+        "q": "2025Q2",
+        "v": 6.581
+       },
+       {
+        "q": "2025Q3",
+        "v": 6.952
+       },
+       {
+        "q": "2025Q4",
+        "v": 8.595
+       },
+       {
+        "q": "2026Q1",
+        "v": 6.914
+       },
+       {
+        "q": "2026Q2",
+        "v": 6.191
+       }
+      ]
+     },
+     {
+      "name": "Wearables, Home and Accessories",
+      "unit": "revenue_b",
+      "series": [
+       {
+        "q": "2024Q3",
+        "v": 9.042
+       },
+       {
+        "q": "2024Q4",
+        "v": 11.747
+       },
+       {
+        "q": "2025Q1",
+        "v": 7.522
+       },
+       {
+        "q": "2025Q2",
+        "v": 7.404
+       },
+       {
+        "q": "2025Q3",
+        "v": 9.013
+       },
+       {
+        "q": "2025Q4",
+        "v": 11.493
+       },
+       {
+        "q": "2026Q1",
+        "v": 7.901
+       },
+       {
+        "q": "2026Q2",
+        "v": 7.883
+       }
+      ]
+     }
+    ],
+    "notes": "Fiscal Q ends late Sep; calendar labels shifted one quarter vs fiscal. Segment quarters sum exactly to reported total revenue."
+   },
+   "market_context": {
+    "rev_growth": {
+     "value": 16.4,
+     "rank": "top 25%",
+     "vs_sp500_aggregate": 2.3
+    },
+    "op_margin": {
+     "value": 32.6,
+     "rank": "top 10%"
+    },
+    "gross_margin": {
+     "value": 50.1,
+     "rank": "above median"
+    },
+    "fcf_margin": {
+     "value": 29.3,
+     "rank": "top 10%"
+    }
+   }
   },
   {
    "ticker": "AMD",
@@ -1151,7 +2653,259 @@ const DATA = {
    },
    "pies": [
     "bankers"
-   ]
+   ],
+   "financial_history": {
+    "quarterly": [
+     {
+      "q": "2022Q1",
+      "fiscal": "Q1 FY22",
+      "rev_b": 5.887,
+      "gross_pct": 47.9,
+      "op_pct": 16.2,
+      "fcf_b": 0.924
+     },
+     {
+      "q": "2022Q2",
+      "fiscal": "Q2 FY22",
+      "rev_b": 6.55,
+      "gross_pct": 46.2,
+      "op_pct": 8.0,
+      "fcf_b": 0.906
+     },
+     {
+      "q": "2022Q3",
+      "fiscal": "Q3 FY22",
+      "rev_b": 5.565,
+      "gross_pct": 42.3,
+      "op_pct": -1.2,
+      "fcf_b": 0.842
+     },
+     {
+      "q": "2022Q4",
+      "fiscal": "Q4 FY22",
+      "rev_b": 5.599,
+      "gross_pct": 42.9,
+      "op_pct": -2.7,
+      "fcf_b": 0.443
+     },
+     {
+      "q": "2023Q1",
+      "fiscal": "Q1 FY23",
+      "rev_b": 5.353,
+      "gross_pct": 44.1,
+      "op_pct": -2.7,
+      "fcf_b": 0.328
+     },
+     {
+      "q": "2023Q2",
+      "fiscal": "Q2 FY23",
+      "rev_b": 5.359,
+      "gross_pct": 45.6,
+      "op_pct": -0.4,
+      "fcf_b": 0.254
+     },
+     {
+      "q": "2023Q3",
+      "fiscal": "Q3 FY23",
+      "rev_b": 5.8,
+      "gross_pct": 47.4,
+      "op_pct": 3.9,
+      "fcf_b": 0.297
+     },
+     {
+      "q": "2023Q4",
+      "fiscal": "Q4 FY23",
+      "rev_b": 6.168,
+      "gross_pct": 47.2,
+      "op_pct": 5.5,
+      "fcf_b": 0.242
+     },
+     {
+      "q": "2024Q1",
+      "fiscal": "Q1 FY24",
+      "rev_b": 5.473,
+      "gross_pct": 46.8,
+      "op_pct": 0.7,
+      "fcf_b": 0.379
+     },
+     {
+      "q": "2024Q2",
+      "fiscal": "Q2 FY24",
+      "rev_b": 5.835,
+      "gross_pct": 49.1,
+      "op_pct": 4.6,
+      "fcf_b": 0.439
+     },
+     {
+      "q": "2024Q3",
+      "fiscal": "Q3 FY24",
+      "rev_b": 6.819,
+      "gross_pct": 50.1,
+      "op_pct": 10.6,
+      "fcf_b": 0.496
+     },
+     {
+      "q": "2024Q4",
+      "fiscal": "Q4 FY24",
+      "rev_b": 7.658,
+      "gross_pct": 50.7,
+      "op_pct": 11.4,
+      "fcf_b": 1.091
+     },
+     {
+      "q": "2025Q1",
+      "fiscal": "Q1 FY25",
+      "rev_b": 7.438,
+      "gross_pct": 50.2,
+      "op_pct": 10.8,
+      "fcf_b": 0.727
+     },
+     {
+      "q": "2025Q2",
+      "fiscal": "Q2 FY25",
+      "rev_b": 7.685,
+      "gross_pct": 39.8,
+      "op_pct": -1.7,
+      "fcf_b": 1.729
+     },
+     {
+      "q": "2025Q3",
+      "fiscal": "Q3 FY25",
+      "rev_b": 9.246,
+      "gross_pct": 51.7,
+      "op_pct": 13.7,
+      "fcf_b": 1.901
+     },
+     {
+      "q": "2025Q4",
+      "fiscal": "Q4 FY25",
+      "rev_b": 10.27,
+      "gross_pct": 54.3,
+      "op_pct": 17.1,
+      "fcf_b": 2.378
+     },
+     {
+      "q": "2026Q1",
+      "fiscal": "Q1 FY26",
+      "rev_b": 10.253,
+      "gross_pct": 52.8,
+      "op_pct": 14.4,
+      "fcf_b": 2.566
+     }
+    ],
+    "segments": [
+     {
+      "name": "Data Center",
+      "unit": "revenue_b",
+      "series": [
+       {
+        "q": "2024Q3",
+        "v": 3.549
+       },
+       {
+        "q": "2025Q1",
+        "v": 3.674
+       },
+       {
+        "q": "2025Q2",
+        "v": 3.24
+       },
+       {
+        "q": "2025Q3",
+        "v": 4.341
+       },
+       {
+        "q": "2025Q4",
+        "v": 5.38
+       },
+       {
+        "q": "2026Q1",
+        "v": 5.775
+       }
+      ]
+     },
+     {
+      "name": "Client and Gaming",
+      "unit": "revenue_b",
+      "series": [
+       {
+        "q": "2024Q3",
+        "v": 2.343
+       },
+       {
+        "q": "2025Q1",
+        "v": 2.941
+       },
+       {
+        "q": "2025Q2",
+        "v": 3.621
+       },
+       {
+        "q": "2025Q3",
+        "v": 4.048
+       },
+       {
+        "q": "2025Q4",
+        "v": 3.94
+       },
+       {
+        "q": "2026Q1",
+        "v": 3.605
+       }
+      ]
+     },
+     {
+      "name": "Embedded",
+      "unit": "revenue_b",
+      "series": [
+       {
+        "q": "2024Q3",
+        "v": 0.927
+       },
+       {
+        "q": "2025Q1",
+        "v": 0.823
+       },
+       {
+        "q": "2025Q2",
+        "v": 0.824
+       },
+       {
+        "q": "2025Q3",
+        "v": 0.857
+       },
+       {
+        "q": "2025Q4",
+        "v": 0.95
+       },
+       {
+        "q": "2026Q1",
+        "v": 0.873
+       }
+      ]
+     }
+    ],
+    "notes": "Q2 2026 not yet reported as of 4 Aug 2026. Client and Gaming merged into one reportable segment in 2025. 2025Q2 margin dip reflects the MI308 export charge."
+   },
+   "market_context": {
+    "rev_growth": {
+     "value": 37.9,
+     "rank": "top 10%",
+     "vs_sp500_aggregate": 23.8
+    },
+    "op_margin": {
+     "value": 11.8,
+     "rank": "below median"
+    },
+    "gross_margin": {
+     "value": 53.1,
+     "rank": "top 25%"
+    },
+    "fcf_margin": {
+     "value": 22.9,
+     "rank": "top 10%"
+    }
+   }
   },
   {
    "ticker": "ANET",
@@ -1279,7 +3033,168 @@ const DATA = {
    },
    "pies": [
     "exponential-convergence"
-   ]
+   ],
+   "financial_history": {
+    "quarterly": [
+     {
+      "q": "2022Q1",
+      "fiscal": "Q1 2022",
+      "rev_b": 0.877,
+      "gross_pct": 63.2,
+      "op_pct": 31.7,
+      "fcf_b": 0.202
+     },
+     {
+      "q": "2022Q2",
+      "fiscal": "Q2 2022",
+      "rev_b": 1.052,
+      "gross_pct": 61.2,
+      "op_pct": 34.5,
+      "fcf_b": 0.092
+     },
+     {
+      "q": "2022Q3",
+      "fiscal": "Q3 2022",
+      "rev_b": 1.177,
+      "gross_pct": 60.3,
+      "op_pct": 35.5,
+      "fcf_b": 0.124
+     },
+     {
+      "q": "2022Q4",
+      "fiscal": "Q4 2022",
+      "rev_b": 1.276,
+      "gross_pct": 60.3,
+      "op_pct": 36.8,
+      "fcf_b": 0.04
+     },
+     {
+      "q": "2023Q1",
+      "fiscal": "Q1 2023",
+      "rev_b": 1.351,
+      "gross_pct": 59.5,
+      "op_pct": 35.9,
+      "fcf_b": 0.369
+     },
+     {
+      "q": "2023Q2",
+      "fiscal": "Q2 2023",
+      "rev_b": 1.459,
+      "gross_pct": 60.6,
+      "op_pct": 36.3,
+      "fcf_b": 0.423
+     },
+     {
+      "q": "2023Q3",
+      "fiscal": "Q3 2023",
+      "rev_b": 1.509,
+      "gross_pct": 62.4,
+      "op_pct": 39.9,
+      "fcf_b": 0.688
+     },
+     {
+      "q": "2023Q4",
+      "fiscal": "Q4 2023",
+      "rev_b": 1.54,
+      "gross_pct": 64.9,
+      "op_pct": 41.5,
+      "fcf_b": 0.526
+     },
+     {
+      "q": "2024Q1",
+      "fiscal": "Q1 2024",
+      "rev_b": 1.571,
+      "gross_pct": 63.7,
+      "op_pct": 42.0,
+      "fcf_b": 0.504
+     },
+     {
+      "q": "2024Q2",
+      "fiscal": "Q2 2024",
+      "rev_b": 1.69,
+      "gross_pct": 64.9,
+      "op_pct": 41.4,
+      "fcf_b": 0.986
+     },
+     {
+      "q": "2024Q3",
+      "fiscal": "Q3 2024",
+      "rev_b": 1.811,
+      "gross_pct": 64.2,
+      "op_pct": 43.4,
+      "fcf_b": 1.168
+     },
+     {
+      "q": "2024Q4",
+      "fiscal": "Q4 2024",
+      "rev_b": 1.93,
+      "gross_pct": 63.8,
+      "op_pct": 41.4,
+      "fcf_b": 1.031
+     },
+     {
+      "q": "2025Q1",
+      "fiscal": "Q1 2025",
+      "rev_b": 2.005,
+      "gross_pct": 63.7,
+      "op_pct": 42.8,
+      "fcf_b": 0.613
+     },
+     {
+      "q": "2025Q2",
+      "fiscal": "Q2 2025",
+      "rev_b": 2.205,
+      "gross_pct": 65.3,
+      "op_pct": 44.7,
+      "fcf_b": 1.176
+     },
+     {
+      "q": "2025Q3",
+      "fiscal": "Q3 2025",
+      "rev_b": 2.308,
+      "gross_pct": 64.6,
+      "op_pct": 42.4,
+      "fcf_b": 1.238
+     },
+     {
+      "q": "2025Q4",
+      "fiscal": "Q4 2025",
+      "rev_b": 2.488,
+      "gross_pct": 62.9,
+      "op_pct": 41.5,
+      "fcf_b": 1.262
+     },
+     {
+      "q": "2026Q1",
+      "fiscal": "Q1 2026",
+      "rev_b": 2.709,
+      "gross_pct": 61.9,
+      "op_pct": 42.7,
+      "fcf_b": 1.639
+     }
+    ],
+    "segments": [],
+    "notes": "Single reportable segment. Q2 2026 not yet reported as of 4 Aug 2026. Some Q4 quarters lack a capex line in the source so FCF there equals operating cash flow."
+   },
+   "market_context": {
+    "rev_growth": {
+     "value": 35.1,
+     "rank": "top 10%",
+     "vs_sp500_aggregate": 21.0
+    },
+    "op_margin": {
+     "value": 42.8,
+     "rank": "top 10%"
+    },
+    "gross_margin": {
+     "value": 63.5,
+     "rank": "top 10%"
+    },
+    "fcf_margin": {
+     "value": 54.8,
+     "rank": "top 10%"
+    }
+   }
   },
   {
    "ticker": "ASML",
@@ -1406,7 +3321,221 @@ const DATA = {
    },
    "pies": [
     "bankers"
-   ]
+   ],
+   "financial_history": {
+    "quarterly": [
+     {
+      "q": "2022Q1",
+      "fiscal": "Q1 2022",
+      "rev_b": 3.534,
+      "gross_pct": 49.0,
+      "op_pct": 22.2,
+      "fcf_b": -0.826
+     },
+     {
+      "q": "2022Q2",
+      "fiscal": "Q2 2022",
+      "rev_b": 5.431,
+      "gross_pct": 49.1,
+      "op_pct": 30.5,
+      "fcf_b": 2.321
+     },
+     {
+      "q": "2022Q3",
+      "fiscal": "Q3 2022",
+      "rev_b": 5.778,
+      "gross_pct": 51.8,
+      "op_pct": 33.6,
+      "fcf_b": 0.813
+     },
+     {
+      "q": "2022Q4",
+      "fiscal": "Q4 2022",
+      "rev_b": 6.43,
+      "gross_pct": 51.5,
+      "op_pct": 33.0,
+      "fcf_b": 4.897
+     },
+     {
+      "q": "2023Q1",
+      "fiscal": "Q1 2023",
+      "rev_b": 6.746,
+      "gross_pct": 50.6,
+      "op_pct": 32.7,
+      "fcf_b": 0.202
+     },
+     {
+      "q": "2023Q2",
+      "fiscal": "Q2 2023",
+      "rev_b": 6.902,
+      "gross_pct": 51.4,
+      "op_pct": 32.8,
+      "fcf_b": -0.153
+     },
+     {
+      "q": "2023Q3",
+      "fiscal": "Q3 2023",
+      "rev_b": 6.673,
+      "gross_pct": 51.9,
+      "op_pct": 32.7,
+      "fcf_b": 0.626
+     },
+     {
+      "q": "2023Q4",
+      "fiscal": "Q4 2023",
+      "rev_b": 7.237,
+      "gross_pct": 51.4,
+      "op_pct": 33.1,
+      "fcf_b": 2.613
+     },
+     {
+      "q": "2024Q1",
+      "fiscal": "Q1 2024",
+      "rev_b": 5.29,
+      "gross_pct": 51.0,
+      "op_pct": 26.3,
+      "fcf_b": -0.669
+     },
+     {
+      "q": "2024Q2",
+      "fiscal": "Q2 2024",
+      "rev_b": 6.243,
+      "gross_pct": 51.5,
+      "op_pct": 29.4,
+      "fcf_b": 0.392
+     },
+     {
+      "q": "2024Q3",
+      "fiscal": "Q3 2024",
+      "rev_b": 7.467,
+      "gross_pct": 50.8,
+      "op_pct": 32.7,
+      "fcf_b": 0.535
+     },
+     {
+      "q": "2024Q4",
+      "fiscal": "Q4 2024",
+      "rev_b": 9.263,
+      "gross_pct": 51.7,
+      "op_pct": 36.2,
+      "fcf_b": 8.841
+     },
+     {
+      "q": "2025Q1",
+      "fiscal": "Q1 2025",
+      "rev_b": 7.742,
+      "gross_pct": 54.0,
+      "op_pct": 35.4,
+      "fcf_b": -0.474
+     },
+     {
+      "q": "2025Q2",
+      "fiscal": "Q2 2025",
+      "rev_b": 7.692,
+      "gross_pct": 53.7,
+      "op_pct": 34.6,
+      "fcf_b": 0.333
+     },
+     {
+      "q": "2025Q3",
+      "fiscal": "Q3 2025",
+      "rev_b": 7.516,
+      "gross_pct": 51.6,
+      "op_pct": 32.8,
+      "fcf_b": 0.263
+     },
+     {
+      "q": "2025Q4",
+      "fiscal": "Q4 2025",
+      "rev_b": 9.718,
+      "gross_pct": 52.2,
+      "op_pct": 35.3,
+      "fcf_b": 10.962
+     },
+     {
+      "q": "2026Q1",
+      "fiscal": "Q1 2026",
+      "rev_b": 8.767,
+      "gross_pct": 53.0,
+      "op_pct": 36.0,
+      "fcf_b": -2.588
+     },
+     {
+      "q": "2026Q2",
+      "fiscal": "Q2 2026",
+      "rev_b": 9.327,
+      "gross_pct": 54.0,
+      "op_pct": 37.1,
+      "fcf_b": 1.404
+     }
+    ],
+    "segments": [
+     {
+      "name": "Net system sales",
+      "unit": "revenue_b",
+      "series": [
+       {
+        "q": "2025Q3",
+        "v": 5.554
+       },
+       {
+        "q": "2025Q4",
+        "v": 7.584
+       },
+       {
+        "q": "2026Q1",
+        "v": 6.279
+       },
+       {
+        "q": "2026Q2",
+        "v": 6.564
+       }
+      ]
+     },
+     {
+      "name": "Installed Base Management",
+      "unit": "revenue_b",
+      "series": [
+       {
+        "q": "2025Q3",
+        "v": 1.962
+       },
+       {
+        "q": "2025Q4",
+        "v": 2.134
+       },
+       {
+        "q": "2026Q1",
+        "v": 2.488
+       },
+       {
+        "q": "2026Q2",
+        "v": 2.762
+       }
+      ]
+     }
+    ],
+    "notes": "All figures EUR. FCF is extremely lumpy: large customer prepayments land in Q4 with negative Q1s."
+   },
+   "market_context": {
+    "rev_growth": {
+     "value": 21.3,
+     "rank": "top 25%",
+     "vs_sp500_aggregate": 7.2
+    },
+    "op_margin": {
+     "value": 35.4,
+     "rank": "top 10%"
+    },
+    "gross_margin": {
+     "value": 52.7,
+     "rank": "top 25%"
+    },
+    "fcf_margin": {
+     "value": 28.4,
+     "rank": "top 10%"
+    }
+   }
   },
   {
    "ticker": "ISRG",
@@ -1542,7 +3671,267 @@ const DATA = {
    },
    "pies": [
     "exponential-convergence"
-   ]
+   ],
+   "financial_history": {
+    "quarterly": [
+     {
+      "q": "2022Q1",
+      "fiscal": "Q1 2022",
+      "rev_b": 1.488,
+      "gross_pct": 67.87,
+      "op_pct": 27.43,
+      "fcf_b": 0.1294
+     },
+     {
+      "q": "2022Q2",
+      "fiscal": "Q2 2022",
+      "rev_b": 1.522,
+      "gross_pct": 67.23,
+      "op_pct": 26.12,
+      "fcf_b": 0.3162
+     },
+     {
+      "q": "2022Q3",
+      "fiscal": "Q3 2022",
+      "rev_b": 1.557,
+      "gross_pct": 67.55,
+      "op_pct": 25.61,
+      "fcf_b": 0.2141
+     },
+     {
+      "q": "2022Q4",
+      "fiscal": "Q4 2022",
+      "rev_b": 1.655,
+      "gross_pct": 67.12,
+      "op_pct": 22.51,
+      "fcf_b": 0.2987
+     },
+     {
+      "q": "2023Q1",
+      "fiscal": "Q1 2023",
+      "rev_b": 1.696,
+      "gross_pct": 65.62,
+      "op_pct": 22.85,
+      "fcf_b": 0.1773
+     },
+     {
+      "q": "2023Q2",
+      "fiscal": "Q2 2023",
+      "rev_b": 1.756,
+      "gross_pct": 66.74,
+      "op_pct": 26.38,
+      "fcf_b": 0.4874
+     },
+     {
+      "q": "2023Q3",
+      "fiscal": "Q3 2023",
+      "rev_b": 1.744,
+      "gross_pct": 66.94,
+      "op_pct": 26.71,
+      "fcf_b": 0.2921
+     },
+     {
+      "q": "2023Q4",
+      "fiscal": "Q4 2023",
+      "rev_b": 1.928,
+      "gross_pct": 66.24,
+      "op_pct": 23.35,
+      "fcf_b": -0.2072
+     },
+     {
+      "q": "2024Q1",
+      "fiscal": "Q1 2024",
+      "rev_b": 1.891,
+      "gross_pct": 65.87,
+      "op_pct": 24.83,
+      "fcf_b": 0.0235
+     },
+     {
+      "q": "2024Q2",
+      "fiscal": "Q2 2024",
+      "rev_b": 2.01,
+      "gross_pct": 68.3,
+      "op_pct": 28.23,
+      "fcf_b": 0.3111
+     },
+     {
+      "q": "2024Q3",
+      "fiscal": "Q3 2024",
+      "rev_b": 2.038,
+      "gross_pct": 67.41,
+      "op_pct": 28.33,
+      "fcf_b": 0.4586
+     },
+     {
+      "q": "2024Q4",
+      "fiscal": "Q4 2024",
+      "rev_b": 2.414,
+      "gross_pct": 68.04,
+      "op_pct": 30.45,
+      "fcf_b": 0.5106
+     },
+     {
+      "q": "2025Q1",
+      "fiscal": "Q1 2025",
+      "rev_b": 2.253,
+      "gross_pct": 64.69,
+      "op_pct": 25.65,
+      "fcf_b": 0.465
+     },
+     {
+      "q": "2025Q2",
+      "fiscal": "Q2 2025",
+      "rev_b": 2.44,
+      "gross_pct": 66.31,
+      "op_pct": 30.47,
+      "fcf_b": 0.5601
+     },
+     {
+      "q": "2025Q3",
+      "fiscal": "Q3 2025",
+      "rev_b": 2.505,
+      "gross_pct": 66.36,
+      "op_pct": 30.33,
+      "fcf_b": 0.7356
+     },
+     {
+      "q": "2025Q4",
+      "fiscal": "Q4 2025",
+      "rev_b": 2.866,
+      "gross_pct": 66.44,
+      "op_pct": 30.15,
+      "fcf_b": 0.73
+     },
+     {
+      "q": "2026Q1",
+      "fiscal": "Q1 2026",
+      "rev_b": 2.771,
+      "gross_pct": 66.06,
+      "op_pct": 30.87,
+      "fcf_b": 0.8086
+     },
+     {
+      "q": "2026Q2",
+      "fiscal": "Q2 2026",
+      "rev_b": 2.892,
+      "gross_pct": 67.78,
+      "op_pct": 33.6,
+      "fcf_b": 0.9484
+     }
+    ],
+    "segments": [
+     {
+      "name": "Instruments and accessories",
+      "unit": "revenue_b",
+      "series": [
+       {
+        "q": "2024Q4",
+        "v": 1.4115
+       },
+       {
+        "q": "2025Q1",
+        "v": 1.3677
+       },
+       {
+        "q": "2025Q2",
+        "v": 1.4741
+       },
+       {
+        "q": "2025Q4",
+        "v": 1.6583
+       },
+       {
+        "q": "2026Q1",
+        "v": 1.6864
+       },
+       {
+        "q": "2026Q2",
+        "v": 1.7349
+       }
+      ]
+     },
+     {
+      "name": "Systems",
+      "unit": "revenue_b",
+      "series": [
+       {
+        "q": "2024Q4",
+        "v": 0.6546
+       },
+       {
+        "q": "2025Q1",
+        "v": 0.5227
+       },
+       {
+        "q": "2025Q2",
+        "v": 0.5747
+       },
+       {
+        "q": "2025Q4",
+        "v": 0.7859
+       },
+       {
+        "q": "2026Q1",
+        "v": 0.6507
+       },
+       {
+        "q": "2026Q2",
+        "v": 0.685
+       }
+      ]
+     },
+     {
+      "name": "Services",
+      "unit": "revenue_b",
+      "series": [
+       {
+        "q": "2024Q4",
+        "v": 0.3474
+       },
+       {
+        "q": "2025Q1",
+        "v": 0.363
+       },
+       {
+        "q": "2025Q2",
+        "v": 0.3912
+       },
+       {
+        "q": "2025Q4",
+        "v": 0.422
+       },
+       {
+        "q": "2026Q1",
+        "v": 0.4337
+       },
+       {
+        "q": "2026Q2",
+        "v": 0.4724
+       }
+      ]
+     }
+    ],
+    "notes": "2023Q4 FCF negative on $435M capex plus a large inventory build. 2025Q3 segment split is a genuine gap."
+   },
+   "market_context": {
+    "rev_growth": {
+     "value": 18.5,
+     "rank": "top 25%",
+     "vs_sp500_aggregate": 4.4
+    },
+    "op_margin": {
+     "value": 33.6,
+     "rank": "top 10%"
+    },
+    "gross_margin": {
+     "value": 67.8,
+     "rank": "top 10%"
+    },
+    "fcf_margin": {
+     "value": 22.7,
+     "rank": "top 10%"
+    }
+   }
   },
   {
    "ticker": "GEV",
@@ -1680,7 +4069,219 @@ const DATA = {
    "watch_note": "FCF is flattered by customer advances on record orders; watch what happens to cash conversion if order intake slows.",
    "pies": [
     "exponential-convergence"
-   ]
+   ],
+   "financial_history": {
+    "quarterly": [
+     {
+      "q": "2024Q2",
+      "fiscal": "Q2 2024",
+      "rev_b": 8.204,
+      "gross_pct": 20.7,
+      "op_pct": 6.4,
+      "fcf_b": 0.822
+     },
+     {
+      "q": "2024Q3",
+      "fiscal": "Q3 2024",
+      "rev_b": 8.913,
+      "gross_pct": 12.4,
+      "op_pct": -4.0,
+      "fcf_b": 0.968
+     },
+     {
+      "q": "2024Q4",
+      "fiscal": "Q4 2024",
+      "rev_b": 10.559,
+      "gross_pct": 20.1,
+      "op_pct": 5.6,
+      "fcf_b": 0.571
+     },
+     {
+      "q": "2025Q1",
+      "fiscal": "Q1 2025",
+      "rev_b": 8.032,
+      "gross_pct": 18.3,
+      "op_pct": 0.5,
+      "fcf_b": 0.975
+     },
+     {
+      "q": "2025Q2",
+      "fiscal": "Q2 2025",
+      "rev_b": 9.111,
+      "gross_pct": 20.3,
+      "op_pct": 4.1,
+      "fcf_b": 0.194
+     },
+     {
+      "q": "2025Q3",
+      "fiscal": "Q3 2025",
+      "rev_b": 9.969,
+      "gross_pct": 19.0,
+      "op_pct": 3.7,
+      "fcf_b": 0.733
+     },
+     {
+      "q": "2025Q4",
+      "fiscal": "Q4 2025",
+      "rev_b": 10.956,
+      "gross_pct": 21.2,
+      "op_pct": 5.5,
+      "fcf_b": 1.808
+     },
+     {
+      "q": "2026Q1",
+      "fiscal": "Q1 2026",
+      "rev_b": 9.339,
+      "gross_pct": 19.1,
+      "op_pct": 1.9,
+      "fcf_b": 4.791
+     },
+     {
+      "q": "2026Q2",
+      "fiscal": "Q2 2026",
+      "rev_b": 11.104,
+      "gross_pct": 21.3,
+      "op_pct": 5.9,
+      "fcf_b": 5.106
+     }
+    ],
+    "segments": [
+     {
+      "name": "Power",
+      "unit": "revenue_b",
+      "series": [
+       {
+        "q": "2024Q3",
+        "v": 4.206
+       },
+       {
+        "q": "2024Q4",
+        "v": 5.431
+       },
+       {
+        "q": "2025Q1",
+        "v": 4.449
+       },
+       {
+        "q": "2025Q2",
+        "v": 4.785
+       },
+       {
+        "q": "2025Q3",
+        "v": 4.838
+       },
+       {
+        "q": "2025Q4",
+        "v": 5.749
+       },
+       {
+        "q": "2026Q1",
+        "v": 4.971
+       },
+       {
+        "q": "2026Q2",
+        "v": 5.477
+       }
+      ]
+     },
+     {
+      "name": "Wind",
+      "unit": "revenue_b",
+      "series": [
+       {
+        "q": "2024Q3",
+        "v": 2.891
+       },
+       {
+        "q": "2024Q4",
+        "v": 3.109
+       },
+       {
+        "q": "2025Q1",
+        "v": 1.85
+       },
+       {
+        "q": "2025Q2",
+        "v": 2.245
+       },
+       {
+        "q": "2025Q3",
+        "v": 2.647
+       },
+       {
+        "q": "2025Q4",
+        "v": 2.368
+       },
+       {
+        "q": "2026Q1",
+        "v": 1.432
+       },
+       {
+        "q": "2026Q2",
+        "v": 2.026
+       }
+      ]
+     },
+     {
+      "name": "Electrification",
+      "unit": "revenue_b",
+      "series": [
+       {
+        "q": "2024Q3",
+        "v": 1.928
+       },
+       {
+        "q": "2024Q4",
+        "v": 2.181
+       },
+       {
+        "q": "2025Q1",
+        "v": 1.84
+       },
+       {
+        "q": "2025Q2",
+        "v": 2.162
+       },
+       {
+        "q": "2025Q3",
+        "v": 2.601
+       },
+       {
+        "q": "2025Q4",
+        "v": 2.96
+       },
+       {
+        "q": "2026Q1",
+        "v": 2.959
+       },
+       {
+        "q": "2026Q2",
+        "v": 3.637
+       }
+      ]
+     }
+    ],
+    "notes": "Series starts 2024Q2, the first full standalone quarter after the 2 Apr 2024 spin-off from GE. 2026 FCF is genuinely very large, driven by customer down payments on gas equipment orders \u2014 this flatters cash conversion and would reverse if orders slow."
+   },
+   "market_context": {
+    "rev_growth": {
+     "value": 21.9,
+     "rank": "top 25%",
+     "vs_sp500_aggregate": 7.8
+    },
+    "op_margin": {
+     "value": 4.4,
+     "rank": "bottom 25%"
+    },
+    "gross_margin": {
+     "value": 20.2,
+     "rank": "bottom 25%"
+    },
+    "fcf_margin": {
+     "value": 30.1,
+     "rank": "top 10%"
+    }
+   }
   },
   {
    "ticker": "MSFT",
@@ -1818,7 +4419,263 @@ const DATA = {
    },
    "pies": [
     "bankers"
-   ]
+   ],
+   "financial_history": {
+    "quarterly": [
+     {
+      "q": "2022Q1",
+      "fiscal": "Q3 FY22",
+      "rev_b": 49.36,
+      "gross_pct": 68.37,
+      "op_pct": 41.26,
+      "fcf_b": 20.046
+     },
+     {
+      "q": "2022Q2",
+      "fiscal": "Q4 FY22",
+      "rev_b": 51.865,
+      "gross_pct": 68.32,
+      "op_pct": 39.59,
+      "fcf_b": 17.758
+     },
+     {
+      "q": "2022Q3",
+      "fiscal": "Q1 FY23",
+      "rev_b": 50.122,
+      "gross_pct": 69.17,
+      "op_pct": 42.93,
+      "fcf_b": 16.915
+     },
+     {
+      "q": "2022Q4",
+      "fiscal": "Q2 FY23",
+      "rev_b": 52.747,
+      "gross_pct": 66.85,
+      "op_pct": 38.67,
+      "fcf_b": 4.899
+     },
+     {
+      "q": "2023Q1",
+      "fiscal": "Q3 FY23",
+      "rev_b": 52.857,
+      "gross_pct": 69.49,
+      "op_pct": 42.29,
+      "fcf_b": 17.834
+     },
+     {
+      "q": "2023Q2",
+      "fiscal": "Q4 FY23",
+      "rev_b": 56.189,
+      "gross_pct": 70.11,
+      "op_pct": 43.16,
+      "fcf_b": 19.827
+     },
+     {
+      "q": "2023Q3",
+      "fiscal": "Q1 FY24",
+      "rev_b": 56.517,
+      "gross_pct": 71.16,
+      "op_pct": 47.59,
+      "fcf_b": 20.666
+     },
+     {
+      "q": "2023Q4",
+      "fiscal": "Q2 FY24",
+      "rev_b": 62.02,
+      "gross_pct": 68.36,
+      "op_pct": 43.59,
+      "fcf_b": 9.118
+     },
+     {
+      "q": "2024Q1",
+      "fiscal": "Q3 FY24",
+      "rev_b": 61.858,
+      "gross_pct": 70.08,
+      "op_pct": 44.59,
+      "fcf_b": 20.965
+     },
+     {
+      "q": "2024Q2",
+      "fiscal": "Q4 FY24",
+      "rev_b": 64.727,
+      "gross_pct": 69.59,
+      "op_pct": 43.14,
+      "fcf_b": 23.322
+     },
+     {
+      "q": "2024Q3",
+      "fiscal": "Q1 FY25",
+      "rev_b": 65.585,
+      "gross_pct": 69.35,
+      "op_pct": 46.58,
+      "fcf_b": 19.257
+     },
+     {
+      "q": "2024Q4",
+      "fiscal": "Q2 FY25",
+      "rev_b": 69.632,
+      "gross_pct": 68.69,
+      "op_pct": 45.46,
+      "fcf_b": 6.487
+     },
+     {
+      "q": "2025Q1",
+      "fiscal": "Q3 FY25",
+      "rev_b": 70.066,
+      "gross_pct": 68.72,
+      "op_pct": 45.67,
+      "fcf_b": 20.299
+     },
+     {
+      "q": "2025Q2",
+      "fiscal": "Q4 FY25",
+      "rev_b": 76.441,
+      "gross_pct": 68.58,
+      "op_pct": 44.9,
+      "fcf_b": 25.568
+     },
+     {
+      "q": "2025Q3",
+      "fiscal": "Q1 FY26",
+      "rev_b": 77.673,
+      "gross_pct": 69.05,
+      "op_pct": 48.87,
+      "fcf_b": 25.663
+     },
+     {
+      "q": "2025Q4",
+      "fiscal": "Q2 FY26",
+      "rev_b": 81.273,
+      "gross_pct": 68.04,
+      "op_pct": 47.09,
+      "fcf_b": 5.882
+     },
+     {
+      "q": "2026Q1",
+      "fiscal": "Q3 FY26",
+      "rev_b": 82.886,
+      "gross_pct": 67.63,
+      "op_pct": 46.33,
+      "fcf_b": 15.803
+     },
+     {
+      "q": "2026Q2",
+      "fiscal": "Q4 FY26",
+      "rev_b": 90.007,
+      "gross_pct": 67.2,
+      "op_pct": 45.11,
+      "fcf_b": 19.639
+     }
+    ],
+    "segments": [
+     {
+      "name": "Productivity and Business Processes",
+      "unit": "revenue_b",
+      "series": [
+       {
+        "q": "2025Q1",
+        "v": 29.944
+       },
+       {
+        "q": "2025Q2",
+        "v": 33.112
+       },
+       {
+        "q": "2025Q3",
+        "v": 33.02
+       },
+       {
+        "q": "2025Q4",
+        "v": 34.116
+       },
+       {
+        "q": "2026Q1",
+        "v": 35.013
+       },
+       {
+        "q": "2026Q2",
+        "v": 37.8
+       }
+      ]
+     },
+     {
+      "name": "Intelligent Cloud",
+      "unit": "revenue_b",
+      "series": [
+       {
+        "q": "2025Q1",
+        "v": 26.751
+       },
+       {
+        "q": "2025Q2",
+        "v": 29.878
+       },
+       {
+        "q": "2025Q3",
+        "v": 30.897
+       },
+       {
+        "q": "2025Q4",
+        "v": 32.907
+       },
+       {
+        "q": "2026Q1",
+        "v": 34.681
+       },
+       {
+        "q": "2026Q2",
+        "v": 39.3
+       }
+      ]
+     },
+     {
+      "name": "More Personal Computing",
+      "unit": "revenue_b",
+      "series": [
+       {
+        "q": "2025Q1",
+        "v": 13.371
+       },
+       {
+        "q": "2025Q3",
+        "v": 13.756
+       },
+       {
+        "q": "2025Q4",
+        "v": 14.25
+       },
+       {
+        "q": "2026Q1",
+        "v": 13.192
+       },
+       {
+        "q": "2026Q2",
+        "v": 12.9
+       }
+      ]
+     }
+    ],
+    "notes": "Fiscal year ends 30 Jun; calendar labels shifted two quarters vs fiscal. Microsoft restated segment allocations effective FY25 so pre-2025 segment figures are not backfilled. One More Personal Computing quarter (2025Q2) was unreliable in the source and has been dropped rather than estimated."
+   },
+   "market_context": {
+    "rev_growth": {
+     "value": 17.8,
+     "rank": "top 25%",
+     "vs_sp500_aggregate": 3.7
+    },
+    "op_margin": {
+     "value": 45.1,
+     "rank": "top 10%"
+    },
+    "gross_margin": {
+     "value": 67.2,
+     "rank": "top 10%"
+    },
+    "fcf_margin": {
+     "value": 20.2,
+     "rank": "top 25%"
+    }
+   }
   },
   {
    "ticker": "GOOGL",
@@ -1955,7 +4812,291 @@ const DATA = {
    },
    "pies": [
     "bankers"
-   ]
+   ],
+   "financial_history": {
+    "quarterly": [
+     {
+      "q": "2022Q1",
+      "fiscal": "Q1 FY22",
+      "rev_b": 68.011,
+      "gross_pct": 56.48,
+      "op_pct": 29.55,
+      "fcf_b": 15.32
+     },
+     {
+      "q": "2022Q2",
+      "fiscal": "Q2 FY22",
+      "rev_b": 69.685,
+      "gross_pct": 56.8,
+      "op_pct": 27.92,
+      "fcf_b": 12.594
+     },
+     {
+      "q": "2022Q3",
+      "fiscal": "Q3 FY22",
+      "rev_b": 69.092,
+      "gross_pct": 54.9,
+      "op_pct": 24.8,
+      "fcf_b": 16.077
+     },
+     {
+      "q": "2022Q4",
+      "fiscal": "Q4 FY22",
+      "rev_b": 76.048,
+      "gross_pct": 53.53,
+      "op_pct": 23.88,
+      "fcf_b": 16.019
+     },
+     {
+      "q": "2023Q1",
+      "fiscal": "Q1 FY23",
+      "rev_b": 69.787,
+      "gross_pct": 56.14,
+      "op_pct": 24.95,
+      "fcf_b": 17.22
+     },
+     {
+      "q": "2023Q2",
+      "fiscal": "Q2 FY23",
+      "rev_b": 74.604,
+      "gross_pct": 57.22,
+      "op_pct": 29.27,
+      "fcf_b": 21.778
+     },
+     {
+      "q": "2023Q3",
+      "fiscal": "Q3 FY23",
+      "rev_b": 76.693,
+      "gross_pct": 56.67,
+      "op_pct": 27.83,
+      "fcf_b": 22.601
+     },
+     {
+      "q": "2023Q4",
+      "fiscal": "Q4 FY23",
+      "rev_b": 86.31,
+      "gross_pct": 56.47,
+      "op_pct": 27.46,
+      "fcf_b": 7.896
+     },
+     {
+      "q": "2024Q1",
+      "fiscal": "Q1 FY24",
+      "rev_b": 80.539,
+      "gross_pct": 58.14,
+      "op_pct": 31.63,
+      "fcf_b": 16.836
+     },
+     {
+      "q": "2024Q2",
+      "fiscal": "Q2 FY24",
+      "rev_b": 84.742,
+      "gross_pct": 58.1,
+      "op_pct": 32.36,
+      "fcf_b": 13.454
+     },
+     {
+      "q": "2024Q3",
+      "fiscal": "Q3 FY24",
+      "rev_b": 88.268,
+      "gross_pct": 58.68,
+      "op_pct": 32.31,
+      "fcf_b": 17.637
+     },
+     {
+      "q": "2024Q4",
+      "fiscal": "Q4 FY24",
+      "rev_b": 96.469,
+      "gross_pct": 57.9,
+      "op_pct": 32.11,
+      "fcf_b": 24.837
+     },
+     {
+      "q": "2025Q1",
+      "fiscal": "Q1 FY25",
+      "rev_b": 90.234,
+      "gross_pct": 59.7,
+      "op_pct": 33.92,
+      "fcf_b": 18.953
+     },
+     {
+      "q": "2025Q2",
+      "fiscal": "Q2 FY25",
+      "rev_b": 96.428,
+      "gross_pct": 59.51,
+      "op_pct": 32.43,
+      "fcf_b": 5.301
+     },
+     {
+      "q": "2025Q3",
+      "fiscal": "Q3 FY25",
+      "rev_b": 102.346,
+      "gross_pct": 59.58,
+      "op_pct": 30.51,
+      "fcf_b": 24.461
+     },
+     {
+      "q": "2025Q4",
+      "fiscal": "Q4 FY25",
+      "rev_b": 113.829,
+      "gross_pct": 59.79,
+      "op_pct": 31.57,
+      "fcf_b": 24.551
+     },
+     {
+      "q": "2026Q1",
+      "fiscal": "Q1 FY26",
+      "rev_b": 109.896,
+      "gross_pct": 62.45,
+      "op_pct": 36.12,
+      "fcf_b": 10.116
+     },
+     {
+      "q": "2026Q2",
+      "fiscal": "Q2 FY26",
+      "rev_b": 119.796,
+      "gross_pct": 61.65,
+      "op_pct": 34.03,
+      "fcf_b": -5.855
+     }
+    ],
+    "segments": [
+     {
+      "name": "Google Search & other",
+      "unit": "revenue_b",
+      "series": [
+       {
+        "q": "2024Q3",
+        "v": 49.385
+       },
+       {
+        "q": "2024Q4",
+        "v": 54.034
+       },
+       {
+        "q": "2025Q1",
+        "v": 50.702
+       },
+       {
+        "q": "2025Q2",
+        "v": 54.19
+       },
+       {
+        "q": "2025Q3",
+        "v": 56.567
+       },
+       {
+        "q": "2025Q4",
+        "v": 63.073
+       },
+       {
+        "q": "2026Q1",
+        "v": 60.399
+       },
+       {
+        "q": "2026Q2",
+        "v": 63.271
+       }
+      ]
+     },
+     {
+      "name": "YouTube ads",
+      "unit": "revenue_b",
+      "series": [
+       {
+        "q": "2024Q3",
+        "v": 8.921
+       },
+       {
+        "q": "2024Q4",
+        "v": 10.473
+       },
+       {
+        "q": "2025Q1",
+        "v": 8.927
+       },
+       {
+        "q": "2025Q2",
+        "v": 9.796
+       },
+       {
+        "q": "2025Q3",
+        "v": 10.261
+       },
+       {
+        "q": "2025Q4",
+        "v": 11.383
+       },
+       {
+        "q": "2026Q1",
+        "v": 9.883
+       },
+       {
+        "q": "2026Q2",
+        "v": 11.055
+       }
+      ]
+     },
+     {
+      "name": "Google Cloud",
+      "unit": "revenue_b",
+      "series": [
+       {
+        "q": "2024Q3",
+        "v": 11.353
+       },
+       {
+        "q": "2024Q4",
+        "v": 11.955
+       },
+       {
+        "q": "2025Q1",
+        "v": 12.26
+       },
+       {
+        "q": "2025Q2",
+        "v": 13.624
+       },
+       {
+        "q": "2025Q3",
+        "v": 15.157
+       },
+       {
+        "q": "2025Q4",
+        "v": 17.664
+       },
+       {
+        "q": "2026Q1",
+        "v": 20.028
+       },
+       {
+        "q": "2026Q2",
+        "v": 24.768
+       }
+      ]
+     }
+    ],
+    "notes": "Fiscal = calendar. 2026Q2 FCF is negative on record capex of $44.9B. Cloud accelerated from $11.4B to $24.8B over the segment window."
+   },
+   "market_context": {
+    "rev_growth": {
+     "value": 24.2,
+     "rank": "top 10%",
+     "vs_sp500_aggregate": 10.1
+    },
+    "op_margin": {
+     "value": 34.0,
+     "rank": "top 10%"
+    },
+    "gross_margin": {
+     "value": 61.7,
+     "rank": "top 10%"
+    },
+    "fcf_margin": {
+     "value": 12.0,
+     "rank": "above median"
+    }
+   }
   },
   {
    "ticker": "DDOG",
@@ -2082,7 +5223,168 @@ const DATA = {
    },
    "pies": [
     "exponential-convergence"
-   ]
+   ],
+   "financial_history": {
+    "quarterly": [
+     {
+      "q": "2022Q1",
+      "fiscal": "Q1 2022",
+      "rev_b": 0.363,
+      "gross_pct": 79.49,
+      "op_pct": 2.87,
+      "fcf_b": 0.1379
+     },
+     {
+      "q": "2022Q2",
+      "fiscal": "Q2 2022",
+      "rev_b": 0.4061,
+      "gross_pct": 79.83,
+      "op_pct": -0.77,
+      "fcf_b": 0.067
+     },
+     {
+      "q": "2022Q3",
+      "fiscal": "Q3 2022",
+      "rev_b": 0.4365,
+      "gross_pct": 78.56,
+      "op_pct": -7.18,
+      "fcf_b": 0.0739
+     },
+     {
+      "q": "2022Q4",
+      "fiscal": "Q4 2022",
+      "rev_b": 0.4694,
+      "gross_pct": 79.39,
+      "op_pct": -7.38,
+      "fcf_b": 0.1044
+     },
+     {
+      "q": "2023Q1",
+      "fiscal": "Q1 2023",
+      "rev_b": 0.4817,
+      "gross_pct": 79.26,
+      "op_pct": -7.26,
+      "fcf_b": 0.1251
+     },
+     {
+      "q": "2023Q2",
+      "fiscal": "Q2 2023",
+      "rev_b": 0.5095,
+      "gross_pct": 80.01,
+      "op_pct": -4.32,
+      "fcf_b": 0.1508
+     },
+     {
+      "q": "2023Q3",
+      "fiscal": "Q3 2023",
+      "rev_b": 0.5475,
+      "gross_pct": 81.13,
+      "op_pct": -0.77,
+      "fcf_b": 0.1467
+     },
+     {
+      "q": "2023Q4",
+      "fiscal": "Q4 2023",
+      "rev_b": 0.5897,
+      "gross_pct": 82.22,
+      "op_pct": 4.7,
+      "fcf_b": 0.2098
+     },
+     {
+      "q": "2024Q1",
+      "fiscal": "Q1 2024",
+      "rev_b": 0.6113,
+      "gross_pct": 81.99,
+      "op_pct": 1.96,
+      "fcf_b": 0.1981
+     },
+     {
+      "q": "2024Q2",
+      "fiscal": "Q2 2024",
+      "rev_b": 0.6453,
+      "gross_pct": 80.86,
+      "op_pct": 1.96,
+      "fcf_b": 0.16
+     },
+     {
+      "q": "2024Q3",
+      "fiscal": "Q3 2024",
+      "rev_b": 0.69,
+      "gross_pct": 80.04,
+      "op_pct": 2.94,
+      "fcf_b": 0.2203
+     },
+     {
+      "q": "2024Q4",
+      "fiscal": "Q4 2024",
+      "rev_b": 0.7377,
+      "gross_pct": 80.46,
+      "op_pct": 1.27,
+      "fcf_b": 0.2575
+     },
+     {
+      "q": "2025Q1",
+      "fiscal": "Q1 2025",
+      "rev_b": 0.7616,
+      "gross_pct": 79.3,
+      "op_pct": -1.63,
+      "fcf_b": 0.2628
+     },
+     {
+      "q": "2025Q2",
+      "fiscal": "Q2 2025",
+      "rev_b": 0.8268,
+      "gross_pct": 79.92,
+      "op_pct": -4.29,
+      "fcf_b": 0.1849
+     },
+     {
+      "q": "2025Q3",
+      "fiscal": "Q3 2025",
+      "rev_b": 0.8857,
+      "gross_pct": 80.08,
+      "op_pct": -0.66,
+      "fcf_b": 0.2347
+     },
+     {
+      "q": "2025Q4",
+      "fiscal": "Q4 2025",
+      "rev_b": 0.9532,
+      "gross_pct": 80.39,
+      "op_pct": 0.98,
+      "fcf_b": 0.3182
+     },
+     {
+      "q": "2026Q1",
+      "fiscal": "Q1 2026",
+      "rev_b": 1.006,
+      "gross_pct": 79.21,
+      "op_pct": 0.73,
+      "fcf_b": 0.3233
+     }
+    ],
+    "segments": [],
+    "notes": "Single reportable segment. Q2 2026 reports 6 Aug 2026."
+   },
+   "market_context": {
+    "rev_growth": {
+     "value": 32.2,
+     "rank": "top 10%",
+     "vs_sp500_aggregate": 18.1
+    },
+    "op_margin": {
+     "value": 1.0,
+     "rank": "bottom 25%"
+    },
+    "gross_margin": {
+     "value": 79.0,
+     "rank": "top 10%"
+    },
+    "fcf_margin": {
+     "value": 29.0,
+     "rank": "top 10%"
+    }
+   }
   },
   {
    "ticker": "SU",
@@ -2213,7 +5515,237 @@ const DATA = {
    },
    "pies": [
     "exponential-convergence"
-   ]
+   ],
+   "financial_history": {
+    "quarterly": [
+     {
+      "q": "2022Q3",
+      "fiscal": "Q3 2022",
+      "rev_b": 8.779,
+      "gross_pct": 40.56,
+      "op_pct": 15.17,
+      "fcf_b": null
+     },
+     {
+      "q": "2022Q4",
+      "fiscal": "Q4 2022",
+      "rev_b": 9.32,
+      "gross_pct": 40.56,
+      "op_pct": 15.17,
+      "fcf_b": null
+     },
+     {
+      "q": "2023Q1",
+      "fiscal": "Q1 2023",
+      "rev_b": 8.493,
+      "gross_pct": 42.43,
+      "op_pct": 16.74,
+      "fcf_b": null
+     },
+     {
+      "q": "2023Q2",
+      "fiscal": "Q2 2023",
+      "rev_b": 9.14,
+      "gross_pct": 42.43,
+      "op_pct": 16.74,
+      "fcf_b": null
+     },
+     {
+      "q": "2023Q3",
+      "fiscal": "Q3 2023",
+      "rev_b": 8.789,
+      "gross_pct": 41.22,
+      "op_pct": 16.32,
+      "fcf_b": null
+     },
+     {
+      "q": "2023Q4",
+      "fiscal": "Q4 2023",
+      "rev_b": 9.48,
+      "gross_pct": 41.22,
+      "op_pct": 16.32,
+      "fcf_b": null
+     },
+     {
+      "q": "2024Q1",
+      "fiscal": "Q1 2024",
+      "rev_b": 8.606,
+      "gross_pct": 43.41,
+      "op_pct": 16.54,
+      "fcf_b": null
+     },
+     {
+      "q": "2024Q2",
+      "fiscal": "Q2 2024",
+      "rev_b": 9.567,
+      "gross_pct": 43.41,
+      "op_pct": 16.54,
+      "fcf_b": null
+     },
+     {
+      "q": "2024Q3",
+      "fiscal": "Q3 2024",
+      "rev_b": 9.311,
+      "gross_pct": 41.94,
+      "op_pct": 17.24,
+      "fcf_b": null
+     },
+     {
+      "q": "2024Q4",
+      "fiscal": "Q4 2024",
+      "rev_b": 10.669,
+      "gross_pct": 41.94,
+      "op_pct": 17.24,
+      "fcf_b": null
+     },
+     {
+      "q": "2025Q1",
+      "fiscal": "Q1 2025",
+      "rev_b": 9.325,
+      "gross_pct": 42.42,
+      "op_pct": 16.67,
+      "fcf_b": null
+     },
+     {
+      "q": "2025Q2",
+      "fiscal": "Q2 2025",
+      "rev_b": 10.011,
+      "gross_pct": 42.42,
+      "op_pct": 16.67,
+      "fcf_b": null
+     },
+     {
+      "q": "2025Q3",
+      "fiscal": "Q3 2025",
+      "rev_b": 9.721,
+      "gross_pct": 41.76,
+      "op_pct": 16.7,
+      "fcf_b": null
+     },
+     {
+      "q": "2025Q4",
+      "fiscal": "Q4 2025",
+      "rev_b": 11.095,
+      "gross_pct": 41.76,
+      "op_pct": 16.7,
+      "fcf_b": null
+     },
+     {
+      "q": "2026Q1",
+      "fiscal": "Q1 2026",
+      "rev_b": 9.767,
+      "gross_pct": null,
+      "op_pct": null,
+      "fcf_b": null
+     },
+     {
+      "q": "2026Q2",
+      "fiscal": "Q2 2026",
+      "rev_b": 11.5,
+      "gross_pct": null,
+      "op_pct": null,
+      "fcf_b": null
+     }
+    ],
+    "segments": [
+     {
+      "name": "Energy Management",
+      "unit": "revenue_b",
+      "series": [
+       {
+        "q": "2022Q4",
+        "v": 7.327
+       },
+       {
+        "q": "2023Q1",
+        "v": 6.485
+       },
+       {
+        "q": "2023Q3",
+        "v": 6.935
+       },
+       {
+        "q": "2024Q1",
+        "v": 6.859
+       },
+       {
+        "q": "2024Q3",
+        "v": 7.652
+       },
+       {
+        "q": "2025Q1",
+        "v": 7.57
+       },
+       {
+        "q": "2025Q3",
+        "v": 8.039
+       },
+       {
+        "q": "2026Q1",
+        "v": 8.047
+       }
+      ]
+     },
+     {
+      "name": "Industrial Automation",
+      "unit": "revenue_b",
+      "series": [
+       {
+        "q": "2022Q4",
+        "v": 1.993
+       },
+       {
+        "q": "2023Q1",
+        "v": 2.008
+       },
+       {
+        "q": "2023Q3",
+        "v": 1.854
+       },
+       {
+        "q": "2024Q1",
+        "v": 1.747
+       },
+       {
+        "q": "2024Q3",
+        "v": 1.659
+       },
+       {
+        "q": "2025Q1",
+        "v": 1.755
+       },
+       {
+        "q": "2025Q3",
+        "v": 1.682
+       },
+       {
+        "q": "2026Q1",
+        "v": 1.72
+       }
+      ]
+     }
+    ],
+    "notes": "IMPORTANT: Schneider reports P&L and cash flow SEMI-ANNUALLY only. Margins shown are half-year figures duplicated across both quarters of each half \u2014 read the margin line as a half-yearly step, not a quarterly series. FCF is null for every quarter by design. H1 2026 margins unavailable (only non-GAAP adj. EBITA of 19.3% disclosed)."
+   },
+   "market_context": {
+    "rev_growth": {
+     "value": 17.0,
+     "rank": "top 25%",
+     "vs_sp500_aggregate": 2.9
+    },
+    "op_margin": {
+     "value": 17.4,
+     "rank": "above median"
+    },
+    "gross_margin": {
+     "value": 42.1,
+     "rank": "above median"
+    },
+    "fcf_margin": {
+     "value": 12.6,
+     "rank": "above median"
+    }
+   }
   },
   {
    "ticker": "VRT",
@@ -2351,7 +5883,291 @@ const DATA = {
    },
    "pies": [
     "exponential-convergence"
-   ]
+   ],
+   "financial_history": {
+    "quarterly": [
+     {
+      "q": "2022Q1",
+      "fiscal": "Q1 2022",
+      "rev_b": 1.156,
+      "gross_pct": 26.3,
+      "op_pct": -3.9,
+      "fcf_b": -0.147
+     },
+     {
+      "q": "2022Q2",
+      "fiscal": "Q2 2022",
+      "rev_b": 1.399,
+      "gross_pct": 26.6,
+      "op_pct": 1.9,
+      "fcf_b": -0.229
+     },
+     {
+      "q": "2022Q3",
+      "fiscal": "Q3 2022",
+      "rev_b": 1.481,
+      "gross_pct": 29.0,
+      "op_pct": 5.4,
+      "fcf_b": -0.019
+     },
+     {
+      "q": "2022Q4",
+      "fiscal": "Q4 2022",
+      "rev_b": 1.655,
+      "gross_pct": 30.9,
+      "op_pct": 9.8,
+      "fcf_b": 0.142
+     },
+     {
+      "q": "2023Q1",
+      "fiscal": "Q1 2023",
+      "rev_b": 1.521,
+      "gross_pct": 32.6,
+      "op_pct": 8.6,
+      "fcf_b": 0.014
+     },
+     {
+      "q": "2023Q2",
+      "fiscal": "Q2 2023",
+      "rev_b": 1.734,
+      "gross_pct": 34.3,
+      "op_pct": 11.9,
+      "fcf_b": 0.228
+     },
+     {
+      "q": "2023Q3",
+      "fiscal": "Q3 2023",
+      "rev_b": 1.743,
+      "gross_pct": 36.0,
+      "op_pct": 14.4,
+      "fcf_b": 0.222
+     },
+     {
+      "q": "2023Q4",
+      "fiscal": "Q4 2023",
+      "rev_b": 1.865,
+      "gross_pct": 36.6,
+      "op_pct": 15.3,
+      "fcf_b": 0.308
+     },
+     {
+      "q": "2024Q1",
+      "fiscal": "Q1 2024",
+      "rev_b": 1.639,
+      "gross_pct": 34.6,
+      "op_pct": 12.4,
+      "fcf_b": 0.102
+     },
+     {
+      "q": "2024Q2",
+      "fiscal": "Q2 2024",
+      "rev_b": 1.953,
+      "gross_pct": 38.0,
+      "op_pct": 17.2,
+      "fcf_b": 0.347
+     },
+     {
+      "q": "2024Q3",
+      "fiscal": "Q3 2024",
+      "rev_b": 2.074,
+      "gross_pct": 36.5,
+      "op_pct": 17.9,
+      "fcf_b": 0.339
+     },
+     {
+      "q": "2024Q4",
+      "fiscal": "Q4 2024",
+      "rev_b": 2.346,
+      "gross_pct": 37.1,
+      "op_pct": 19.5,
+      "fcf_b": 0.365
+     },
+     {
+      "q": "2025Q1",
+      "fiscal": "Q1 2025",
+      "rev_b": 2.036,
+      "gross_pct": 33.7,
+      "op_pct": 14.3,
+      "fcf_b": 0.267
+     },
+     {
+      "q": "2025Q2",
+      "fiscal": "Q2 2025",
+      "rev_b": 2.638,
+      "gross_pct": 34.0,
+      "op_pct": 16.8,
+      "fcf_b": 0.278
+     },
+     {
+      "q": "2025Q3",
+      "fiscal": "Q3 2025",
+      "rev_b": 2.676,
+      "gross_pct": 37.8,
+      "op_pct": 19.3,
+      "fcf_b": 0.464
+     },
+     {
+      "q": "2025Q4",
+      "fiscal": "Q4 2025",
+      "rev_b": 2.88,
+      "gross_pct": 38.9,
+      "op_pct": 20.1,
+      "fcf_b": 0.886
+     },
+     {
+      "q": "2026Q1",
+      "fiscal": "Q1 2026",
+      "rev_b": 2.65,
+      "gross_pct": 37.7,
+      "op_pct": 16.6,
+      "fcf_b": 0.654
+     },
+     {
+      "q": "2026Q2",
+      "fiscal": "Q2 2026",
+      "rev_b": 3.274,
+      "gross_pct": 37.7,
+      "op_pct": 19.5,
+      "fcf_b": 0.927
+     }
+    ],
+    "segments": [
+     {
+      "name": "Americas",
+      "unit": "revenue_b",
+      "series": [
+       {
+        "q": "2024Q3",
+        "v": 1.199
+       },
+       {
+        "q": "2024Q4",
+        "v": 1.256
+       },
+       {
+        "q": "2025Q1",
+        "v": 1.185
+       },
+       {
+        "q": "2025Q2",
+        "v": 1.602
+       },
+       {
+        "q": "2025Q3",
+        "v": 1.712
+       },
+       {
+        "q": "2025Q4",
+        "v": 1.886
+       },
+       {
+        "q": "2026Q1",
+        "v": 1.814
+       },
+       {
+        "q": "2026Q2",
+        "v": 2.071
+       }
+      ]
+     },
+     {
+      "name": "APAC",
+      "unit": "revenue_b",
+      "series": [
+       {
+        "q": "2024Q3",
+        "v": 0.432
+       },
+       {
+        "q": "2024Q4",
+        "v": 0.544
+       },
+       {
+        "q": "2025Q1",
+        "v": 0.447
+       },
+       {
+        "q": "2025Q2",
+        "v": 0.56
+       },
+       {
+        "q": "2025Q3",
+        "v": 0.52
+       },
+       {
+        "q": "2025Q4",
+        "v": 0.492
+       },
+       {
+        "q": "2026Q1",
+        "v": 0.514
+       },
+       {
+        "q": "2026Q2",
+        "v": 0.72
+       }
+      ]
+     },
+     {
+      "name": "EMEA",
+      "unit": "revenue_b",
+      "series": [
+       {
+        "q": "2024Q3",
+        "v": 0.443
+       },
+       {
+        "q": "2024Q4",
+        "v": 0.547
+       },
+       {
+        "q": "2025Q1",
+        "v": 0.404
+       },
+       {
+        "q": "2025Q2",
+        "v": 0.476
+       },
+       {
+        "q": "2025Q3",
+        "v": 0.444
+       },
+       {
+        "q": "2025Q4",
+        "v": 0.502
+       },
+       {
+        "q": "2026Q1",
+        "v": 0.321
+       },
+       {
+        "q": "2026Q2",
+        "v": 0.484
+       }
+      ]
+     }
+    ],
+    "notes": "2022-2023 quarterly cash flow derived by differencing cumulative SEC XBRL values; that capex is PP&E only and may exclude capitalised software. Geographic segments exclude corporate/eliminations."
+   },
+   "market_context": {
+    "rev_growth": {
+     "value": 24.1,
+     "rank": "top 10%",
+     "vs_sp500_aggregate": 10.0
+    },
+    "op_margin": {
+     "value": 20.0,
+     "rank": "above median"
+    },
+    "gross_margin": {
+     "value": 38.0,
+     "rank": "above median"
+    },
+    "fcf_margin": {
+     "value": 25.5,
+     "rank": "top 10%"
+    }
+   }
   },
   {
    "ticker": "TMO",
@@ -2493,7 +6309,265 @@ const DATA = {
    },
    "pies": [
     "exponential-convergence"
-   ]
+   ],
+   "financial_history": {
+    "quarterly": [
+     {
+      "q": "2022Q1",
+      "fiscal": "Q1 2022",
+      "rev_b": 11.818,
+      "gross_pct": 46.24,
+      "op_pct": 23.87,
+      "fcf_b": 1.562
+     },
+     {
+      "q": "2022Q2",
+      "fiscal": "Q2 2022",
+      "rev_b": 10.97,
+      "gross_pct": 41.92,
+      "op_pct": 18.24,
+      "fcf_b": 1.022
+     },
+     {
+      "q": "2022Q3",
+      "fiscal": "Q3 2022",
+      "rev_b": 10.677,
+      "gross_pct": 40.29,
+      "op_pct": 16.02,
+      "fcf_b": 1.39
+     },
+     {
+      "q": "2022Q4",
+      "fiscal": "Q4 2022",
+      "rev_b": 11.45,
+      "gross_pct": 40.23,
+      "op_pct": 16.25,
+      "fcf_b": 2.937
+     },
+     {
+      "q": "2023Q1",
+      "fiscal": "Q1 2023",
+      "rev_b": 10.71,
+      "gross_pct": 38.66,
+      "op_pct": 14.59,
+      "fcf_b": 0.271
+     },
+     {
+      "q": "2023Q2",
+      "fiscal": "Q2 2023",
+      "rev_b": 10.687,
+      "gross_pct": 39.78,
+      "op_pct": 14.77,
+      "fcf_b": 1.256
+     },
+     {
+      "q": "2023Q3",
+      "fiscal": "Q3 2023",
+      "rev_b": 10.574,
+      "gross_pct": 40.82,
+      "op_pct": 17.63,
+      "fcf_b": 2.082
+     },
+     {
+      "q": "2023Q4",
+      "fiscal": "Q4 2023",
+      "rev_b": 10.886,
+      "gross_pct": 40.35,
+      "op_pct": 17.03,
+      "fcf_b": 3.318
+     },
+     {
+      "q": "2024Q1",
+      "fiscal": "Q1 2024",
+      "rev_b": 10.345,
+      "gross_pct": 40.65,
+      "op_pct": 16.08,
+      "fcf_b": 0.904
+     },
+     {
+      "q": "2024Q2",
+      "fiscal": "Q2 2024",
+      "rev_b": 10.541,
+      "gross_pct": 41.24,
+      "op_pct": 17.27,
+      "fcf_b": 1.659
+     },
+     {
+      "q": "2024Q3",
+      "fiscal": "Q3 2024",
+      "rev_b": 10.598,
+      "gross_pct": 40.84,
+      "op_pct": 17.34,
+      "fcf_b": 1.894
+     },
+     {
+      "q": "2024Q4",
+      "fiscal": "Q4 2024",
+      "rev_b": 11.395,
+      "gross_pct": 42.32,
+      "op_pct": 17.69,
+      "fcf_b": 2.81
+     },
+     {
+      "q": "2025Q1",
+      "fiscal": "Q1 2025",
+      "rev_b": 10.364,
+      "gross_pct": 40.86,
+      "op_pct": 16.56,
+      "fcf_b": 0.361
+     },
+     {
+      "q": "2025Q2",
+      "fiscal": "Q2 2025",
+      "rev_b": 10.855,
+      "gross_pct": 40.62,
+      "op_pct": 16.9,
+      "fcf_b": 1.105
+     },
+     {
+      "q": "2025Q3",
+      "fiscal": "Q3 2025",
+      "rev_b": 11.122,
+      "gross_pct": 41.21,
+      "op_pct": 17.45,
+      "fcf_b": 1.835
+     },
+     {
+      "q": "2025Q4",
+      "fiscal": "Q4 2025",
+      "rev_b": 12.215,
+      "gross_pct": 41.02,
+      "op_pct": 18.46,
+      "fcf_b": 2.992
+     },
+     {
+      "q": "2026Q1",
+      "fiscal": "Q1 2026",
+      "rev_b": 11.005,
+      "gross_pct": 40.25,
+      "op_pct": 16.93,
+      "fcf_b": 0.816
+     },
+     {
+      "q": "2026Q2",
+      "fiscal": "Q2 2026",
+      "rev_b": 11.994,
+      "gross_pct": 41.21,
+      "op_pct": 17.4,
+      "fcf_b": 1.675
+     }
+    ],
+    "segments": [
+     {
+      "name": "Life Sciences Solutions",
+      "unit": "revenue_b",
+      "series": [
+       {
+        "q": "2025Q1",
+        "v": 2.341
+       },
+       {
+        "q": "2025Q2",
+        "v": 2.499
+       },
+       {
+        "q": "2026Q1",
+        "v": 2.635
+       },
+       {
+        "q": "2026Q2",
+        "v": 2.815
+       }
+      ]
+     },
+     {
+      "name": "Analytical Instruments",
+      "unit": "revenue_b",
+      "series": [
+       {
+        "q": "2025Q1",
+        "v": 1.718
+       },
+       {
+        "q": "2025Q2",
+        "v": 1.728
+       },
+       {
+        "q": "2026Q1",
+        "v": 1.716
+       },
+       {
+        "q": "2026Q2",
+        "v": 1.847
+       }
+      ]
+     },
+     {
+      "name": "Specialty Diagnostics",
+      "unit": "revenue_b",
+      "series": [
+       {
+        "q": "2025Q1",
+        "v": 1.148
+       },
+       {
+        "q": "2025Q2",
+        "v": 1.134
+       },
+       {
+        "q": "2026Q1",
+        "v": 1.141
+       },
+       {
+        "q": "2026Q2",
+        "v": 1.205
+       }
+      ]
+     },
+     {
+      "name": "Laboratory Products and Biopharma Services",
+      "unit": "revenue_b",
+      "series": [
+       {
+        "q": "2025Q1",
+        "v": 5.64
+       },
+       {
+        "q": "2025Q2",
+        "v": 5.995
+       },
+       {
+        "q": "2026Q1",
+        "v": 6.036
+       },
+       {
+        "q": "2026Q2",
+        "v": 6.693
+       }
+      ]
+     }
+    ],
+    "notes": "Fiscal = calendar. Segment sums exceed consolidated revenue because of intersegment eliminations."
+   },
+   "market_context": {
+    "rev_growth": {
+     "value": 10.5,
+     "rank": "above median",
+     "vs_sp500_aggregate": -3.6
+    },
+    "op_margin": {
+     "value": 17.6,
+     "rank": "above median"
+    },
+    "gross_margin": {
+     "value": 41.0,
+     "rank": "above median"
+    },
+    "fcf_margin": {
+     "value": 15.8,
+     "rank": "top 25%"
+    }
+   }
   },
   {
    "ticker": "ETN",
@@ -2630,7 +6704,176 @@ const DATA = {
    },
    "pies": [
     "exponential-convergence"
-   ]
+   ],
+   "financial_history": {
+    "quarterly": [
+     {
+      "q": "2022Q1",
+      "fiscal": "Q1 2022",
+      "rev_b": 4.843,
+      "gross_pct": 32.5,
+      "op_pct": 13.28,
+      "fcf_b": -0.073
+     },
+     {
+      "q": "2022Q2",
+      "fiscal": "Q2 2022",
+      "rev_b": 5.212,
+      "gross_pct": 32.75,
+      "op_pct": 13.64,
+      "fcf_b": 0.201
+     },
+     {
+      "q": "2022Q3",
+      "fiscal": "Q3 2022",
+      "rev_b": 5.313,
+      "gross_pct": 33.28,
+      "op_pct": 14.87,
+      "fcf_b": 0.83
+     },
+     {
+      "q": "2022Q4",
+      "fiscal": "Q4 2022",
+      "rev_b": 5.384,
+      "gross_pct": 34.14,
+      "op_pct": 16.25,
+      "fcf_b": 0.977
+     },
+     {
+      "q": "2023Q1",
+      "fiscal": "Q1 2023",
+      "rev_b": 5.483,
+      "gross_pct": 34.36,
+      "op_pct": 14.61,
+      "fcf_b": 0.209
+     },
+     {
+      "q": "2023Q2",
+      "fiscal": "Q2 2023",
+      "rev_b": 5.866,
+      "gross_pct": 36.12,
+      "op_pct": 16.13,
+      "fcf_b": 0.69
+     },
+     {
+      "q": "2023Q3",
+      "fiscal": "Q3 2023",
+      "rev_b": 5.88,
+      "gross_pct": 37.35,
+      "op_pct": 18.03,
+      "fcf_b": 0.913
+     },
+     {
+      "q": "2023Q4",
+      "fiscal": "Q4 2023",
+      "rev_b": 5.967,
+      "gross_pct": 37.46,
+      "op_pct": 18.07,
+      "fcf_b": 1.055
+     },
+     {
+      "q": "2024Q1",
+      "fiscal": "Q1 2024",
+      "rev_b": 5.943,
+      "gross_pct": 37.32,
+      "op_pct": 16.89,
+      "fcf_b": 0.292
+     },
+     {
+      "q": "2024Q2",
+      "fiscal": "Q2 2024",
+      "rev_b": 6.35,
+      "gross_pct": 37.95,
+      "op_pct": 18.79,
+      "fcf_b": 0.759
+     },
+     {
+      "q": "2024Q3",
+      "fiscal": "Q3 2024",
+      "rev_b": 6.345,
+      "gross_pct": 38.55,
+      "op_pct": 19.09,
+      "fcf_b": 1.126
+     },
+     {
+      "q": "2024Q4",
+      "fiscal": "Q4 2024",
+      "rev_b": 6.24,
+      "gross_pct": 38.93,
+      "op_pct": 19.63,
+      "fcf_b": 1.342
+     },
+     {
+      "q": "2025Q1",
+      "fiscal": "Q1 2025",
+      "rev_b": 6.377,
+      "gross_pct": 38.37,
+      "op_pct": 18.83,
+      "fcf_b": 0.091
+     },
+     {
+      "q": "2025Q2",
+      "fiscal": "Q2 2025",
+      "rev_b": 7.028,
+      "gross_pct": 36.95,
+      "op_pct": 17.87,
+      "fcf_b": 0.716
+     },
+     {
+      "q": "2025Q3",
+      "fiscal": "Q3 2025",
+      "rev_b": 6.988,
+      "gross_pct": 38.28,
+      "op_pct": 19.56,
+      "fcf_b": 1.173
+     },
+     {
+      "q": "2025Q4",
+      "fiscal": "Q4 2025",
+      "rev_b": 7.055,
+      "gross_pct": 36.83,
+      "op_pct": 19.65,
+      "fcf_b": 1.573
+     },
+     {
+      "q": "2026Q1",
+      "fiscal": "Q1 2026",
+      "rev_b": 7.451,
+      "gross_pct": 35.59,
+      "op_pct": 15.73,
+      "fcf_b": 0.314
+     },
+     {
+      "q": "2026Q2",
+      "fiscal": "Q2 2026",
+      "rev_b": 8.531,
+      "gross_pct": 33.47,
+      "op_pct": 16.32,
+      "fcf_b": 0.874
+     }
+    ],
+    "segments": [],
+    "notes": "Calendar fiscal year. GAAP operating income here is the consolidated figure, below segment operating profit which runs ~300-500bp higher; 2026 GAAP margins are pulled down by acquisition amortisation."
+   },
+   "market_context": {
+    "rev_growth": {
+     "value": 21.4,
+     "rank": "top 25%",
+     "vs_sp500_aggregate": 7.3
+    },
+    "op_margin": {
+     "value": 17.7,
+     "rank": "above median"
+    },
+    "gross_margin": {
+     "value": 35.9,
+     "rank": "below median"
+    },
+    "fcf_margin": {
+     "value": 13.1,
+     "rank": "above median"
+    }
+   }
   },
   {
    "ticker": "NFLX",
@@ -2758,7 +7001,176 @@ const DATA = {
    },
    "pies": [
     "bankers"
-   ]
+   ],
+   "financial_history": {
+    "quarterly": [
+     {
+      "q": "2022Q1",
+      "fiscal": "Q1 FY22",
+      "rev_b": 7.868,
+      "gross_pct": 45.54,
+      "op_pct": 25.06,
+      "fcf_b": 0.802
+     },
+     {
+      "q": "2022Q2",
+      "fiscal": "Q2 FY22",
+      "rev_b": 7.97,
+      "gross_pct": 41.15,
+      "op_pct": 19.8,
+      "fcf_b": 0.013
+     },
+     {
+      "q": "2022Q3",
+      "fiscal": "Q3 FY22",
+      "rev_b": 7.926,
+      "gross_pct": 39.58,
+      "op_pct": 19.34,
+      "fcf_b": 0.472
+     },
+     {
+      "q": "2022Q4",
+      "fiscal": "Q4 FY22",
+      "rev_b": 7.852,
+      "gross_pct": 31.18,
+      "op_pct": 7.0,
+      "fcf_b": 0.332
+     },
+     {
+      "q": "2023Q1",
+      "fiscal": "Q1 FY23",
+      "rev_b": 8.162,
+      "gross_pct": 41.14,
+      "op_pct": 21.0,
+      "fcf_b": 2.117
+     },
+     {
+      "q": "2023Q2",
+      "fiscal": "Q2 FY23",
+      "rev_b": 8.187,
+      "gross_pct": 42.92,
+      "op_pct": 22.32,
+      "fcf_b": 1.339
+     },
+     {
+      "q": "2023Q3",
+      "fiscal": "Q3 FY23",
+      "rev_b": 8.542,
+      "gross_pct": 42.27,
+      "op_pct": 22.44,
+      "fcf_b": 1.888
+     },
+     {
+      "q": "2023Q4",
+      "fiscal": "Q4 FY23",
+      "rev_b": 8.833,
+      "gross_pct": 39.91,
+      "op_pct": 16.94,
+      "fcf_b": 1.581
+     },
+     {
+      "q": "2024Q1",
+      "fiscal": "Q1 FY24",
+      "rev_b": 9.37,
+      "gross_pct": 46.89,
+      "op_pct": 28.09,
+      "fcf_b": 2.137
+     },
+     {
+      "q": "2024Q2",
+      "fiscal": "Q2 FY24",
+      "rev_b": 9.559,
+      "gross_pct": 45.87,
+      "op_pct": 27.23,
+      "fcf_b": 1.213
+     },
+     {
+      "q": "2024Q3",
+      "fiscal": "Q3 FY24",
+      "rev_b": 9.825,
+      "gross_pct": 47.89,
+      "op_pct": 29.61,
+      "fcf_b": 2.194
+     },
+     {
+      "q": "2024Q4",
+      "fiscal": "Q4 FY24",
+      "rev_b": 10.247,
+      "gross_pct": 43.71,
+      "op_pct": 22.18,
+      "fcf_b": 1.378
+     },
+     {
+      "q": "2025Q1",
+      "fiscal": "Q1 FY25",
+      "rev_b": 10.543,
+      "gross_pct": 50.08,
+      "op_pct": 31.75,
+      "fcf_b": 2.661
+     },
+     {
+      "q": "2025Q2",
+      "fiscal": "Q2 FY25",
+      "rev_b": 11.079,
+      "gross_pct": 51.93,
+      "op_pct": 34.07,
+      "fcf_b": 2.267
+     },
+     {
+      "q": "2025Q3",
+      "fiscal": "Q3 FY25",
+      "rev_b": 11.51,
+      "gross_pct": 46.45,
+      "op_pct": 28.22,
+      "fcf_b": 2.66
+     },
+     {
+      "q": "2025Q4",
+      "fiscal": "Q4 FY25",
+      "rev_b": 12.051,
+      "gross_pct": 45.87,
+      "op_pct": 24.54,
+      "fcf_b": 1.872
+     },
+     {
+      "q": "2026Q1",
+      "fiscal": "Q1 FY26",
+      "rev_b": 12.25,
+      "gross_pct": 51.93,
+      "op_pct": 32.3,
+      "fcf_b": 5.094
+     },
+     {
+      "q": "2026Q2",
+      "fiscal": "Q2 FY26",
+      "rev_b": 12.56,
+      "gross_pct": 51.93,
+      "op_pct": 33.38,
+      "fcf_b": 1.525
+     }
+    ],
+    "segments": [],
+    "notes": "Single reporting segment. Gross margin is volatile because content amortization lands unevenly; Q4 is structurally the weakest quarter."
+   },
+   "market_context": {
+    "rev_growth": {
+     "value": 13.4,
+     "rank": "top 25%",
+     "vs_sp500_aggregate": -0.7
+    },
+    "op_margin": {
+     "value": 33.4,
+     "rank": "top 10%"
+    },
+    "gross_margin": {
+     "value": 51.9,
+     "rank": "top 25%"
+    },
+    "fcf_margin": {
+     "value": 23.1,
+     "rank": "top 10%"
+    }
+   }
   },
   {
    "ticker": "CAT",
@@ -2895,7 +7307,235 @@ const DATA = {
    },
    "pies": [
     "exponential-convergence"
-   ]
+   ],
+   "financial_history": {
+    "quarterly": [
+     {
+      "q": "2022Q1",
+      "fiscal": "Q1 2022",
+      "rev_b": 13.589,
+      "gross_pct": 29.66,
+      "op_pct": 13.65,
+      "fcf_b": -0.366
+     },
+     {
+      "q": "2022Q2",
+      "fiscal": "Q2 2022",
+      "rev_b": 14.247,
+      "gross_pct": 29.98,
+      "op_pct": 13.65,
+      "fcf_b": 1.638
+     },
+     {
+      "q": "2022Q3",
+      "fiscal": "Q3 2022",
+      "rev_b": 14.994,
+      "gross_pct": 31.96,
+      "op_pct": 16.17,
+      "fcf_b": 1.864
+     },
+     {
+      "q": "2022Q4",
+      "fiscal": "Q4 2022",
+      "rev_b": 16.597,
+      "gross_pct": 30.02,
+      "op_pct": 10.12,
+      "fcf_b": 2.031
+     },
+     {
+      "q": "2023Q1",
+      "fiscal": "Q1 2023",
+      "rev_b": 15.862,
+      "gross_pct": 36.31,
+      "op_pct": 17.22,
+      "fcf_b": 0.823
+     },
+     {
+      "q": "2023Q2",
+      "fiscal": "Q2 2023",
+      "rev_b": 17.318,
+      "gross_pct": 36.11,
+      "op_pct": 21.09,
+      "fcf_b": 2.542
+     },
+     {
+      "q": "2023Q3",
+      "fiscal": "Q3 2023",
+      "rev_b": 16.81,
+      "gross_pct": 37.04,
+      "op_pct": 20.52,
+      "fcf_b": 3.279
+     },
+     {
+      "q": "2023Q4",
+      "fiscal": "Q4 2023",
+      "rev_b": 17.07,
+      "gross_pct": 35.46,
+      "op_pct": 18.36,
+      "fcf_b": 3.149
+     },
+     {
+      "q": "2024Q1",
+      "fiscal": "Q1 2024",
+      "rev_b": 15.799,
+      "gross_pct": 38.84,
+      "op_pct": 22.27,
+      "fcf_b": 1.316
+     },
+     {
+      "q": "2024Q2",
+      "fiscal": "Q2 2024",
+      "rev_b": 16.689,
+      "gross_pct": 39.18,
+      "op_pct": 20.86,
+      "fcf_b": 2.302
+     },
+     {
+      "q": "2024Q3",
+      "fiscal": "Q3 2024",
+      "rev_b": 16.106,
+      "gross_pct": 37.5,
+      "op_pct": 19.54,
+      "fcf_b": 2.846
+     },
+     {
+      "q": "2024Q4",
+      "fiscal": "Q4 2024",
+      "rev_b": 16.215,
+      "gross_pct": 36.35,
+      "op_pct": 18.03,
+      "fcf_b": 2.356
+     },
+     {
+      "q": "2025Q1",
+      "fiscal": "Q1 2025",
+      "rev_b": 14.249,
+      "gross_pct": 37.08,
+      "op_pct": 18.1,
+      "fcf_b": 0.371
+     },
+     {
+      "q": "2025Q2",
+      "fiscal": "Q2 2025",
+      "rev_b": 16.569,
+      "gross_pct": 34.78,
+      "op_pct": 17.26,
+      "fcf_b": 2.167
+     },
+     {
+      "q": "2025Q3",
+      "fiscal": "Q3 2025",
+      "rev_b": 17.638,
+      "gross_pct": 33.82,
+      "op_pct": 17.3,
+      "fcf_b": 2.666
+     },
+     {
+      "q": "2025Q4",
+      "fiscal": "Q4 2025",
+      "rev_b": 19.133,
+      "gross_pct": 30.45,
+      "op_pct": 13.9,
+      "fcf_b": 2.249
+     },
+     {
+      "q": "2026Q1",
+      "fiscal": "Q1 2026",
+      "rev_b": 17.415,
+      "gross_pct": 35.08,
+      "op_pct": 17.71,
+      "fcf_b": 0.819
+     }
+    ],
+    "segments": [
+     {
+      "name": "Construction Industries",
+      "unit": "revenue_b",
+      "series": [
+       {
+        "q": "2024Q4",
+        "v": 6.003
+       },
+       {
+        "q": "2025Q1",
+        "v": 5.184
+       },
+       {
+        "q": "2025Q4",
+        "v": 6.926
+       },
+       {
+        "q": "2026Q1",
+        "v": 7.161
+       }
+      ]
+     },
+     {
+      "name": "Resource Industries",
+      "unit": "revenue_b",
+      "series": [
+       {
+        "q": "2024Q4",
+        "v": 2.98
+       },
+       {
+        "q": "2025Q1",
+        "v": 3.661
+       },
+       {
+        "q": "2025Q4",
+        "v": 3.353
+       },
+       {
+        "q": "2026Q1",
+        "v": 3.797
+       }
+      ]
+     },
+     {
+      "name": "Power & Energy",
+      "unit": "revenue_b",
+      "series": [
+       {
+        "q": "2024Q4",
+        "v": 7.649
+       },
+       {
+        "q": "2025Q1",
+        "v": 5.783
+       },
+       {
+        "q": "2025Q4",
+        "v": 9.4
+       },
+       {
+        "q": "2026Q1",
+        "v": 7.031
+       }
+      ]
+     }
+    ],
+    "notes": "Calendar fiscal year. Q2 2026 not yet in source. CAT reorganised in 2025 \u2014 Energy & Transportation is now Power & Energy. Segment sales include inter-segment sales."
+   },
+   "market_context": {
+    "rev_growth": {
+     "value": 22.2,
+     "rank": "top 25%",
+     "vs_sp500_aggregate": 8.1
+    },
+    "op_margin": {
+     "value": 17.4,
+     "rank": "above median"
+    },
+    "gross_margin": {
+     "value": 28.6,
+     "rank": "below median"
+    },
+    "fcf_margin": {
+     "value": 11.2,
+     "rank": "above median"
+    }
+   }
   },
   {
    "ticker": "META",
@@ -3028,7 +7668,253 @@ const DATA = {
    "watch_note": "Q2 optics worse than reality (legal/severance charges), but underlying operating leverage has still turned negative while capex is debt-funded.",
    "pies": [
     "bankers"
-   ]
+   ],
+   "financial_history": {
+    "quarterly": [
+     {
+      "q": "2022Q1",
+      "fiscal": "Q1 FY22",
+      "rev_b": 27.908,
+      "gross_pct": 78.48,
+      "op_pct": 30.54,
+      "fcf_b": 8.635
+     },
+     {
+      "q": "2022Q2",
+      "fiscal": "Q2 FY22",
+      "rev_b": 28.822,
+      "gross_pct": 81.99,
+      "op_pct": 29.0,
+      "fcf_b": 4.624
+     },
+     {
+      "q": "2022Q3",
+      "fiscal": "Q3 FY22",
+      "rev_b": 27.714,
+      "gross_pct": 79.38,
+      "op_pct": 20.44,
+      "fcf_b": 0.317
+     },
+     {
+      "q": "2022Q4",
+      "fiscal": "Q4 FY22",
+      "rev_b": 32.165,
+      "gross_pct": 74.08,
+      "op_pct": 19.89,
+      "fcf_b": 5.713
+     },
+     {
+      "q": "2023Q1",
+      "fiscal": "Q1 FY23",
+      "rev_b": 28.645,
+      "gross_pct": 78.68,
+      "op_pct": 25.23,
+      "fcf_b": 7.175
+     },
+     {
+      "q": "2023Q2",
+      "fiscal": "Q2 FY23",
+      "rev_b": 31.999,
+      "gross_pct": 81.42,
+      "op_pct": 29.35,
+      "fcf_b": 11.175
+     },
+     {
+      "q": "2023Q3",
+      "fiscal": "Q3 FY23",
+      "rev_b": 34.146,
+      "gross_pct": 81.81,
+      "op_pct": 40.26,
+      "fcf_b": 13.906
+     },
+     {
+      "q": "2023Q4",
+      "fiscal": "Q4 FY23",
+      "rev_b": 40.111,
+      "gross_pct": 80.82,
+      "op_pct": 40.85,
+      "fcf_b": 11.812
+     },
+     {
+      "q": "2024Q1",
+      "fiscal": "Q1 FY24",
+      "rev_b": 36.455,
+      "gross_pct": 81.79,
+      "op_pct": 37.9,
+      "fcf_b": 12.846
+     },
+     {
+      "q": "2024Q2",
+      "fiscal": "Q2 FY24",
+      "rev_b": 39.071,
+      "gross_pct": 81.3,
+      "op_pct": 38.0,
+      "fcf_b": 11.197
+     },
+     {
+      "q": "2024Q3",
+      "fiscal": "Q3 FY24",
+      "rev_b": 40.589,
+      "gross_pct": 81.83,
+      "op_pct": 42.75,
+      "fcf_b": 16.466
+     },
+     {
+      "q": "2024Q4",
+      "fiscal": "Q4 FY24",
+      "rev_b": 48.385,
+      "gross_pct": 81.73,
+      "op_pct": 48.29,
+      "fcf_b": 13.563
+     },
+     {
+      "q": "2025Q1",
+      "fiscal": "Q1 FY25",
+      "rev_b": 42.314,
+      "gross_pct": 82.11,
+      "op_pct": 41.49,
+      "fcf_b": 11.085
+     },
+     {
+      "q": "2025Q2",
+      "fiscal": "Q2 FY25",
+      "rev_b": 47.516,
+      "gross_pct": 82.13,
+      "op_pct": 43.02,
+      "fcf_b": 9.023
+     },
+     {
+      "q": "2025Q3",
+      "fiscal": "Q3 FY25",
+      "rev_b": 51.242,
+      "gross_pct": 82.03,
+      "op_pct": 40.07,
+      "fcf_b": 11.17
+     },
+     {
+      "q": "2025Q4",
+      "fiscal": "Q4 FY25",
+      "rev_b": 59.893,
+      "gross_pct": 81.79,
+      "op_pct": 41.32,
+      "fcf_b": 14.831
+     },
+     {
+      "q": "2026Q1",
+      "fiscal": "Q1 FY26",
+      "rev_b": 56.311,
+      "gross_pct": 81.85,
+      "op_pct": 40.62,
+      "fcf_b": 13.229
+     },
+     {
+      "q": "2026Q2",
+      "fiscal": "Q2 FY26",
+      "rev_b": 60.801,
+      "gross_pct": 81.37,
+      "op_pct": 30.88,
+      "fcf_b": 1.746
+     }
+    ],
+    "segments": [
+     {
+      "name": "Family of Apps",
+      "unit": "revenue_b",
+      "series": [
+       {
+        "q": "2024Q3",
+        "v": 40.319
+       },
+       {
+        "q": "2024Q4",
+        "v": 47.302
+       },
+       {
+        "q": "2025Q1",
+        "v": 41.902
+       },
+       {
+        "q": "2025Q2",
+        "v": 47.146
+       },
+       {
+        "q": "2025Q3",
+        "v": 50.772
+       },
+       {
+        "q": "2025Q4",
+        "v": 58.938
+       },
+       {
+        "q": "2026Q1",
+        "v": 55.909
+       },
+       {
+        "q": "2026Q2",
+        "v": 60.37
+       }
+      ]
+     },
+     {
+      "name": "Reality Labs",
+      "unit": "revenue_b",
+      "series": [
+       {
+        "q": "2024Q3",
+        "v": 0.27
+       },
+       {
+        "q": "2024Q4",
+        "v": 1.083
+       },
+       {
+        "q": "2025Q1",
+        "v": 0.412
+       },
+       {
+        "q": "2025Q2",
+        "v": 0.37
+       },
+       {
+        "q": "2025Q3",
+        "v": 0.47
+       },
+       {
+        "q": "2025Q4",
+        "v": 0.955
+       },
+       {
+        "q": "2026Q1",
+        "v": 0.402
+       },
+       {
+        "q": "2026Q2",
+        "v": 0.431
+       }
+      ]
+     }
+    ],
+    "notes": "Fiscal = calendar. 2026Q2 operating margin drops to 30.9% and FCF to $1.7B on $30.1B quarterly capex plus legal/severance charges."
+   },
+   "market_context": {
+    "rev_growth": {
+     "value": 28.0,
+     "rank": "top 10%",
+     "vs_sp500_aggregate": 13.9
+    },
+    "op_margin": {
+     "value": 30.9,
+     "rank": "top 10%"
+    },
+    "gross_margin": {
+     "value": 81.4,
+     "rank": "top 10%"
+    },
+    "fcf_margin": {
+     "value": 18.0,
+     "rank": "top 25%"
+    }
+   }
   },
   {
    "ticker": "SIE",
@@ -3159,7 +8045,235 @@ const DATA = {
    },
    "pies": [
     "exponential-convergence"
-   ]
+   ],
+   "financial_history": {
+    "quarterly": [
+     {
+      "q": "2022Q1",
+      "fiscal": "Q2 FY22",
+      "rev_b": 17.04,
+      "gross_pct": 33.69,
+      "op_pct": 7.45,
+      "fcf_b": 1.325
+     },
+     {
+      "q": "2022Q2",
+      "fiscal": "Q3 FY22",
+      "rev_b": 17.867,
+      "gross_pct": 34.86,
+      "op_pct": 13.61,
+      "fcf_b": 2.286
+     },
+     {
+      "q": "2022Q3",
+      "fiscal": "Q4 FY22",
+      "rev_b": 20.573,
+      "gross_pct": 37.29,
+      "op_pct": 17.6,
+      "fcf_b": 3.451
+     },
+     {
+      "q": "2022Q4",
+      "fiscal": "Q1 FY23",
+      "rev_b": 18.07,
+      "gross_pct": 38.56,
+      "op_pct": 12.32,
+      "fcf_b": 0.085
+     },
+     {
+      "q": "2023Q1",
+      "fiscal": "Q2 FY23",
+      "rev_b": 19.416,
+      "gross_pct": 37.08,
+      "op_pct": 11.44,
+      "fcf_b": 2.35
+     },
+     {
+      "q": "2023Q2",
+      "fiscal": "Q3 FY23",
+      "rev_b": 18.145,
+      "gross_pct": 39.16,
+      "op_pct": 12.49,
+      "fcf_b": 2.97
+     },
+     {
+      "q": "2023Q3",
+      "fiscal": "Q4 FY23",
+      "rev_b": 20.617,
+      "gross_pct": 39.37,
+      "op_pct": 14.16,
+      "fcf_b": 4.668
+     },
+     {
+      "q": "2023Q4",
+      "fiscal": "Q1 FY24",
+      "rev_b": 17.745,
+      "gross_pct": 39.66,
+      "op_pct": 12.87,
+      "fcf_b": 1.056
+     },
+     {
+      "q": "2024Q1",
+      "fiscal": "Q2 FY24",
+      "rev_b": 18.474,
+      "gross_pct": 38.49,
+      "op_pct": 11.07,
+      "fcf_b": 1.355
+     },
+     {
+      "q": "2024Q2",
+      "fiscal": "Q3 FY24",
+      "rev_b": 18.9,
+      "gross_pct": 41.0,
+      "op_pct": 13.83,
+      "fcf_b": 2.14
+     },
+     {
+      "q": "2024Q3",
+      "fiscal": "Q4 FY24",
+      "rev_b": 20.811,
+      "gross_pct": 38.09,
+      "op_pct": 12.74,
+      "fcf_b": 5.027
+     },
+     {
+      "q": "2024Q4",
+      "fiscal": "Q1 FY25",
+      "rev_b": 18.353,
+      "gross_pct": 38.63,
+      "op_pct": 11.25,
+      "fcf_b": 1.583
+     },
+     {
+      "q": "2025Q1",
+      "fiscal": "Q2 FY25",
+      "rev_b": 19.757,
+      "gross_pct": 38.82,
+      "op_pct": 13.5,
+      "fcf_b": 1.004
+     },
+     {
+      "q": "2025Q2",
+      "fiscal": "Q3 FY25",
+      "rev_b": 19.377,
+      "gross_pct": 38.9,
+      "op_pct": 13.49,
+      "fcf_b": 2.918
+     },
+     {
+      "q": "2025Q3",
+      "fiscal": "Q4 FY25",
+      "rev_b": 21.427,
+      "gross_pct": 37.82,
+      "op_pct": 10.5,
+      "fcf_b": 5.307
+     },
+     {
+      "q": "2025Q4",
+      "fiscal": "Q1 FY26",
+      "rev_b": 19.139,
+      "gross_pct": 39.88,
+      "op_pct": 13.03,
+      "fcf_b": 0.677
+     },
+     {
+      "q": "2026Q1",
+      "fiscal": "Q2 FY26",
+      "rev_b": 19.756,
+      "gross_pct": 38.89,
+      "op_pct": 13.59,
+      "fcf_b": 1.716
+     }
+    ],
+    "segments": [
+     {
+      "name": "Digital Industries",
+      "unit": "revenue_b",
+      "series": [
+       {
+        "q": "2024Q4",
+        "v": 4.052
+       },
+       {
+        "q": "2025Q1",
+        "v": 4.284
+       },
+       {
+        "q": "2025Q4",
+        "v": 4.526
+       },
+       {
+        "q": "2026Q1",
+        "v": 4.626
+       }
+      ]
+     },
+     {
+      "name": "Smart Infrastructure",
+      "unit": "revenue_b",
+      "series": [
+       {
+        "q": "2024Q4",
+        "v": 5.286
+       },
+       {
+        "q": "2025Q1",
+        "v": 5.744
+       },
+       {
+        "q": "2025Q4",
+        "v": 5.534
+       },
+       {
+        "q": "2026Q1",
+        "v": 5.928
+       }
+      ]
+     },
+     {
+      "name": "Mobility",
+      "unit": "revenue_b",
+      "series": [
+       {
+        "q": "2024Q4",
+        "v": 2.973
+       },
+       {
+        "q": "2025Q1",
+        "v": 3.183
+       },
+       {
+        "q": "2025Q4",
+        "v": 3.174
+       },
+       {
+        "q": "2026Q1",
+        "v": 3.036
+       }
+      ]
+     }
+    ],
+    "notes": "Fiscal year ends 30 Sep. Group figures include Siemens Healthineers consolidation. Fiscal Q3 FY2026 not yet in source."
+   },
+   "market_context": {
+    "rev_growth": {
+     "value": 6.0,
+     "rank": "above median",
+     "vs_sp500_aggregate": -8.1
+    },
+    "op_margin": {
+     "value": 11.8,
+     "rank": "below median"
+    },
+    "gross_margin": {
+     "value": 38.8,
+     "rank": "above median"
+    },
+    "fcf_margin": {
+     "value": 13.3,
+     "rank": "above median"
+    }
+   }
   },
   {
    "ticker": "CEG",
@@ -3297,7 +8411,168 @@ const DATA = {
    "watch_note": "Calpine consolidation makes YoY comparisons noisy for ~3 more quarters; leverage stepped up materially.",
    "pies": [
     "exponential-convergence"
-   ]
+   ],
+   "financial_history": {
+    "quarterly": [
+     {
+      "q": "2022Q1",
+      "fiscal": "Q1 2022",
+      "rev_b": 5.591,
+      "gross_pct": 15.0,
+      "op_pct": 7.8,
+      "fcf_b": 0.941
+     },
+     {
+      "q": "2022Q2",
+      "fiscal": "Q2 2022",
+      "rev_b": 5.465,
+      "gross_pct": 12.5,
+      "op_pct": 5.0,
+      "fcf_b": -0.478
+     },
+     {
+      "q": "2022Q3",
+      "fiscal": "Q3 2022",
+      "rev_b": 6.051,
+      "gross_pct": 6.1,
+      "op_pct": -0.7,
+      "fcf_b": -1.484
+     },
+     {
+      "q": "2022Q4",
+      "fiscal": "Q4 2022",
+      "rev_b": 7.333,
+      "gross_pct": 3.4,
+      "op_pct": -2.3,
+      "fcf_b": -3.021
+     },
+     {
+      "q": "2023Q1",
+      "fiscal": "Q1 2023",
+      "rev_b": 7.565,
+      "gross_pct": 5.3,
+      "op_pct": 0.4,
+      "fcf_b": -1.594
+     },
+     {
+      "q": "2023Q2",
+      "fiscal": "Q2 2023",
+      "rev_b": 5.446,
+      "gross_pct": 19.9,
+      "op_pct": 12.3,
+      "fcf_b": -0.868
+     },
+     {
+      "q": "2023Q3",
+      "fiscal": "Q3 2023",
+      "rev_b": 6.111,
+      "gross_pct": 22.8,
+      "op_pct": 16.0,
+      "fcf_b": -1.392
+     },
+     {
+      "q": "2023Q4",
+      "fiscal": "Q4 2023",
+      "rev_b": 5.796,
+      "gross_pct": 6.1,
+      "op_pct": -1.2,
+      "fcf_b": -3.869
+     },
+     {
+      "q": "2024Q1",
+      "fiscal": "Q1 2024",
+      "rev_b": 6.161,
+      "gross_pct": 20.4,
+      "op_pct": 13.2,
+      "fcf_b": -1.461
+     },
+     {
+      "q": "2024Q2",
+      "fiscal": "Q2 2024",
+      "rev_b": 5.475,
+      "gross_pct": 28.1,
+      "op_pct": 20.1,
+      "fcf_b": -1.159
+     },
+     {
+      "q": "2024Q3",
+      "fiscal": "Q3 2024",
+      "rev_b": 6.55,
+      "gross_pct": 28.9,
+      "op_pct": 22.4,
+      "fcf_b": -0.664
+     },
+     {
+      "q": "2024Q4",
+      "fiscal": "Q4 2024",
+      "rev_b": 5.382,
+      "gross_pct": 24.1,
+      "op_pct": 18.1,
+      "fcf_b": -1.745
+     },
+     {
+      "q": "2025Q1",
+      "fiscal": "Q1 2025",
+      "rev_b": 6.788,
+      "gross_pct": 12.7,
+      "op_pct": 6.6,
+      "fcf_b": -0.699
+     },
+     {
+      "q": "2025Q2",
+      "fiscal": "Q2 2025",
+      "rev_b": 6.101,
+      "gross_pct": 22.2,
+      "op_pct": 15.6,
+      "fcf_b": 0.71
+     },
+     {
+      "q": "2025Q3",
+      "fiscal": "Q3 2025",
+      "rev_b": 6.57,
+      "gross_pct": 22.7,
+      "op_pct": 16.5,
+      "fcf_b": 1.458
+     },
+     {
+      "q": "2025Q4",
+      "fiscal": "Q4 2025",
+      "rev_b": 6.074,
+      "gross_pct": 16.3,
+      "op_pct": 9.8,
+      "fcf_b": -0.181
+     },
+     {
+      "q": "2026Q1",
+      "fiscal": "Q1 2026",
+      "rev_b": 11.122,
+      "gross_pct": 26.9,
+      "op_pct": 21.0,
+      "fcf_b": -0.85
+     }
+    ],
+    "segments": [],
+    "notes": "2026Q1 is the first quarter consolidating Calpine, roughly doubling revenue and breaking comparability. Q2 2026 reports 6 Aug 2026. FCF line is GAAP operating cash flow minus capex and differs sharply from the company's adjusted FCF presentation."
+   },
+   "market_context": {
+    "rev_growth": {
+     "value": 63.9,
+     "rank": "top 10%",
+     "vs_sp500_aggregate": 49.8
+    },
+    "op_margin": {
+     "value": 16.6,
+     "rank": "above median"
+    },
+    "gross_margin": {
+     "value": 22.8,
+     "rank": "bottom 25%"
+    },
+    "fcf_margin": {
+     "value": 3.8,
+     "rank": "bottom 25%"
+    }
+   }
   },
   {
    "ticker": "AMZN",
@@ -3426,7 +8701,291 @@ const DATA = {
    "pies": [
     "bankers",
     "exponential-convergence"
-   ]
+   ],
+   "financial_history": {
+    "quarterly": [
+     {
+      "q": "2022Q1",
+      "fiscal": "Q1 FY22",
+      "rev_b": 116.444,
+      "gross_pct": 42.89,
+      "op_pct": 3.15,
+      "fcf_b": -17.741
+     },
+     {
+      "q": "2022Q2",
+      "fiscal": "Q2 FY22",
+      "rev_b": 121.234,
+      "gross_pct": 45.21,
+      "op_pct": 2.74,
+      "fcf_b": -6.759
+     },
+     {
+      "q": "2022Q3",
+      "fiscal": "Q3 FY22",
+      "rev_b": 127.101,
+      "gross_pct": 44.71,
+      "op_pct": 1.99,
+      "fcf_b": -4.974
+     },
+     {
+      "q": "2022Q4",
+      "fiscal": "Q4 FY22",
+      "rev_b": 149.204,
+      "gross_pct": 42.6,
+      "op_pct": 1.83,
+      "fcf_b": 12.581
+     },
+     {
+      "q": "2023Q1",
+      "fiscal": "Q1 FY23",
+      "rev_b": 127.358,
+      "gross_pct": 46.77,
+      "op_pct": 3.75,
+      "fcf_b": -9.419
+     },
+     {
+      "q": "2023Q2",
+      "fiscal": "Q2 FY23",
+      "rev_b": 134.383,
+      "gross_pct": 48.38,
+      "op_pct": 5.72,
+      "fcf_b": 5.021
+     },
+     {
+      "q": "2023Q3",
+      "fiscal": "Q3 FY23",
+      "rev_b": 143.083,
+      "gross_pct": 47.57,
+      "op_pct": 7.82,
+      "fcf_b": 8.738
+     },
+     {
+      "q": "2023Q4",
+      "fiscal": "Q4 FY23",
+      "rev_b": 169.961,
+      "gross_pct": 45.54,
+      "op_pct": 7.77,
+      "fcf_b": 27.877
+     },
+     {
+      "q": "2024Q1",
+      "fiscal": "Q1 FY24",
+      "rev_b": 143.313,
+      "gross_pct": 49.32,
+      "op_pct": 10.68,
+      "fcf_b": 4.064
+     },
+     {
+      "q": "2024Q2",
+      "fiscal": "Q2 FY24",
+      "rev_b": 147.977,
+      "gross_pct": 50.14,
+      "op_pct": 9.92,
+      "fcf_b": 7.661
+     },
+     {
+      "q": "2024Q3",
+      "fiscal": "Q3 FY24",
+      "rev_b": 158.877,
+      "gross_pct": 49.03,
+      "op_pct": 10.96,
+      "fcf_b": 3.351
+     },
+     {
+      "q": "2024Q4",
+      "fiscal": "Q4 FY24",
+      "rev_b": 187.792,
+      "gross_pct": 47.34,
+      "op_pct": 11.29,
+      "fcf_b": 17.802
+     },
+     {
+      "q": "2025Q1",
+      "fiscal": "Q1 FY25",
+      "rev_b": 155.667,
+      "gross_pct": 50.55,
+      "op_pct": 11.82,
+      "fcf_b": -8.004
+     },
+     {
+      "q": "2025Q2",
+      "fiscal": "Q2 FY25",
+      "rev_b": 167.702,
+      "gross_pct": 51.81,
+      "op_pct": 11.43,
+      "fcf_b": 0.332
+     },
+     {
+      "q": "2025Q3",
+      "fiscal": "Q3 FY25",
+      "rev_b": 180.169,
+      "gross_pct": 50.79,
+      "op_pct": 9.67,
+      "fcf_b": 0.43
+     },
+     {
+      "q": "2025Q4",
+      "fiscal": "Q4 FY25",
+      "rev_b": 213.386,
+      "gross_pct": 48.47,
+      "op_pct": 11.71,
+      "fcf_b": 14.937
+     },
+     {
+      "q": "2026Q1",
+      "fiscal": "Q1 FY26",
+      "rev_b": 181.519,
+      "gross_pct": 51.82,
+      "op_pct": 13.14,
+      "fcf_b": -18.171
+     },
+     {
+      "q": "2026Q2",
+      "fiscal": "Q2 FY26",
+      "rev_b": 200.606,
+      "gross_pct": 52.26,
+      "op_pct": 13.69,
+      "fcf_b": -8.821
+     }
+    ],
+    "segments": [
+     {
+      "name": "AWS",
+      "unit": "revenue_b",
+      "series": [
+       {
+        "q": "2024Q3",
+        "v": 27.452
+       },
+       {
+        "q": "2024Q4",
+        "v": 28.786
+       },
+       {
+        "q": "2025Q1",
+        "v": 29.267
+       },
+       {
+        "q": "2025Q2",
+        "v": 30.873
+       },
+       {
+        "q": "2025Q3",
+        "v": 33.006
+       },
+       {
+        "q": "2025Q4",
+        "v": 35.579
+       },
+       {
+        "q": "2026Q1",
+        "v": 37.587
+       },
+       {
+        "q": "2026Q2",
+        "v": 42.232
+       }
+      ]
+     },
+     {
+      "name": "North America",
+      "unit": "revenue_b",
+      "series": [
+       {
+        "q": "2024Q3",
+        "v": 95.537
+       },
+       {
+        "q": "2024Q4",
+        "v": 115.586
+       },
+       {
+        "q": "2025Q1",
+        "v": 92.887
+       },
+       {
+        "q": "2025Q2",
+        "v": 100.068
+       },
+       {
+        "q": "2025Q3",
+        "v": 106.267
+       },
+       {
+        "q": "2025Q4",
+        "v": 127.083
+       },
+       {
+        "q": "2026Q1",
+        "v": 104.143
+       },
+       {
+        "q": "2026Q2",
+        "v": 116.177
+       }
+      ]
+     },
+     {
+      "name": "International",
+      "unit": "revenue_b",
+      "series": [
+       {
+        "q": "2024Q3",
+        "v": 35.888
+       },
+       {
+        "q": "2024Q4",
+        "v": 43.42
+       },
+       {
+        "q": "2025Q1",
+        "v": 33.513
+       },
+       {
+        "q": "2025Q2",
+        "v": 36.761
+       },
+       {
+        "q": "2025Q3",
+        "v": 40.896
+       },
+       {
+        "q": "2025Q4",
+        "v": 50.724
+       },
+       {
+        "q": "2026Q1",
+        "v": 39.789
+       },
+       {
+        "q": "2026Q2",
+        "v": 42.197
+       }
+      ]
+     }
+    ],
+    "notes": "Fiscal = calendar. FCF here is OCF minus gross purchases of property and equipment, so it differs from Amazon's own definition. Q1 is seasonally negative; 2026Q1/Q2 negative on $44-54B quarterly capex."
+   },
+   "market_context": {
+    "rev_growth": {
+     "value": 19.6,
+     "rank": "top 25%",
+     "vs_sp500_aggregate": 5.5
+    },
+    "op_margin": {
+     "value": 13.7,
+     "rank": "above median"
+    },
+    "gross_margin": {
+     "value": 52.3,
+     "rank": "top 25%"
+    },
+    "fcf_margin": {
+     "value": -1.0,
+     "rank": "bottom 25%"
+    }
+   }
   },
   {
    "ticker": "TSLA",
@@ -3566,7 +9125,279 @@ const DATA = {
    "pies": [
     "bankers",
     "exponential-convergence"
-   ]
+   ],
+   "financial_history": {
+    "quarterly": [
+     {
+      "q": "2022Q1",
+      "fiscal": "Q1 2022",
+      "rev_b": 18.756,
+      "gross_pct": 29.11,
+      "op_pct": 19.21,
+      "fcf_b": 2.223
+     },
+     {
+      "q": "2022Q2",
+      "fiscal": "Q2 2022",
+      "rev_b": 16.934,
+      "gross_pct": 25.0,
+      "op_pct": 14.55,
+      "fcf_b": 0.621
+     },
+     {
+      "q": "2022Q3",
+      "fiscal": "Q3 2022",
+      "rev_b": 21.454,
+      "gross_pct": 25.09,
+      "op_pct": 17.19,
+      "fcf_b": 3.297
+     },
+     {
+      "q": "2022Q4",
+      "fiscal": "Q4 2022",
+      "rev_b": 24.318,
+      "gross_pct": 23.76,
+      "op_pct": 16.04,
+      "fcf_b": 1.42
+     },
+     {
+      "q": "2023Q1",
+      "fiscal": "Q1 2023",
+      "rev_b": 23.329,
+      "gross_pct": 19.34,
+      "op_pct": 11.42,
+      "fcf_b": 0.44
+     },
+     {
+      "q": "2023Q2",
+      "fiscal": "Q2 2023",
+      "rev_b": 24.927,
+      "gross_pct": 18.19,
+      "op_pct": 9.62,
+      "fcf_b": 1.005
+     },
+     {
+      "q": "2023Q3",
+      "fiscal": "Q3 2023",
+      "rev_b": 23.35,
+      "gross_pct": 17.89,
+      "op_pct": 7.55,
+      "fcf_b": 0.849
+     },
+     {
+      "q": "2023Q4",
+      "fiscal": "Q4 2023",
+      "rev_b": 25.167,
+      "gross_pct": 17.63,
+      "op_pct": 8.2,
+      "fcf_b": 2.063
+     },
+     {
+      "q": "2024Q1",
+      "fiscal": "Q1 2024",
+      "rev_b": 21.301,
+      "gross_pct": 17.35,
+      "op_pct": 5.5,
+      "fcf_b": -2.535
+     },
+     {
+      "q": "2024Q2",
+      "fiscal": "Q2 2024",
+      "rev_b": 25.5,
+      "gross_pct": 17.95,
+      "op_pct": 6.29,
+      "fcf_b": 1.34
+     },
+     {
+      "q": "2024Q3",
+      "fiscal": "Q3 2024",
+      "rev_b": 25.182,
+      "gross_pct": 19.84,
+      "op_pct": 10.79,
+      "fcf_b": 2.742
+     },
+     {
+      "q": "2024Q4",
+      "fiscal": "Q4 2024",
+      "rev_b": 25.707,
+      "gross_pct": 16.26,
+      "op_pct": 6.16,
+      "fcf_b": 2.034
+     },
+     {
+      "q": "2025Q1",
+      "fiscal": "Q1 2025",
+      "rev_b": 19.335,
+      "gross_pct": 16.31,
+      "op_pct": 2.06,
+      "fcf_b": 0.664
+     },
+     {
+      "q": "2025Q2",
+      "fiscal": "Q2 2025",
+      "rev_b": 22.496,
+      "gross_pct": 17.24,
+      "op_pct": 4.1,
+      "fcf_b": 0.146
+     },
+     {
+      "q": "2025Q3",
+      "fiscal": "Q3 2025",
+      "rev_b": 28.095,
+      "gross_pct": 17.99,
+      "op_pct": 5.78,
+      "fcf_b": 3.99
+     },
+     {
+      "q": "2025Q4",
+      "fiscal": "Q4 2025",
+      "rev_b": 24.901,
+      "gross_pct": 20.12,
+      "op_pct": 5.66,
+      "fcf_b": 1.42
+     },
+     {
+      "q": "2026Q1",
+      "fiscal": "Q1 2026",
+      "rev_b": 22.387,
+      "gross_pct": 21.08,
+      "op_pct": 4.2,
+      "fcf_b": 1.444
+     },
+     {
+      "q": "2026Q2",
+      "fiscal": "Q2 2026",
+      "rev_b": 28.236,
+      "gross_pct": 16.83,
+      "op_pct": 1.41,
+      "fcf_b": -1.092
+     }
+    ],
+    "segments": [
+     {
+      "name": "Automotive",
+      "unit": "revenue_b",
+      "series": [
+       {
+        "q": "2024Q4",
+        "v": 19.798
+       },
+       {
+        "q": "2025Q1",
+        "v": 13.967
+       },
+       {
+        "q": "2025Q2",
+        "v": 16.661
+       },
+       {
+        "q": "2025Q3",
+        "v": 21.205
+       },
+       {
+        "q": "2025Q4",
+        "v": 17.693
+       },
+       {
+        "q": "2026Q1",
+        "v": 16.234
+       },
+       {
+        "q": "2026Q2",
+        "v": 20.516
+       }
+      ]
+     },
+     {
+      "name": "Energy generation and storage",
+      "unit": "revenue_b",
+      "series": [
+       {
+        "q": "2024Q4",
+        "v": 3.061
+       },
+       {
+        "q": "2025Q1",
+        "v": 2.73
+       },
+       {
+        "q": "2025Q2",
+        "v": 2.789
+       },
+       {
+        "q": "2025Q3",
+        "v": 3.415
+       },
+       {
+        "q": "2025Q4",
+        "v": 3.837
+       },
+       {
+        "q": "2026Q1",
+        "v": 2.408
+       },
+       {
+        "q": "2026Q2",
+        "v": 3.139
+       }
+      ]
+     },
+     {
+      "name": "Services and other",
+      "unit": "revenue_b",
+      "series": [
+       {
+        "q": "2024Q4",
+        "v": 2.848
+       },
+       {
+        "q": "2025Q1",
+        "v": 2.638
+       },
+       {
+        "q": "2025Q2",
+        "v": 3.046
+       },
+       {
+        "q": "2025Q3",
+        "v": 3.475
+       },
+       {
+        "q": "2025Q4",
+        "v": 3.371
+       },
+       {
+        "q": "2026Q1",
+        "v": 3.745
+       },
+       {
+        "q": "2026Q2",
+        "v": 4.581
+       }
+      ]
+     }
+    ],
+    "notes": "2026Q2 FCF negative on $5.79B capex despite record $28.2B revenue."
+   },
+   "market_context": {
+    "rev_growth": {
+     "value": 25.5,
+     "rank": "top 10%",
+     "vs_sp500_aggregate": 11.4
+    },
+    "op_margin": {
+     "value": 1.4,
+     "rank": "bottom 25%"
+    },
+    "gross_margin": {
+     "value": 16.8,
+     "rank": "bottom 25%"
+    },
+    "fcf_margin": {
+     "value": -3.9,
+     "rank": "bottom 25%"
+    }
+   }
   },
   {
    "ticker": "FCX",
@@ -3698,7 +9529,176 @@ const DATA = {
    },
    "pies": [
     "exponential-convergence"
-   ]
+   ],
+   "financial_history": {
+    "quarterly": [
+     {
+      "q": "2022Q1",
+      "fiscal": "Q1 2022",
+      "rev_b": 6.603,
+      "gross_pct": 52.3,
+      "op_pct": 42.5,
+      "fcf_b": 0.968
+     },
+     {
+      "q": "2022Q2",
+      "fiscal": "Q2 2022",
+      "rev_b": 5.416,
+      "gross_pct": 44.2,
+      "op_pct": 32.1,
+      "fcf_b": 0.758
+     },
+     {
+      "q": "2022Q3",
+      "fiscal": "Q3 2022",
+      "rev_b": 5.003,
+      "gross_pct": 32.2,
+      "op_pct": 19.2,
+      "fcf_b": 0.484
+     },
+     {
+      "q": "2022Q4",
+      "fiscal": "Q4 2022",
+      "rev_b": 5.758,
+      "gross_pct": 38.3,
+      "op_pct": 26.6,
+      "fcf_b": 0.022
+     },
+     {
+      "q": "2023Q1",
+      "fiscal": "Q1 2023",
+      "rev_b": 5.389,
+      "gross_pct": 41.3,
+      "op_pct": 29.7,
+      "fcf_b": -0.071
+     },
+     {
+      "q": "2023Q2",
+      "fiscal": "Q2 2023",
+      "rev_b": 5.737,
+      "gross_pct": 38.1,
+      "op_pct": 24.6,
+      "fcf_b": 0.51
+     },
+     {
+      "q": "2023Q3",
+      "fiscal": "Q3 2023",
+      "rev_b": 5.824,
+      "gross_pct": 39.0,
+      "op_pct": 25.6,
+      "fcf_b": 0.058
+     },
+     {
+      "q": "2023Q4",
+      "fiscal": "Q4 2023",
+      "rev_b": 5.905,
+      "gross_pct": 43.1,
+      "op_pct": 29.2,
+      "fcf_b": -0.042
+     },
+     {
+      "q": "2024Q1",
+      "fiscal": "Q1 2024",
+      "rev_b": 6.321,
+      "gross_pct": 39.2,
+      "op_pct": 25.9,
+      "fcf_b": 0.642
+     },
+     {
+      "q": "2024Q2",
+      "fiscal": "Q2 2024",
+      "rev_b": 6.624,
+      "gross_pct": 41.5,
+      "op_pct": 30.9,
+      "fcf_b": 0.84
+     },
+     {
+      "q": "2024Q3",
+      "fiscal": "Q3 2024",
+      "rev_b": 6.79,
+      "gross_pct": 40.0,
+      "op_pct": 28.5,
+      "fcf_b": 0.673
+     },
+     {
+      "q": "2024Q4",
+      "fiscal": "Q4 2024",
+      "rev_b": 5.72,
+      "gross_pct": 34.3,
+      "op_pct": 21.7,
+      "fcf_b": 0.197
+     },
+     {
+      "q": "2025Q1",
+      "fiscal": "Q1 2025",
+      "rev_b": 5.728,
+      "gross_pct": 34.4,
+      "op_pct": 22.7,
+      "fcf_b": -0.114
+     },
+     {
+      "q": "2025Q2",
+      "fiscal": "Q2 2025",
+      "rev_b": 7.582,
+      "gross_pct": 43.5,
+      "op_pct": 32.1,
+      "fcf_b": 0.934
+     },
+     {
+      "q": "2025Q3",
+      "fiscal": "Q3 2025",
+      "rev_b": 6.972,
+      "gross_pct": 39.7,
+      "op_pct": 28.3,
+      "fcf_b": 0.608
+     },
+     {
+      "q": "2025Q4",
+      "fiscal": "Q4 2025",
+      "rev_b": 5.633,
+      "gross_pct": 26.7,
+      "op_pct": 14.4,
+      "fcf_b": -0.312
+     },
+     {
+      "q": "2026Q1",
+      "fiscal": "Q1 2026",
+      "rev_b": 6.234,
+      "gross_pct": 34.8,
+      "op_pct": 34.3,
+      "fcf_b": 0.522
+     },
+     {
+      "q": "2026Q2",
+      "fiscal": "Q2 2026",
+      "rev_b": 7.029,
+      "gross_pct": 38.5,
+      "op_pct": 28.5,
+      "fcf_b": 0.944
+     }
+    ],
+    "segments": [],
+    "notes": "Segment revenue not captured \u2014 FCX reports by mining operation with large intersegment eliminations. 2026Q1 operating income is nearly equal to gross profit, implying a one-off credit that quarter \u2014 treat that single margin point with caution."
+   },
+   "market_context": {
+    "rev_growth": {
+     "value": -7.3,
+     "rank": "bottom 25%",
+     "vs_sp500_aggregate": -21.4
+    },
+    "op_margin": {
+     "value": 27.3,
+     "rank": "top 25%"
+    },
+    "gross_margin": {
+     "value": 38.3,
+     "rank": "above median"
+    },
+    "fcf_margin": {
+     "value": 6.8,
+     "rank": "below median"
+    }
+   }
   },
   {
    "ticker": "ORCL",
@@ -3836,7 +9836,265 @@ const DATA = {
    "watch_note": "Growth is real but debt-funded: -$24B FCF and ~$124B net debt. The bet is the $638B backlog converts before financing costs bite.",
    "pies": [
     "bankers"
-   ]
+   ],
+   "financial_history": {
+    "quarterly": [
+     {
+      "q": "2022Q1",
+      "fiscal": "Q3 FY22",
+      "rev_b": 10.513,
+      "gross_pct": 78.9,
+      "op_pct": 36.35,
+      "fcf_b": 2.744
+     },
+     {
+      "q": "2022Q2",
+      "fiscal": "Q4 FY22",
+      "rev_b": 11.84,
+      "gross_pct": 79.76,
+      "op_pct": 38.02,
+      "fcf_b": 2.562
+     },
+     {
+      "q": "2022Q3",
+      "fiscal": "Q1 FY23",
+      "rev_b": 11.445,
+      "gross_pct": 73.46,
+      "op_pct": 22.92,
+      "fcf_b": 4.675
+     },
+     {
+      "q": "2022Q4",
+      "fiscal": "Q2 FY23",
+      "rev_b": 12.275,
+      "gross_pct": 72.64,
+      "op_pct": 25.02,
+      "fcf_b": -1.586
+     },
+     {
+      "q": "2023Q1",
+      "fiscal": "Q3 FY23",
+      "rev_b": 12.398,
+      "gross_pct": 72.26,
+      "op_pct": 26.29,
+      "fcf_b": 1.647
+     },
+     {
+      "q": "2023Q2",
+      "fiscal": "Q4 FY23",
+      "rev_b": 13.836,
+      "gross_pct": 73.04,
+      "op_pct": 29.92,
+      "fcf_b": 3.734
+     },
+     {
+      "q": "2023Q3",
+      "fiscal": "Q1 FY24",
+      "rev_b": 12.453,
+      "gross_pct": 71.01,
+      "op_pct": 26.47,
+      "fcf_b": 5.66
+     },
+     {
+      "q": "2023Q4",
+      "fiscal": "Q2 FY24",
+      "rev_b": 12.941,
+      "gross_pct": 71.1,
+      "op_pct": 27.99,
+      "fcf_b": -0.937
+     },
+     {
+      "q": "2024Q1",
+      "fiscal": "Q3 FY24",
+      "rev_b": 13.28,
+      "gross_pct": 70.87,
+      "op_pct": 28.24,
+      "fcf_b": 3.801
+     },
+     {
+      "q": "2024Q2",
+      "fiscal": "Q4 FY24",
+      "rev_b": 14.287,
+      "gross_pct": 72.53,
+      "op_pct": 32.8,
+      "fcf_b": 3.283
+     },
+     {
+      "q": "2024Q3",
+      "fiscal": "Q1 FY25",
+      "rev_b": 13.307,
+      "gross_pct": 70.65,
+      "op_pct": 29.99,
+      "fcf_b": 5.124
+     },
+     {
+      "q": "2024Q4",
+      "fiscal": "Q2 FY25",
+      "rev_b": 14.059,
+      "gross_pct": 70.94,
+      "op_pct": 30.02,
+      "fcf_b": -2.666
+     },
+     {
+      "q": "2025Q1",
+      "fiscal": "Q3 FY25",
+      "rev_b": 14.13,
+      "gross_pct": 70.31,
+      "op_pct": 30.84,
+      "fcf_b": 0.071
+     },
+     {
+      "q": "2025Q2",
+      "fiscal": "Q4 FY25",
+      "rev_b": 15.903,
+      "gross_pct": 70.19,
+      "op_pct": 32.13,
+      "fcf_b": -2.923
+     },
+     {
+      "q": "2025Q3",
+      "fiscal": "Q1 FY26",
+      "rev_b": 14.926,
+      "gross_pct": 67.28,
+      "op_pct": 28.65,
+      "fcf_b": -0.362
+     },
+     {
+      "q": "2025Q4",
+      "fiscal": "Q2 FY26",
+      "rev_b": 16.058,
+      "gross_pct": 66.53,
+      "op_pct": 29.46,
+      "fcf_b": -9.967
+     },
+     {
+      "q": "2026Q1",
+      "fiscal": "Q3 FY26",
+      "rev_b": 17.19,
+      "gross_pct": 64.56,
+      "op_pct": 31.79,
+      "fcf_b": -11.484
+     },
+     {
+      "q": "2026Q2",
+      "fiscal": "Q4 FY26",
+      "rev_b": 19.184,
+      "gross_pct": 65.23,
+      "op_pct": 31.97,
+      "fcf_b": -1.873
+     }
+    ],
+    "segments": [
+     {
+      "name": "Cloud (IaaS + SaaS)",
+      "unit": "revenue_b",
+      "series": [
+       {
+        "q": "2024Q4",
+        "v": 5.937
+       },
+       {
+        "q": "2025Q2",
+        "v": 6.737
+       },
+       {
+        "q": "2025Q4",
+        "v": 7.977
+       },
+       {
+        "q": "2026Q2",
+        "v": 9.913
+       }
+      ]
+     },
+     {
+      "name": "Software (license + support)",
+      "unit": "revenue_b",
+      "series": [
+       {
+        "q": "2024Q4",
+        "v": 6.064
+       },
+       {
+        "q": "2025Q2",
+        "v": 6.968
+       },
+       {
+        "q": "2025Q4",
+        "v": 5.877
+       },
+       {
+        "q": "2026Q2",
+        "v": 6.824
+       }
+      ]
+     },
+     {
+      "name": "Services",
+      "unit": "revenue_b",
+      "series": [
+       {
+        "q": "2024Q4",
+        "v": 1.33
+       },
+       {
+        "q": "2025Q2",
+        "v": 1.348
+       },
+       {
+        "q": "2025Q4",
+        "v": 1.428
+       },
+       {
+        "q": "2026Q2",
+        "v": 1.523
+       }
+      ]
+     },
+     {
+      "name": "Hardware",
+      "unit": "revenue_b",
+      "series": [
+       {
+        "q": "2024Q4",
+        "v": 0.728
+       },
+       {
+        "q": "2025Q2",
+        "v": 0.85
+       },
+       {
+        "q": "2025Q4",
+        "v": 0.776
+       },
+       {
+        "q": "2026Q2",
+        "v": 0.924
+       }
+      ]
+     }
+    ],
+    "notes": "Fiscal year ends 31 May. FCF turned deeply negative from FY2026 on AI datacenter capex ($12.0B, $18.6B, $16.5B in the last three quarters). Oracle reclassified revenue lines from FY2026, so only 4 comparable segment quarters."
+   },
+   "market_context": {
+    "rev_growth": {
+     "value": 20.6,
+     "rank": "top 25%",
+     "vs_sp500_aggregate": 6.5
+    },
+    "op_margin": {
+     "value": 30.6,
+     "rank": "top 10%"
+    },
+    "gross_margin": {
+     "value": 67.0,
+     "rank": "top 10%"
+    },
+    "fcf_margin": {
+     "value": -35.2,
+     "rank": "bottom 25%"
+    }
+   }
   },
   {
    "ticker": "CCJ",
@@ -3974,7 +10232,221 @@ const DATA = {
    },
    "pies": [
     "exponential-convergence"
-   ]
+   ],
+   "financial_history": {
+    "quarterly": [
+     {
+      "q": "2022Q1",
+      "fiscal": "Q1 2022",
+      "rev_b": 0.398,
+      "gross_pct": 22.7,
+      "op_pct": 1.7,
+      "fcf_b": 0.142
+     },
+     {
+      "q": "2022Q2",
+      "fiscal": "Q2 2022",
+      "rev_b": 0.558,
+      "gross_pct": 27.6,
+      "op_pct": 15.1,
+      "fcf_b": 0.066
+     },
+     {
+      "q": "2022Q3",
+      "fiscal": "Q3 2022",
+      "rev_b": 0.389,
+      "gross_pct": 18.7,
+      "op_pct": -4.4,
+      "fcf_b": -0.09
+     },
+     {
+      "q": "2022Q4",
+      "fiscal": "Q4 2022",
+      "rev_b": 0.524,
+      "gross_pct": 17.8,
+      "op_pct": -11.2,
+      "fcf_b": 0.043
+     },
+     {
+      "q": "2023Q1",
+      "fiscal": "Q1 2023",
+      "rev_b": 0.687,
+      "gross_pct": 35.5,
+      "op_pct": 13.8,
+      "fcf_b": 0.188
+     },
+     {
+      "q": "2023Q2",
+      "fiscal": "Q2 2023",
+      "rev_b": 0.482,
+      "gross_pct": 31.5,
+      "op_pct": 7.3,
+      "fcf_b": 0.047
+     },
+     {
+      "q": "2023Q3",
+      "fiscal": "Q3 2023",
+      "rev_b": 0.575,
+      "gross_pct": 36.1,
+      "op_pct": 23.6,
+      "fcf_b": 0.142
+     },
+     {
+      "q": "2023Q4",
+      "fiscal": "Q4 2023",
+      "rev_b": 0.844,
+      "gross_pct": 21.2,
+      "op_pct": 2.1,
+      "fcf_b": 0.158
+     },
+     {
+      "q": "2024Q1",
+      "fiscal": "Q1 2024",
+      "rev_b": 0.634,
+      "gross_pct": 36.3,
+      "op_pct": 20.0,
+      "fcf_b": 0.023
+     },
+     {
+      "q": "2024Q2",
+      "fiscal": "Q2 2024",
+      "rev_b": 0.599,
+      "gross_pct": 39.6,
+      "op_pct": 17.0,
+      "fcf_b": 0.213
+     },
+     {
+      "q": "2024Q3",
+      "fiscal": "Q3 2024",
+      "rev_b": 0.721,
+      "gross_pct": 33.6,
+      "op_pct": 13.9,
+      "fcf_b": -0.008
+     },
+     {
+      "q": "2024Q4",
+      "fiscal": "Q4 2024",
+      "rev_b": 1.183,
+      "gross_pct": 29.9,
+      "op_pct": 15.3,
+      "fcf_b": 0.465
+     },
+     {
+      "q": "2025Q1",
+      "fiscal": "Q1 2025",
+      "rev_b": 0.789,
+      "gross_pct": 41.9,
+      "op_pct": 23.5,
+      "fcf_b": 0.054
+     },
+     {
+      "q": "2025Q2",
+      "fiscal": "Q2 2025",
+      "rev_b": 0.877,
+      "gross_pct": 39.2,
+      "op_pct": 18.9,
+      "fcf_b": 0.39
+     },
+     {
+      "q": "2025Q3",
+      "fiscal": "Q3 2025",
+      "rev_b": 0.615,
+      "gross_pct": 37.3,
+      "op_pct": 15.1,
+      "fcf_b": 0.063
+     },
+     {
+      "q": "2025Q4",
+      "fiscal": "Q4 2025",
+      "rev_b": 1.201,
+      "gross_pct": 30.0,
+      "op_pct": 14.4,
+      "fcf_b": 0.568
+     },
+     {
+      "q": "2026Q1",
+      "fiscal": "Q1 2026",
+      "rev_b": 0.845,
+      "gross_pct": 43.6,
+      "op_pct": 19.4,
+      "fcf_b": -0.1
+     },
+     {
+      "q": "2026Q2",
+      "fiscal": "Q2 2026",
+      "rev_b": 0.814,
+      "gross_pct": null,
+      "op_pct": null,
+      "fcf_b": null
+     }
+    ],
+    "segments": [
+     {
+      "name": "Uranium",
+      "unit": "revenue_b",
+      "series": [
+       {
+        "q": "2025Q1",
+        "v": 0.619
+       },
+       {
+        "q": "2025Q2",
+        "v": 0.705
+       },
+       {
+        "q": "2026Q1",
+        "v": 0.711
+       },
+       {
+        "q": "2026Q2",
+        "v": 0.659
+       }
+      ]
+     },
+     {
+      "name": "Fuel services",
+      "unit": "revenue_b",
+      "series": [
+       {
+        "q": "2025Q1",
+        "v": 0.135
+       },
+       {
+        "q": "2025Q2",
+        "v": 0.162
+       },
+       {
+        "q": "2026Q1",
+        "v": 0.134
+       },
+       {
+        "q": "2026Q2",
+        "v": 0.152
+       }
+      ]
+     }
+    ],
+    "notes": "All figures CAD. 2026Q2 margins and FCF left null rather than estimated \u2014 the company's Q2 gross profit basis is not comparable to earlier quarters."
+   },
+   "market_context": {
+    "rev_growth": {
+     "value": -7.2,
+     "rank": "bottom 25%",
+     "vs_sp500_aggregate": -21.3
+    },
+    "op_margin": {
+     "value": 13.7,
+     "rank": "above median"
+    },
+    "gross_margin": {
+     "value": 35.1,
+     "rank": "below median"
+    },
+    "fcf_margin": {
+     "value": 16.0,
+     "rank": "top 25%"
+    }
+   }
   },
   {
    "ticker": "DE",
@@ -4110,205 +10582,580 @@ const DATA = {
    },
    "pies": [
     "exponential-convergence"
-   ]
+   ],
+   "financial_history": {
+    "quarterly": [
+     {
+      "q": "2022Q1",
+      "fiscal": "Q1 FY22",
+      "rev_b": 9.569,
+      "gross_pct": 30.03,
+      "op_pct": 14.42,
+      "fcf_b": -3.137
+     },
+     {
+      "q": "2022Q2",
+      "fiscal": "Q2 FY22",
+      "rev_b": 13.37,
+      "gross_pct": 33.3,
+      "op_pct": 20.49,
+      "fcf_b": 0.025
+     },
+     {
+      "q": "2022Q3",
+      "fiscal": "Q3 FY22",
+      "rev_b": 14.102,
+      "gross_pct": 32.56,
+      "op_pct": 20.1,
+      "fcf_b": 1.217
+     },
+     {
+      "q": "2022Q4",
+      "fiscal": "Q4 FY22",
+      "rev_b": 15.536,
+      "gross_pct": 34.26,
+      "op_pct": 20.82,
+      "fcf_b": 2.806
+     },
+     {
+      "q": "2023Q1",
+      "fiscal": "Q1 FY23",
+      "rev_b": 12.652,
+      "gross_pct": 37.29,
+      "op_pct": 23.49,
+      "fcf_b": -2.058
+     },
+     {
+      "q": "2023Q2",
+      "fiscal": "Q2 FY23",
+      "rev_b": 17.387,
+      "gross_pct": 38.29,
+      "op_pct": 25.4,
+      "fcf_b": 0.098
+     },
+     {
+      "q": "2023Q3",
+      "fiscal": "Q3 FY23",
+      "rev_b": 15.801,
+      "gross_pct": 39.09,
+      "op_pct": 26.76,
+      "fcf_b": 2.001
+     },
+     {
+      "q": "2023Q4",
+      "fiscal": "Q4 FY23",
+      "rev_b": 15.412,
+      "gross_pct": 38.83,
+      "op_pct": 25.01,
+      "fcf_b": 4.08
+     },
+     {
+      "q": "2024Q1",
+      "fiscal": "Q1 FY24",
+      "rev_b": 12.185,
+      "gross_pct": 40.91,
+      "op_pct": 24.76,
+      "fcf_b": -1.724
+     },
+     {
+      "q": "2024Q2",
+      "fiscal": "Q2 FY24",
+      "rev_b": 15.235,
+      "gross_pct": 39.89,
+      "op_pct": 25.95,
+      "fcf_b": 0.58
+     },
+     {
+      "q": "2024Q3",
+      "fiscal": "Q3 FY24",
+      "rev_b": 13.152,
+      "gross_pct": 40.33,
+      "op_pct": 24.29,
+      "fcf_b": 2.075
+     },
+     {
+      "q": "2024Q4",
+      "fiscal": "Q4 FY24",
+      "rev_b": 11.144,
+      "gross_pct": 41.04,
+      "op_pct": 21.44,
+      "fcf_b": 3.498
+     },
+     {
+      "q": "2025Q1",
+      "fiscal": "Q1 FY25",
+      "rev_b": 8.508,
+      "gross_pct": 40.8,
+      "op_pct": 20.26,
+      "fcf_b": -1.923
+     },
+     {
+      "q": "2025Q2",
+      "fiscal": "Q2 FY25",
+      "rev_b": 12.763,
+      "gross_pct": 40.38,
+      "op_pct": 24.45,
+      "fcf_b": 0.682
+     },
+     {
+      "q": "2025Q3",
+      "fiscal": "Q3 FY25",
+      "rev_b": 12.018,
+      "gross_pct": 37.01,
+      "op_pct": 19.92,
+      "fcf_b": 1.844
+     },
+     {
+      "q": "2025Q4",
+      "fiscal": "Q4 FY25",
+      "rev_b": 12.394,
+      "gross_pct": 35.9,
+      "op_pct": 17.65,
+      "fcf_b": 2.628
+     },
+     {
+      "q": "2026Q1",
+      "fiscal": "Q1 FY26",
+      "rev_b": 9.611,
+      "gross_pct": 34.66,
+      "op_pct": 16.18,
+      "fcf_b": -1.578
+     },
+     {
+      "q": "2026Q2",
+      "fiscal": "Q2 FY26",
+      "rev_b": 13.369,
+      "gross_pct": 38.17,
+      "op_pct": 22.48,
+      "fcf_b": 0.874
+     }
+    ],
+    "segments": [],
+    "notes": "Fiscal year ends late Oct/early Nov. Revenue includes financial services so margins are diluted vs equipment-only presentation. Q1 FCF is structurally deeply negative on receivables build."
+   },
+   "market_context": {
+    "rev_growth": {
+     "value": 4.7,
+     "rank": "below median",
+     "vs_sp500_aggregate": -9.4
+    },
+    "op_margin": {
+     "value": 13.8,
+     "rank": "above median"
+    },
+    "gross_margin": {
+     "value": 26.0,
+     "rank": "below median"
+    },
+    "fcf_margin": {
+     "value": 8.0,
+     "rank": "below median"
+    }
+   }
   }
- ]
+ ],
+ "benchmarks": {
+  "as_of": "2026-08-04",
+  "source_note": "S&P 500 aggregates from FactSet Earnings Insight (31 Jul 2026 PDF + 3 Aug 2026 commentary). Percentile ladders are MIXED BASIS \u2014 see basis field on each.",
+  "sp500": {
+   "rev_growth_yoy_pct": 14.1,
+   "earnings_growth_yoy_pct": 47.4,
+   "earnings_growth_ex_googl_amzn_pct": 28.8,
+   "net_margin_pct": 16.7,
+   "net_margin_ex_googl_pct": 14.4,
+   "net_margin_5yr_avg_pct": 12.4,
+   "beat_rate_eps_pct": 86,
+   "beat_rate_rev_pct": 77,
+   "distortion_note": "Q2 2026 headline earnings growth is inflated by non-operating mark-to-market gains on equity investments at Amazon (~$53.4bn, Anthropic stake) and Alphabet ($98.0bn). Ex those two names growth is 28.8% and index net margin is 14.4%. Use the ex- figures for operating-quality comparison."
+  },
+  "percentiles": {
+   "rev_growth": {
+    "p25": 0.5,
+    "p50": 5.5,
+    "p75": 12.4,
+    "p90": 22.4,
+    "basis": "TRUE cross-sectional percentiles \u2014 Mauboussin & Callahan, The Base Rate Book (Credit Suisse, Sep 2016), top-1000 global companies 1950-2015, 3-year CAGR, INFLATION-ADJUSTED (real). Add ~2-3pp for a nominal comparison. The current cycle runs far hotter \u2014 the S&P 500 aggregate is 14.1% nominal."
+   },
+   "op_margin": {
+    "p25": 8.2,
+    "p50": 13.3,
+    "p75": 21.2,
+    "p90": 28.6,
+    "basis": "INDUSTRY-LEVEL percentiles, not company-level \u2014 computed across 80 Damodaran/NYU Stern US industry aggregates ex-financials and real estate (Jan 2026, 5,994 US firms). True company-level dispersion is wider, so the real P90 is likely higher and P25 lower."
+   },
+   "gross_margin": {
+    "p25": 24.3,
+    "p50": 36.2,
+    "p75": 51.0,
+    "p90": 60.8,
+    "basis": "Same industry-level basis as op_margin."
+   },
+   "fcf_margin": {
+    "p25": 5.2,
+    "p50": 9.6,
+    "p75": 15.4,
+    "p90": 22.6,
+    "basis": "DERIVED PROXY, not a published series: EBITDA margin x (1 - 21% tax) - net capex/sales per industry, from Damodaran Jan 2026 datasets, percentiled across the same 80 industries. Ignores working capital, stock comp and interest. Indicative only."
+   }
+  },
+  "sector_op_margin": {
+   "note": "Damodaran/NYU Stern industry aggregates, Jan 2026 \u2014 use these to normalise across sectors. A 65% operating margin means something very different in semis vs mining.",
+   "values": {
+    "Software (System & Application)": 40.8,
+    "Semiconductor": 40.4,
+    "Drugs (Pharmaceutical)": 31.2,
+    "Semiconductor Equipment": 28.3,
+    "Metals & Mining": 24.4,
+    "Utility (General)": 23.8,
+    "Software (Internet)": 18.6,
+    "Healthcare Products": 17.4,
+    "Machinery": 16.8,
+    "Electrical Equipment": 10.9,
+    "Aerospace/Defense": 9.8,
+    "Retail (General)": 8.2,
+    "Auto & Truck": 3.2,
+    "Total Market ex-financials": 14.7
+   }
+  },
+  "base_rates": {
+   "note": "What actually counts as exceptional, from published research.",
+   "rev_growth_over_20pct_3yr_share_pct": 11.9,
+   "rev_growth_over_10pct_decade_share_pct": 12.5,
+   "top_quartile_growth_persistence_pct": 33,
+   "firms_earning_above_cost_of_equity_pct": 29,
+   "detail": "Mauboussin: 11.9% of 3-year windows delivered >20% real revenue CAGR. McKinsey (top 5,000 global, 2005-2019): median company grew 2.8%/yr; only 1 in 8 exceeded 10%/yr; only 1 in 3 top-quartile growers stayed top-quartile the following 5 years. Damodaran (Feb 2026): only 29% of global firms earn a return on equity above their cost of equity \u2014 roughly seven in ten listed companies destroy value. Verdad (1996-2022): gross margin is the most persistent profitability metric, but the top quintile mean-reverts most."
+  },
+  "leverage": {
+   "note": "S&P Global Ratings indicative debt/EBITDA thresholds for standard-volatility corporates (criteria published 18 Sep 2012, still governing).",
+   "minimal_max": 1.5,
+   "modest_max": 2.0,
+   "intermediate_max": 3.0,
+   "significant_max": 4.0,
+   "aggressive_max": 5.0,
+   "detail": "Conservative below ~2.0x; investment-grade normal 2-3x; stretched above 4x; >5x is high-yield territory. Regulated utilities, REITs and telecoms run structurally higher against contracted cash flows."
+  },
+  "sources": [
+   "https://advantage.factset.com/hubfs/Website/Resources%20Section/Research%20Desk/Earnings%20Insight/EarningsInsight_073126.pdf",
+   "https://insight.factset.com/amazon-drives-sp-500-earnings-growth-for-q2-above-45-on-valuation-gains",
+   "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/margin.html",
+   "https://sorfis.com/wp-content/uploads/2021/09/The-Base-Rate-Book-Integrating-the-Past-to-Better-Anticipate-the-Future-September-2016.pdf",
+   "https://www.mckinsey.com/capabilities/strategy-and-corporate-finance/our-insights/the-ten-rules-of-growth",
+   "https://verdadcap.com/archive/persistence-of-margins",
+   "https://aswathdamodaran.blogspot.com/2026/02/data-update-6-for-2026-in-search-of.html"
+  ]
+ }
 };
-const BANDCOLOR = { Elite: "var(--elite)", Strong: "var(--strong)", Solid: "var(--solid)", Watch: "var(--watch)", Weak: "var(--weak)" };
-const PLABEL = { growth: "Growth", profitability: "Profitability", cash: "Cash generation", balance_sheet: "Balance sheet", moat: "Moat", execution: "Execution" };
-const CUR = { USD: "$", EUR: "€", CAD: "C$" };
-const state = { q: "", pie: "all", band: "all", view: "grid", sortKey: "score", sortDir: -1 };
+const B = DATA.benchmarks;
+const BANDCOLOR = { Elite:"var(--elite)", Strong:"var(--strong)", Solid:"var(--solid)", Watch:"var(--watch)", Weak:"var(--weak)" };
+const PLABEL = { growth:"Growth", profitability:"Profitability", cash:"Cash generation", balance_sheet:"Balance sheet", moat:"Moat", execution:"Execution" };
+const CUR = { USD:"$", EUR:"€", CAD:"C$" };
+const SER = ["var(--s1)","var(--s2)","var(--s3)","var(--s4)","var(--s5)"];
+const state = { q:"", pie:"all", band:"all", view:"grid", sortKey:"score", sortDir:-1, period:"quarterly" };
 
-function fmtPct(v, signed=true) {
-  if (v === null || v === undefined) return "—";
-  const s = (signed && v > 0 ? "+" : "") + v.toFixed(1).replace(/\.0$/, "") + "%";
-  return s;
-}
-function pctClass(v) { return v === null || v === undefined ? "" : (v < 0 ? "neg" : "pos"); }
-function fmtB(v, cur) {
-  if (v === null || v === undefined) return "—";
-  const sym = CUR[cur] || "";
-  return (v < 0 ? "−" : "") + sym + Math.abs(v).toFixed(1) + "B";
-}
-function soonDays(c) {
-  const m = (c.next_earnings || "").match(/^(\d{4})-(\d{2})-(\d{2})/);
-  if (!m) return null;
-  const d = (new Date(m[1], m[2]-1, m[3]) - new Date(DATA.as_of)) / 86400000;
-  return d >= 0 && d <= 7 ? Math.round(d) : null;
+const fmtPct = (v,signed=true) => (v===null||v===undefined) ? "—" : ((signed&&v>0?"+":"")+v.toFixed(1).replace(/\.0$/,"")+"%");
+const pctClass = v => (v===null||v===undefined) ? "" : (v<0?"neg":"pos");
+function fmtB(v,cur){ if(v===null||v===undefined) return "—"; const s=CUR[cur]||""; return (v<0?"−":"")+s+Math.abs(v).toFixed(Math.abs(v)<10?2:1)+"B"; }
+function rankClass(r){ return r ? "rank-"+r.replace(/[^a-z0-9]/g,"") : ""; }
+function soonDays(c){
+  const m=(c.next_earnings||"").match(/^(\d{4})-(\d{2})-(\d{2})/); if(!m) return null;
+  const d=(new Date(+m[1],+m[2]-1,+m[3]) - new Date(DATA.as_of))/86400000;
+  return d>=0&&d<=7?Math.round(d):null;
 }
 
-function filtered() {
-  return DATA.companies.filter(c => {
-    if (state.pie !== "all" && !c.pies.includes(state.pie)) return false;
-    if (state.band !== "all" && c.score.band !== state.band) return false;
-    const q = state.q.toLowerCase();
-    if (q && !(c.ticker.toLowerCase().includes(q) || c.name.toLowerCase().includes(q))) return false;
+/* ---------- chart helpers (inline SVG) ---------- */
+const tip = document.getElementById("tip");
+function showTip(e,txt){ tip.textContent=txt; tip.classList.add("on"); tip.style.left=(e.clientX+12)+"px"; tip.style.top=(e.clientY-10)+"px"; }
+function hideTip(){ tip.classList.remove("on"); }
+window.addEventListener("scroll",hideTip,true);
+
+function annualise(qs){
+  const yr={};
+  qs.forEach(d=>{ const y=d.q.slice(0,4); (yr[y]=yr[y]||[]).push(d); });
+  return Object.keys(yr).sort().map(y=>{
+    const rows=yr[y], rev=rows.reduce((a,d)=>a+(d.rev_b||0),0);
+    const wavg=k=>{ let n=0,w=0; rows.forEach(d=>{ if(d[k]!=null&&d.rev_b!=null){n+=d[k]*d.rev_b; w+=d.rev_b;} }); return w?n/w:null; };
+    const fcfRows=rows.filter(d=>d.fcf_b!=null);
+    return { q:y, label:y, partial:rows.length<4, rev_b:rev,
+             gross_pct:wavg("gross_pct"), op_pct:wavg("op_pct"),
+             fcf_b: fcfRows.length?fcfRows.reduce((a,d)=>a+d.fcf_b,0):null };
+  });
+}
+
+function barChart(rows, cur, id){
+  if(!rows.length) return "<p class='cnote'>No data.</p>";
+  if(!rows.some(r=>r.rev_b!=null)) return "<p class='cnote'>Not disclosed at this frequency — see the note below.</p>";
+  const W=660,H=170,PL=44,PR=8,PT=10,PB=26, iw=W-PL-PR, ih=H-PT-PB;
+  const vals=rows.map(r=>r.rev_b||0), max=Math.max(...vals,0), min=Math.min(...vals,0);
+  const span=(max-min)||1, y0=PT+ih*(max/span);
+  const bw=Math.max(2, iw/rows.length*0.68), step=iw/rows.length;
+  let g="";
+  [0,0.5,1].forEach(f=>{ const y=PT+ih*f; g+=`<line x1="${PL}" x2="${W-PR}" y1="${y}" y2="${y}" stroke="var(--grid)" stroke-width="1"/>`; });
+  g+=`<text x="${PL-6}" y="${PT+4}" text-anchor="end" font-size="9.5" fill="var(--ink-3)">${max.toFixed(max<10?1:0)}</text>`;
+  g+=`<text x="${PL-6}" y="${PT+ih+3}" text-anchor="end" font-size="9.5" fill="var(--ink-3)">${min.toFixed(min<10&&min>-10?1:0)}</text>`;
+  rows.forEach((r,i)=>{
+    const v=r.rev_b||0, x=PL+step*i+(step-bw)/2;
+    const h=Math.abs(v)/span*ih, y=v>=0?y0-h:y0;
+    const lbl=`${r.label||r.q}\n${(CUR[cur]||"")}${v.toFixed(2)}B${r.partial?"  (partial year)":""}`;
+    g+=`<rect x="${x.toFixed(1)}" y="${y.toFixed(1)}" width="${bw.toFixed(1)}" height="${Math.max(h,1).toFixed(1)}" rx="2" fill="var(--s1)" opacity="${r.partial?0.55:1}" data-t="${lbl.replace(/"/g,'')}" class="hv"/>`;
+    const every=rows.length>12?Math.ceil(rows.length/8):1;
+    if(i%every===0||i===rows.length-1)
+      g+=`<text x="${(x+bw/2).toFixed(1)}" y="${H-9}" text-anchor="middle" font-size="9" fill="var(--ink-3)">${(r.label||r.q).replace("20","'")}</text>`;
+  });
+  g+=`<line x1="${PL}" x2="${W-PR}" y1="${y0}" y2="${y0}" stroke="var(--baseline)" stroke-width="1"/>`;
+  return `<svg viewBox="0 0 ${W} ${H}" width="100%" id="${id}">${g}</svg>`;
+}
+
+function lineChart(rows, keys, id){
+  const pres=keys.filter(k=>rows.some(r=>r[k.k]!=null));
+  if(!pres.length) return "<p class='cnote'>No margin data available.</p>";
+  const W=660,H=180,PL=44,PR=8,PT=12,PB=26, iw=W-PL-PR, ih=H-PT-PB;
+  let all=[]; pres.forEach(k=>rows.forEach(r=>{ if(r[k.k]!=null) all.push(r[k.k]); }));
+  let max=Math.max(...all), min=Math.min(...all,0);
+  max=Math.ceil(max/10)*10; min=Math.floor(min/10)*10; const span=(max-min)||1;
+  const X=i=>PL+(rows.length<2?iw/2:iw*i/(rows.length-1));
+  const Y=v=>PT+ih*(1-(v-min)/span);
+  let g="";
+  for(let f=0;f<=4;f++){ const y=PT+ih*f/4, v=max-span*f/4;
+    g+=`<line x1="${PL}" x2="${W-PR}" y1="${y}" y2="${y}" stroke="var(--grid)"/>`;
+    g+=`<text x="${PL-6}" y="${y+3}" text-anchor="end" font-size="9.5" fill="var(--ink-3)">${v.toFixed(0)}%</text>`; }
+  if(min<0){ const y=Y(0); g+=`<line x1="${PL}" x2="${W-PR}" y1="${y}" y2="${y}" stroke="var(--baseline)" stroke-width="1.5"/>`; }
+  pres.forEach((k,si)=>{
+    let d="",open=false;
+    rows.forEach((r,i)=>{ const v=r[k.k];
+      if(v==null){ open=false; return; }
+      d+=(open?"L":"M")+X(i).toFixed(1)+","+Y(v).toFixed(1)+" "; open=true; });
+    g+=`<path d="${d}" fill="none" stroke="${SER[si]}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>`;
+    rows.forEach((r,i)=>{ const v=r[k.k]; if(v==null) return;
+      g+=`<circle cx="${X(i).toFixed(1)}" cy="${Y(v).toFixed(1)}" r="4.5" fill="${SER[si]}" stroke="var(--surface-1)" stroke-width="2" data-t="${(r.label||r.q)+'\n'+k.n+': '+v.toFixed(1)+'%'}" class="hv"/>`; });
+  });
+  const every=rows.length>12?Math.ceil(rows.length/8):1;
+  rows.forEach((r,i)=>{ if(i%every===0||i===rows.length-1)
+    g+=`<text x="${X(i).toFixed(1)}" y="${H-9}" text-anchor="middle" font-size="9" fill="var(--ink-3)">${(r.label||r.q).replace("20","'")}</text>`; });
+  const leg=pres.map((k,i)=>`<span><i class="dot" style="background:${SER[i]}"></i>${k.n}</span>`).join("");
+  return `<div class="clegend">${leg}</div><svg viewBox="0 0 ${W} ${H}" width="100%" id="${id}">${g}</svg>`;
+}
+
+function stackedSegments(segs, cur, id){
+  if(!segs || !segs.length) return "";
+  const qs=[...new Set(segs.flatMap(s=>s.series.map(p=>p.q)))].sort();
+  if(qs.length<2) return "";
+  const map=segs.map(s=>{ const m={}; s.series.forEach(p=>m[p.q]=p.v); return m; });
+  const totals=qs.map(q=>map.reduce((a,m)=>a+(m[q]||0),0));
+  const max=Math.max(...totals)||1;
+  const W=660,H=180,PL=44,PR=8,PT=12,PB=26, iw=W-PL-PR, ih=H-PT-PB;
+  const step=iw/qs.length, bw=Math.max(3, step*0.68);
+  let g="";
+  [0,0.5,1].forEach(f=>{ const y=PT+ih*f; g+=`<line x1="${PL}" x2="${W-PR}" y1="${y}" y2="${y}" stroke="var(--grid)"/>`; });
+  g+=`<text x="${PL-6}" y="${PT+4}" text-anchor="end" font-size="9.5" fill="var(--ink-3)">${max.toFixed(max<10?1:0)}</text>`;
+  qs.forEach((q,i)=>{
+    let acc=0; const x=PL+step*i+(step-bw)/2;
+    segs.forEach((s,si)=>{
+      const v=map[si][q]; if(v==null||v<=0) return;
+      const h=v/max*ih, y=PT+ih-(acc+v)/max*ih; acc+=v;
+      g+=`<rect x="${x.toFixed(1)}" y="${(y+1).toFixed(1)}" width="${bw.toFixed(1)}" height="${Math.max(h-2,1).toFixed(1)}" rx="1.5" fill="${SER[si%5]}" data-t="${(q+'\n'+s.name+': '+(CUR[cur]||'')+v.toFixed(2)+'B').replace(/"/g,'')}" class="hv"/>`;
+    });
+    const every=qs.length>10?Math.ceil(qs.length/7):1;
+    if(i%every===0||i===qs.length-1)
+      g+=`<text x="${(x+bw/2).toFixed(1)}" y="${H-9}" text-anchor="middle" font-size="9" fill="var(--ink-3)">${q.replace("20","'")}</text>`;
+  });
+  g+=`<line x1="${PL}" x2="${W-PR}" y1="${PT+ih}" y2="${PT+ih}" stroke="var(--baseline)"/>`;
+  const leg=segs.map((s,i)=>`<span><i class="dot" style="background:${SER[i%5]}"></i>${s.name}</span>`).join("");
+  return `<div class="clegend">${leg}</div><svg viewBox="0 0 ${W} ${H}" width="100%" id="${id}">${g}</svg>`;
+}
+
+function sparkline(qs){
+  const rows=qs.slice(-12).filter(d=>d.rev_b!=null); if(rows.length<3) return "";
+  const W=230,H=26, vals=rows.map(d=>d.rev_b), mx=Math.max(...vals), mn=Math.min(...vals), sp=(mx-mn)||1;
+  const d=rows.map((r,i)=>`${i?"L":"M"}${(i/(rows.length-1)*W).toFixed(1)},${(H-2-((r.rev_b-mn)/sp)*(H-5)).toFixed(1)}`).join(" ");
+  return `<svg class="spark" viewBox="0 0 ${W} ${H}" width="100%" height="22" preserveAspectRatio="none"><path d="${d}" fill="none" stroke="var(--s1)" stroke-width="1.6" stroke-linejoin="round"/></svg>`;
+}
+
+function bindTips(root){
+  root.querySelectorAll(".hv").forEach(el=>{
+    el.addEventListener("mousemove",e=>showTip(e,el.dataset.t));
+    el.addEventListener("mouseleave",hideTip);
+  });
+}
+
+/* ---------- rendering ---------- */
+function filtered(){
+  return DATA.companies.filter(c=>{
+    if(state.pie!=="all" && !c.pies.includes(state.pie)) return false;
+    if(state.band!=="all" && c.score.band!==state.band) return false;
+    const q=state.q.toLowerCase();
+    if(q && !(c.ticker.toLowerCase().includes(q)||c.name.toLowerCase().includes(q))) return false;
     return true;
   });
 }
 
-function renderKpis() {
-  const cs = DATA.companies;
-  const avg = Math.round(cs.reduce((a,c)=>a+c.score.total,0)/cs.length);
-  const counts = {};
-  cs.forEach(c => counts[c.score.band] = (counts[c.score.band]||0)+1);
-  const soon = cs.filter(c => soonDays(c) !== null).sort((a,b)=>soonDays(a)-soonDays(b));
-  const watch = cs.filter(c => c.score.band === "Watch" || c.score.band === "Weak");
-  document.getElementById("kpis").innerHTML = `
+function renderKpis(){
+  const cs=DATA.companies, avg=Math.round(cs.reduce((a,c)=>a+c.score.total,0)/cs.length);
+  const counts={}; cs.forEach(c=>counts[c.score.band]=(counts[c.score.band]||0)+1);
+  const soon=cs.filter(c=>soonDays(c)!==null).sort((a,b)=>soonDays(a)-soonDays(b));
+  const beat=cs.filter(c=>c.market_context.rev_growth.rank==="top 10%").length;
+  document.getElementById("kpis").innerHTML=`
     <div class="kpi"><div class="v">${avg}</div><div class="l">Average score</div><div class="d">across 29 holdings</div></div>
     <div class="kpi"><div class="v">${counts.Elite||0} / ${counts.Strong||0}</div><div class="l">Elite / Strong</div><div class="d">${(counts.Elite||0)+(counts.Strong||0)} of 29 above 70</div></div>
-    <div class="kpi"><div class="v">${watch.length}</div><div class="l">In watch band</div><div class="d">${watch.map(c=>c.ticker).join(", ")||"none"}</div></div>
+    <div class="kpi"><div class="v">${beat}</div><div class="l">Top-decile growth</div><div class="d">vs the whole market</div></div>
+    <div class="kpi"><div class="v">${B.sp500.rev_growth_yoy_pct}%</div><div class="l">S&amp;P 500 rev growth</div><div class="d">the bar to clear (Q2 2026)</div></div>
     <div class="kpi"><div class="v">${soon.length}</div><div class="l">Earnings ≤ 7 days</div><div class="d">${soon.map(c=>c.ticker+(soonDays(c)===0?" today":" +"+soonDays(c)+"d")).join(", ")||"none"}</div></div>`;
 }
 
-function renderLegend() {
+function renderLegend(){
   document.getElementById("bandLegend").innerHTML =
-    Object.entries(DATA.scale).map(([b,r]) =>
-      `<span class="b"><span class="dot" style="background:${BANDCOLOR[b]}"></span>${b} ${r}</span>`).join("") +
-    `<span class="b" style="margin-left:auto">⚑ watch note · ◷ reports soon</span>`;
+    Object.entries(DATA.scale).map(([b,r])=>`<span class="b"><span class="dot" style="background:${BANDCOLOR[b]}"></span>${b} ${r}</span>`).join("")
+    + `<span class="b" style="margin-left:auto">⚑ watch note · ◷ reports soon · sparkline = 12-quarter revenue</span>`;
 }
 
-function renderGrid() {
-  const g = document.getElementById("grid");
-  g.innerHTML = filtered().map(c => {
-    const s = c.score, sd = soonDays(c);
+function renderGrid(){
+  document.getElementById("grid").innerHTML = filtered().map(c=>{
+    const s=c.score, sd=soonDays(c), mc=c.market_context;
     return `<div class="card" onclick="openPanel('${c.ticker}')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openPanel('${c.ticker}')">
-      <div class="cardtop">
-        <span class="tick">${c.ticker}</span>
-        <span class="cname">${c.name}</span>
-        <span class="score">${s.total}</span>
-      </div>
+      <div class="cardtop"><span class="tick">${c.ticker}</span><span class="cname">${c.name}</span><span class="score">${s.total}</span></div>
       <div class="meter"><div style="width:${s.total}%;background:${BANDCOLOR[s.band]}"></div></div>
       <div class="cardmeta">
         <span class="chip" style="background:${BANDCOLOR[s.band]}">${s.band}</span>
-        <span>rev ${fmtPct(c.revenue.latest_q_yoy_pct)} · moat ${c.moat.rating_1to5}/5</span>
+        <span>rev ${fmtPct(c.revenue.latest_q_yoy_pct)} <b class="${rankClass(mc.rev_growth.rank)}">${mc.rev_growth.rank||""}</b></span>
       </div>
-      ${sd !== null ? `<div class="flag soon">reports ${sd===0?"today":"in "+sd+"d"} (${c.next_earnings.slice(0,10)})</div>` : ""}
-      ${c.watch_note ? `<div class="flag watchflag">${c.watch_note.split(":")[0].split(";")[0]}</div>` : ""}
+      ${sparkline(c.financial_history.quarterly)}
+      ${sd!==null?`<div class="flag soon">reports ${sd===0?"today":"in "+sd+"d"} (${c.next_earnings.slice(0,10)})</div>`:""}
+      ${c.watch_note?`<div class="flag watchflag">${c.watch_note.split(/[:;—]/)[0]}</div>`:""}
     </div>`;
   }).join("");
+  bindTips(document.getElementById("grid"));
 }
 
-function renderTable() {
-  const cols = [
-    ["ticker","Ticker", c=>c.ticker],
-    ["score","Score", c=>c.score.total],
-    ["band","Band", c=>c.score.band],
-    ["rev","Rev YoY", c=>c.revenue.latest_q_yoy_pct],
-    ["op","Op margin", c=>c.margins.operating_pct],
-    ["fcf","FCF margin", c=>c.margins.fcf_margin_pct],
-    ["net","Net cash/debt", c=>c.balance_sheet.net_position_b],
-    ["moat","Moat", c=>c.moat.rating_1to5],
-    ["next","Next earnings", c=>c.next_earnings],
-  ];
-  const rows = filtered().slice().sort((a,b) => {
-    const col = cols.find(x=>x[0]===state.sortKey) || cols[1];
-    const va = col[2](a), vb = col[2](b);
-    return (va > vb ? 1 : va < vb ? -1 : 0) * state.sortDir;
-  });
-  document.getElementById("tableWrap").innerHTML = `<table class="tbl">
-    <thead><tr>${cols.map(c=>`<th onclick="sortBy('${c[0]}')">${c[1]}${state.sortKey===c[0]?(state.sortDir<0?" ↓":" ↑"):""}</th>`).join("")}</tr></thead>
-    <tbody>${rows.map(c=>`<tr onclick="openPanel('${c.ticker}')">
-      <td><b>${c.ticker}</b></td>
-      <td><b>${c.score.total}</b></td>
-      <td><span class="chip" style="background:${BANDCOLOR[c.score.band]}">${c.score.band}</span></td>
-      <td class="${pctClass(c.revenue.latest_q_yoy_pct)}">${fmtPct(c.revenue.latest_q_yoy_pct)}</td>
-      <td>${fmtPct(c.margins.operating_pct,false)}</td>
-      <td class="${pctClass(c.margins.fcf_margin_pct)}">${fmtPct(c.margins.fcf_margin_pct,false)}</td>
-      <td class="${c.balance_sheet.net_position_b<0?"neg":"pos"}">${fmtB(c.balance_sheet.net_position_b, c.currency)}</td>
-      <td>${c.moat.rating_1to5}/5</td>
-      <td>${(c.next_earnings||"—").slice(0,30)}</td>
-    </tr>`).join("")}</tbody></table>`;
+function renderTable(){
+  const cols=[["ticker","Ticker",c=>c.ticker],["score","Score",c=>c.score.total],["band","Band",c=>c.score.band],
+    ["rev","Rev YoY",c=>c.revenue.latest_q_yoy_pct],["revrank","vs Market",c=>c.market_context.rev_growth.rank||""],
+    ["op","Op margin",c=>c.margins.operating_pct],["fcf","FCF margin",c=>c.margins.fcf_margin_pct],
+    ["net","Net cash/debt",c=>c.balance_sheet.net_position_b],["moat","Moat",c=>c.moat.rating_1to5],["next","Next earnings",c=>c.next_earnings]];
+  const rows=filtered().slice().sort((a,b)=>{ const col=cols.find(x=>x[0]===state.sortKey)||cols[1];
+    const va=col[2](a),vb=col[2](b); return (va>vb?1:va<vb?-1:0)*state.sortDir; });
+  document.getElementById("tableWrap").innerHTML=`<table class="tbl"><thead><tr>${
+    cols.map(c=>`<th onclick="sortBy('${c[0]}')">${c[1]}${state.sortKey===c[0]?(state.sortDir<0?" ↓":" ↑"):""}</th>`).join("")
+  }</tr></thead><tbody>${rows.map(c=>`<tr onclick="openPanel('${c.ticker}')">
+    <td><b>${c.ticker}</b></td><td><b>${c.score.total}</b></td>
+    <td><span class="chip" style="background:${BANDCOLOR[c.score.band]}">${c.score.band}</span></td>
+    <td class="${pctClass(c.revenue.latest_q_yoy_pct)}">${fmtPct(c.revenue.latest_q_yoy_pct)}</td>
+    <td class="${rankClass(c.market_context.rev_growth.rank)}">${c.market_context.rev_growth.rank||"—"}</td>
+    <td>${fmtPct(c.margins.operating_pct,false)}</td>
+    <td class="${pctClass(c.margins.fcf_margin_pct)}">${fmtPct(c.margins.fcf_margin_pct,false)}</td>
+    <td class="${c.balance_sheet.net_position_b<0?"neg":"pos"}">${fmtB(c.balance_sheet.net_position_b,c.currency)}</td>
+    <td>${c.moat.rating_1to5}/5</td><td>${(c.next_earnings||"—").slice(0,28)}</td></tr>`).join("")}</tbody></table>`;
 }
+function sortBy(k){ if(state.sortKey===k) state.sortDir*=-1; else {state.sortKey=k; state.sortDir=-1;} renderTable(); }
 
-function sortBy(k) {
-  if (state.sortKey === k) state.sortDir *= -1; else { state.sortKey = k; state.sortDir = -1; }
-  renderTable();
-}
+let currentTicker=null;
+function setPeriod(p){ state.period=p; openPanel(currentTicker,true); }
 
-function openPanel(t) {
-  const c = DATA.companies.find(x => x.ticker === t);
-  const s = c.score;
-  const pillars = Object.entries(s.subscores).map(([k,v]) =>
-    `<div class="pillar"><span class="pl">${PLABEL[k]}</span>
-      <div class="ptrack"><div style="width:${100*v.points/v.max}%"></div></div>
-      <span class="pv">${v.points} / ${v.max}</span></div>`).join("");
-  const segs = c.segments.map(sg =>
-    `<div class="segrow"><div><div class="segname">${sg.name}</div><div class="segnote">${sg.note||""}</div></div>
+function openPanel(t, keepScroll){
+  currentTicker=t;
+  const c=DATA.companies.find(x=>x.ticker===t), s=c.score, mc=c.market_context;
+  const hist=c.financial_history, qs=hist.quarterly;
+  const rows = state.period==="annual" ? annualise(qs) : qs.map(d=>({...d,label:d.q}));
+  const panel=document.getElementById("panel"), prevScroll=keepScroll?panel.scrollTop:0;
+
+  const pillars=Object.entries(s.subscores).map(([k,v])=>
+    `<div class="pillar"><span class="pl">${PLABEL[k]}</span><div class="ptrack"><div style="width:${100*v.points/v.max}%"></div></div><span class="pv">${v.points} / ${v.max}</span></div>`).join("");
+  const segs=c.segments.map(sg=>`<div class="segrow"><div><div>${sg.name}</div><div class="segnote">${sg.note||""}</div></div>
      <div class="segyoy ${pctClass(sg.latest_q_yoy_pct)}">${fmtPct(sg.latest_q_yoy_pct)}</div></div>`).join("");
-  document.getElementById("panel").innerHTML = `
+  const tile=(v,l,rank,signed=false)=>`<div class="mtile"><div class="mv ${pctClass(v)}">${fmtPct(v,signed)}</div><div class="ml">${l}</div>${rank?`<div class="mr ${rankClass(rank)}">${rank} of market</div>`:""}</div>`;
+
+  panel.innerHTML=`
     <button class="ghostbtn closebtn" onclick="closePanel()">✕ close</button>
     <h2>${c.ticker} <span style="font-weight:400;color:var(--ink-2);font-size:14px">${c.name}</span></h2>
     <div class="sub">${c.sector}</div>
-    <div style="display:flex;align-items:center;gap:12px;margin-top:10px">
+    <div style="display:flex;align-items:center;gap:12px;margin-top:10px;flex-wrap:wrap">
       <span class="bigscore">${s.total}<span style="font-size:15px;color:var(--ink-3)"> /100</span></span>
       <span class="chip" style="background:${BANDCOLOR[s.band]}">${s.band}</span>
-      <span class="conf">data confidence: ${c.data_confidence} · ${c.last_report.fiscal_quarter}, reported ${c.last_report.report_date}</span>
+      <span class="conf">confidence: ${c.data_confidence} · ${c.last_report.fiscal_quarter}, reported ${c.last_report.report_date}</span>
     </div>
-    ${c.watch_note ? `<div class="sect"><div class="callout">⚑ ${c.watch_note}</div></div>` : ""}
-    <div class="sect"><h3>Score breakdown</h3>${pillars}</div>
-    <div class="sect"><h3>Key numbers (latest reported, ${c.currency})</h3>
+    ${c.watch_note?`<div class="sect"><div class="callout">⚑ ${c.watch_note}</div></div>`:""}
+
+    <div class="sect"><h3>Versus the whole market</h3>
       <div class="mrow">
-        <div class="mtile"><div class="mv ${pctClass(c.revenue.latest_q_yoy_pct)}">${fmtPct(c.revenue.latest_q_yoy_pct)}</div><div class="ml">Rev YoY (Q)</div></div>
+        ${tile(mc.rev_growth.value,"Rev growth",mc.rev_growth.rank,true)}
+        ${tile(mc.op_margin.value,"Op margin",mc.op_margin.rank)}
+        ${tile(mc.gross_margin.value,"Gross margin",mc.gross_margin.rank)}
+        ${tile(mc.fcf_margin.value,"FCF margin",mc.fcf_margin.rank)}
+      </div>
+      <p class="cnote">Ranked against market-wide distributions, not against your other holdings. S&amp;P 500 aggregate revenue growth is ${B.sp500.rev_growth_yoy_pct}% and net margin ${B.sp500.net_margin_pct}% (${B.sp500.net_margin_ex_googl_pct}% excluding Alphabet's investment gains). Margin ranks use industry-level percentiles; growth ranks use inflation-adjusted historical percentiles, so a hot nominal cycle flatters them.</p>
+    </div>
+
+    <div class="sect"><h3>Score breakdown</h3>${pillars}</div>
+
+    <div class="sect"><h3>Revenue
+      <span class="seg" style="margin-left:auto">
+        <button onclick="setPeriod('quarterly')" class="${state.period==='quarterly'?'on':''}">Quarterly</button>
+        <button onclick="setPeriod('annual')" class="${state.period==='annual'?'on':''}">Annual</button>
+      </span></h3>
+      <div class="chartbox">${barChart(rows,c.currency,"rev-"+t)}
+        <p class="cnote">${c.currency} billions${state.period==="annual"?" · faded bars are partial years":""}</p></div>
+    </div>
+
+    <div class="sect"><h3>Margins</h3>
+      <div class="chartbox">${lineChart(rows,[{k:"gross_pct",n:"Gross"},{k:"op_pct",n:"Operating"}],"mar-"+t)}
+        <p class="cnote">GAAP margins${hist.notes?" · "+hist.notes:""}</p></div>
+    </div>
+
+    <div class="sect"><h3>Free cash flow</h3>
+      <div class="chartbox">${barChart(rows.map(r=>({...r,rev_b:r.fcf_b})),c.currency,"fcf-"+t)}
+        <p class="cnote">${c.currency} billions · operating cash flow minus capex</p></div>
+    </div>
+
+    ${hist.segments && hist.segments.length ? `<div class="sect"><h3>Segment revenue over time</h3>
+      <div class="chartbox">${stackedSegments(hist.segments,c.currency,"seg-"+t)}
+        <p class="cnote">${c.currency} billions · segments may exclude eliminations, so they need not sum to total revenue</p></div></div>` : ""}
+
+    <div class="sect"><h3>Latest quarter detail</h3>
+      <div class="mrow">
+        <div class="mtile"><div class="mv">${fmtB(c.revenue.ttm_b,c.currency)}</div><div class="ml">Revenue TTM</div></div>
         <div class="mtile"><div class="mv">${fmtPct(c.revenue.prior_q_yoy_pct)}</div><div class="ml">Prior Q YoY</div></div>
-        <div class="mtile"><div class="mv">${fmtB(c.revenue.ttm_b, c.currency)}</div><div class="ml">Revenue TTM</div></div>
-        <div class="mtile"><div class="mv">${fmtPct(c.margins.gross_pct,false)}</div><div class="ml">Gross margin</div></div>
-        <div class="mtile"><div class="mv">${fmtPct(c.margins.operating_pct,false)}</div><div class="ml">Op margin</div></div>
-        <div class="mtile"><div class="mv ${pctClass(c.margins.fcf_margin_pct)}">${fmtPct(c.margins.fcf_margin_pct,false)}</div><div class="ml">FCF margin</div></div>
-        <div class="mtile"><div class="mv ${c.fcf.ttm_b<0?"neg":""}">${fmtB(c.fcf.ttm_b, c.currency)}</div><div class="ml">FCF TTM</div></div>
-        <div class="mtile"><div class="mv ${c.balance_sheet.net_position_b<0?"neg":"pos"}">${fmtB(c.balance_sheet.net_position_b, c.currency)}</div><div class="ml">Net cash/debt</div></div>
+        <div class="mtile"><div class="mv ${c.fcf.ttm_b<0?"neg":""}">${fmtB(c.fcf.ttm_b,c.currency)}</div><div class="ml">FCF TTM</div></div>
+        <div class="mtile"><div class="mv ${c.balance_sheet.net_position_b<0?"neg":"pos"}">${fmtB(c.balance_sheet.net_position_b,c.currency)}</div><div class="ml">Net cash/debt</div></div>
       </div>
       <p class="prose" style="margin-top:8px">${c.margins.trend_note}</p>
       <p class="prose">${c.fcf.note||""}</p>
       <p class="prose">${c.balance_sheet.note||""}</p>
     </div>
-    <div class="sect"><h3>Segments — is the whole business growing?</h3>${segs}</div>
+
+    <div class="sect"><h3>Segments — latest quarter</h3>${segs||"<p class='cnote'>Not separately reported.</p>"}</div>
     <div class="sect"><h3>Guidance &amp; execution</h3>
       <p class="prose"><b>Guidance:</b> ${c.guidance_note}</p>
-      <p class="prose"><b>Execution:</b> ${c.execution_note}</p>
-    </div>
+      <p class="prose"><b>Execution:</b> ${c.execution_note}</p></div>
     <div class="sect"><h3>Moat — ${c.moat.rating_1to5}/5</h3><p class="prose">${c.moat.note}</p></div>
     <div class="sect"><h3>Risks</h3><ul class="risks">${c.risks.map(r=>`<li>${r}</li>`).join("")}</ul></div>
-    <div class="sect"><h3>Next earnings</h3><p class="prose">${c.next_earnings} — score is reassessed on every report.</p></div>
+    <div class="sect"><h3>Score history</h3>${s.history.map(h=>`<p class="prose">${h.date} — <b>${h.total}</b> · ${h.event}</p>`).join("")}</div>
+    <div class="sect"><h3>Next earnings</h3><p class="prose">${c.next_earnings}</p></div>
     <div class="sect srcs"><h3>Sources</h3>${c.sources.map(u=>`<a href="${u}" target="_blank" rel="noopener">${u.replace(/^https?:\/\//,"").slice(0,80)}</a>`).join("")}</div>`;
+  bindTips(panel);
   document.getElementById("overlay").classList.add("open");
-  document.getElementById("panel").classList.add("open");
+  panel.classList.add("open");
+  if(keepScroll) panel.scrollTop=prevScroll;
 }
-function closePanel() {
-  document.getElementById("overlay").classList.remove("open");
-  document.getElementById("panel").classList.remove("open");
-}
-document.getElementById("overlay").addEventListener("click", closePanel);
-document.addEventListener("keydown", e => { if (e.key === "Escape") closePanel(); });
+function closePanel(){ document.getElementById("overlay").classList.remove("open"); document.getElementById("panel").classList.remove("open"); hideTip(); }
+document.getElementById("overlay").addEventListener("click",closePanel);
+document.addEventListener("keydown",e=>{ if(e.key==="Escape") closePanel(); });
 
-function wireSeg(id, key) {
-  document.getElementById(id).querySelectorAll("button").forEach(b => {
-    b.addEventListener("click", () => {
-      document.getElementById(id).querySelectorAll("button").forEach(x=>x.classList.remove("on"));
-      b.classList.add("on");
-      state[key] = b.dataset.v;
-      rerender();
-    });
+function wireSeg(id,key){
+  document.getElementById(id).querySelectorAll("button").forEach(b=>{
+    b.addEventListener("click",()=>{ document.getElementById(id).querySelectorAll("button").forEach(x=>x.classList.remove("on"));
+      b.classList.add("on"); state[key]=b.dataset.v; rerender(); });
   });
 }
-function rerender() {
-  if (state.view === "grid") { renderGrid(); document.getElementById("grid").classList.remove("hidden"); document.getElementById("tableWrap").classList.add("hidden"); }
+function rerender(){
+  if(state.view==="grid"){ renderGrid(); document.getElementById("grid").classList.remove("hidden"); document.getElementById("tableWrap").classList.add("hidden"); }
   else { renderTable(); document.getElementById("grid").classList.add("hidden"); document.getElementById("tableWrap").classList.remove("hidden"); }
 }
-document.getElementById("q").addEventListener("input", e => { state.q = e.target.value; rerender(); });
-document.getElementById("viewToggle").addEventListener("click", () => {
-  state.view = state.view === "grid" ? "table" : "grid";
-  document.getElementById("viewToggle").textContent = state.view === "grid" ? "Table view" : "Card view";
-  rerender();
-});
-document.getElementById("themeToggle").addEventListener("click", () => {
-  const r = document.documentElement;
-  const cur = r.dataset.theme || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
-  r.dataset.theme = cur === "dark" ? "light" : "dark";
-});
-wireSeg("pieFilter", "pie");
-wireSeg("bandFilter", "band");
-document.getElementById("asof").textContent = "as of " + DATA.as_of;
+document.getElementById("q").addEventListener("input",e=>{ state.q=e.target.value; rerender(); });
+document.getElementById("viewToggle").addEventListener("click",()=>{ state.view=state.view==="grid"?"table":"grid";
+  document.getElementById("viewToggle").textContent=state.view==="grid"?"Table view":"Card view"; rerender(); });
+document.getElementById("themeToggle").addEventListener("click",()=>{ const r=document.documentElement;
+  const cur=r.dataset.theme||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");
+  r.dataset.theme=cur==="dark"?"light":"dark"; if(currentTicker&&document.getElementById("panel").classList.contains("open")) openPanel(currentTicker,true); });
+wireSeg("pieFilter","pie"); wireSeg("bandFilter","band");
+document.getElementById("asof").textContent="as of "+DATA.as_of;
 renderKpis(); renderLegend(); renderGrid();
 </script>
 </body>

@@ -58,6 +58,30 @@ def score(c):
                        "max": 5, "detail": {"class": j["exec_class"]}}
     return sum(v["points"] for v in ss.values()), ss
 
+def pct_rank(v, ladder):
+    """Where a value sits against the market-wide distribution."""
+    if v is None: return None
+    if v >= ladder["p90"]: return "top 10%"
+    if v >= ladder["p75"]: return "top 25%"
+    if v >= ladder["p50"]: return "above median"
+    if v >= ladder["p25"]: return "below median"
+    return "bottom 25%"
+
+def refresh_market_context(reg):
+    """Recomputeeach company's percentile ranks against the benchmarks block."""
+    b = reg.get("benchmarks")
+    if not b: return
+    P = b["percentiles"]
+    for c in reg["companies"]:
+        c["market_context"] = {
+            "rev_growth": {"value": c["revenue"]["latest_q_yoy_pct"],
+                           "rank": pct_rank(c["revenue"]["latest_q_yoy_pct"], P["rev_growth"]),
+                           "vs_sp500_aggregate": round((c["revenue"]["latest_q_yoy_pct"] or 0) - b["sp500"]["rev_growth_yoy_pct"], 1)},
+            "op_margin": {"value": c["margins"]["operating_pct"], "rank": pct_rank(c["margins"]["operating_pct"], P["op_margin"])},
+            "gross_margin": {"value": c["margins"]["gross_pct"], "rank": pct_rank(c["margins"]["gross_pct"], P["gross_margin"])},
+            "fcf_margin": {"value": c["margins"]["fcf_margin_pct"], "rank": pct_rank(c["margins"]["fcf_margin_pct"], P["fcf_margin"])},
+        }
+
 def main():
     path = sys.argv[1]
     event = None; date = datetime.date.today().isoformat()
@@ -78,6 +102,7 @@ def main():
             c["score"].setdefault("history", []).append(
                 {"date": date, "total": total, "event": event or "re-score"})
             changed.append((c["ticker"], old, total))
+    refresh_market_context(reg)
     reg["companies"].sort(key=lambda x: -x["score"]["total"])
     reg["as_of"] = date
     json.dump(reg, open(path, "w"), indent=1)

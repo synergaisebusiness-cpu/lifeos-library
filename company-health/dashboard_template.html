@@ -10,19 +10,19 @@
     --surface-1: #fcfcfb; --page: #f9f9f7;
     --ink-1: #0b0b0b; --ink-2: #52514e; --ink-3: #898781;
     --grid: #e1e0d9; --baseline: #c3c2b7; --ring: rgba(11,11,11,0.10);
-    --bar: #2a78d6; --bar-track: #eeede9;
+    --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --s4: #eda100; --s5: #e87ba4;
+    --track: #eeede9;
     --elite: #0ca30c; --strong: #2a78d6; --solid: #c98500; --watch: #ec835a; --weak: #d03b3b;
-    --chip-ink: #ffffff;
     --up: #006300; --down: #d03b3b;
   }
+  :root[data-theme="dark"], :root:not([data-theme="light"]) {}
   :root[data-theme="dark"] {
     color-scheme: dark;
     --surface-1: #1a1a19; --page: #0d0d0d;
     --ink-1: #ffffff; --ink-2: #c3c2b7; --ink-3: #898781;
     --grid: #2c2c2a; --baseline: #383835; --ring: rgba(255,255,255,0.10);
-    --bar: #3987e5; --bar-track: #262624;
-    --solid: #eda100;
-    --up: #0ca30c;
+    --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500; --s5: #d55181;
+    --track: #262624; --solid: #eda100; --up: #0ca30c;
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
@@ -30,9 +30,8 @@
       --surface-1: #1a1a19; --page: #0d0d0d;
       --ink-1: #ffffff; --ink-2: #c3c2b7; --ink-3: #898781;
       --grid: #2c2c2a; --baseline: #383835; --ring: rgba(255,255,255,0.10);
-      --bar: #3987e5; --bar-track: #262624;
-      --solid: #eda100;
-      --up: #0ca30c;
+      --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500; --s5: #d55181;
+      --track: #262624; --solid: #eda100; --up: #0ca30c;
     }
   }
   * { box-sizing: border-box; margin: 0; }
@@ -42,28 +41,22 @@
     padding: 24px 20px 60px; max-width: 1180px; margin: 0 auto;
     font-size: 14px; line-height: 1.45;
   }
-  header { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 16px; margin-bottom: 4px; }
+  header { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 16px; }
   h1 { font-size: 22px; font-weight: 700; letter-spacing: -0.2px; }
   .sub { color: var(--ink-2); font-size: 13px; }
-  .note { color: var(--ink-3); font-size: 12.5px; margin: 6px 0 18px; max-width: 860px; }
-  .toolbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 14px; }
+  .note { color: var(--ink-3); font-size: 12.5px; margin: 6px 0 16px; max-width: 900px; }
+  .toolbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 12px; }
   .toolbar input[type="search"] {
     padding: 7px 10px; border: 1px solid var(--baseline); border-radius: 8px;
     background: var(--surface-1); color: var(--ink-1); font-size: 13px; width: 170px;
   }
   .seg { display: inline-flex; border: 1px solid var(--baseline); border-radius: 8px; overflow: hidden; background: var(--surface-1); }
-  .seg button {
-    border: none; background: transparent; color: var(--ink-2); padding: 7px 11px;
-    font-size: 12.5px; cursor: pointer; font-family: inherit;
-  }
+  .seg button { border: none; background: transparent; color: var(--ink-2); padding: 7px 11px; font-size: 12.5px; cursor: pointer; font-family: inherit; }
   .seg button + button { border-left: 1px solid var(--grid); }
-  .seg button.on { background: var(--bar); color: #fff; }
+  .seg button.on { background: var(--s1); color: #fff; }
   .spacer { flex: 1; }
-  .ghostbtn {
-    border: 1px solid var(--baseline); background: var(--surface-1); color: var(--ink-2);
-    border-radius: 8px; padding: 7px 11px; font-size: 12.5px; cursor: pointer; font-family: inherit;
-  }
-  .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-bottom: 16px; }
+  .ghostbtn { border: 1px solid var(--baseline); background: var(--surface-1); color: var(--ink-2); border-radius: 8px; padding: 7px 11px; font-size: 12.5px; cursor: pointer; font-family: inherit; }
+  .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-bottom: 14px; }
   .kpi { background: var(--surface-1); border: 1px solid var(--ring); border-radius: 12px; padding: 12px 14px; }
   .kpi .v { font-size: 24px; font-weight: 700; }
   .kpi .l { font-size: 11.5px; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.4px; margin-top: 2px; }
@@ -71,65 +64,65 @@
   .legendrow { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin: 2px 0 14px; font-size: 12px; color: var(--ink-2); }
   .legendrow .b { display: inline-flex; align-items: center; gap: 5px; }
   .dot { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
-  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(255px, 1fr)); gap: 10px; }
-  .card {
-    background: var(--surface-1); border: 1px solid var(--ring); border-radius: 12px;
-    padding: 13px 14px 11px; cursor: pointer; transition: border-color .12s;
-  }
-  .card:hover { border-color: var(--bar); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(258px, 1fr)); gap: 10px; }
+  .card { background: var(--surface-1); border: 1px solid var(--ring); border-radius: 12px; padding: 13px 14px 11px; cursor: pointer; transition: border-color .12s; }
+  .card:hover { border-color: var(--s1); }
   .cardtop { display: flex; align-items: center; gap: 10px; }
   .tick { font-weight: 700; font-size: 15px; }
   .cname { color: var(--ink-3); font-size: 12px; flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .score { font-size: 26px; font-weight: 700; font-variant-numeric: tabular-nums; }
-  .chip {
-    font-size: 10.5px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;
-    color: var(--chip-ink); border-radius: 5px; padding: 2px 7px;
-  }
-  .meter { height: 6px; border-radius: 3px; background: var(--bar-track); margin: 9px 0 7px; overflow: hidden; }
+  .chip { font-size: 10.5px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; color: #fff; border-radius: 5px; padding: 2px 7px; }
+  .meter { height: 6px; border-radius: 3px; background: var(--track); margin: 9px 0 7px; overflow: hidden; }
   .meter > div { height: 100%; border-radius: 3px; }
-  .cardmeta { display: flex; justify-content: space-between; font-size: 11.5px; color: var(--ink-3); }
+  .cardmeta { display: flex; justify-content: space-between; font-size: 11.5px; color: var(--ink-3); align-items: center; }
+  .spark { display: block; margin-top: 8px; }
   .flag { font-size: 11.5px; margin-top: 6px; color: var(--ink-2); }
   .flag.watchflag::before { content: "⚑ "; color: var(--watch); }
-  .flag.soon::before { content: "◷ "; color: var(--bar); }
-  /* detail overlay */
+  .flag.soon::before { content: "◷ "; color: var(--s1); }
+  /* detail */
   .overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.45); display: none; z-index: 10; }
   .overlay.open { display: block; }
-  .panel {
-    position: fixed; top: 0; right: 0; bottom: 0; width: min(620px, 96vw);
-    background: var(--page); border-left: 1px solid var(--ring);
-    overflow-y: auto; padding: 22px 24px 40px; z-index: 11;
-    transform: translateX(105%); transition: transform .18s ease-out;
-  }
+  .panel { position: fixed; top: 0; right: 0; bottom: 0; width: min(720px, 97vw); background: var(--page); border-left: 1px solid var(--ring); overflow-y: auto; padding: 22px 24px 50px; z-index: 11; transform: translateX(105%); transition: transform .18s ease-out; }
   .panel.open { transform: none; }
   .panel h2 { font-size: 19px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-  .panel .bigscore { font-size: 34px; font-weight: 700; }
+  .bigscore { font-size: 34px; font-weight: 700; }
   .closebtn { position: absolute; top: 16px; right: 18px; }
-  .sect { margin-top: 18px; }
-  .sect h3 { font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--ink-3); margin-bottom: 8px; }
+  .sect { margin-top: 20px; }
+  .sect h3 { font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--ink-3); margin-bottom: 8px; display:flex; align-items:center; gap:10px; flex-wrap:wrap;}
   .pillar { display: grid; grid-template-columns: 118px 1fr 52px; gap: 10px; align-items: center; margin-bottom: 7px; font-size: 12.5px; }
   .pillar .pl { color: var(--ink-2); }
-  .pillar .pv { text-align: right; font-variant-numeric: tabular-nums; color: var(--ink-1); }
-  .ptrack { height: 8px; background: var(--bar-track); border-radius: 4px; overflow: hidden; }
-  .ptrack > div { height: 100%; background: var(--bar); border-radius: 4px; }
-  .mrow { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 8px; }
+  .pillar .pv { text-align: right; font-variant-numeric: tabular-nums; }
+  .ptrack { height: 8px; background: var(--track); border-radius: 4px; overflow: hidden; }
+  .ptrack > div { height: 100%; background: var(--s1); border-radius: 4px; }
+  .mrow { display: grid; grid-template-columns: repeat(auto-fit, minmax(118px, 1fr)); gap: 8px; }
   .mtile { background: var(--surface-1); border: 1px solid var(--ring); border-radius: 10px; padding: 9px 11px; }
   .mtile .mv { font-size: 17px; font-weight: 700; }
   .mtile .ml { font-size: 10.5px; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.4px; }
+  .mtile .mr { font-size: 10.5px; margin-top: 2px; font-weight: 600; }
   .neg { color: var(--down); } .pos { color: var(--up); }
+  .rank-top10 { color: var(--up); } .rank-top25 { color: var(--s1); }
+  .rank-abovemedian { color: var(--ink-2); } .rank-belowmedian { color: var(--solid); } .rank-bottom25 { color: var(--down); }
   .segrow { display: flex; justify-content: space-between; gap: 12px; padding: 7px 0; border-bottom: 1px solid var(--grid); font-size: 13px; }
   .segrow:last-child { border-bottom: none; }
-  .segname { color: var(--ink-1); }
   .segnote { color: var(--ink-3); font-size: 12px; margin-top: 1px; }
   .segyoy { font-variant-numeric: tabular-nums; font-weight: 600; white-space: nowrap; }
   .prose { font-size: 13px; color: var(--ink-2); }
   .prose + .prose { margin-top: 7px; }
   .prose b { color: var(--ink-1); font-weight: 600; }
   .callout { background: var(--surface-1); border: 1px solid var(--watch); border-radius: 10px; padding: 10px 12px; font-size: 12.5px; color: var(--ink-2); }
-  .risks li { font-size: 12.5px; color: var(--ink-2); margin: 3px 0 3px 0; }
+  .risks li { font-size: 12.5px; color: var(--ink-2); margin: 3px 0; }
   .risks { padding-left: 18px; }
-  .srcs a { color: var(--bar); font-size: 11.5px; word-break: break-all; display: block; margin: 2px 0; text-decoration: none; }
+  .srcs a { color: var(--s1); font-size: 11.5px; word-break: break-all; display: block; margin: 2px 0; text-decoration: none; }
   .srcs a:hover { text-decoration: underline; }
   .conf { font-size: 11px; color: var(--ink-3); }
+  .chartbox { background: var(--surface-1); border: 1px solid var(--ring); border-radius: 12px; padding: 12px 12px 6px; position: relative; }
+  .chartbox + .chartbox { margin-top: 10px; }
+  .clegend { display: flex; flex-wrap: wrap; gap: 12px; font-size: 11.5px; color: var(--ink-2); margin: 2px 0 6px; }
+  .clegend span { display: inline-flex; align-items: center; gap: 5px; }
+  .cnote { font-size: 11px; color: var(--ink-3); margin-top: 4px; }
+  svg text { font-family: inherit; }
+  .tip { position: fixed; pointer-events: none; background: var(--ink-1); color: var(--page); font-size: 11.5px; padding: 5px 8px; border-radius: 6px; opacity: 0; transition: opacity .1s; z-index: 40; white-space: pre; font-variant-numeric: tabular-nums; }
+  .tip.on { opacity: 1; }
   table.tbl { width: 100%; border-collapse: collapse; background: var(--surface-1); border: 1px solid var(--ring); border-radius: 12px; overflow: hidden; font-size: 12.5px; }
   table.tbl th { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--baseline); color: var(--ink-3); font-size: 11px; text-transform: uppercase; letter-spacing: 0.4px; cursor: pointer; white-space: nowrap; }
   table.tbl td { padding: 7px 10px; border-bottom: 1px solid var(--grid); font-variant-numeric: tabular-nums; }
@@ -143,9 +136,9 @@
 <header>
   <h1>Company Health</h1>
   <span class="sub" id="asof"></span>
-  <span class="sub">· 29 holdings · methodology v1.0</span>
+  <span class="sub">· 29 holdings · methodology v1.1</span>
 </header>
-<p class="note">Scores the <b>business</b>, not the stock — no prices, no P&amp;L. Six pillars: growth 25 · profitability 20 · cash 20 · balance sheet 15 · moat 15 · execution 5. Re-scored after every earnings report. Informational only — decisions stay with you.</p>
+<p class="note">Scores the <b>business</b>, not the stock — no prices, no P&amp;L. Six pillars: growth 25 · profitability 20 · cash 20 · balance sheet 15 · moat 15 · execution 5. Scored on an <b>absolute rubric and ranked against the whole market</b>, not against each other. Re-scored after every earnings report. Informational only — decisions stay with you.</p>
 
 <div class="kpis" id="kpis"></div>
 
@@ -169,212 +162,328 @@
 </div>
 
 <div class="legendrow" id="bandLegend"></div>
-
 <div class="grid" id="grid"></div>
 <div id="tableWrap" class="hidden"></div>
 
 <div class="overlay" id="overlay"></div>
 <aside class="panel" id="panel" aria-label="Company detail"></aside>
+<div class="tip" id="tip"></div>
 
 <footer>Source of truth: ~/LifeOS/library/company-health/register.json · public reported data only · scores are hypotheses with stated confidence, not advice.</footer>
 
 <script>
 const DATA = __DATA__;
-const BANDCOLOR = { Elite: "var(--elite)", Strong: "var(--strong)", Solid: "var(--solid)", Watch: "var(--watch)", Weak: "var(--weak)" };
-const PLABEL = { growth: "Growth", profitability: "Profitability", cash: "Cash generation", balance_sheet: "Balance sheet", moat: "Moat", execution: "Execution" };
-const CUR = { USD: "$", EUR: "€", CAD: "C$" };
-const state = { q: "", pie: "all", band: "all", view: "grid", sortKey: "score", sortDir: -1 };
+const B = DATA.benchmarks;
+const BANDCOLOR = { Elite:"var(--elite)", Strong:"var(--strong)", Solid:"var(--solid)", Watch:"var(--watch)", Weak:"var(--weak)" };
+const PLABEL = { growth:"Growth", profitability:"Profitability", cash:"Cash generation", balance_sheet:"Balance sheet", moat:"Moat", execution:"Execution" };
+const CUR = { USD:"$", EUR:"€", CAD:"C$" };
+const SER = ["var(--s1)","var(--s2)","var(--s3)","var(--s4)","var(--s5)"];
+const state = { q:"", pie:"all", band:"all", view:"grid", sortKey:"score", sortDir:-1, period:"quarterly" };
 
-function fmtPct(v, signed=true) {
-  if (v === null || v === undefined) return "—";
-  const s = (signed && v > 0 ? "+" : "") + v.toFixed(1).replace(/\.0$/, "") + "%";
-  return s;
-}
-function pctClass(v) { return v === null || v === undefined ? "" : (v < 0 ? "neg" : "pos"); }
-function fmtB(v, cur) {
-  if (v === null || v === undefined) return "—";
-  const sym = CUR[cur] || "";
-  return (v < 0 ? "−" : "") + sym + Math.abs(v).toFixed(1) + "B";
-}
-function soonDays(c) {
-  const m = (c.next_earnings || "").match(/^(\d{4})-(\d{2})-(\d{2})/);
-  if (!m) return null;
-  const d = (new Date(m[1], m[2]-1, m[3]) - new Date(DATA.as_of)) / 86400000;
-  return d >= 0 && d <= 7 ? Math.round(d) : null;
+const fmtPct = (v,signed=true) => (v===null||v===undefined) ? "—" : ((signed&&v>0?"+":"")+v.toFixed(1).replace(/\.0$/,"")+"%");
+const pctClass = v => (v===null||v===undefined) ? "" : (v<0?"neg":"pos");
+function fmtB(v,cur){ if(v===null||v===undefined) return "—"; const s=CUR[cur]||""; return (v<0?"−":"")+s+Math.abs(v).toFixed(Math.abs(v)<10?2:1)+"B"; }
+function rankClass(r){ return r ? "rank-"+r.replace(/[^a-z0-9]/g,"") : ""; }
+function soonDays(c){
+  const m=(c.next_earnings||"").match(/^(\d{4})-(\d{2})-(\d{2})/); if(!m) return null;
+  const d=(new Date(+m[1],+m[2]-1,+m[3]) - new Date(DATA.as_of))/86400000;
+  return d>=0&&d<=7?Math.round(d):null;
 }
 
-function filtered() {
-  return DATA.companies.filter(c => {
-    if (state.pie !== "all" && !c.pies.includes(state.pie)) return false;
-    if (state.band !== "all" && c.score.band !== state.band) return false;
-    const q = state.q.toLowerCase();
-    if (q && !(c.ticker.toLowerCase().includes(q) || c.name.toLowerCase().includes(q))) return false;
+/* ---------- chart helpers (inline SVG) ---------- */
+const tip = document.getElementById("tip");
+function showTip(e,txt){ tip.textContent=txt; tip.classList.add("on"); tip.style.left=(e.clientX+12)+"px"; tip.style.top=(e.clientY-10)+"px"; }
+function hideTip(){ tip.classList.remove("on"); }
+window.addEventListener("scroll",hideTip,true);
+
+function annualise(qs){
+  const yr={};
+  qs.forEach(d=>{ const y=d.q.slice(0,4); (yr[y]=yr[y]||[]).push(d); });
+  return Object.keys(yr).sort().map(y=>{
+    const rows=yr[y], rev=rows.reduce((a,d)=>a+(d.rev_b||0),0);
+    const wavg=k=>{ let n=0,w=0; rows.forEach(d=>{ if(d[k]!=null&&d.rev_b!=null){n+=d[k]*d.rev_b; w+=d.rev_b;} }); return w?n/w:null; };
+    const fcfRows=rows.filter(d=>d.fcf_b!=null);
+    return { q:y, label:y, partial:rows.length<4, rev_b:rev,
+             gross_pct:wavg("gross_pct"), op_pct:wavg("op_pct"),
+             fcf_b: fcfRows.length?fcfRows.reduce((a,d)=>a+d.fcf_b,0):null };
+  });
+}
+
+function barChart(rows, cur, id){
+  if(!rows.length) return "<p class='cnote'>No data.</p>";
+  if(!rows.some(r=>r.rev_b!=null)) return "<p class='cnote'>Not disclosed at this frequency — see the note below.</p>";
+  const W=660,H=170,PL=44,PR=8,PT=10,PB=26, iw=W-PL-PR, ih=H-PT-PB;
+  const vals=rows.map(r=>r.rev_b||0), max=Math.max(...vals,0), min=Math.min(...vals,0);
+  const span=(max-min)||1, y0=PT+ih*(max/span);
+  const bw=Math.max(2, iw/rows.length*0.68), step=iw/rows.length;
+  let g="";
+  [0,0.5,1].forEach(f=>{ const y=PT+ih*f; g+=`<line x1="${PL}" x2="${W-PR}" y1="${y}" y2="${y}" stroke="var(--grid)" stroke-width="1"/>`; });
+  g+=`<text x="${PL-6}" y="${PT+4}" text-anchor="end" font-size="9.5" fill="var(--ink-3)">${max.toFixed(max<10?1:0)}</text>`;
+  g+=`<text x="${PL-6}" y="${PT+ih+3}" text-anchor="end" font-size="9.5" fill="var(--ink-3)">${min.toFixed(min<10&&min>-10?1:0)}</text>`;
+  rows.forEach((r,i)=>{
+    const v=r.rev_b||0, x=PL+step*i+(step-bw)/2;
+    const h=Math.abs(v)/span*ih, y=v>=0?y0-h:y0;
+    const lbl=`${r.label||r.q}\n${(CUR[cur]||"")}${v.toFixed(2)}B${r.partial?"  (partial year)":""}`;
+    g+=`<rect x="${x.toFixed(1)}" y="${y.toFixed(1)}" width="${bw.toFixed(1)}" height="${Math.max(h,1).toFixed(1)}" rx="2" fill="var(--s1)" opacity="${r.partial?0.55:1}" data-t="${lbl.replace(/"/g,'')}" class="hv"/>`;
+    const every=rows.length>12?Math.ceil(rows.length/8):1;
+    if(i%every===0||i===rows.length-1)
+      g+=`<text x="${(x+bw/2).toFixed(1)}" y="${H-9}" text-anchor="middle" font-size="9" fill="var(--ink-3)">${(r.label||r.q).replace("20","'")}</text>`;
+  });
+  g+=`<line x1="${PL}" x2="${W-PR}" y1="${y0}" y2="${y0}" stroke="var(--baseline)" stroke-width="1"/>`;
+  return `<svg viewBox="0 0 ${W} ${H}" width="100%" id="${id}">${g}</svg>`;
+}
+
+function lineChart(rows, keys, id){
+  const pres=keys.filter(k=>rows.some(r=>r[k.k]!=null));
+  if(!pres.length) return "<p class='cnote'>No margin data available.</p>";
+  const W=660,H=180,PL=44,PR=8,PT=12,PB=26, iw=W-PL-PR, ih=H-PT-PB;
+  let all=[]; pres.forEach(k=>rows.forEach(r=>{ if(r[k.k]!=null) all.push(r[k.k]); }));
+  let max=Math.max(...all), min=Math.min(...all,0);
+  max=Math.ceil(max/10)*10; min=Math.floor(min/10)*10; const span=(max-min)||1;
+  const X=i=>PL+(rows.length<2?iw/2:iw*i/(rows.length-1));
+  const Y=v=>PT+ih*(1-(v-min)/span);
+  let g="";
+  for(let f=0;f<=4;f++){ const y=PT+ih*f/4, v=max-span*f/4;
+    g+=`<line x1="${PL}" x2="${W-PR}" y1="${y}" y2="${y}" stroke="var(--grid)"/>`;
+    g+=`<text x="${PL-6}" y="${y+3}" text-anchor="end" font-size="9.5" fill="var(--ink-3)">${v.toFixed(0)}%</text>`; }
+  if(min<0){ const y=Y(0); g+=`<line x1="${PL}" x2="${W-PR}" y1="${y}" y2="${y}" stroke="var(--baseline)" stroke-width="1.5"/>`; }
+  pres.forEach((k,si)=>{
+    let d="",open=false;
+    rows.forEach((r,i)=>{ const v=r[k.k];
+      if(v==null){ open=false; return; }
+      d+=(open?"L":"M")+X(i).toFixed(1)+","+Y(v).toFixed(1)+" "; open=true; });
+    g+=`<path d="${d}" fill="none" stroke="${SER[si]}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>`;
+    rows.forEach((r,i)=>{ const v=r[k.k]; if(v==null) return;
+      g+=`<circle cx="${X(i).toFixed(1)}" cy="${Y(v).toFixed(1)}" r="4.5" fill="${SER[si]}" stroke="var(--surface-1)" stroke-width="2" data-t="${(r.label||r.q)+'\n'+k.n+': '+v.toFixed(1)+'%'}" class="hv"/>`; });
+  });
+  const every=rows.length>12?Math.ceil(rows.length/8):1;
+  rows.forEach((r,i)=>{ if(i%every===0||i===rows.length-1)
+    g+=`<text x="${X(i).toFixed(1)}" y="${H-9}" text-anchor="middle" font-size="9" fill="var(--ink-3)">${(r.label||r.q).replace("20","'")}</text>`; });
+  const leg=pres.map((k,i)=>`<span><i class="dot" style="background:${SER[i]}"></i>${k.n}</span>`).join("");
+  return `<div class="clegend">${leg}</div><svg viewBox="0 0 ${W} ${H}" width="100%" id="${id}">${g}</svg>`;
+}
+
+function stackedSegments(segs, cur, id){
+  if(!segs || !segs.length) return "";
+  const qs=[...new Set(segs.flatMap(s=>s.series.map(p=>p.q)))].sort();
+  if(qs.length<2) return "";
+  const map=segs.map(s=>{ const m={}; s.series.forEach(p=>m[p.q]=p.v); return m; });
+  const totals=qs.map(q=>map.reduce((a,m)=>a+(m[q]||0),0));
+  const max=Math.max(...totals)||1;
+  const W=660,H=180,PL=44,PR=8,PT=12,PB=26, iw=W-PL-PR, ih=H-PT-PB;
+  const step=iw/qs.length, bw=Math.max(3, step*0.68);
+  let g="";
+  [0,0.5,1].forEach(f=>{ const y=PT+ih*f; g+=`<line x1="${PL}" x2="${W-PR}" y1="${y}" y2="${y}" stroke="var(--grid)"/>`; });
+  g+=`<text x="${PL-6}" y="${PT+4}" text-anchor="end" font-size="9.5" fill="var(--ink-3)">${max.toFixed(max<10?1:0)}</text>`;
+  qs.forEach((q,i)=>{
+    let acc=0; const x=PL+step*i+(step-bw)/2;
+    segs.forEach((s,si)=>{
+      const v=map[si][q]; if(v==null||v<=0) return;
+      const h=v/max*ih, y=PT+ih-(acc+v)/max*ih; acc+=v;
+      g+=`<rect x="${x.toFixed(1)}" y="${(y+1).toFixed(1)}" width="${bw.toFixed(1)}" height="${Math.max(h-2,1).toFixed(1)}" rx="1.5" fill="${SER[si%5]}" data-t="${(q+'\n'+s.name+': '+(CUR[cur]||'')+v.toFixed(2)+'B').replace(/"/g,'')}" class="hv"/>`;
+    });
+    const every=qs.length>10?Math.ceil(qs.length/7):1;
+    if(i%every===0||i===qs.length-1)
+      g+=`<text x="${(x+bw/2).toFixed(1)}" y="${H-9}" text-anchor="middle" font-size="9" fill="var(--ink-3)">${q.replace("20","'")}</text>`;
+  });
+  g+=`<line x1="${PL}" x2="${W-PR}" y1="${PT+ih}" y2="${PT+ih}" stroke="var(--baseline)"/>`;
+  const leg=segs.map((s,i)=>`<span><i class="dot" style="background:${SER[i%5]}"></i>${s.name}</span>`).join("");
+  return `<div class="clegend">${leg}</div><svg viewBox="0 0 ${W} ${H}" width="100%" id="${id}">${g}</svg>`;
+}
+
+function sparkline(qs){
+  const rows=qs.slice(-12).filter(d=>d.rev_b!=null); if(rows.length<3) return "";
+  const W=230,H=26, vals=rows.map(d=>d.rev_b), mx=Math.max(...vals), mn=Math.min(...vals), sp=(mx-mn)||1;
+  const d=rows.map((r,i)=>`${i?"L":"M"}${(i/(rows.length-1)*W).toFixed(1)},${(H-2-((r.rev_b-mn)/sp)*(H-5)).toFixed(1)}`).join(" ");
+  return `<svg class="spark" viewBox="0 0 ${W} ${H}" width="100%" height="22" preserveAspectRatio="none"><path d="${d}" fill="none" stroke="var(--s1)" stroke-width="1.6" stroke-linejoin="round"/></svg>`;
+}
+
+function bindTips(root){
+  root.querySelectorAll(".hv").forEach(el=>{
+    el.addEventListener("mousemove",e=>showTip(e,el.dataset.t));
+    el.addEventListener("mouseleave",hideTip);
+  });
+}
+
+/* ---------- rendering ---------- */
+function filtered(){
+  return DATA.companies.filter(c=>{
+    if(state.pie!=="all" && !c.pies.includes(state.pie)) return false;
+    if(state.band!=="all" && c.score.band!==state.band) return false;
+    const q=state.q.toLowerCase();
+    if(q && !(c.ticker.toLowerCase().includes(q)||c.name.toLowerCase().includes(q))) return false;
     return true;
   });
 }
 
-function renderKpis() {
-  const cs = DATA.companies;
-  const avg = Math.round(cs.reduce((a,c)=>a+c.score.total,0)/cs.length);
-  const counts = {};
-  cs.forEach(c => counts[c.score.band] = (counts[c.score.band]||0)+1);
-  const soon = cs.filter(c => soonDays(c) !== null).sort((a,b)=>soonDays(a)-soonDays(b));
-  const watch = cs.filter(c => c.score.band === "Watch" || c.score.band === "Weak");
-  document.getElementById("kpis").innerHTML = `
+function renderKpis(){
+  const cs=DATA.companies, avg=Math.round(cs.reduce((a,c)=>a+c.score.total,0)/cs.length);
+  const counts={}; cs.forEach(c=>counts[c.score.band]=(counts[c.score.band]||0)+1);
+  const soon=cs.filter(c=>soonDays(c)!==null).sort((a,b)=>soonDays(a)-soonDays(b));
+  const beat=cs.filter(c=>c.market_context.rev_growth.rank==="top 10%").length;
+  document.getElementById("kpis").innerHTML=`
     <div class="kpi"><div class="v">${avg}</div><div class="l">Average score</div><div class="d">across 29 holdings</div></div>
     <div class="kpi"><div class="v">${counts.Elite||0} / ${counts.Strong||0}</div><div class="l">Elite / Strong</div><div class="d">${(counts.Elite||0)+(counts.Strong||0)} of 29 above 70</div></div>
-    <div class="kpi"><div class="v">${watch.length}</div><div class="l">In watch band</div><div class="d">${watch.map(c=>c.ticker).join(", ")||"none"}</div></div>
+    <div class="kpi"><div class="v">${beat}</div><div class="l">Top-decile growth</div><div class="d">vs the whole market</div></div>
+    <div class="kpi"><div class="v">${B.sp500.rev_growth_yoy_pct}%</div><div class="l">S&amp;P 500 rev growth</div><div class="d">the bar to clear (Q2 2026)</div></div>
     <div class="kpi"><div class="v">${soon.length}</div><div class="l">Earnings ≤ 7 days</div><div class="d">${soon.map(c=>c.ticker+(soonDays(c)===0?" today":" +"+soonDays(c)+"d")).join(", ")||"none"}</div></div>`;
 }
 
-function renderLegend() {
+function renderLegend(){
   document.getElementById("bandLegend").innerHTML =
-    Object.entries(DATA.scale).map(([b,r]) =>
-      `<span class="b"><span class="dot" style="background:${BANDCOLOR[b]}"></span>${b} ${r}</span>`).join("") +
-    `<span class="b" style="margin-left:auto">⚑ watch note · ◷ reports soon</span>`;
+    Object.entries(DATA.scale).map(([b,r])=>`<span class="b"><span class="dot" style="background:${BANDCOLOR[b]}"></span>${b} ${r}</span>`).join("")
+    + `<span class="b" style="margin-left:auto">⚑ watch note · ◷ reports soon · sparkline = 12-quarter revenue</span>`;
 }
 
-function renderGrid() {
-  const g = document.getElementById("grid");
-  g.innerHTML = filtered().map(c => {
-    const s = c.score, sd = soonDays(c);
+function renderGrid(){
+  document.getElementById("grid").innerHTML = filtered().map(c=>{
+    const s=c.score, sd=soonDays(c), mc=c.market_context;
     return `<div class="card" onclick="openPanel('${c.ticker}')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openPanel('${c.ticker}')">
-      <div class="cardtop">
-        <span class="tick">${c.ticker}</span>
-        <span class="cname">${c.name}</span>
-        <span class="score">${s.total}</span>
-      </div>
+      <div class="cardtop"><span class="tick">${c.ticker}</span><span class="cname">${c.name}</span><span class="score">${s.total}</span></div>
       <div class="meter"><div style="width:${s.total}%;background:${BANDCOLOR[s.band]}"></div></div>
       <div class="cardmeta">
         <span class="chip" style="background:${BANDCOLOR[s.band]}">${s.band}</span>
-        <span>rev ${fmtPct(c.revenue.latest_q_yoy_pct)} · moat ${c.moat.rating_1to5}/5</span>
+        <span>rev ${fmtPct(c.revenue.latest_q_yoy_pct)} <b class="${rankClass(mc.rev_growth.rank)}">${mc.rev_growth.rank||""}</b></span>
       </div>
-      ${sd !== null ? `<div class="flag soon">reports ${sd===0?"today":"in "+sd+"d"} (${c.next_earnings.slice(0,10)})</div>` : ""}
-      ${c.watch_note ? `<div class="flag watchflag">${c.watch_note.split(":")[0].split(";")[0]}</div>` : ""}
+      ${sparkline(c.financial_history.quarterly)}
+      ${sd!==null?`<div class="flag soon">reports ${sd===0?"today":"in "+sd+"d"} (${c.next_earnings.slice(0,10)})</div>`:""}
+      ${c.watch_note?`<div class="flag watchflag">${c.watch_note.split(/[:;—]/)[0]}</div>`:""}
     </div>`;
   }).join("");
+  bindTips(document.getElementById("grid"));
 }
 
-function renderTable() {
-  const cols = [
-    ["ticker","Ticker", c=>c.ticker],
-    ["score","Score", c=>c.score.total],
-    ["band","Band", c=>c.score.band],
-    ["rev","Rev YoY", c=>c.revenue.latest_q_yoy_pct],
-    ["op","Op margin", c=>c.margins.operating_pct],
-    ["fcf","FCF margin", c=>c.margins.fcf_margin_pct],
-    ["net","Net cash/debt", c=>c.balance_sheet.net_position_b],
-    ["moat","Moat", c=>c.moat.rating_1to5],
-    ["next","Next earnings", c=>c.next_earnings],
-  ];
-  const rows = filtered().slice().sort((a,b) => {
-    const col = cols.find(x=>x[0]===state.sortKey) || cols[1];
-    const va = col[2](a), vb = col[2](b);
-    return (va > vb ? 1 : va < vb ? -1 : 0) * state.sortDir;
-  });
-  document.getElementById("tableWrap").innerHTML = `<table class="tbl">
-    <thead><tr>${cols.map(c=>`<th onclick="sortBy('${c[0]}')">${c[1]}${state.sortKey===c[0]?(state.sortDir<0?" ↓":" ↑"):""}</th>`).join("")}</tr></thead>
-    <tbody>${rows.map(c=>`<tr onclick="openPanel('${c.ticker}')">
-      <td><b>${c.ticker}</b></td>
-      <td><b>${c.score.total}</b></td>
-      <td><span class="chip" style="background:${BANDCOLOR[c.score.band]}">${c.score.band}</span></td>
-      <td class="${pctClass(c.revenue.latest_q_yoy_pct)}">${fmtPct(c.revenue.latest_q_yoy_pct)}</td>
-      <td>${fmtPct(c.margins.operating_pct,false)}</td>
-      <td class="${pctClass(c.margins.fcf_margin_pct)}">${fmtPct(c.margins.fcf_margin_pct,false)}</td>
-      <td class="${c.balance_sheet.net_position_b<0?"neg":"pos"}">${fmtB(c.balance_sheet.net_position_b, c.currency)}</td>
-      <td>${c.moat.rating_1to5}/5</td>
-      <td>${(c.next_earnings||"—").slice(0,30)}</td>
-    </tr>`).join("")}</tbody></table>`;
+function renderTable(){
+  const cols=[["ticker","Ticker",c=>c.ticker],["score","Score",c=>c.score.total],["band","Band",c=>c.score.band],
+    ["rev","Rev YoY",c=>c.revenue.latest_q_yoy_pct],["revrank","vs Market",c=>c.market_context.rev_growth.rank||""],
+    ["op","Op margin",c=>c.margins.operating_pct],["fcf","FCF margin",c=>c.margins.fcf_margin_pct],
+    ["net","Net cash/debt",c=>c.balance_sheet.net_position_b],["moat","Moat",c=>c.moat.rating_1to5],["next","Next earnings",c=>c.next_earnings]];
+  const rows=filtered().slice().sort((a,b)=>{ const col=cols.find(x=>x[0]===state.sortKey)||cols[1];
+    const va=col[2](a),vb=col[2](b); return (va>vb?1:va<vb?-1:0)*state.sortDir; });
+  document.getElementById("tableWrap").innerHTML=`<table class="tbl"><thead><tr>${
+    cols.map(c=>`<th onclick="sortBy('${c[0]}')">${c[1]}${state.sortKey===c[0]?(state.sortDir<0?" ↓":" ↑"):""}</th>`).join("")
+  }</tr></thead><tbody>${rows.map(c=>`<tr onclick="openPanel('${c.ticker}')">
+    <td><b>${c.ticker}</b></td><td><b>${c.score.total}</b></td>
+    <td><span class="chip" style="background:${BANDCOLOR[c.score.band]}">${c.score.band}</span></td>
+    <td class="${pctClass(c.revenue.latest_q_yoy_pct)}">${fmtPct(c.revenue.latest_q_yoy_pct)}</td>
+    <td class="${rankClass(c.market_context.rev_growth.rank)}">${c.market_context.rev_growth.rank||"—"}</td>
+    <td>${fmtPct(c.margins.operating_pct,false)}</td>
+    <td class="${pctClass(c.margins.fcf_margin_pct)}">${fmtPct(c.margins.fcf_margin_pct,false)}</td>
+    <td class="${c.balance_sheet.net_position_b<0?"neg":"pos"}">${fmtB(c.balance_sheet.net_position_b,c.currency)}</td>
+    <td>${c.moat.rating_1to5}/5</td><td>${(c.next_earnings||"—").slice(0,28)}</td></tr>`).join("")}</tbody></table>`;
 }
+function sortBy(k){ if(state.sortKey===k) state.sortDir*=-1; else {state.sortKey=k; state.sortDir=-1;} renderTable(); }
 
-function sortBy(k) {
-  if (state.sortKey === k) state.sortDir *= -1; else { state.sortKey = k; state.sortDir = -1; }
-  renderTable();
-}
+let currentTicker=null;
+function setPeriod(p){ state.period=p; openPanel(currentTicker,true); }
 
-function openPanel(t) {
-  const c = DATA.companies.find(x => x.ticker === t);
-  const s = c.score;
-  const pillars = Object.entries(s.subscores).map(([k,v]) =>
-    `<div class="pillar"><span class="pl">${PLABEL[k]}</span>
-      <div class="ptrack"><div style="width:${100*v.points/v.max}%"></div></div>
-      <span class="pv">${v.points} / ${v.max}</span></div>`).join("");
-  const segs = c.segments.map(sg =>
-    `<div class="segrow"><div><div class="segname">${sg.name}</div><div class="segnote">${sg.note||""}</div></div>
+function openPanel(t, keepScroll){
+  currentTicker=t;
+  const c=DATA.companies.find(x=>x.ticker===t), s=c.score, mc=c.market_context;
+  const hist=c.financial_history, qs=hist.quarterly;
+  const rows = state.period==="annual" ? annualise(qs) : qs.map(d=>({...d,label:d.q}));
+  const panel=document.getElementById("panel"), prevScroll=keepScroll?panel.scrollTop:0;
+
+  const pillars=Object.entries(s.subscores).map(([k,v])=>
+    `<div class="pillar"><span class="pl">${PLABEL[k]}</span><div class="ptrack"><div style="width:${100*v.points/v.max}%"></div></div><span class="pv">${v.points} / ${v.max}</span></div>`).join("");
+  const segs=c.segments.map(sg=>`<div class="segrow"><div><div>${sg.name}</div><div class="segnote">${sg.note||""}</div></div>
      <div class="segyoy ${pctClass(sg.latest_q_yoy_pct)}">${fmtPct(sg.latest_q_yoy_pct)}</div></div>`).join("");
-  document.getElementById("panel").innerHTML = `
+  const tile=(v,l,rank,signed=false)=>`<div class="mtile"><div class="mv ${pctClass(v)}">${fmtPct(v,signed)}</div><div class="ml">${l}</div>${rank?`<div class="mr ${rankClass(rank)}">${rank} of market</div>`:""}</div>`;
+
+  panel.innerHTML=`
     <button class="ghostbtn closebtn" onclick="closePanel()">✕ close</button>
     <h2>${c.ticker} <span style="font-weight:400;color:var(--ink-2);font-size:14px">${c.name}</span></h2>
     <div class="sub">${c.sector}</div>
-    <div style="display:flex;align-items:center;gap:12px;margin-top:10px">
+    <div style="display:flex;align-items:center;gap:12px;margin-top:10px;flex-wrap:wrap">
       <span class="bigscore">${s.total}<span style="font-size:15px;color:var(--ink-3)"> /100</span></span>
       <span class="chip" style="background:${BANDCOLOR[s.band]}">${s.band}</span>
-      <span class="conf">data confidence: ${c.data_confidence} · ${c.last_report.fiscal_quarter}, reported ${c.last_report.report_date}</span>
+      <span class="conf">confidence: ${c.data_confidence} · ${c.last_report.fiscal_quarter}, reported ${c.last_report.report_date}</span>
     </div>
-    ${c.watch_note ? `<div class="sect"><div class="callout">⚑ ${c.watch_note}</div></div>` : ""}
-    <div class="sect"><h3>Score breakdown</h3>${pillars}</div>
-    <div class="sect"><h3>Key numbers (latest reported, ${c.currency})</h3>
+    ${c.watch_note?`<div class="sect"><div class="callout">⚑ ${c.watch_note}</div></div>`:""}
+
+    <div class="sect"><h3>Versus the whole market</h3>
       <div class="mrow">
-        <div class="mtile"><div class="mv ${pctClass(c.revenue.latest_q_yoy_pct)}">${fmtPct(c.revenue.latest_q_yoy_pct)}</div><div class="ml">Rev YoY (Q)</div></div>
+        ${tile(mc.rev_growth.value,"Rev growth",mc.rev_growth.rank,true)}
+        ${tile(mc.op_margin.value,"Op margin",mc.op_margin.rank)}
+        ${tile(mc.gross_margin.value,"Gross margin",mc.gross_margin.rank)}
+        ${tile(mc.fcf_margin.value,"FCF margin",mc.fcf_margin.rank)}
+      </div>
+      <p class="cnote">Ranked against market-wide distributions, not against your other holdings. S&amp;P 500 aggregate revenue growth is ${B.sp500.rev_growth_yoy_pct}% and net margin ${B.sp500.net_margin_pct}% (${B.sp500.net_margin_ex_googl_pct}% excluding Alphabet's investment gains). Margin ranks use industry-level percentiles; growth ranks use inflation-adjusted historical percentiles, so a hot nominal cycle flatters them.</p>
+    </div>
+
+    <div class="sect"><h3>Score breakdown</h3>${pillars}</div>
+
+    <div class="sect"><h3>Revenue
+      <span class="seg" style="margin-left:auto">
+        <button onclick="setPeriod('quarterly')" class="${state.period==='quarterly'?'on':''}">Quarterly</button>
+        <button onclick="setPeriod('annual')" class="${state.period==='annual'?'on':''}">Annual</button>
+      </span></h3>
+      <div class="chartbox">${barChart(rows,c.currency,"rev-"+t)}
+        <p class="cnote">${c.currency} billions${state.period==="annual"?" · faded bars are partial years":""}</p></div>
+    </div>
+
+    <div class="sect"><h3>Margins</h3>
+      <div class="chartbox">${lineChart(rows,[{k:"gross_pct",n:"Gross"},{k:"op_pct",n:"Operating"}],"mar-"+t)}
+        <p class="cnote">GAAP margins${hist.notes?" · "+hist.notes:""}</p></div>
+    </div>
+
+    <div class="sect"><h3>Free cash flow</h3>
+      <div class="chartbox">${barChart(rows.map(r=>({...r,rev_b:r.fcf_b})),c.currency,"fcf-"+t)}
+        <p class="cnote">${c.currency} billions · operating cash flow minus capex</p></div>
+    </div>
+
+    ${hist.segments && hist.segments.length ? `<div class="sect"><h3>Segment revenue over time</h3>
+      <div class="chartbox">${stackedSegments(hist.segments,c.currency,"seg-"+t)}
+        <p class="cnote">${c.currency} billions · segments may exclude eliminations, so they need not sum to total revenue</p></div></div>` : ""}
+
+    <div class="sect"><h3>Latest quarter detail</h3>
+      <div class="mrow">
+        <div class="mtile"><div class="mv">${fmtB(c.revenue.ttm_b,c.currency)}</div><div class="ml">Revenue TTM</div></div>
         <div class="mtile"><div class="mv">${fmtPct(c.revenue.prior_q_yoy_pct)}</div><div class="ml">Prior Q YoY</div></div>
-        <div class="mtile"><div class="mv">${fmtB(c.revenue.ttm_b, c.currency)}</div><div class="ml">Revenue TTM</div></div>
-        <div class="mtile"><div class="mv">${fmtPct(c.margins.gross_pct,false)}</div><div class="ml">Gross margin</div></div>
-        <div class="mtile"><div class="mv">${fmtPct(c.margins.operating_pct,false)}</div><div class="ml">Op margin</div></div>
-        <div class="mtile"><div class="mv ${pctClass(c.margins.fcf_margin_pct)}">${fmtPct(c.margins.fcf_margin_pct,false)}</div><div class="ml">FCF margin</div></div>
-        <div class="mtile"><div class="mv ${c.fcf.ttm_b<0?"neg":""}">${fmtB(c.fcf.ttm_b, c.currency)}</div><div class="ml">FCF TTM</div></div>
-        <div class="mtile"><div class="mv ${c.balance_sheet.net_position_b<0?"neg":"pos"}">${fmtB(c.balance_sheet.net_position_b, c.currency)}</div><div class="ml">Net cash/debt</div></div>
+        <div class="mtile"><div class="mv ${c.fcf.ttm_b<0?"neg":""}">${fmtB(c.fcf.ttm_b,c.currency)}</div><div class="ml">FCF TTM</div></div>
+        <div class="mtile"><div class="mv ${c.balance_sheet.net_position_b<0?"neg":"pos"}">${fmtB(c.balance_sheet.net_position_b,c.currency)}</div><div class="ml">Net cash/debt</div></div>
       </div>
       <p class="prose" style="margin-top:8px">${c.margins.trend_note}</p>
       <p class="prose">${c.fcf.note||""}</p>
       <p class="prose">${c.balance_sheet.note||""}</p>
     </div>
-    <div class="sect"><h3>Segments — is the whole business growing?</h3>${segs}</div>
+
+    <div class="sect"><h3>Segments — latest quarter</h3>${segs||"<p class='cnote'>Not separately reported.</p>"}</div>
     <div class="sect"><h3>Guidance &amp; execution</h3>
       <p class="prose"><b>Guidance:</b> ${c.guidance_note}</p>
-      <p class="prose"><b>Execution:</b> ${c.execution_note}</p>
-    </div>
+      <p class="prose"><b>Execution:</b> ${c.execution_note}</p></div>
     <div class="sect"><h3>Moat — ${c.moat.rating_1to5}/5</h3><p class="prose">${c.moat.note}</p></div>
     <div class="sect"><h3>Risks</h3><ul class="risks">${c.risks.map(r=>`<li>${r}</li>`).join("")}</ul></div>
-    <div class="sect"><h3>Next earnings</h3><p class="prose">${c.next_earnings} — score is reassessed on every report.</p></div>
+    <div class="sect"><h3>Score history</h3>${s.history.map(h=>`<p class="prose">${h.date} — <b>${h.total}</b> · ${h.event}</p>`).join("")}</div>
+    <div class="sect"><h3>Next earnings</h3><p class="prose">${c.next_earnings}</p></div>
     <div class="sect srcs"><h3>Sources</h3>${c.sources.map(u=>`<a href="${u}" target="_blank" rel="noopener">${u.replace(/^https?:\/\//,"").slice(0,80)}</a>`).join("")}</div>`;
+  bindTips(panel);
   document.getElementById("overlay").classList.add("open");
-  document.getElementById("panel").classList.add("open");
+  panel.classList.add("open");
+  if(keepScroll) panel.scrollTop=prevScroll;
 }
-function closePanel() {
-  document.getElementById("overlay").classList.remove("open");
-  document.getElementById("panel").classList.remove("open");
-}
-document.getElementById("overlay").addEventListener("click", closePanel);
-document.addEventListener("keydown", e => { if (e.key === "Escape") closePanel(); });
+function closePanel(){ document.getElementById("overlay").classList.remove("open"); document.getElementById("panel").classList.remove("open"); hideTip(); }
+document.getElementById("overlay").addEventListener("click",closePanel);
+document.addEventListener("keydown",e=>{ if(e.key==="Escape") closePanel(); });
 
-function wireSeg(id, key) {
-  document.getElementById(id).querySelectorAll("button").forEach(b => {
-    b.addEventListener("click", () => {
-      document.getElementById(id).querySelectorAll("button").forEach(x=>x.classList.remove("on"));
-      b.classList.add("on");
-      state[key] = b.dataset.v;
-      rerender();
-    });
+function wireSeg(id,key){
+  document.getElementById(id).querySelectorAll("button").forEach(b=>{
+    b.addEventListener("click",()=>{ document.getElementById(id).querySelectorAll("button").forEach(x=>x.classList.remove("on"));
+      b.classList.add("on"); state[key]=b.dataset.v; rerender(); });
   });
 }
-function rerender() {
-  if (state.view === "grid") { renderGrid(); document.getElementById("grid").classList.remove("hidden"); document.getElementById("tableWrap").classList.add("hidden"); }
+function rerender(){
+  if(state.view==="grid"){ renderGrid(); document.getElementById("grid").classList.remove("hidden"); document.getElementById("tableWrap").classList.add("hidden"); }
   else { renderTable(); document.getElementById("grid").classList.add("hidden"); document.getElementById("tableWrap").classList.remove("hidden"); }
 }
-document.getElementById("q").addEventListener("input", e => { state.q = e.target.value; rerender(); });
-document.getElementById("viewToggle").addEventListener("click", () => {
-  state.view = state.view === "grid" ? "table" : "grid";
-  document.getElementById("viewToggle").textContent = state.view === "grid" ? "Table view" : "Card view";
-  rerender();
-});
-document.getElementById("themeToggle").addEventListener("click", () => {
-  const r = document.documentElement;
-  const cur = r.dataset.theme || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
-  r.dataset.theme = cur === "dark" ? "light" : "dark";
-});
-wireSeg("pieFilter", "pie");
-wireSeg("bandFilter", "band");
-document.getElementById("asof").textContent = "as of " + DATA.as_of;
+document.getElementById("q").addEventListener("input",e=>{ state.q=e.target.value; rerender(); });
+document.getElementById("viewToggle").addEventListener("click",()=>{ state.view=state.view==="grid"?"table":"grid";
+  document.getElementById("viewToggle").textContent=state.view==="grid"?"Table view":"Card view"; rerender(); });
+document.getElementById("themeToggle").addEventListener("click",()=>{ const r=document.documentElement;
+  const cur=r.dataset.theme||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");
+  r.dataset.theme=cur==="dark"?"light":"dark"; if(currentTicker&&document.getElementById("panel").classList.contains("open")) openPanel(currentTicker,true); });
+wireSeg("pieFilter","pie"); wireSeg("bandFilter","band");
+document.getElementById("asof").textContent="as of "+DATA.as_of;
 renderKpis(); renderLegend(); renderGrid();
 </script>
 </body>

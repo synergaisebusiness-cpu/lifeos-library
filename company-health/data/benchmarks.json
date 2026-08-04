@@ -1,0 +1,78 @@
+{
+  "as_of": "2026-08-04",
+  "source_note": "S&P 500 aggregates from FactSet Earnings Insight (31 Jul 2026 PDF + 3 Aug 2026 commentary). Percentile ladders are MIXED BASIS — see basis field on each.",
+  "sp500": {
+    "rev_growth_yoy_pct": 14.1,
+    "earnings_growth_yoy_pct": 47.4,
+    "earnings_growth_ex_googl_amzn_pct": 28.8,
+    "net_margin_pct": 16.7,
+    "net_margin_ex_googl_pct": 14.4,
+    "net_margin_5yr_avg_pct": 12.4,
+    "beat_rate_eps_pct": 86,
+    "beat_rate_rev_pct": 77,
+    "distortion_note": "Q2 2026 headline earnings growth is inflated by non-operating mark-to-market gains on equity investments at Amazon (~$53.4bn, Anthropic stake) and Alphabet ($98.0bn). Ex those two names growth is 28.8% and index net margin is 14.4%. Use the ex- figures for operating-quality comparison."
+  },
+  "percentiles": {
+    "rev_growth": {
+      "p25": 0.5, "p50": 5.5, "p75": 12.4, "p90": 22.4,
+      "basis": "TRUE cross-sectional percentiles — Mauboussin & Callahan, The Base Rate Book (Credit Suisse, Sep 2016), top-1000 global companies 1950-2015, 3-year CAGR, INFLATION-ADJUSTED (real). Add ~2-3pp for a nominal comparison. The current cycle runs far hotter — the S&P 500 aggregate is 14.1% nominal."
+    },
+    "op_margin": {
+      "p25": 8.2, "p50": 13.3, "p75": 21.2, "p90": 28.6,
+      "basis": "INDUSTRY-LEVEL percentiles, not company-level — computed across 80 Damodaran/NYU Stern US industry aggregates ex-financials and real estate (Jan 2026, 5,994 US firms). True company-level dispersion is wider, so the real P90 is likely higher and P25 lower."
+    },
+    "gross_margin": {
+      "p25": 24.3, "p50": 36.2, "p75": 51.0, "p90": 60.8,
+      "basis": "Same industry-level basis as op_margin."
+    },
+    "fcf_margin": {
+      "p25": 5.2, "p50": 9.6, "p75": 15.4, "p90": 22.6,
+      "basis": "DERIVED PROXY, not a published series: EBITDA margin x (1 - 21% tax) - net capex/sales per industry, from Damodaran Jan 2026 datasets, percentiled across the same 80 industries. Ignores working capital, stock comp and interest. Indicative only."
+    }
+  },
+  "sector_op_margin": {
+    "note": "Damodaran/NYU Stern industry aggregates, Jan 2026 — use these to normalise across sectors. A 65% operating margin means something very different in semis vs mining.",
+    "values": {
+      "Software (System & Application)": 40.8,
+      "Semiconductor": 40.4,
+      "Drugs (Pharmaceutical)": 31.2,
+      "Semiconductor Equipment": 28.3,
+      "Metals & Mining": 24.4,
+      "Utility (General)": 23.8,
+      "Software (Internet)": 18.6,
+      "Healthcare Products": 17.4,
+      "Machinery": 16.8,
+      "Electrical Equipment": 10.9,
+      "Aerospace/Defense": 9.8,
+      "Retail (General)": 8.2,
+      "Auto & Truck": 3.2,
+      "Total Market ex-financials": 14.7
+    }
+  },
+  "base_rates": {
+    "note": "What actually counts as exceptional, from published research.",
+    "rev_growth_over_20pct_3yr_share_pct": 11.9,
+    "rev_growth_over_10pct_decade_share_pct": 12.5,
+    "top_quartile_growth_persistence_pct": 33,
+    "firms_earning_above_cost_of_equity_pct": 29,
+    "detail": "Mauboussin: 11.9% of 3-year windows delivered >20% real revenue CAGR. McKinsey (top 5,000 global, 2005-2019): median company grew 2.8%/yr; only 1 in 8 exceeded 10%/yr; only 1 in 3 top-quartile growers stayed top-quartile the following 5 years. Damodaran (Feb 2026): only 29% of global firms earn a return on equity above their cost of equity — roughly seven in ten listed companies destroy value. Verdad (1996-2022): gross margin is the most persistent profitability metric, but the top quintile mean-reverts most."
+  },
+  "leverage": {
+    "note": "S&P Global Ratings indicative debt/EBITDA thresholds for standard-volatility corporates (criteria published 18 Sep 2012, still governing).",
+    "minimal_max": 1.5,
+    "modest_max": 2.0,
+    "intermediate_max": 3.0,
+    "significant_max": 4.0,
+    "aggressive_max": 5.0,
+    "detail": "Conservative below ~2.0x; investment-grade normal 2-3x; stretched above 4x; >5x is high-yield territory. Regulated utilities, REITs and telecoms run structurally higher against contracted cash flows."
+  },
+  "sources": [
+    "https://advantage.factset.com/hubfs/Website/Resources%20Section/Research%20Desk/Earnings%20Insight/EarningsInsight_073126.pdf",
+    "https://insight.factset.com/amazon-drives-sp-500-earnings-growth-for-q2-above-45-on-valuation-gains",
+    "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/margin.html",
+    "https://sorfis.com/wp-content/uploads/2021/09/The-Base-Rate-Book-Integrating-the-Past-to-Better-Anticipate-the-Future-September-2016.pdf",
+    "https://www.mckinsey.com/capabilities/strategy-and-corporate-finance/our-insights/the-ten-rules-of-growth",
+    "https://verdadcap.com/archive/persistence-of-margins",
+    "https://aswathdamodaran.blogspot.com/2026/02/data-update-6-for-2026-in-search-of.html"
+  ]
+}

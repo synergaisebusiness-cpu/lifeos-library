@@ -1,4 +1,4 @@
-# Company Health Score — Methodology v1.0
+# Company Health Score — Methodology v1.1
 
 Scores the *business*, not the stock. Price action is deliberately excluded — no price, valuation, or P&L inputs anywhere. A company is re-scored after every earnings report; the score answers one question: **are the fundamentals of this business strong and getting stronger?**
 
@@ -55,6 +55,25 @@ Four inputs are judgment calls, not formula: op_trend, fcf_trend, exec_class, bs
 4. If the score moves ≥10 points or crosses a band boundary, say why in one sentence in the changelog.
 5. Never adjust the rubric to make a score "feel right" — rubric changes are versioned (v1.0 → v1.1) and noted in the changelog.
 
+## Market context (v1.1)
+
+The score is **absolute, not relative to the other holdings** — it always was, but v1.1 makes that visible. Every company now carries a `market_context` block ranking its revenue growth, gross margin, operating margin and FCF margin against market-wide distributions, so a 13.7% operating margin reads as "median of the market" rather than "low compared to Nvidia".
+
+Benchmarks live in `register.json` under `benchmarks` and are honest about their basis:
+
+- **Revenue growth percentiles are true cross-sectional percentiles** (Mauboussin/Credit Suisse *Base Rate Book*, top-1000 global companies 1950–2015, 3-year CAGR) but are **inflation-adjusted**. Add roughly 2–3pp for a nominal comparison, and note the current cycle runs hot — the S&P 500 aggregate is 14.1% nominal, so a "top 25%" historical rank can be merely average today.
+- **Margin percentiles are industry-level, not company-level** — computed across 80 Damodaran/NYU Stern US industry aggregates ex-financials. True company dispersion is wider, so the real top decile is higher and the real bottom quartile lower than shown.
+- **The FCF-margin ladder is a derived proxy**, not a published series.
+- **The S&P 500 Q2 2026 aggregate is distorted**: headline earnings growth of 47.4% falls to 28.8% excluding Amazon's and Alphabet's non-operating investment gains, and index net margin drops from 16.7% to 14.4% excluding Alphabet. The register stores both; use the ex- figures for operating comparison.
+
+Sector context matters more than the headline ladder: a 40% operating margin is roughly the industry aggregate for semiconductors and software, but roughly double the aggregate for mining. `benchmarks.sector_op_margin` carries the per-industry figures.
+
+## Financial history (v1.1)
+
+Each company carries `financial_history` — a quarterly series from calendar Q1 2022 (or first available) with revenue, gross margin, operating margin and free cash flow, plus segment revenue series where disclosed. 505 quarter-observations across 29 companies. Labelled by the **calendar quarter the fiscal period ends in**, so companies on offset fiscal years line up on the same axis.
+
+Known irregularities that are recorded rather than smoothed: Schneider reports P&L semi-annually so its margin line is a half-yearly step; GE Vernova starts at 2024Q2 post-spin-off; Constellation's 2026Q1 consolidates Calpine and breaks comparability; Micron, AMD and Caterpillar restructured segments so those series start mid-history.
+
 ## Known limitations (honest list)
 - Cyclicals at peak (MU today) score Elite on trailing numbers; the score measures current health, not durability of that health. Watch notes carry the cyclicality caveat — read them.
 - One quarter of segment data can misclassify breadth for companies with lumpy segments.
@@ -63,3 +82,4 @@ Four inputs are judgment calls, not formula: op_trend, fcf_trend, exec_class, bs
 
 ## Changelog
 - 2026-08-03: v1.0 — initial methodology + baseline scoring of all 29 holdings (Cowork session).
+- 2026-08-04: v1.1 — added market-wide benchmark context (companies now ranked against market distributions, not each other) and 4+ years of quarterly financial history per company with segment series. Scoring rubric itself is UNCHANGED — no score moved as a result of this version bump.
