@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The cost of interrupting compounding — Jude, 22 → 60</title>
+<style>
+  .viz-root {
+    color-scheme: light;
+    --surface-1: #fcfcfb; --page: #f9f9f7;
+    --ink-1: #0b0b0b; --ink-2: #52514e; --ink-muted: #898781;
+    --grid: #e1e0d9; --baseline: #c3c2b7; --ring: rgba(11,11,11,0.10);
+    --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --s4: #eda100; --s5: #e87ba4;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) .viz-root {
+      color-scheme: dark;
+      --surface-1: #1a1a19; --page: #0d0d0d;
+      --ink-1: #ffffff; --ink-2: #c3c2b7; --ink-muted: #898781;
+      --grid: #2c2c2a; --baseline: #383835; --ring: rgba(255,255,255,0.10);
+      --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500; --s5: #d55181;
+    }
+  }
+  :root[data-theme="dark"] .viz-root {
+    color-scheme: dark;
+    --surface-1: #1a1a19; --page: #0d0d0d;
+    --ink-1: #ffffff; --ink-2: #c3c2b7; --ink-muted: #898781;
+    --grid: #2c2c2a; --baseline: #383835; --ring: rgba(255,255,255,0.10);
+    --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500; --s5: #d55181;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  body { background: var(--page); }
+  .viz-root {
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    background: var(--page); color: var(--ink-1);
+    max-width: 980px; margin: 0 auto; padding: 28px 20px 40px;
+  }
+  h1 { font-size: 20px; font-weight: 650; letter-spacing: -0.01em; }
+  .sub { color: var(--ink-2); font-size: 13px; margin-top: 6px; max-width: 72ch; line-height: 1.45; }
+  .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(175px, 1fr)); gap: 10px; margin: 20px 0 18px; }
+  .tile { background: var(--surface-1); border: 1px solid var(--ring); border-radius: 10px; padding: 12px 14px; }
+  .tile .lbl { font-size: 12px; color: var(--ink-2); display: flex; align-items: center; gap: 7px; }
+  .tile .swatch { width: 9px; height: 9px; border-radius: 3px; flex: 0 0 auto; }
+  .tile .val { font-size: 23px; font-weight: 650; margin-top: 5px; }
+  .tile .note { font-size: 11px; color: var(--ink-muted); margin-top: 3px; }
+  .card { background: var(--surface-1); border: 1px solid var(--ring); border-radius: 12px; padding: 16px 16px 10px; margin-bottom: 18px; }
+  .card-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+  .card-head h2 { font-size: 14px; font-weight: 600; }
+  .card-head .cap { font-size: 12px; color: var(--ink-2); margin-top: 3px; max-width: 66ch; line-height: 1.4; }
+  .card-head .u { font-size: 12px; color: var(--ink-muted); }
+  .legend { display: flex; flex-wrap: wrap; gap: 14px; margin: 10px 0 2px; }
+  .legend button { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--ink-2);
+    background: none; border: none; padding: 2px 0; cursor: pointer; font-family: inherit; }
+  .legend button.off { opacity: 0.35; }
+  .legend .sw { width: 14px; height: 3px; border-radius: 2px; }
+  .toggle { font-size: 12px; color: var(--ink-2); background: none; border: 1px solid var(--ring);
+    border-radius: 7px; padding: 4px 10px; cursor: pointer; font-family: inherit; }
+  svg text { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+  .ttwrap { position: relative; }
+  .tt { position: absolute; pointer-events: none; background: var(--surface-1); border: 1px solid var(--ring);
+    border-radius: 8px; padding: 8px 10px; font-size: 12px; box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+    display: none; min-width: 200px; z-index: 5; }
+  .tt .age { font-weight: 600; margin-bottom: 5px; }
+  .tt .row { display: flex; justify-content: space-between; gap: 14px; color: var(--ink-2); padding: 1px 0; }
+  .tt .row b { color: var(--ink-1); font-weight: 600; font-variant-numeric: tabular-nums; }
+  .tt .row .nm { display: flex; align-items: center; gap: 6px; }
+  .tt .sw { width: 9px; height: 9px; border-radius: 3px; }
+  table { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 10px; display: none; }
+  th, td { text-align: right; padding: 5px 8px; border-bottom: 1px solid var(--grid);
+    font-variant-numeric: tabular-nums; color: var(--ink-2); }
+  th:first-child, td:first-child { text-align: left; }
+  th { color: var(--ink-muted); font-weight: 600; }
+  .fn { font-size: 11.5px; color: var(--ink-muted); margin-top: 6px; line-height: 1.5; max-width: 80ch; }
+</style>
+</head>
+<body>
+<div class="viz-root" id="root">
+  <h1>The cost of interrupting compounding</h1>
+  <p class="sub">Your plan's contribution ladder run from 22 to 60 in <b>today's money</b>, through the same market
+  (≈7.5%/yr nominal with a −25% crash every 8 years, ≈4.4%/yr real). Chart 1 varies <b>behaviour</b>; chart 2 varies the
+  <b>career path after 30</b> with behaviour held perfect. The market is identical in every line.</p>
+
+  <div class="tiles" id="tiles"></div>
+
+  <div class="card" id="card-behaviour"></div>
+  <div class="card" id="card-career"></div>
+
+  <p class="fn"><b>Assumptions.</b> Contributions (ISA + pension, nominal): £17.1k at 22 stepping with the plan's salary ladder to
+  ~£40k/yr at £80k salary and ~£50k/yr at ~£100k TC from 29; start pot £14k (Sept-2026 trough); crashes at 26, 34, 42, 50;
+  values deflated at 3% to today's purchasing power. <b>Behaviours (chart 1):</b> panic pauser stops contributing for three years from each
+  crash (skipping exactly the cheapest buys); house raid withdraws £80k at 30 and halves contributions for three years — that money becomes
+  home equity, not smoke, so its true cost is smaller than the line suggests; kids downshift halves contributions 33–39; lifestyle creep
+  never captures raises (contributions grow with inflation only). <b>Career paths (chart 2, all unbroken behaviour):</b> flat = real
+  contributions constant from 29; steady climb = +3%/yr real from 29; US-comp jump = real contributions double from 32; coast = contributions
+  stop entirely at 40; max ISA from 22 = £20k/yr ISA + full pension from age 22 (adds ~£50k over ages 22–26 vs salary alone — this line
+  assumes the Synergaise bridge delivers ~£12–13k/yr net in those years, since salary-only cash capacity is £6.4–7.6k/yr). Illustrative model, not a forecast — real markets don't crash on a timetable, and sequence risk can be kinder or
+  crueller than this.</p>
+</div>
+
+<script>
+const AGES = [22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60];
+const D = {
+"unbroken":[32780,51082,72982,104983,101322,145025,191531,248921,311326,379185,452972,533206,428911,507044,592003,684387,784841,894075,1012852,1142009,872214,989082,1116161,1254344,1404601,1567988,1745651,1938839,1452430,1619996,1802204,2000333,2215773,2450039,2704775,2981769,3282967,3610482,3966616],
+"panic":[32780,51082,72982,104983,76445,83124,90387,138939,191735,249143,311567,379446,276296,300438,326690,395890,471137,552959,641931,738676,537871,584869,635975,732199,836833,950608,1074326,1208854,880233,957147,1040781,1172378,1315473,1471072,1640267,1824246,2024300,2241835,2478378],
+"house":[32780,51082,72982,104983,101322,145025,191531,248921,227846,268083,311835,379737,317162,385530,459872,540709,628610,724192,828125,941140,725951,830038,943220,1066292,1200118,1345637,1503871,1675932,1260994,1411832,1575851,1754201,1948135,2159015,2388322,2637664,2908795,3203616,3524198],
+"kids":[32780,51082,72982,104983,101322,145025,191531,248921,311326,379185,452972,512879,393783,448518,508037,572755,643129,719653,823189,935773,722042,825788,938599,1061267,1194654,1339696,1497411,1668908,1255878,1406270,1569803,1747624,1940984,2151239,2379866,2628470,2898796,3192744,3512376],
+"creep":[32780,52745,74453,98058,88502,113335,140338,169700,201629,236347,274099,315149,246577,285223,327245,372940,422627,476655,535405,599287,453474,510198,571879,638949,711879,791182,877415,971182,724272,804657,892067,987115,1090467,1202851,1325055,1457936,1602429,1759547,1930393],
+"climb":[32780,51081,72983,104984,101322,145025,191531,248922,312546,382987,460876,546904,445361,532819,629376,735870,853215,982404,1124520,1280743,992282,1140480,1303473,1482607,1679351,1895302,2132199,2391934,1817329,2054023,2313736,2598550,2910729,3252740,3627266,4037226,4485799,4976441,5512915],
+"uscomp":[32780,51081,72983,104984,101322,145025,191531,248922,311327,379184,493626,618068,531359,659097,797997,949034,1113269,1291854,1486043,1697201,1317135,1513534,1727093,1959314,2211825,2486400,2784968,3109624,2345598,2631863,2943140,3281617,3649669,4049882,4485064,4958272,5472828,6032346,6640753],
+"coast":[32780,51081,72983,104984,101322,145025,191531,248922,311327,379184,452972,533206,428912,507044,592003,684386,784842,894075,972198,1057147,769767,837028,910167,989696,1076174,1170209,1272460,1383646,1007509,1095544,1191271,1295363,1408550,1531627,1665458,1810984,1969225,2141293,2328397],
+"maxisa":[45130,77666,113597,154317,142265,189545,239942,301562,368567,441426,520652,606800,482499,565314,655365,753284,859760,975539,1101435,1238332,942352,1065348,1199092,1344521,1502658,1674613,1861593,2064911,1544231,1719818,1910748,2118361,2344115,2589595,2856525,3146779,3462395,3805589,4178770]};
+
+const fmt = v => v >= 1e6 ? "£"+(v/1e6).toFixed(2)+"m" : "£"+Math.round(v/1000)+"k";
+const css = v => getComputedStyle(document.getElementById("root")).getPropertyValue(v).trim();
+const end = k => D[k][D[k].length-1];
+
+// stat tiles
+const tiles = [
+  {name:"Unbroken + flat career, at 60", val: fmt(end("unbroken")), note:"the plan's conservative floor", css:"--s1"},
+  {name:"Cost of panic-pausing", val: "−"+fmt(end("unbroken")-end("panic")), note:"3-yr pause after each crash", css:"--s2"},
+  {name:"Cost of lifestyle creep", val: "−"+fmt(end("unbroken")-end("creep")), note:"never capturing raises", css:"--s5"},
+  {name:"US-comp career path, at 60", val: fmt(end("uscomp")), note:"+"+fmt(end("uscomp")-end("unbroken"))+" — earned before ~42", css:"--s3"},
+];
+document.getElementById("tiles").innerHTML = tiles.map(t=>`
+  <div class="tile"><div class="lbl"><span class="swatch" style="background:var(${t.css})"></span>${t.name}</div>
+  <div class="val">${t.val}</div><div class="note">${t.note}</div></div>`).join("");
+
+function makeChart(mount, cfg){
+  const el = document.getElementById(mount);
+  el.innerHTML = `
+    <div class="card-head">
+      <div><h2>${cfg.title}</h2><div class="cap">${cfg.caption}</div></div>
+      <div style="display:flex; gap:8px; align-items:center;">
+        <span class="u">today's £</span>
+        <button class="toggle" id="${mount}-tbtn">Table view</button>
+      </div>
+    </div>
+    <div class="legend" id="${mount}-legend"></div>
+    <div class="ttwrap" id="${mount}-wrap">
+      <svg id="${mount}-svg" width="100%" height="400" viewBox="0 0 940 400" role="img" aria-label="${cfg.aria}"></svg>
+      <div class="tt" id="${mount}-tt"></div>
+    </div>
+    <table id="${mount}-tbl"></table>`;
+
+  const on = Object.fromEntries(cfg.series.map(s=>[s.k,true]));
+  const leg = document.getElementById(mount+"-legend");
+  leg.innerHTML = cfg.series.map(s=>`<button data-k="${s.k}"><span class="sw" style="background:var(${s.css})"></span>${s.name}</button>`).join("");
+  leg.querySelectorAll("button").forEach(b=>b.addEventListener("click",()=>{ on[b.dataset.k]=!on[b.dataset.k]; b.classList.toggle("off",!on[b.dataset.k]); draw(); }));
+
+  const svg = document.getElementById(mount+"-svg");
+  const M = {t:16,r:160,b:34,l:56}, W=940, H=400;
+  const X = a => M.l + (a-22)/(60-22)*(W-M.l-M.r);
+  let ymax = 1e6;
+  const Y = v => H-M.b - v/ymax*(H-M.t-M.b);
+
+  function draw(){
+    const active = cfg.series.filter(s=>on[s.k]);
+    ymax = Math.max(1e6, ...active.map(s=>Math.max(...D[s.k])))*1.06;
+    let g = "";
+    const step = ymax > 5e6 ? 2e6 : ymax > 3e6 ? 1e6 : ymax > 1.5e6 ? 0.5e6 : 0.25e6;
+    for(let v=0; v<=ymax; v+=step){
+      g += `<line x1="${M.l}" x2="${W-M.r}" y1="${Y(v)}" y2="${Y(v)}" stroke="${v===0?css('--baseline'):css('--grid')}" stroke-width="1"/>`;
+      g += `<text x="${M.l-8}" y="${Y(v)+4}" text-anchor="end" font-size="11" fill="${css('--ink-muted')}">${v===0?"0":fmt(v)}</text>`;
+    }
+    for(const a of [22,26,30,34,38,42,46,50,54,58,60]){
+      g += `<text x="${X(a)}" y="${H-M.b+18}" text-anchor="middle" font-size="11" fill="${css('--ink-muted')}">${a}</text>`;
+    }
+    g += `<text x="${(M.l+W-M.r)/2}" y="${H-4}" text-anchor="middle" font-size="11" fill="${css('--ink-muted')}">age</text>`;
+    for(const c of [26,34,42,50]){
+      g += `<line x1="${X(c)}" x2="${X(c)}" y1="${M.t}" y2="${H-M.b}" stroke="${css('--grid')}" stroke-width="1" stroke-dasharray="2 4"/>`;
+      g += `<text x="${X(c)}" y="${M.t+2}" text-anchor="middle" font-size="10" fill="${css('--ink-muted')}" dominant-baseline="hanging">▼</text>`;
+    }
+    for(const s of active){
+      const pts = AGES.map((a,i)=>`${X(a)},${Y(D[s.k][i])}`).join(" ");
+      g += `<polyline points="${pts}" fill="none" stroke="var(${s.css})" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>`;
+    }
+    const used = [];
+    for(const s of active.filter(s=>s.label)){
+      let y = Y(end(s.k));
+      while(used.some(u=>Math.abs(u-y)<28)) y += 28;
+      used.push(y);
+      g += `<text x="${W-M.r+8}" y="${y}" font-size="11.5" font-weight="600" fill="${css('--ink-1')}"><tspan fill="var(${s.css})">●</tspan> ${s.short || s.name.split(" (")[0]}</text>`;
+      g += `<text x="${W-M.r+8}" y="${y+15}" font-size="11.5" fill="${css('--ink-2')}">${fmt(end(s.k))}</text>`;
+    }
+    g += `<line class="xhair" y1="${M.t}" y2="${H-M.b}" stroke="${css('--baseline')}" stroke-width="1" visibility="hidden"/>`;
+    g += `<g class="dots"></g>`;
+    svg.innerHTML = g;
+  }
+  draw();
+  if (window.matchMedia) matchMedia('(prefers-color-scheme: dark)').addEventListener('change', draw);
+
+  const wrap = document.getElementById(mount+"-wrap"), tt = document.getElementById(mount+"-tt");
+  svg.addEventListener("mousemove", e=>{
+    const r = svg.getBoundingClientRect();
+    const px = (e.clientX - r.left) * (W / r.width);
+    const xh = svg.querySelector(".xhair");
+    if(px < M.l || px > W-M.r){ tt.style.display="none"; xh.setAttribute("visibility","hidden"); return; }
+    const i = Math.max(0, Math.min(AGES.length-1, Math.round((px-M.l)/(W-M.l-M.r)*(60-22))));
+    const a = AGES[i];
+    xh.setAttribute("x1", X(a)); xh.setAttribute("x2", X(a)); xh.setAttribute("visibility","visible");
+    svg.querySelector(".dots").innerHTML = cfg.series.filter(s=>on[s.k]).map(s=>
+      `<circle cx="${X(a)}" cy="${Y(D[s.k][i])}" r="4" fill="var(${s.css})" stroke="${css('--surface-1')}" stroke-width="2"/>`).join("");
+    tt.innerHTML = `<div class="age">Age ${a}${[26,34,42,50].includes(a)?" · crash year":""}</div>` +
+      cfg.series.filter(s=>on[s.k]).map(s=>`<div class="row"><span class="nm"><span class="sw" style="background:var(${s.css})"></span>${s.name.split(" (")[0]}</span><b>${fmt(D[s.k][i])}</b></div>`).join("");
+    tt.style.display="block";
+    const wr = wrap.getBoundingClientRect();
+    let lx = e.clientX - wr.left + 14;
+    if(lx + 220 > wr.width) lx = e.clientX - wr.left - 224;
+    tt.style.left = lx+"px"; tt.style.top = Math.max(0, e.clientY - wr.top - 30)+"px";
+  });
+  svg.addEventListener("mouseleave", ()=>{ tt.style.display="none"; svg.querySelector(".xhair").setAttribute("visibility","hidden"); svg.querySelector(".dots").innerHTML=""; });
+
+  const tbl = document.getElementById(mount+"-tbl");
+  tbl.innerHTML = `<tr><th>Age</th>${cfg.series.map(s=>`<th>${s.name}</th>`).join("")}</tr>` +
+    AGES.map((a,i)=> a%2===0 ? `<tr><td>${a}</td>${cfg.series.map(s=>`<td>${fmt(D[s.k][i])}</td>`).join("")}</tr>` : "").join("");
+  document.getElementById(mount+"-tbtn").addEventListener("click", ()=>{
+    const show = tbl.style.display !== "table";
+    tbl.style.display = show ? "table" : "none";
+    document.getElementById(mount+"-tbtn").textContent = show ? "Hide table" : "Table view";
+  });
+}
+
+makeChart("card-behaviour", {
+  title: "1 · Behaviour — five ways to treat the same plan",
+  caption: "Same market, same salary ladder. Only the saver's behaviour differs. The life events (house, kids) are cheap; the behavioural errors (panic, creep) are not.",
+  aria: "Line chart of portfolio value from age 22 to 60 for five contribution behaviours",
+  series: [
+    {k:"unbroken", name:"Unbroken (the plan)", css:"--s1", label:true},
+    {k:"panic",    name:"Panic pauser",        css:"--s2", label:true},
+    {k:"house",    name:"House raid at 30",    css:"--s3", label:false},
+    {k:"kids",     name:"Kids downshift 33–39",css:"--s4", label:false},
+    {k:"creep",    name:"Lifestyle creep",     css:"--s5", label:true},
+  ]
+});
+
+makeChart("card-career", {
+  title: "2 · Career path after 30 — behaviour held perfect",
+  caption: "All four lines save flawlessly; only the post-30 earning trajectory differs. The gap is earned almost entirely between 30 and ~42 — the pot's own growth overtakes contributions around age 40 (~£1m), after which raises matter less and less.",
+  aria: "Line chart of portfolio value from age 22 to 60 for four post-30 career paths",
+  series: [
+    {k:"unbroken", name:"Flat (real) from 29 — the base", short:"Flat", css:"--s1", label:true},
+    {k:"climb",    name:"Steady climb +3% real/yr",       short:"Steady climb", css:"--s2", label:true},
+    {k:"uscomp",   name:"US-comp jump — 2× real from 32", short:"US-comp jump", css:"--s3", label:true},
+    {k:"coast",    name:"Coast — stop saving at 40",      short:"Coast", css:"--s4", label:true},
+    {k:"maxisa",   name:"Max ISA from 22 (Synergaise bridge)", short:"Max ISA early", css:"--s5", label:false},
+  ]
+});
+</script>
+</body>
+</html>
