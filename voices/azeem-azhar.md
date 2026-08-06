@@ -17,3 +17,6 @@ Jul 27, "Data to start your week": continues the weekly data-digest series. Jul 
 
 ### 2026-08-03
 A busy stretch: Jul 30 essay (with Nathan Warren), "For AI adopters, success and failure look identical — at first," argues early AI adoption is financially indistinguishable from failure — "the learning bill will almost certainly arrive before your returns" — introducing a typology of "Bounded Adopters" vs. "Project Accumulators." [Exponential View](https://www.exponentialview.co/p/ai-adoption-j-curve). Aug 1: a lighter personal "summer reading list" post. Aug 2 issue (EV #595) leads with the Aschenbrenner hedge-fund blowup (see themes/compute.md) as a case study in exponential-market fragility, explicitly noting "Situational Awareness' unraveling is not proof that Leopold's thesis is wrong." [Exponential View](https://www.exponentialview.co/p/ev-595)
+
+### 2026-08-06
+No new Azhar-authored essay landed inside Aug 3-6 (the Aug 3 "data to start your week" post was written by colleague Hannah Petrovic, covering agentic-AI patent filings up 59% YoY — not counted as an Azhar statement). Flagging explicitly rather than padding; his Aug 2 EV #595 framing (above) remains the most recent substantive item.

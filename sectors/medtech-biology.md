@@ -17,3 +17,6 @@ No fresh company-specific news on TMO or ISRG this week. Broader backdrop kept s
 
 ### 2026-08-03
 No material company-specific news for TMO or ISRG this window beyond routine trading. The broader biotech IPO window continues opening: Renaissance Capital's tracker shows four IPOs scheduled for the week of Aug 3, including three biotechs, following Scribe Therapeutics' Jul 23 CRISPR IPO — a candidate signal the post-Scribe reopening is continuing. [Renaissance Capital](https://www.renaissancecapital.com/IPO-Center/News/120831/US-IPO-Week-Ahead-August-IPO-market-opens-with-biotechs-a-bank-and-SpaceX-e)
+
+### 2026-08-06
+No fresh company-specific news for TMO or ISRG this window. The biotech IPO reopening continued concretely: Attovia Therapeutics priced its IPO Aug 4 (up to $212.5m raised, Nasdaq: ATTO), with reporting describing at least five biopharma companies going public the week of Aug 4-6; 2026 biotech IPOs are averaging a 55% return, leading the broader IPO market, though investor appetite is described as selective (differentiated, later-stage, cleaner commercial stories) rather than broad-based. [PharmaVoice](https://www.pharmavoice.com/news/bio-2026-ipo-biotech-performance-predictions/823500/)

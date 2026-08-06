@@ -14,3 +14,6 @@ Reported Jul 29 (Coinpedia, paraphrasing rather than quoting Pal directly): argu
 
 ### 2026-08-03
 A directly-sourced quote, Jul 28 (Yahoo Finance): "Bitcoin is 87% correlated to global liquidity. The NASDAQ is 97% correlated." On the current drawdown: "Sometimes it runs hot. Sometimes it runs cold. Right now it is running cold, so people think something is broken. Nothing is broken. It's doing exactly what it always does." Ties liquidity swings to government debt expansion/currency debasement, arguing future liquidity is projectable years out from known interest-payment schedules. [Yahoo Finance](https://finance.yahoo.com/markets/crypto/articles/raoul-pal-says-young-volatile-093733750.html)
+
+### 2026-08-06
+X post reported by Benzinga (Aug 5): Pal argues crypto's significance is shifting from token speculation to "agentic finance" — "Money is about to start moving at silicon speed... billions of agents transacting with each other, negotiating, settling and running full businesses at a velocity no human system can match" — and that owning blockchain infrastructure means "owning the operating system the next economy runs on." [Benzinga](https://www.benzinga.com/crypto/cryptocurrency/26/08/60981027/raoul-pal-crypto-next-economy-operating-system)

@@ -17,3 +17,6 @@ Jul 26, "Relentless" podcast: said "we're now, like, in the singularity" — fra
 
 ### 2026-08-03
 Aug 1, X post: pitched a "cool use case" for ChatGPT Work — parents connecting family calendars and describing kids' interests so the assistant could "make a podcast" each morning covering things like a soccer game or upcoming birthday for the school drive. Drew heavy public backlash: animator Alex Hirsch's sarcastic reply ("What if you just talked to your children?") outperformed Altman's original post roughly 12-to-1 in likes (122K vs. 9,600). [TechCrunch](https://techcrunch.com/2026/08/01/sam-altman-is-still-making-the-case-for-parenting-via-chatgpt/)
+
+### 2026-08-06
+OpenAI published a blog post ("Apple is getting this wrong," covered by Fortune Aug 4) rebutting Apple's lawsuit alleging OpenAI staff stole trade secrets: "Apple had claimed that they contacted OpenAI in February and that we didn't respond. They now admit that their outside lawyers emailed the wrong person after confusing two Asian last names — only after we brought this to their attention." Also: "Apple also claimed they had a discussion with our General Counsel, which they now concede never happened." [Fortune](https://fortune.com/2026/08/04/sam-altman-openai-lawsuit-apple-is-getting-this-wrong/)
