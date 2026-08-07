@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Python L1.4 — Files and Exceptions</title>
+<style>
+:root{--ink:#1a1a1a;--mut:#6b6b6b;--rule:#e4e0d8;--bg:#faf9f7;--acc:#8a5a2b;--code:#f3f1ed}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+font:17px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Georgia,serif;}
+.wrap{max-width:760px;margin:0 auto;padding:56px 28px 96px}
+h1{font-size:30px;line-height:1.2;margin:0 0 6px;letter-spacing:-.01em}
+h2{font-size:20px;margin:44px 0 14px;padding-top:20px;border-top:1px solid var(--rule);letter-spacing:-.005em}
+h1+p em,p em:first-child{color:var(--mut)}
+em{font-style:italic}
+p{margin:0 0 14px}
+strong{font-weight:650}
+ul,ol{margin:0 0 14px;padding-left:22px}
+li{margin:0 0 7px}
+hr{border:0;border-top:1px solid var(--rule);margin:34px 0}
+code{background:var(--code);padding:1px 5px;border-radius:4px;
+font:14px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace}
+pre{background:#fff;border:1px solid var(--rule);border-left:3px solid var(--acc);
+border-radius:5px;padding:14px 16px;overflow-x:auto;margin:0 0 16px}
+pre code{background:none;padding:0;font-size:14px;line-height:1.55}
+@media print{body{background:#fff}.wrap{padding:0}pre{break-inside:avoid}}
+</style></head><body><div class="wrap">
+<h1>Python L1.4 — Files and Exceptions</h1>
+<p><em>Lloyds study · deep block · Friday 7 August 2026 · read time ~14 min · notes before questions</em></p>
+<p>Same loop. Read once through, then again with VS Code open, typing the examples.</p>
+<p>This is the last rung of L1, and it is the one where the week's theme stops being a moral and
+becomes syntax. You have spent nine days learning to distrust the quiet wrong answer — <code>None</code> off
+the end of a branch, <code>"ababab"</code> from a function called <code>area</code>, a guardrail approving <code>DROP TABLE</code>.
+Exceptions are Python's machinery for making failure loud, and <code>try</code>/<code>except</code> is the tool that can
+switch it back off. Today you learn both, and — more importantly — when you're allowed to use the
+second one.</p>
+<hr />
+<h2>Why this rung matters more than it looks</h2>
+<p>Everything your capstone needs lives in files. The golden set of English-question/SQL pairs you're
+building at 16:30 every day — that's a file the eval harness reads. Your API key on Monday — a file
+the code loads and must never print. Every eval run's results — files. And every one of those reads
+can fail: the file isn't there, the path is wrong, a line is blank where a number should be. What
+your program does in that moment — crash with a message naming the problem, or carry on with
+invented data — is the entire difference between an eval harness you can trust and one that lies
+to you. You've been arguing for the crash all week. Today you get the tools.</p>
+<hr />
+<h2>1. Reading a file</h2>
+<pre><code class="language-python">with open(&quot;data/cities.txt&quot;) as f:
+    content = f.read()
+
+print(content)
+</code></pre>
+<p><code>open()</code> gives you a file object; <code>.read()</code> gives you the whole file as one <code>str</code>. The <code>with</code> block
+is the part that matters: when the indented block ends, Python closes the file for you — even if
+something inside raised. Files left open are the classic <em>works now, breaks later</em> bug: fine on
+your machine, until the day something holds hundreds open.</p>
+<p><strong>Rule, not option: <code>with open(...)</code> every time.</strong> You will see <code>f = open(...)</code> / <code>f.close()</code> in
+older code online. Know what it means, never write it.</p>
+<p>One gotcha worth meeting today rather than on the 13th: the path is relative to <strong>where you run
+the file from</strong>, not where the <code>.py</code> file sits. Run from <code>~/code/lloyds-prep</code> (which the VS Code
+▶ button does) and <code>"data/cities.txt"</code> means <code>~/code/lloyds-prep/data/cities.txt</code>.</p>
+<hr />
+<h2>2. Lines, and the invisible character on the end</h2>
+<p>Files are usually line-shaped, and you'll almost always want the lines:</p>
+<pre><code class="language-python">with open(&quot;data/cities.txt&quot;) as f:
+    for line in f:
+        print(line)
+</code></pre>
+<p>Looping over the file object gives you one line at a time. But run that and the output is
+double-spaced — because every <code>line</code> still carries its <code>\n</code>, the invisible newline character that
+ends it, and <code>print</code> adds another.</p>
+<pre><code class="language-python">line.strip()      # &quot;Manchester\n&quot; -&gt; &quot;Manchester&quot;   (also trims spaces both ends)
+</code></pre>
+<p>Remember <code>"distinction "</code> with the trailing space? Same creature. <code>"Manchester\n" ==
+"Manchester"</code> is <code>False</code>, silently, and on 24 August your eval scoring is literally
+<code>model_answer == golden_answer</code>. <strong><code>.strip()</code> every line you read</strong> is the habit that stops that
+bug existing.</p>
+<p>If you want all the lines at once: <code>f.read().splitlines()</code> gives you a list of strings with the
+newlines already removed. That's usually the tidiest.</p>
+<hr />
+<h2>3. Writing files — and the mode letter that can erase your data</h2>
+<pre><code class="language-python">with open(&quot;results/run1.txt&quot;, &quot;w&quot;) as f:
+    f.write(&quot;accuracy: 0.85\n&quot;)
+</code></pre>
+<p>The second argument is the <strong>mode</strong>. <code>"r"</code> is read and is the default. The other two:</p>
+<ul>
+<li><code>"w"</code> — write. Creates the file if missing. <strong>If it exists, its contents are gone the instant
+  the file opens.</strong> No warning, no error, no undo.</li>
+<li><code>"a"</code> — append. Creates if missing, otherwise adds to the end.</li>
+</ul>
+<p>Read that middle one again. <code>"w"</code> on the wrong filename is a completely silent, completely
+destructive operation — the program runs clean, prints nothing, and your golden set is now empty.
+It is the purest costume the theme owns: a one-character choice, no crash, real damage. The habit
+that protects you is boring: stop at every <code>open(..., "w")</code> and say out loud what happens if that
+file already exists.</p>
+<p><code>.write()</code> writes exactly what you give it — no automatic newline. You supply the <code>\n</code>.</p>
+<hr />
+<h2>4. Reading a traceback properly — this section is the payoff</h2>
+<p>Ask for a file that isn't there:</p>
+<pre><code class="language-python">with open(&quot;data/citties.txt&quot;) as f:
+    content = f.read()
+</code></pre>
+<pre><code>Traceback (most recent call last):
+  File &quot;/Users/judehill/code/lloyds-prep/practice/files_demo.py&quot;, line 1, in &lt;module&gt;
+    with open(&quot;data/citties.txt&quot;) as f:
+         ~~~~^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'data/citties.txt'
+</code></pre>
+<p>You've been reading these all week by looking where the caret points. Today, the anatomy, once and
+properly — read it <strong>bottom-up</strong>:</p>
+<ol>
+<li><strong>Last line first.</strong> <code>FileNotFoundError: ... 'data/citties.txt'</code>. The exception's <em>name</em> is the
+   diagnosis and the message names the exact evidence — there's the typo, in quotes.</li>
+<li><strong>The line above it</strong> shows where Python <em>noticed</em>. That is a fact about Python, not about your
+   mistake — on 31 July the message said line 45 and the caret sat on line 48, and the caret won
+   six times. The sentence is what's wrong; the caret is where it surfaced.</li>
+<li><strong>The stack above that</strong> is the trail of calls that led there, top-down. One entry today;
+   the day your agent calls <code>run_sql</code> which calls <code>open</code>, it's the map of how you got there.</li>
+</ol>
+<p>The exception name is a real thing you can catch by name — <code>FileNotFoundError</code>, <code>ValueError</code>,
+<code>KeyError</code>, <code>TypeError</code>. You've already met all four. That name is about to matter.</p>
+<hr />
+<h2>5. <code>try</code> / <code>except</code> — catching, and the licence it needs</h2>
+<p>Sometimes a failure is <em>expected</em>, and crashing is the wrong response. First run of the eval
+harness, no results file exists yet — that's not a disaster, that's Tuesday:</p>
+<pre><code class="language-python">def load_previous_results(path):
+    # takes a str path, returns a list of result lines (empty on first run)
+    try:
+        with open(path) as f:
+            return f.read().splitlines()
+    except FileNotFoundError:
+        return []
+</code></pre>
+<p><code>try</code> runs the block. If nothing raises, <code>except</code> never runs. If the named exception is raised,
+Python jumps to the <code>except</code> block instead of crashing. Anything <em>else</em> still crashes loudly —
+which is exactly what you want.</p>
+<p>Three rules, and they are the whole skill:</p>
+<ul>
+<li><strong>Catch the specific exception, by name.</strong> The one you expected, only.</li>
+<li><strong>Catch it only if you have something true to do about it.</strong> Here, an empty list is <em>true</em> — no
+  previous results genuinely means an empty history. It is not a made-up <code>0</code>, not a shrug.</li>
+<li><strong>Everything else stays loud.</strong> If the file exists but is unreadable garbage, this function
+  crashes — correctly.</li>
+</ul>
+<p>Now the version you must never write:</p>
+<pre><code class="language-python">try:
+    balance = acount[&quot;balance&quot;]      # typo'd name — NameError
+    print(f&quot;Balance: {balance}&quot;)
+except:
+    print(&quot;Balance unavailable&quot;)
+</code></pre>
+<p>Bare <code>except:</code> catches <strong>everything</strong> — including the <code>NameError</code> that is a bug in <em>your code</em>,
+nothing to do with missing data. The typo now produces a polite message instead of a traceback,
+forever. This is the smoke-alarm remover: one keyword, and no failure in that block can ever reach
+you again. You chose the silent bug over the crash once, on 30 July, as a preference. Bare
+<code>except</code> is that preference as a language feature. Never bare, never <code>except Exception</code> as a
+reflex — always the name.</p>
+<hr />
+<h2>6. <code>raise</code> and <code>except</code> are two ends of one design</h2>
+<p>You've been writing <code>raise ValueError("amount must be positive")</code> since L0.3. Today completes the
+thought: <strong>deep code raises, the edge decides.</strong></p>
+<p>The function that spots the problem almost never knows what the right response is — that depends
+on who called it. So the guard clause raises, loudly, with a message naming the problem. The code
+at the boundary — the top loop, the thing talking to the user — is the only place with enough
+context to catch, and it catches <em>by name</em>, handling only what it genuinely can:</p>
+<pre><code class="language-python"># deep: knows HOW to detect, not what to do about it
+def run_sql(sql):
+    if not is_read_only(sql):
+        raise ValueError(f&quot;refusing non-read-only query: {sql}&quot;)
+    ...
+
+# edge: knows what the user should see
+try:
+    result = run_sql(generated_sql)
+except ValueError as err:
+    print(f&quot;Query refused: {err}&quot;)
+</code></pre>
+<p><code>as err</code> gives the exception a name so the message travels. That pair — <code>run_sql</code> raising,
+the agent loop catching and refusing politely — is, almost line for line, the guardrail structure
+of your capstone. You wrote the raising half a week ago. Now you own both.</p>
+<hr />
+<h2>Exercises — live, together</h2>
+<p>In <code>practice/files_exceptions.py</code> unless the step says otherwise. Numbered steps; reasoning stays
+up here in the notes.</p>
+<ol>
+<li>Make a folder <code>data/</code> in <code>lloyds-prep</code>. In VS Code create <code>data/cities.txt</code> with four city
+   names, one per line. Read it and print each line — first without <code>.strip()</code>, then with. Say
+   what the difference on screen is and why.</li>
+<li>Change the filename in your code to one that doesn't exist. Run it. Read the traceback out
+   loud, bottom-up: the exception name, the evidence in the message, the line where Python
+   noticed. Then fix it.</li>
+<li>Write <code>data/scores.txt</code>: five numbers, one per line, and make one line blank. Write
+   <code>read_scores(path)</code> — takes a <code>str</code> path, returns a <code>list</code> of <code>int</code>s, skipping blank lines.
+   (<code>int("42\n")</code> copes with the newline; <code>int("")</code> does not — decide the order of your steps.)</li>
+<li>Append a summary line to <code>results/log.txt</code> using <code>"a"</code> — then run the file twice and look at
+   the file. Say why <code>"w"</code> would have been wrong here, and what it would have done.</li>
+<li>Wrap your <code>read_scores</code> call for the missing-file case: first run of the harness, no scores
+   yet. Decide what the caller gets — and defend it against the alternative of returning <code>[0]</code>.</li>
+<li>Sabotage: take working code, add a deliberate typo'd variable inside a <code>try</code>, and put a bare
+   <code>except:</code> under it printing <code>"no data today"</code>. Run it. Look at how completely the bug
+   disappears. Then narrow the <code>except</code> to the exception you actually meant and watch the typo
+   come back — loudly. That before/after is the whole argument.</li>
+</ol>
+<hr />
+<h2>Reps — last 15 minutes, in the room, unassisted</h2>
+<p>Marked on the spot. L1.4 isn't logged as climbed until they're marked — and the L1 checkpoint
+comes first, cold, before the reps.</p>
+</div></body></html>

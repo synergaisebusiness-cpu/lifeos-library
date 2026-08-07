@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Reps — Python L1.3, Comprehensions &amp; iteration</title>
+<style>
+:root{--ink:#1a1a1a;--mut:#6b6b6b;--rule:#e4e0d8;--bg:#faf9f7;--acc:#8a5a2b;--code:#f3f1ed}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+font:17px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Georgia,serif;}
+.wrap{max-width:760px;margin:0 auto;padding:56px 28px 96px}
+h1{font-size:30px;line-height:1.2;margin:0 0 6px;letter-spacing:-.01em}
+h2{font-size:20px;margin:44px 0 14px;padding-top:20px;border-top:1px solid var(--rule);letter-spacing:-.005em}
+h1+p em,p em:first-child{color:var(--mut)}
+em{font-style:italic}
+p{margin:0 0 14px}
+strong{font-weight:650}
+ul,ol{margin:0 0 14px;padding-left:22px}
+li{margin:0 0 7px}
+hr{border:0;border-top:1px solid var(--rule);margin:34px 0}
+code{background:var(--code);padding:1px 5px;border-radius:4px;
+font:14px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace}
+pre{background:#fff;border:1px solid var(--rule);border-left:3px solid var(--acc);
+border-radius:5px;padding:14px 16px;overflow-x:auto;margin:0 0 16px}
+pre code{background:none;padding:0;font-size:14px;line-height:1.55}
+@media print{body{background:#fff}.wrap{padding:0}pre{break-inside:avoid}}
+</style></head><body><div class="wrap">
+<h1>Reps — Python L1.3, Comprehensions &amp; iteration</h1>
+<p><em>Friday 7 August 2026 · ~8 min · unassisted · marked on the spot</em></p>
+<p>Taught yesterday in a session that wrote nothing to the library, so this sheet is both the reps and
+the evidence. Notes shut. No chat panel. A blank is data, a borrowed answer isn't.</p>
+<p><strong>Confidence is part of the answer.</strong> Every Part 1 answer in this exact form:</p>
+<pre><code>1. [2, 4, 6] — B
+</code></pre>
+<p>Value, dash, then <strong>A</strong> (certain), <strong>B</strong> (fairly sure) or <strong>C</strong> (guessing). No letter = marked blank.</p>
+<hr />
+<h2>Part 1 — Predict. Nothing runs until all six are written. (~5 min)</h2>
+<pre><code class="language-python"># 1
+nums = [1, 2, 3]
+doubled = [n * 2 for n in nums]
+print(doubled)
+print(nums)
+</code></pre>
+<pre><code class="language-python"># 2
+print([x for x in [5, 12, 8, 20, 3] if x &gt; 9])
+</code></pre>
+<pre><code class="language-python"># 3
+prices = {&quot;apple&quot;: 3, &quot;milk&quot;: 2}
+print([k for k in prices])
+</code></pre>
+<pre><code class="language-python"># 4
+print([c.upper() for c in &quot;abc&quot;])
+</code></pre>
+<pre><code class="language-python"># 5
+for i, name in enumerate([&quot;ana&quot;, &quot;raj&quot;]):
+    print(i, name)
+</code></pre>
+<pre><code class="language-python"># 6
+scores = [&quot;88&quot;, &quot;92&quot;, &quot;100&quot;]
+high = [s for s in scores if s &gt; &quot;90&quot;]
+print(high)
+</code></pre>
+<p>Then run all six and mark yourself before you look at why.</p>
+<hr />
+<h2>Part 2 — Write. <code>practice/reps_l1_03.py</code>. (~3 min)</h2>
+<p>One comprehension per function body — a single <code>return [...]</code> line. <code># takes a ___, returns a ___</code>
+comment above each <code>def</code>, written first, with <strong>A / B / C</strong> as a trailing comment on the <code>def</code> line.</p>
+<p><strong>1. <code>emails_of(users)</code></strong></p>
+<ul>
+<li>Takes a list of dicts like <code>{"name": "Ana", "email": "ana@bank.com"}</code>. Returns the list of email
+  strings, same order.</li>
+</ul>
+<p><strong>2. <code>big_orders(orders, threshold)</code></strong></p>
+<ul>
+<li>Takes a list of <code>(city, amount)</code> tuples and a number. Returns the list of <strong>cities</strong> whose amount
+  is strictly over the threshold. Unpack the tuple in the comprehension — no <code>order[0]</code>.</li>
+</ul>
+<pre><code class="language-python"># practice/reps_l1_03.py
+
+# takes a ___, returns a ___
+def emails_of(users):
+    ...
+
+
+# takes a ___, returns a ___
+def big_orders(orders, threshold):
+    ...
+
+
+# ---------- tests: do not edit ----------
+
+users = [
+    {&quot;name&quot;: &quot;Ana&quot;, &quot;email&quot;: &quot;ana@bank.com&quot;},
+    {&quot;name&quot;: &quot;Raj&quot;, &quot;email&quot;: &quot;raj@bank.com&quot;},
+]
+print(emails_of(users))               # expect ['ana@bank.com', 'raj@bank.com']
+
+orders = [(&quot;london&quot;, 250), (&quot;leeds&quot;, 90), (&quot;london&quot;, 40), (&quot;york&quot;, 120)]
+print(big_orders(orders, 100))        # expect ['london', 'york']
+print(big_orders(orders, 9999))       # expect [] — and think about why [] and not 0 or None
+</code></pre>
+<hr />
+<h2>Part 3 — One sentence. (~1 min)</h2>
+<p>Question 6 up there ran clean and printed something. Say what it silently got wrong, and name the
+29 July exercise it is wearing a costume of.</p>
+</div></body></html>
