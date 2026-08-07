@@ -108,6 +108,12 @@ document.getElementById("stats").innerHTML = [
   [cos.length, "on the list"], [REG.cap - cos.length, "open slots"], [avg, "avg score"], [bench.length, "on the bench"]
 ].map(([n,l]) => `<div class="stat"><div class="v">${n}</div><div class="l">${l}</div></div>`).join("");
 
+// rail coverage line (a name can span multiple rails)
+const RAILS = ["compute","energy","biology","manufacturing"];
+const railCounts = RAILS.map(r => `${r} ${cos.filter(c => (c.thesis_fit.themes||[]).includes(r)).length}`).join(" · ");
+document.getElementById("stats").insertAdjacentHTML("afterend",
+  `<div class="h2sub" style="margin-top:2px">Rail coverage on the list: ${railCounts}. Holdings are excluded by design — much of the energy rail (GEV, VRT, CEG, ETN, CCJ) already lives in company-health.</div>`);
+
 document.getElementById("pillarLegend").innerHTML =
   PILLARS.map(([k,l,c]) => `<span><i style="background:var(${c})"></i>${l}</span>`).join("");
 

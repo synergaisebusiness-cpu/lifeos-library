@@ -50,7 +50,7 @@ A name leaves the list (→ bench, with reason) when any of:
 
 Runs daily. Each run:
 1. **Re-score on earnings** — any watchlist or bench name whose `next_earnings` was yesterday/today gets the full company-health re-assessment treatment (fresh data blocks, re-derived judgments, engine run). Bench names that now clear the bar are promoted.
-2. **Discovery scan** — look for NEW candidates fitting the thesis (earnings season standouts, names recurring in exponential-thesis coverage). Evaluate at most **2** new names per run, fully (all data blocks + thesis fit), into `companies` or `bench`. No candidates found = write nothing.
+2. **Discovery scan** — look for NEW candidates fitting the thesis (earnings season standouts, names recurring in exponential-thesis coverage). **The scan must rotate across all four rails — compute, energy, biology, manufacturing — never letting the news cycle collapse discovery into compute alone**; on each run, start from whichever rail is least represented on the list. Evaluate at most **2** new names per run, fully (all data blocks + thesis fit), into `companies` or `bench`. No candidates found = write nothing. Rail balance is a *search* discipline, not a scoring one: the bar never bends to fill a rail.
 3. **Date hygiene** — firm up approximate `next_earnings` strings within ~3 weeks (max 5 lookups/run).
 4. **Telegram only on changes** — new entrant, promotion, exit, score move ≥5, or band cross. A silent day is a correct day.
 
