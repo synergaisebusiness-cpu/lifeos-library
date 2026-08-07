@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Exponential Watchlist</title>
+<style>
+  :root {
+    color-scheme: light;
+    --surface-1: #fcfcfb; --surface-2: #f0efec; --border: #e2e1dc;
+    --text-primary: #0b0b0b; --text-secondary: #52514e; --text-muted: #8a897f;
+    --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --s4: #eda100; --s5: #e87ba4; --s6: #008300;
+    --elite: #008300; --strong: #2a78d6; --solid: #eda100; --watch: #eb6834; --weak: #e34948;
+    --chip-bg: #f0efec;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --surface-1: #1a1a19; --surface-2: #262624; --border: #383835;
+      --text-primary: #ffffff; --text-secondary: #c3c2b7; --text-muted: #8a897f;
+      --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500; --s5: #d55181; --s6: #008300;
+      --elite: #35a835; --strong: #3987e5; --solid: #c98500; --watch: #d95926; --weak: #e66767;
+      --chip-bg: #262624;
+    }
+  }
+  * { box-sizing: border-box; margin: 0; }
+  body { background: var(--surface-1); color: var(--text-primary);
+    font: 15px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    max-width: 980px; margin: 0 auto; padding: 28px 20px 60px; }
+  header h1 { font-size: 24px; letter-spacing: -0.01em; }
+  header .sub { color: var(--text-secondary); margin-top: 4px; font-size: 13.5px; }
+  .statrow { display: flex; gap: 12px; flex-wrap: wrap; margin: 20px 0 6px; }
+  .stat { background: var(--surface-2); border-radius: 10px; padding: 10px 16px; min-width: 108px; }
+  .stat .v { font-size: 22px; font-weight: 650; letter-spacing: -0.01em; }
+  .stat .l { font-size: 12px; color: var(--text-secondary); }
+  h2 { font-size: 16px; margin: 30px 0 4px; }
+  .h2sub { color: var(--text-secondary); font-size: 13px; margin-bottom: 12px; }
+  .legend { display: flex; gap: 14px; flex-wrap: wrap; font-size: 12px; color: var(--text-secondary); margin: 4px 0 14px; }
+  .legend span { display: inline-flex; align-items: center; gap: 5px; }
+  .legend i { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
+  details.co { border: 1px solid var(--border); border-radius: 12px; margin-bottom: 10px; background: var(--surface-1); overflow: hidden; }
+  details.co summary { list-style: none; cursor: pointer; padding: 13px 16px; display: grid;
+    grid-template-columns: 64px 1fr 220px 58px; gap: 14px; align-items: center; }
+  details.co summary::-webkit-details-marker { display: none; }
+  details.co summary:hover { background: var(--surface-2); }
+  .tick { font-weight: 700; font-size: 16px; }
+  .co-name { font-size: 13px; color: var(--text-secondary); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .co-sector { font-size: 11.5px; color: var(--text-muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .scorebar { height: 14px; display: flex; gap: 2px; border-radius: 4px; overflow: hidden; background: var(--surface-2); }
+  .scorebar i { display: block; height: 100%; }
+  .scorenum { text-align: right; }
+  .scorenum .n { font-size: 18px; font-weight: 700; }
+  .band { font-size: 10.5px; font-weight: 650; text-transform: uppercase; letter-spacing: 0.04em; }
+  .body { padding: 4px 16px 16px; border-top: 1px solid var(--border); }
+  .chips { display: flex; gap: 6px; flex-wrap: wrap; margin: 10px 0; }
+  .chip { background: var(--chip-bg); border-radius: 999px; padding: 2px 10px; font-size: 12px; color: var(--text-secondary); }
+  .chip.fit-high { color: var(--elite); font-weight: 650; }
+  .chip.fit-medium { color: var(--solid); font-weight: 650; }
+  .chip.fit-low { color: var(--text-muted); font-weight: 650; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 22px; margin: 10px 0; font-size: 13px; }
+  .grid2 .k { color: var(--text-muted); font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.03em; }
+  .note { font-size: 13px; color: var(--text-secondary); margin: 8px 0; }
+  .note b { color: var(--text-primary); font-weight: 600; }
+  ul.risks { margin: 6px 0 0 18px; font-size: 13px; color: var(--text-secondary); }
+  table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  th { text-align: left; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.04em;
+    color: var(--text-muted); font-weight: 600; padding: 6px 10px; border-bottom: 1px solid var(--border); }
+  td { padding: 8px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  td.num { font-weight: 650; }
+  .muted { color: var(--text-muted); }
+  footer { margin-top: 36px; font-size: 12.5px; color: var(--text-muted); border-top: 1px solid var(--border); padding-top: 14px; }
+  #tip { position: fixed; pointer-events: none; background: var(--text-primary); color: var(--surface-1);
+    padding: 4px 9px; border-radius: 6px; font-size: 12px; opacity: 0; transition: opacity 0.08s; z-index: 10; white-space: nowrap; }
+  @media (max-width: 640px) { details.co summary { grid-template-columns: 56px 1fr 58px; } .scorebar-wrap { display: none; } .grid2 { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div id="tip"></div>
+<header>
+  <h1>Exponential Watchlist</h1>
+  <div class="sub" id="subtitle"></div>
+</header>
+<div class="statrow" id="stats"></div>
+<h2>The list</h2>
+<div class="h2sub">Cleared the bar: fundamentals ≥ 70 (Strong) on the company-health rubric AND high exponential-thesis fit. Click a row for detail.</div>
+<div class="legend" id="pillarLegend"></div>
+<div id="list"></div>
+<h2>Bench</h2>
+<div class="h2sub">Evaluated, below the bar — tracked so a promotion is one re-score away.</div>
+<table id="benchTable"><thead><tr><th>Ticker</th><th>Company</th><th>Score</th><th>Thesis fit</th><th>Why benched</th></tr></thead><tbody></tbody></table>
+<footer id="foot"></footer>
+<script>
+const REG = __DATA__;
+const PILLARS = [
+  ["growth","Growth","--s1"], ["profitability","Profitability","--s2"], ["cash","Cash","--s3"],
+  ["balance_sheet","Balance sheet","--s4"], ["moat","Moat","--s5"], ["execution","Execution","--s6"]
+];
+const bandColor = b => ({Elite:"--elite",Strong:"--strong",Solid:"--solid",Watch:"--watch",Weak:"--weak"}[b] || "--text-muted");
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const v = name => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+
+document.getElementById("subtitle").textContent =
+  `Companies fitting the exponential thesis that are not holdings — fundamentals scored on the company-health rubric v1.1. As of ${REG.as_of}. Informational only; never a recommendation.`;
+
+const cos = REG.companies, bench = REG.bench || [];
+const avg = Math.round(cos.reduce((a,c)=>a+c.score.total,0)/cos.length);
+document.getElementById("stats").innerHTML = [
+  [cos.length, "on the list"], [REG.cap - cos.length, "open slots"], [avg, "avg score"], [bench.length, "on the bench"]
+].map(([n,l]) => `<div class="stat"><div class="v">${n}</div><div class="l">${l}</div></div>`).join("");
+
+document.getElementById("pillarLegend").innerHTML =
+  PILLARS.map(([k,l,c]) => `<span><i style="background:var(${c})"></i>${l}</span>`).join("");
+
+function scorebar(c) {
+  return `<div class="scorebar" role="img" aria-label="score ${c.score.total} of 100">` + PILLARS.map(([k,l,cc]) => {
+    const s = c.score.subscores[k];
+    return `<i style="width:${s.points}%;background:var(${cc})" data-tip="${l}: ${s.points}/${s.max}"></i>`;
+  }).join("") + `</div>`;
+}
+
+document.getElementById("list").innerHTML = cos.map(c => {
+  const mc = c.market_context || {};
+  const rank = k => mc[k] && mc[k].rank ? mc[k].rank : "—";
+  const val = (k, suf) => mc[k] && mc[k].value != null ? mc[k].value + suf : "n/a";
+  return `<details class="co">
+  <summary>
+    <div><div class="tick">${esc(c.ticker)}</div></div>
+    <div><div class="co-name">${esc(c.name)}</div><div class="co-sector">${esc(c.sector)}</div></div>
+    <div class="scorebar-wrap">${scorebar(c)}</div>
+    <div class="scorenum"><div class="n">${c.score.total}</div><div class="band" style="color:var(${bandColor(c.score.band)})">${c.score.band}</div></div>
+  </summary>
+  <div class="body">
+    <div class="chips">
+      <span class="chip fit-high">thesis fit: high</span>
+      ${(c.thesis_fit.themes||[]).map(t=>`<span class="chip">${esc(t)}</span>`).join("")}
+      <span class="chip">last report: ${esc(c.last_report.fiscal_quarter)}</span>
+      <span class="chip">next earnings: ${esc(c.next_earnings)}</span>
+      <span class="chip">confidence: ${esc(c.data_confidence)}</span>
+    </div>
+    <div class="grid2">
+      <div><div class="k">Revenue growth (latest Q YoY)</div>${val("rev_growth","%")} · ${rank("rev_growth")} of market</div>
+      <div><div class="k">Operating margin</div>${val("op_margin","%")} · ${rank("op_margin")}</div>
+      <div><div class="k">Gross margin</div>${val("gross_margin","%")} · ${rank("gross_margin")}</div>
+      <div><div class="k">FCF margin (TTM)</div>${val("fcf_margin","%")} · ${rank("fcf_margin")}</div>
+    </div>
+    <div class="note"><b>Why it fits the thesis.</b> ${esc(c.thesis_fit.note)}</div>
+    <div class="note"><b>Moat (${c.moat.rating_1to5}/5).</b> ${esc(c.moat.note)}</div>
+    <div class="note"><b>Margins.</b> ${esc(c.margins.trend_note)}</div>
+    <div class="note"><b>Guidance.</b> ${esc(c.guidance_note)}</div>
+    <div class="note"><b>Execution.</b> ${esc(c.execution_note)}</div>
+    <div class="note"><b>Risks:</b></div>
+    <ul class="risks">${(c.risks||[]).map(r=>`<li>${esc(r)}</li>`).join("")}</ul>
+  </div>
+</details>`;
+}).join("");
+
+document.querySelector("#benchTable tbody").innerHTML = bench.map(c => `<tr>
+  <td class="num">${esc(c.ticker)}</td>
+  <td>${esc(c.name)}<div class="co-sector">${esc(c.sector)}</div></td>
+  <td class="num">${c.score.total} <span class="band" style="color:var(${bandColor(c.score.band)})">${c.score.band}</span></td>
+  <td><span class="chip fit-${esc(c.thesis_fit.rating)}">${esc(c.thesis_fit.rating)}</span></td>
+  <td class="muted">${esc(c.bench_reason || "")}</td>
+</tr>`).join("");
+
+document.getElementById("foot").innerHTML =
+  `Methodology v${esc(REG.methodology_version)} — identical fundamentals rubric to company-health (growth 25 · profitability 20 · cash 20 · balance sheet 15 · moat 15 · execution 5); thesis fit rated separately (curve exposure · core-not-adjacent · moat on the curve), never blended into the score. Cap ${REG.cap}, holdings excluded. Public reported data only. This is a research radar, not advice — scores never map to buy/sell actions.`;
+
+// hover tooltip for pillar segments
+const tip = document.getElementById("tip");
+document.addEventListener("mousemove", e => {
+  const t = e.target.closest("[data-tip]");
+  if (t) { tip.textContent = t.dataset.tip; tip.style.opacity = 1;
+    tip.style.left = Math.min(e.clientX + 12, innerWidth - 160) + "px"; tip.style.top = (e.clientY + 14) + "px"; }
+  else tip.style.opacity = 0;
+});
+</script>
+</body>
+</html>

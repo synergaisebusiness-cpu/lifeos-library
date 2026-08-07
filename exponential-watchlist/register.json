@@ -1,0 +1,3209 @@
+{
+ "as_of": "2026-08-07",
+ "methodology_version": "1.0",
+ "scale": "Fundamentals score /100 (company-health rubric v1.1) + thesis-fit rating high/medium/low. Bar: score>=70 AND fit high. Cap 20. Bands: Elite 85+ / Strong 70+ / Solid 55+ / Watch 40+ / Weak.",
+ "note": "Figure-free public data only \u2014 shared library. Informational, never buy/sell. Companies here are NOT holdings (holdings live in company-health).",
+ "cap": 20,
+ "companies": [
+  {
+   "ticker": "TER",
+   "name": "Teradyne, Inc.",
+   "sector": "Technology - Semiconductor Test Equipment & Robotics",
+   "currency": "USD",
+   "last_report": {
+    "fiscal_quarter": "Q2 2026",
+    "report_date": "2026-07-28"
+   },
+   "next_earnings": "late October 2026",
+   "revenue": {
+    "ttm_b": 4.46,
+    "latest_q_b": 1.329,
+    "latest_q_yoy_pct": 103.9,
+    "prior_q_yoy_pct": 87.0
+   },
+   "margins": {
+    "gross_pct": 59.8,
+    "operating_pct": 32.9,
+    "fcf_margin_pct": 17.9,
+    "trend_note": "GAAP operating margin exploded to 32.9% from 13.9% a year ago as AI/HBM-driven semiconductor test demand roughly doubled revenue on a largely fixed cost base."
+   },
+   "fcf": {
+    "ttm_b": 0.8,
+    "yoy_pct": null,
+    "note": "TTM FCF ~$800M (H1 2026 alone was ~$579M vs ~$229M in H1 2025), inflecting sharply upward with the revenue surge."
+   },
+   "balance_sheet": {
+    "cash_b": 0.52,
+    "total_debt_b": 0.1,
+    "net_position_b": 0.42,
+    "note": "Cash plus marketable securities of ~$517M against essentially no borrowings (only ~$100M of lease liabilities); clean net-cash balance sheet."
+   },
+   "segments": [
+    {
+     "name": "Semiconductor Test",
+     "latest_q_yoy_pct": null,
+     "note": "$1,122M in Q2 2026, the overwhelming growth driver on AI compute and HBM/memory test demand (segment YoY not separately verified)."
+    },
+    {
+     "name": "Product Test",
+     "latest_q_yoy_pct": null,
+     "note": "$107M in Q2 2026."
+    },
+    {
+     "name": "Robotics",
+     "latest_q_yoy_pct": null,
+     "note": "$100M in Q2 2026; still a small, slower-growing piece (Universal Robots/MiR)."
+    }
+   ],
+   "guidance_note": "Q3 2026 guided to $1.20-1.30B revenue and GAAP EPS $1.79-2.09, roughly flat sequentially but up ~60%+ YoY at midpoint.",
+   "execution_note": "Multiple consecutive record quarters with results at/above guidance (Q2 revenue $1.329B, GAAP EPS $2.38 vs $0.49 a year ago); strong beat pattern through the AI upcycle.",
+   "moat": {
+    "rating_1to5": 4,
+    "note": "Effective duopoly with Advantest in semiconductor ATE with deep design-in switching costs at leading-edge compute/memory customers; cyclical but structurally entrenched."
+   },
+   "risks": [
+    "Extreme cyclicality - revenue doubled YoY and can reverse hard if AI capex digests",
+    "Customer concentration in a handful of leading-edge compute/HBM customers",
+    "Robotics segment remains subscale and weak",
+    "China/export-control exposure"
+   ],
+   "data_confidence": "high",
+   "sources": [
+    "https://www.businesswire.com/news/home/20260728522201/en/Teradyne-Reports-Second-Quarter-2026-Results",
+    "https://stockanalysis.com/stocks/ter/financials/?p=quarterly",
+    "https://stockanalysis.com/stocks/ter/financials/cash-flow-statement/?p=quarterly"
+   ],
+   "thesis_fit": {
+    "rating": "high",
+    "themes": [
+     "compute",
+     "manufacturing"
+    ],
+    "note": "Teradyne is a direct toll-taker on the AI compute exponential: every leading-edge accelerator and HBM stack must be tested, and rising device complexity increases test intensity per chip. The exponential is the core business (semi test is ~84% of revenue), and the ATE duopoly with Advantest means the curve accrues to Teradyne rather than commoditizing - evidenced by 104% revenue growth and operating margin more than doubling. Main caveat is cyclicality: it rides the curve with high beta in both directions."
+   },
+   "score": {
+    "judgment": {
+     "op_trend": "expanding",
+     "fcf_trend": "surging",
+     "exec_class": "beat",
+     "bs_class": "net_cash",
+     "nongaap_floor": false
+    },
+    "total": 88,
+    "band": "Elite",
+    "subscores": {
+     "growth": {
+      "points": 23,
+      "max": 25,
+      "detail": {
+       "pace": 15,
+       "acceleration": 5,
+       "breadth": 3
+      }
+     },
+     "profitability": {
+      "points": 18,
+      "max": 20,
+      "detail": {
+       "level": 8,
+       "trend": 10
+      }
+     },
+     "cash": {
+      "points": 16,
+      "max": 20,
+      "detail": {
+       "fcf_margin": 6,
+       "trajectory": 10
+      }
+     },
+     "balance_sheet": {
+      "points": 15,
+      "max": 15,
+      "detail": {
+       "class": "net_cash"
+      }
+     },
+     "moat": {
+      "points": 12,
+      "max": 15,
+      "detail": {
+       "rating": 4
+      }
+     },
+     "execution": {
+      "points": 4,
+      "max": 5,
+      "detail": {
+       "class": "beat"
+      }
+     }
+    },
+    "history": [
+     {
+      "date": "2026-08-07",
+      "total": 88,
+      "event": "baseline"
+     }
+    ]
+   },
+   "market_context": {
+    "rev_growth": {
+     "value": 103.9,
+     "rank": "top 10%",
+     "vs_sp500_aggregate": 89.8
+    },
+    "op_margin": {
+     "value": 32.9,
+     "rank": "top 10%"
+    },
+    "gross_margin": {
+     "value": 59.8,
+     "rank": "top 25%"
+    },
+    "fcf_margin": {
+     "value": 17.9,
+     "rank": "top 25%"
+    }
+   }
+  },
+  {
+   "ticker": "TSM",
+   "name": "Taiwan Semiconductor Manufacturing Company",
+   "sector": "Semiconductors (foundry)",
+   "currency": "USD",
+   "last_report": {
+    "fiscal_quarter": "Q2 2026",
+    "report_date": "2026-07-16"
+   },
+   "next_earnings": "mid-October 2026",
+   "revenue": {
+    "ttm_b": 142.9,
+    "latest_q_b": 40.2,
+    "latest_q_yoy_pct": 33.7,
+    "prior_q_yoy_pct": 40.6
+   },
+   "margins": {
+    "gross_pct": 67.7,
+    "operating_pct": 60.3,
+    "fcf_margin_pct": 25.8,
+    "trend_note": "Gross margin rose to a record 67.7% from ~58.6% and operating margin to 60.3% from 49.6% a year ago on AI-driven leading-node pricing/mix, with Q3 guided slightly lower (GM 65-67%) as the 2nm ramp and overseas fabs dilute."
+   },
+   "fcf": {
+    "ttm_b": 36.8,
+    "yoy_pct": null,
+    "note": "TTM FCF of ~NT$1,143.6B (~US$36.8B converted at ~31.6 TWD/USD) despite record capex (~US$15.7B in Q2 alone); H1 2026 FCF up roughly 29% YoY in TWD terms."
+   },
+   "balance_sheet": {
+    "cash_b": 111.3,
+    "total_debt_b": 27.3,
+    "net_position_b": 84.0,
+    "note": "Cash and marketable securities of NT$3,518B (~US$111B) against NT$864B (~US$27B) of interest-bearing debt (converted at ~31.6 TWD/USD), a very large net-cash position."
+   },
+   "segments": [
+    {
+     "name": "High Performance Computing",
+     "latest_q_yoy_pct": null,
+     "note": "66% of revenue, +20% QoQ; AI/HPC is now two-thirds of the business"
+    },
+    {
+     "name": "Smartphone",
+     "latest_q_yoy_pct": null,
+     "note": "22% of revenue, -4% QoQ; seasonally soft"
+    },
+    {
+     "name": "IoT / Automotive / DCE & Other",
+     "latest_q_yoy_pct": null,
+     "note": "Combined ~12% of revenue; automotive +15% QoQ"
+    }
+   ],
+   "guidance_note": "Q3 2026 guided to $44.6-45.8B revenue (+~12% QoQ) with 65-67% gross margin, and full-year 2026 USD revenue growth raised to 'slightly above 40%'.",
+   "execution_note": "Multiple consecutive quarters of beats (USD revenue growth of 25-41% YoY each of the last four quarters) with the full-year outlook raised again in July, a clear beat-and-raise pattern.",
+   "moat": {
+    "rating_1to5": 5,
+    "note": "Effective monopoly in leading-edge logic manufacturing (~90%+ of sub-5nm output) with 2nm ramping, ecosystem lock-in via design flows/packaging (CoWoS), and customers (Apple, NVIDIA, AMD) with no comparable alternative."
+   },
+   "risks": [
+    "Taiwan geopolitical/China concentration risk on the vast majority of leading-edge capacity",
+    "Margin dilution from overseas fab buildouts, 2nm ramp costs, and TWD appreciation",
+    "AI capex cyclicality \u2014 heavy dependence on a handful of hyperscaler/accelerator customers",
+    "Record and rising capex ('significantly higher' next three years) pressures FCF if demand disappoints"
+   ],
+   "data_confidence": "high",
+   "sources": [
+    "https://pr.tsmc.com/english/news/3326",
+    "https://pr.tsmc.com/english/news/3297",
+    "https://www.investing.com/news/company-news/tsmc-q2-2026-slides-ai-demand-drives-record-margins-hpc-surges-20-93CH-4794789",
+    "https://stockanalysis.com/stocks/tsm/financials/?p=quarterly"
+   ],
+   "thesis_fit": {
+    "rating": "high",
+    "themes": [
+     "compute",
+     "manufacturing"
+    ],
+    "note": "TSMC is the physical substrate of the compute exponential: every major AI accelerator and leading smartphone SoC is made on its leading-edge nodes, so the cost/performance curve of compute flows directly through its P&L (HPC now 66% of revenue, growing 20% QoQ). The exponential is the core business, not adjacent, and its process monopoly means the value of each node transition accrues to TSMC rather than commoditizing \u2014 visible in record 67.7% gross margins. The one structural caveat is geopolitical concentration, not thesis fit."
+   },
+   "score": {
+    "judgment": {
+     "op_trend": "expanding",
+     "fcf_trend": "growing",
+     "exec_class": "beat_raise",
+     "bs_class": "net_cash",
+     "nongaap_floor": false
+    },
+    "total": 87,
+    "band": "Elite",
+    "subscores": {
+     "growth": {
+      "points": 17,
+      "max": 25,
+      "detail": {
+       "pace": 13,
+       "acceleration": 1,
+       "breadth": 3
+      }
+     },
+     "profitability": {
+      "points": 20,
+      "max": 20,
+      "detail": {
+       "level": 10,
+       "trend": 10
+      }
+     },
+     "cash": {
+      "points": 15,
+      "max": 20,
+      "detail": {
+       "fcf_margin": 8,
+       "trajectory": 7
+      }
+     },
+     "balance_sheet": {
+      "points": 15,
+      "max": 15,
+      "detail": {
+       "class": "net_cash"
+      }
+     },
+     "moat": {
+      "points": 15,
+      "max": 15,
+      "detail": {
+       "rating": 5
+      }
+     },
+     "execution": {
+      "points": 5,
+      "max": 5,
+      "detail": {
+       "class": "beat_raise"
+      }
+     }
+    },
+    "history": [
+     {
+      "date": "2026-08-07",
+      "total": 87,
+      "event": "baseline"
+     }
+    ]
+   },
+   "market_context": {
+    "rev_growth": {
+     "value": 33.7,
+     "rank": "top 10%",
+     "vs_sp500_aggregate": 19.6
+    },
+    "op_margin": {
+     "value": 60.3,
+     "rank": "top 10%"
+    },
+    "gross_margin": {
+     "value": 67.7,
+     "rank": "top 10%"
+    },
+    "fcf_margin": {
+     "value": 25.8,
+     "rank": "top 10%"
+    }
+   }
+  },
+  {
+   "ticker": "LRCX",
+   "name": "Lam Research Corporation",
+   "sector": "Semiconductor equipment (etch/deposition)",
+   "currency": "USD",
+   "last_report": {
+    "fiscal_quarter": "Q4 FY2026 (June 2026)",
+    "report_date": "2026-07-29"
+   },
+   "next_earnings": "late October 2026",
+   "revenue": {
+    "ttm_b": 23.23,
+    "latest_q_b": 6.72,
+    "latest_q_yoy_pct": 30.0,
+    "prior_q_yoy_pct": 23.8
+   },
+   "margins": {
+    "gross_pct": 51.7,
+    "operating_pct": 37.4,
+    "fcf_margin_pct": 21.1,
+    "trend_note": "GAAP operating margin expanded to a record 37.4% from 33.7% a year ago on volume leverage and mix, with September-quarter guidance implying further expansion to ~39.5%."
+   },
+   "fcf": {
+    "ttm_b": 4.89,
+    "yoy_pct": null,
+    "note": "TTM FCF of ~$4.9B ($1.27B in the June quarter on $1.46B OCF less $189M capex); strong conversion with modest capital intensity."
+   },
+   "balance_sheet": {
+    "cash_b": 5.58,
+    "total_debt_b": 3.74,
+    "net_position_b": 1.85,
+    "note": "Cash of $5.58B against $3.74B total debt gives ~$1.8B net cash alongside consistent buybacks and dividends."
+   },
+   "segments": [
+    {
+     "name": "Systems",
+     "latest_q_yoy_pct": null,
+     "note": "$4.25B; record shipments driven by AI-related NAND/DRAM (HBM) and foundry/logic etch-deposition demand"
+    },
+    {
+     "name": "Customer Support (CSBG) & other",
+     "latest_q_yoy_pct": null,
+     "note": "$2.47B; installed-base services and upgrades provide recurring ballast"
+    }
+   ],
+   "guidance_note": "Guided September 2026 quarter revenue to a step-change $8.1B \u00b1$0.4B (~+52% YoY) with 52% gross margin and 39.5% operating margin, calling 2027 an 'extraordinary' year on AI-driven memory demand.",
+   "execution_note": "Record revenue and EPS with YoY growth accelerating four quarters running (22% to 30%) capped by a dramatic guidance raise \u2014 a clear beat-and-raise pattern.",
+   "moat": {
+    "rating_1to5": 4,
+    "note": "Leader in etch and deposition, the most critical steps for 3D NAND, HBM/advanced DRAM, and gate-all-around, with high switching costs from process-of-record wins and a large installed base \u2014 but it operates in a contested oligopoly with Tokyo Electron and Applied rather than a monopoly."
+   },
+   "risks": [
+    "Memory capex is the most violently cyclical segment of WFE \u2014 the current NAND/HBM boom can reverse sharply",
+    "China ~26% of revenue amid tightening US export controls",
+    "Customer concentration among a few memory makers (Samsung, SK Hynix, Micron, Kioxia)"
+   ],
+   "data_confidence": "high",
+   "sources": [
+    "https://newsroom.lamresearch.com/2026-07-29-Lam-Research-Corporation-Reports-Financial-Results-for-the-Quarter-Ended-June-28,-2026",
+    "https://stockanalysis.com/stocks/lrcx/financials/?p=quarterly",
+    "https://www.investing.com/news/company-news/lam-research-q4-fy2026-slides-record-results-ai-boom-drives-outlook-93CH-4821993"
+   ],
+   "thesis_fit": {
+    "rating": "high",
+    "themes": [
+     "compute",
+     "manufacturing"
+    ],
+    "note": "Lam's revenue is directly geared to the steepest part of the compute exponential right now \u2014 HBM and 3D NAND scaling for AI, where etch and deposition intensity per wafer keeps rising. The exponential is the core business and Lam's process-of-record positions in critical steps let it capture the curve (record 37%+ operating margins, +30% growth, ~+52% guided). It earns 'high' on all three tests, with the caveat that memory-cycle amplitude makes the ride far more volatile than TSMC or KLA."
+   },
+   "score": {
+    "judgment": {
+     "op_trend": "expanding",
+     "fcf_trend": "growing",
+     "exec_class": "beat_raise",
+     "bs_class": "net_cash",
+     "nongaap_floor": false
+    },
+    "total": 86,
+    "band": "Elite",
+    "subscores": {
+     "growth": {
+      "points": 21,
+      "max": 25,
+      "detail": {
+       "pace": 13,
+       "acceleration": 5,
+       "breadth": 3
+      }
+     },
+     "profitability": {
+      "points": 18,
+      "max": 20,
+      "detail": {
+       "level": 8,
+       "trend": 10
+      }
+     },
+     "cash": {
+      "points": 15,
+      "max": 20,
+      "detail": {
+       "fcf_margin": 8,
+       "trajectory": 7
+      }
+     },
+     "balance_sheet": {
+      "points": 15,
+      "max": 15,
+      "detail": {
+       "class": "net_cash"
+      }
+     },
+     "moat": {
+      "points": 12,
+      "max": 15,
+      "detail": {
+       "rating": 4
+      }
+     },
+     "execution": {
+      "points": 5,
+      "max": 5,
+      "detail": {
+       "class": "beat_raise"
+      }
+     }
+    },
+    "history": [
+     {
+      "date": "2026-08-07",
+      "total": 86,
+      "event": "baseline"
+     }
+    ]
+   },
+   "market_context": {
+    "rev_growth": {
+     "value": 30.0,
+     "rank": "top 10%",
+     "vs_sp500_aggregate": 15.9
+    },
+    "op_margin": {
+     "value": 37.4,
+     "rank": "top 10%"
+    },
+    "gross_margin": {
+     "value": 51.7,
+     "rank": "top 25%"
+    },
+    "fcf_margin": {
+     "value": 21.1,
+     "rank": "top 25%"
+    }
+   }
+  },
+  {
+   "ticker": "APP",
+   "name": "AppLovin Corporation",
+   "sector": "Technology - AI Advertising Platform",
+   "currency": "USD",
+   "last_report": {
+    "fiscal_quarter": "Q2 2026",
+    "report_date": "2026-08-05"
+   },
+   "next_earnings": "early November 2026",
+   "revenue": {
+    "ttm_b": 6.83,
+    "latest_q_b": 1.92,
+    "latest_q_yoy_pct": 52.8,
+    "prior_q_yoy_pct": 59.0
+   },
+   "margins": {
+    "gross_pct": 88.3,
+    "operating_pct": 77.7,
+    "fcf_margin_pct": 66.2,
+    "trend_note": "GAAP operating margin expanded to ~78% from ~76% a year ago as the pure-advertising model (post games divestiture) scales with near-zero incremental cost."
+   },
+   "fcf": {
+    "ttm_b": 4.52,
+    "yoy_pct": null,
+    "note": "Q2 2026 FCF was $863M vs ~$770M a year ago; the asset-light model converts roughly two-thirds of revenue to free cash flow with negligible capex."
+   },
+   "balance_sheet": {
+    "cash_b": 3.05,
+    "total_debt_b": 3.52,
+    "net_position_b": -0.46,
+    "note": "Small net debt position ($0.5B) against ~$4.5B annual FCF, with buybacks the main use of cash."
+   },
+   "segments": [
+    {
+     "name": "Advertising (Axon platform)",
+     "latest_q_yoy_pct": 52.8,
+     "note": "Now effectively a single advertising segment after the mobile games divestiture; growth driven by the Axon AI engine and expansion beyond gaming into e-commerce/web advertisers."
+    }
+   ],
+   "guidance_note": "Guided Q3 2026 revenue to $2,055-2,085M with adjusted EBITDA of $1,710-1,740M (~83% margin), implying continued ~45%+ YoY growth.",
+   "execution_note": "Has consistently delivered revenue at or above the high end of guidance for multiple consecutive quarters with sequential margin expansion.",
+   "moat": {
+    "rating_1to5": 4,
+    "note": "Dominant MAX mediation position and the Axon recommendation engine create data-scale network effects and real switching costs in mobile UA, though Meta, Google, Unity and Moloco contest the broader performance-ad market."
+   },
+   "risks": [
+    "Platform/privacy policy changes by Apple and Google could impair targeting data",
+    "Competition from Meta/Google/Moloco in performance advertising and unproven durability of e-commerce expansion",
+    "Concentration in mobile gaming advertisers plus recurring short-seller/data-usage scrutiny",
+    "High expectations embedded in valuation leave little room for growth deceleration"
+   ],
+   "data_confidence": "high",
+   "sources": [
+    "https://s21.q4cdn.com/165405286/files/doc_financials/2026/q2/AppLovin-2Q26-Earnings-Press-Release.pdf",
+    "https://investors.applovin.com/news/news-details/2026/AppLovin-Announces-Second-Quarter-2026-Financial-Results/default.aspx",
+    "https://stockanalysis.com/stocks/APP/financials/?p=quarterly",
+    "https://stockanalysis.com/stocks/APP/financials/cash-flow-statement/?p=quarterly"
+   ],
+   "thesis_fit": {
+    "rating": "high",
+    "themes": [
+     "compute"
+    ],
+    "note": "AppLovin is one of the cleanest public expressions of the AI/compute curve as the core business: revenue is generated directly by machine-learning ad models (Axon) whose performance improves with more compute and data, the exponential is the product rather than an adjacency, and 50%+ growth at ~78% GAAP operating margins is evidence the curve is currently accruing to the company rather than commoditizing. The main caveat to durability is that it competes with the largest AI companies on earth (Meta, Google), so the moat leg is the weakest of the three."
+   },
+   "score": {
+    "judgment": {
+     "op_trend": "expanding",
+     "fcf_trend": "growing",
+     "exec_class": "beat_raise",
+     "bs_class": "neutral",
+     "nongaap_floor": false
+    },
+    "total": 85,
+    "band": "Elite",
+    "subscores": {
+     "growth": {
+      "points": 19,
+      "max": 25,
+      "detail": {
+       "pace": 15,
+       "acceleration": 1,
+       "breadth": 3
+      }
+     },
+     "profitability": {
+      "points": 20,
+      "max": 20,
+      "detail": {
+       "level": 10,
+       "trend": 10
+      }
+     },
+     "cash": {
+      "points": 17,
+      "max": 20,
+      "detail": {
+       "fcf_margin": 10,
+       "trajectory": 7
+      }
+     },
+     "balance_sheet": {
+      "points": 12,
+      "max": 15,
+      "detail": {
+       "class": "neutral"
+      }
+     },
+     "moat": {
+      "points": 12,
+      "max": 15,
+      "detail": {
+       "rating": 4
+      }
+     },
+     "execution": {
+      "points": 5,
+      "max": 5,
+      "detail": {
+       "class": "beat_raise"
+      }
+     }
+    },
+    "history": [
+     {
+      "date": "2026-08-07",
+      "total": 85,
+      "event": "baseline"
+     }
+    ]
+   },
+   "market_context": {
+    "rev_growth": {
+     "value": 52.8,
+     "rank": "top 10%",
+     "vs_sp500_aggregate": 38.7
+    },
+    "op_margin": {
+     "value": 77.7,
+     "rank": "top 10%"
+    },
+    "gross_margin": {
+     "value": 88.3,
+     "rank": "top 10%"
+    },
+    "fcf_margin": {
+     "value": 66.2,
+     "rank": "top 10%"
+    }
+   }
+  },
+  {
+   "ticker": "KLAC",
+   "name": "KLA Corporation",
+   "sector": "Semiconductor equipment (process control/metrology)",
+   "currency": "USD",
+   "last_report": {
+    "fiscal_quarter": "Q4 FY2026 (June 2026)",
+    "report_date": "2026-07-28"
+   },
+   "next_earnings": "late October 2026",
+   "revenue": {
+    "ttm_b": 13.58,
+    "latest_q_b": 3.66,
+    "latest_q_yoy_pct": 15.2,
+    "prior_q_yoy_pct": 11.5
+   },
+   "margins": {
+    "gross_pct": 61.4,
+    "operating_pct": 42.5,
+    "fcf_margin_pct": 27.7,
+    "trend_note": "GAAP operating margin of 42.5% is essentially flat vs 42.6% a year ago \u2014 margins are stable at industry-leading levels, with September-quarter gross margin guided to 61.6% GAAP despite a slightly dilutive product mix."
+   },
+   "fcf": {
+    "ttm_b": 3.77,
+    "yoy_pct": null,
+    "note": "FY2026 free cash flow of $3.77B on $4.14B operating cash flow; Q4 FCF of $817M was below the year-ago $1,065M on timing, but annual FCF conversion remains excellent (~78% of net income)."
+   },
+   "balance_sheet": {
+    "cash_b": 4.9,
+    "total_debt_b": 5.89,
+    "net_position_b": -0.98,
+    "note": "Cash and marketable securities of $4.90B vs $5.89B total debt leaves ~$1.0B net debt, trivial against $3.8B annual FCF, while returning $876M to shareholders in the quarter."
+   },
+   "segments": [
+    {
+     "name": "Semiconductor Process Control",
+     "latest_q_yoy_pct": null,
+     "note": "$3.26B, ~89% of revenue; core inspection/metrology tied to AI leading-edge and advanced packaging"
+    },
+    {
+     "name": "PCB and Component Inspection",
+     "latest_q_yoy_pct": null,
+     "note": "$241M; benefiting from advanced packaging/substrate buildout"
+    },
+    {
+     "name": "Specialty Semiconductor Process",
+     "latest_q_yoy_pct": null,
+     "note": "$160M"
+    }
+   ],
+   "guidance_note": "Guided September quarter (Q1 FY2027) revenue to $4.0B \u00b1$0.2B (~+25% YoY, a sharp acceleration) with GAAP gross margin 61.6% \u00b11% and GAAP EPS $1.14 \u00b1$0.10.",
+   "execution_note": "Four straight record/growing quarters and an in-line-to-better Q4 followed by a strong guide-up; shares dipped on margin mix, but the pattern is beat/maintain with accelerating top line into FY2027.",
+   "moat": {
+    "rating_1to5": 5,
+    "note": "Near-monopoly in optical inspection and dominant (~55%+ overall) share of process control, several times its nearest rival, with deep switching costs from decades of installed-base data and yield-learning integration; management credibly claims KLA is 'on the critical path of AI infrastructure expansion'."
+   },
+   "risks": [
+    "WFE cyclicality \u2014 a pause in AI/leading-edge capex would hit tool orders quickly",
+    "China exposure and US export-control tightening on advanced-node customers",
+    "Margin mix pressure as advanced packaging/PCB grows faster than core process control"
+   ],
+   "data_confidence": "high",
+   "sources": [
+    "https://ir.kla.com/news-events/press-releases/detail/518/kla-corporation-reports-fiscal-2026-fourth-quarter-and-full",
+    "https://stockanalysis.com/stocks/klac/financials/?p=quarterly",
+    "https://www.investing.com/news/company-news/kla-q4-fy2026-slides-record-revenue-but-shares-fall-on-margin-mix-93CH-4818307"
+   ],
+   "thesis_fit": {
+    "rating": "high",
+    "themes": [
+     "compute",
+     "manufacturing"
+    ],
+    "note": "KLA sells the measurement and yield infrastructure that makes each semiconductor node transition economically possible \u2014 process-control intensity rises as geometries shrink and advanced packaging (HBM, CoWoS-class) proliferates, so the compute exponential is the direct revenue driver, not an adjacency. Its quasi-monopoly in inspection means the curve accrues to KLA (61% gross / 42% operating margins, stable across cycles). Slightly more cyclical than TSMC but all three thesis tests are met."
+   },
+   "score": {
+    "judgment": {
+     "op_trend": "flat",
+     "fcf_trend": "growing",
+     "exec_class": "beat",
+     "bs_class": "neutral",
+     "nongaap_floor": false
+    },
+    "total": 80,
+    "band": "Strong",
+    "subscores": {
+     "growth": {
+      "points": 18,
+      "max": 25,
+      "detail": {
+       "pace": 10,
+       "acceleration": 5,
+       "breadth": 3
+      }
+     },
+     "profitability": {
+      "points": 16,
+      "max": 20,
+      "detail": {
+       "level": 10,
+       "trend": 6
+      }
+     },
+     "cash": {
+      "points": 15,
+      "max": 20,
+      "detail": {
+       "fcf_margin": 8,
+       "trajectory": 7
+      }
+     },
+     "balance_sheet": {
+      "points": 12,
+      "max": 15,
+      "detail": {
+       "class": "neutral"
+      }
+     },
+     "moat": {
+      "points": 15,
+      "max": 15,
+      "detail": {
+       "rating": 5
+      }
+     },
+     "execution": {
+      "points": 4,
+      "max": 5,
+      "detail": {
+       "class": "beat"
+      }
+     }
+    },
+    "history": [
+     {
+      "date": "2026-08-07",
+      "total": 80,
+      "event": "baseline"
+     }
+    ]
+   },
+   "market_context": {
+    "rev_growth": {
+     "value": 15.2,
+     "rank": "top 25%",
+     "vs_sp500_aggregate": 1.1
+    },
+    "op_margin": {
+     "value": 42.5,
+     "rank": "top 10%"
+    },
+    "gross_margin": {
+     "value": 61.4,
+     "rank": "top 10%"
+    },
+    "fcf_margin": {
+     "value": 27.7,
+     "rank": "top 10%"
+    }
+   }
+  },
+  {
+   "ticker": "CDNS",
+   "name": "Cadence Design Systems, Inc.",
+   "sector": "Technology - EDA / Semiconductor Design Software",
+   "currency": "USD",
+   "last_report": {
+    "fiscal_quarter": "Q2 2026",
+    "report_date": "2026-07-27"
+   },
+   "next_earnings": "late October 2026",
+   "revenue": {
+    "ttm_b": 5.84,
+    "latest_q_b": 1.584,
+    "latest_q_yoy_pct": 24.2,
+    "prior_q_yoy_pct": 18.7
+   },
+   "margins": {
+    "gross_pct": 84.9,
+    "operating_pct": 28.4,
+    "fcf_margin_pct": 28.8,
+    "trend_note": "GAAP operating margin of 28.4% is up 9.4pp YoY (the year-ago quarter was depressed by one-time items) with underlying margins expanding modestly; non-GAAP op margin 45.5%, up 2.7pp YoY."
+   },
+   "fcf": {
+    "ttm_b": 1.68,
+    "yoy_pct": null,
+    "note": "Q2 operating cash flow of $635M was up ~68% YoY and FY2026 operating cash flow guidance was raised to ~$2.0B; TTM FCF ~$1.68B vs ~$1.59B for FY2025."
+   },
+   "balance_sheet": {
+    "cash_b": 1.44,
+    "total_debt_b": 2.48,
+    "net_position_b": -1.04,
+    "note": "Modest ~$1.0B net debt (well under 1x TTM FCF) after cash was drawn down from $3.0B for acquisitions/buybacks; balance sheet remains comfortable."
+   },
+   "segments": [
+    {
+     "name": "Core EDA (software + verification hardware)",
+     "latest_q_yoy_pct": null,
+     "note": "Cadence does not disclose full segment revenue in the quarterly release; record $8.1B backlog with $4.2B expected to convert to revenue within 12 months."
+    },
+    {
+     "name": "Semiconductor IP and System Design & Analysis",
+     "latest_q_yoy_pct": null,
+     "note": "Management cited record growth momentum driven by AI-driven design activity; specific quarterly YoY splits not verified."
+    }
+   ],
+   "guidance_note": "Raised FY2026 outlook to $6.26-$6.34B revenue (~19% growth), non-GAAP EPS $8.05-$8.15, GAAP op margin 27.75-28.75%, and ~$2.0B operating cash flow.",
+   "execution_note": "Beat on EPS and raised full-year guidance for a second straight quarter (revenue was essentially in line, a hair below some consensus figures), continuing a long multi-year pattern of beat-and-raise execution.",
+   "moat": {
+    "rating_1to5": 4,
+    "note": "Other half of the EDA duopoly with extreme switching costs, 85%+ gross margins, and a record $8.1B backlog evidencing lock-in; shares the market with Synopsys so falls short of single-vendor ASML-class monopoly."
+   },
+   "risks": [
+    "China revenue exposure and US export-control policy swings",
+    "Lumpy verification-hardware cycles",
+    "Premium valuation leaves little room for growth deceleration"
+   ],
+   "data_confidence": "high",
+   "sources": [
+    "https://investor.cadence.com/news/news-details/2026/Cadence-Reports-Second-Quarter-2026-Financial-Results/default.aspx",
+    "https://stockanalysis.com/stocks/cdns/financials/?p=quarterly",
+    "https://www.benzinga.com/markets/earnings/26/07/60712626/cadence-design-systems-beats-q2-estimates-raises-2026-outlook"
+   ],
+   "thesis_fit": {
+    "rating": "high",
+    "themes": [
+     "compute"
+    ],
+    "note": "Cadence is a pure toll-collector on the semiconductor/AI compute exponential: rising chip complexity, 3D-IC, and AI-driven design directly drive its software, hardware emulation, and IP revenue, so the exponential is the core business. The duopoly position, sticky multi-year contracts, and record backlog show the curve accrues to Cadence rather than commoditizing it. Cleaner GAAP financials than Synopsys currently, at the cost of a richer valuation."
+   },
+   "score": {
+    "judgment": {
+     "op_trend": "expanding",
+     "fcf_trend": "growing",
+     "exec_class": "beat_raise",
+     "bs_class": "neutral",
+     "nongaap_floor": false
+    },
+    "total": 78,
+    "band": "Strong",
+    "subscores": {
+     "growth": {
+      "points": 18,
+      "max": 25,
+      "detail": {
+       "pace": 10,
+       "acceleration": 5,
+       "breadth": 3
+      }
+     },
+     "profitability": {
+      "points": 16,
+      "max": 20,
+      "detail": {
+       "level": 6,
+       "trend": 10
+      }
+     },
+     "cash": {
+      "points": 15,
+      "max": 20,
+      "detail": {
+       "fcf_margin": 8,
+       "trajectory": 7
+      }
+     },
+     "balance_sheet": {
+      "points": 12,
+      "max": 15,
+      "detail": {
+       "class": "neutral"
+      }
+     },
+     "moat": {
+      "points": 12,
+      "max": 15,
+      "detail": {
+       "rating": 4
+      }
+     },
+     "execution": {
+      "points": 5,
+      "max": 5,
+      "detail": {
+       "class": "beat_raise"
+      }
+     }
+    },
+    "history": [
+     {
+      "date": "2026-08-07",
+      "total": 78,
+      "event": "baseline"
+     }
+    ]
+   },
+   "market_context": {
+    "rev_growth": {
+     "value": 24.2,
+     "rank": "top 10%",
+     "vs_sp500_aggregate": 10.1
+    },
+    "op_margin": {
+     "value": 28.4,
+     "rank": "top 25%"
+    },
+    "gross_margin": {
+     "value": 84.9,
+     "rank": "top 10%"
+    },
+    "fcf_margin": {
+     "value": 28.8,
+     "rank": "top 10%"
+    }
+   }
+  },
+  {
+   "ticker": "ARM",
+   "name": "Arm Holdings plc",
+   "sector": "Semiconductors (IP licensing/CPU architecture)",
+   "currency": "USD",
+   "last_report": {
+    "fiscal_quarter": "Q1 FY2027 (June 2026)",
+    "report_date": "2026-07-29"
+   },
+   "next_earnings": "early November 2026",
+   "revenue": {
+    "ttm_b": 5.16,
+    "latest_q_b": 1.29,
+    "latest_q_yoy_pct": 22.4,
+    "prior_q_yoy_pct": 20.1
+   },
+   "margins": {
+    "gross_pct": 97.2,
+    "operating_pct": 7.1,
+    "fcf_margin_pct": 27.1,
+    "trend_note": "GAAP operating margin compressed to 7.1% from 10.8% a year ago as Arm invests heavily (R&D, SBC, and the new AGI CPU silicon effort), while non-GAAP operating margin expanded ~200bps to 41%."
+   },
+   "fcf": {
+    "ttm_b": 1.4,
+    "yoy_pct": null,
+    "note": "Company-reported TTM FCF of ~$1.4B with Q1 FCF of ~$0.67-0.71B, up roughly 343% YoY in the quarter on royalty strength and licensing collections \u2014 small in dollars but inflecting sharply."
+   },
+   "balance_sheet": {
+    "cash_b": 3.89,
+    "total_debt_b": 0.46,
+    "net_position_b": 3.42,
+    "note": "$3.9B cash and short-term investments against ~$0.5B debt \u2014 a clean net-cash, asset-light balance sheet."
+   },
+   "segments": [
+    {
+     "name": "Royalty revenue",
+     "latest_q_yoy_pct": 22.0,
+     "note": "$715M; data-center royalties more than doubled YoY, Armv9 and CSS driving higher rates per chip"
+    },
+    {
+     "name": "License and other revenue",
+     "latest_q_yoy_pct": 23.0,
+     "note": "$574M; ACV +13% YoY to $1.73B, AGI CPU demand >$2B across FY27-28"
+    }
+   ],
+   "guidance_note": "Guided Q2 FY2027 revenue to $1.38B \u00b1$50M (non-GAAP EPS $0.47 \u00b1$0.04) but trimmed FY2027 royalty growth to high-teens from ~20% on double-digit smartphone weakness, with ~30% licensing growth offsetting; separately set a $25B FY2031 revenue target including a new $15B AGI CPU silicon business.",
+   "execution_note": "Q1 beat estimates on record royalty and licensing, but the FY2027 royalty-growth trim makes the recent pattern beat-on-quarter/soften-on-outlook rather than clean beat-and-raise.",
+   "moat": {
+    "rating_1to5": 4,
+    "note": "The Arm ISA's ecosystem lock-in (nearly all smartphones, fast-growing Neoverse data-center share, decades of software compatibility) creates enormous switching costs; held back from a 5 by RISC-V encroachment, customer litigation history, and the execution risk of moving into silicon in competition with its own licensees."
+   },
+   "risks": [
+    "GAAP profitability is thin (7% operating margin) while opex ramps for the AGI CPU silicon bet, which also risks channel conflict with licensees",
+    "Smartphone royalty base (still the largest segment) declining double digits per management",
+    "RISC-V as a royalty-free architectural alternative, especially in China",
+    "Reported FTC probe and concentrated ownership/related-party dynamics with SoftBank",
+    "Valuation-scale expectations embedded in the $25B FY2031 target"
+   ],
+   "data_confidence": "medium",
+   "sources": [
+    "https://newsroom.arm.com/news/arm-q1-fye27-results",
+    "https://www.investing.com/news/company-news/arm-q1-fy27-slides-ai-surge-drives-record-results-25b-revenue-target-93CH-4821969",
+    "https://stockanalysis.com/stocks/arm/financials/?p=quarterly"
+   ],
+   "thesis_fit": {
+    "rating": "high",
+    "themes": [
+     "compute"
+    ],
+    "note": "Arm is a per-unit royalty on the proliferation of compute itself \u2014 every efficiency gain on the compute cost curve expands the addressable unit base, and the mix is shifting toward the steepest part of the curve (data-center royalties doubling YoY, Neoverse past 1.5B cores, Armv9/CSS lifting royalty rates per chip). The exponential is the core business and the ISA ecosystem is a genuine moat, so it meets all three tests. Watch-items that could downgrade the fit: the smartphone base (the legacy majority of royalties) is shrinking, GAAP margins are compressing during the investment phase, and the pivot into selling its own AGI CPU silicon trades the pure toll-booth model for higher-risk, lower-margin revenue."
+   },
+   "score": {
+    "judgment": {
+     "op_trend": "compressing",
+     "fcf_trend": "surging",
+     "exec_class": "mixed",
+     "bs_class": "net_cash",
+     "nongaap_floor": false
+    },
+    "total": 71,
+    "band": "Strong",
+    "subscores": {
+     "growth": {
+      "points": 20,
+      "max": 25,
+      "detail": {
+       "pace": 10,
+       "acceleration": 5,
+       "breadth": 5
+      }
+     },
+     "profitability": {
+      "points": 4,
+      "max": 20,
+      "detail": {
+       "level": 2,
+       "trend": 2
+      }
+     },
+     "cash": {
+      "points": 18,
+      "max": 20,
+      "detail": {
+       "fcf_margin": 8,
+       "trajectory": 10
+      }
+     },
+     "balance_sheet": {
+      "points": 15,
+      "max": 15,
+      "detail": {
+       "class": "net_cash"
+      }
+     },
+     "moat": {
+      "points": 12,
+      "max": 15,
+      "detail": {
+       "rating": 4
+      }
+     },
+     "execution": {
+      "points": 2,
+      "max": 5,
+      "detail": {
+       "class": "mixed"
+      }
+     }
+    },
+    "history": [
+     {
+      "date": "2026-08-07",
+      "total": 71,
+      "event": "baseline"
+     }
+    ]
+   },
+   "market_context": {
+    "rev_growth": {
+     "value": 22.4,
+     "rank": "top 10%",
+     "vs_sp500_aggregate": 8.3
+    },
+    "op_margin": {
+     "value": 7.1,
+     "rank": "bottom 25%"
+    },
+    "gross_margin": {
+     "value": 97.2,
+     "rank": "top 10%"
+    },
+    "fcf_margin": {
+     "value": 27.1,
+     "rank": "top 10%"
+    }
+   }
+  },
+  {
+   "ticker": "SNPS",
+   "name": "Synopsys, Inc.",
+   "sector": "Technology - EDA / Semiconductor Design Software",
+   "currency": "USD",
+   "last_report": {
+    "fiscal_quarter": "Q2 FY2026 (ended 2026-04-30)",
+    "report_date": "2026-05-27"
+   },
+   "next_earnings": "2026-08-26",
+   "revenue": {
+    "ttm_b": 8.68,
+    "latest_q_b": 2.276,
+    "latest_q_yoy_pct": 41.9,
+    "prior_q_yoy_pct": 65.5
+   },
+   "margins": {
+    "gross_pct": 72.4,
+    "operating_pct": 5.3,
+    "fcf_margin_pct": 30.3,
+    "trend_note": "GAAP margins collapsed vs a year ago (op 5.3% vs 23.5%, gross 72.4% vs 80.2%) due to Ansys purchase-accounting amortization and integration costs, while non-GAAP margins are expanding on accelerating synergies."
+   },
+   "fcf": {
+    "ttm_b": 2.63,
+    "yoy_pct": null,
+    "note": "TTM FCF of ~$2.63B is sharply higher than FY2025's $1.35B, boosted by Ansys consolidation and a strong Jan-quarter; management guides ~$2.0B FCF for FY2026."
+   },
+   "balance_sheet": {
+    "cash_b": 2.41,
+    "total_debt_b": 10.04,
+    "net_position_b": -7.62,
+    "note": "Carrying ~$10B of Ansys-deal debt (down from $13.5B at Oct-2025) against $2.4B cash; deleveraging rapidly, net debt ~2.9x TTM FCF."
+   },
+   "segments": [
+    {
+     "name": "Design Automation (EDA + Ansys simulation)",
+     "latest_q_yoy_pct": 62.3,
+     "note": "$1.82B, 80% of revenue; YoY growth inflated by Ansys being folded into this segment; 43.3% segment op margin."
+    },
+    {
+     "name": "Design IP",
+     "latest_q_yoy_pct": -5.8,
+     "note": "$454M, declining YoY; the IP business is the soft spot and is being repositioned; 24.4% segment op margin."
+    }
+   ],
+   "guidance_note": "Raised FY2026 revenue midpoint to ~$9.665B (from $9.610B) and non-GAAP EPS to $14.72-$14.80, with ~$2.3B operating cash flow and ~$2.0B FCF targeted.",
+   "execution_note": "Beat expectations and raised full-year targets in both Q1 and Q2 FY2026, recovering from FY2025's China export-control disruption, though GAAP EPS is minimal during Ansys integration.",
+   "moat": {
+    "rating_1to5": 4,
+    "note": "One half of the entrenched EDA duopoly with decades-long design-flow lock-in and mission-critical tools, now broadened into simulation via Ansys; rated 4 not 5 because it shares the market with Cadence and its IP segment is demonstrably contested."
+   },
+   "risks": [
+    "Ansys integration execution and $10B debt load",
+    "China export-control and geopolitical exposure",
+    "Design IP segment shrinking and potential AI-native design disruption"
+   ],
+   "data_confidence": "high",
+   "sources": [
+    "https://news.synopsys.com/2026-05-27-Synopsys-Posts-Financial-Results-for-Second-Quarter-Fiscal-Year-2026",
+    "https://stockanalysis.com/stocks/snps/financials/?p=quarterly",
+    "https://stockanalysis.com/stocks/snps/financials/cash-flow-statement/?p=quarterly",
+    "https://news.synopsys.com/2026-07-22-Synopsys-Announces-Earnings-Release-Date-for-Third-Quarter-Fiscal-Year-2026"
+   ],
+   "thesis_fit": {
+    "rating": "high",
+    "themes": [
+     "compute"
+    ],
+    "note": "Synopsys sits directly on the compute exponential: every advanced AI chip must pass through EDA tooling, and design complexity scales with the semiconductor curve, making the exponential the core business rather than adjacent. The duopoly structure means the curve accrues to Synopsys rather than commoditizing it, and Ansys extends this into simulation-driven engineering. Integration debt and GAAP margin noise are transitional, not structural, detractors."
+   },
+   "score": {
+    "judgment": {
+     "op_trend": "compressing",
+     "fcf_trend": "surging",
+     "exec_class": "beat_raise",
+     "bs_class": "moderate",
+     "nongaap_floor": true
+    },
+    "total": 71,
+    "band": "Strong",
+    "subscores": {
+     "growth": {
+      "points": 19,
+      "max": 25,
+      "detail": {
+       "pace": 15,
+       "acceleration": 1,
+       "breadth": 3
+      }
+     },
+     "profitability": {
+      "points": 6,
+      "max": 20,
+      "detail": {
+       "level": 4,
+       "trend": 2
+      }
+     },
+     "cash": {
+      "points": 20,
+      "max": 20,
+      "detail": {
+       "fcf_margin": 10,
+       "trajectory": 10
+      }
+     },
+     "balance_sheet": {
+      "points": 9,
+      "max": 15,
+      "detail": {
+       "class": "moderate"
+      }
+     },
+     "moat": {
+      "points": 12,
+      "max": 15,
+      "detail": {
+       "rating": 4
+      }
+     },
+     "execution": {
+      "points": 5,
+      "max": 5,
+      "detail": {
+       "class": "beat_raise"
+      }
+     }
+    },
+    "history": [
+     {
+      "date": "2026-08-07",
+      "total": 71,
+      "event": "baseline"
+     }
+    ]
+   },
+   "market_context": {
+    "rev_growth": {
+     "value": 41.9,
+     "rank": "top 10%",
+     "vs_sp500_aggregate": 27.8
+    },
+    "op_margin": {
+     "value": 5.3,
+     "rank": "bottom 25%"
+    },
+    "gross_margin": {
+     "value": 72.4,
+     "rank": "top 10%"
+    },
+    "fcf_margin": {
+     "value": 30.3,
+     "rank": "top 10%"
+    }
+   }
+  }
+ ],
+ "bench": [
+  {
+   "ticker": "LLY",
+   "name": "Eli Lilly and Company",
+   "sector": "Healthcare - Pharmaceuticals",
+   "currency": "USD",
+   "last_report": {
+    "fiscal_quarter": "Q2 2026",
+    "report_date": "2026-08-05"
+   },
+   "next_earnings": "late October 2026",
+   "revenue": {
+    "ttm_b": 79.67,
+    "latest_q_b": 22.97,
+    "latest_q_yoy_pct": 47.7,
+    "prior_q_yoy_pct": 55.5
+   },
+   "margins": {
+    "gross_pct": 85.8,
+    "operating_pct": 39.1,
+    "fcf_margin_pct": 22.8,
+    "trend_note": "GAAP operating margin of ~39% is below the year-ago ~44% due to large acquired IPR&D charges (~$3.03/share impact); excluding those one-offs the underlying margin is expanding, helped by gross margin improving to 85.8% on cost of production and mix."
+   },
+   "fcf": {
+    "ttm_b": 18.19,
+    "yoy_pct": null,
+    "note": "Q2 2026 FCF of $7.8B versus $1.4B a year ago; FCF is inflecting sharply upward as incretin revenue scales faster than the ~$10B/year manufacturing capex program."
+   },
+   "balance_sheet": {
+    "cash_b": 8.95,
+    "total_debt_b": 54.91,
+    "net_position_b": -45.96,
+    "note": "Net debt of ~$46B (~2.5x TTM FCF) after ~$11.5B of new borrowing in the quarter to fund the manufacturing buildout and acquisitions."
+   },
+   "segments": [
+    {
+     "name": "Mounjaro",
+     "latest_q_yoy_pct": 91.0,
+     "note": "$9.9B in Q2, the growth engine, boosted by international launches"
+    },
+    {
+     "name": "Zepbound",
+     "latest_q_yoy_pct": 46.0,
+     "note": "$4.9B in Q2 amid US obesity share gains vs Wegovy"
+    },
+    {
+     "name": "Ebglyss",
+     "latest_q_yoy_pct": 131.0,
+     "note": "$201M, fast-ramping new launch"
+    },
+    {
+     "name": "Jaypirca",
+     "latest_q_yoy_pct": 56.0,
+     "note": "$192M in oncology"
+    }
+   ],
+   "guidance_note": "Raised FY2026 revenue guidance to $85.0-87.0B (from $82-85B) and non-GAAP EPS to $35.50-36.50.",
+   "execution_note": "Multi-quarter pattern of revenue beats with repeated full-year guidance raises, most recently beating Q2 and raising both revenue and EPS.",
+   "moat": {
+    "rating_1to5": 4,
+    "note": "Patent-protected incretin franchise (tirzepatide, orforglipron pipeline) plus massive purpose-built peptide manufacturing capacity that few can replicate this decade; effectively a duopoly with Novo but exposed to eventual patent cliffs and pricing policy."
+   },
+   "risks": [
+    "US drug pricing policy (IRA negotiation, most-favored-nation proposals, tariffs) compressing net prices",
+    "Competitive intensity in obesity from Novo, Amgen and future oral/generic entrants",
+    "Execution risk on the enormous manufacturing capex program and supply commitments",
+    "Pipeline concentration: valuation depends heavily on continued incretin franchise dominance"
+   ],
+   "data_confidence": "high",
+   "sources": [
+    "https://www.prnewswire.com/news-releases/lilly-reports-second-quarter-2026-financial-results-raises-full-year-guidance-and-highlights-continued-growth-and-pipeline-progress-302843165.html",
+    "https://investor.lilly.com/news-releases/news-release-details/lilly-reports-second-quarter-2026-financial-results-raises-full",
+    "https://stockanalysis.com/stocks/LLY/financials/?p=quarterly",
+    "https://stockanalysis.com/stocks/LLY/financials/cash-flow-statement/?p=quarterly",
+    "https://www.cnbc.com/2026/08/05/eli-lilly-lly-earnings-q2-2026.html"
+   ],
+   "thesis_fit": {
+    "rating": "medium",
+    "themes": [
+     "biology",
+     "manufacturing"
+    ],
+    "note": "Lilly rides a genuine biology platform curve - iterative peptide/incretin engineering (tirzepatide, retatrutide, oral orforglipron) plus industrial-scale biologics manufacturing - and that platform, not a single legacy drug, is driving 48% growth, which satisfies the first two legs reasonably well. But the business model remains classic patent-cycle pharma rather than a compounding technology curve: the cost/performance improvement of drug discovery is not yet the engine, and post-patent commoditization is the historical norm, so the moat leg is time-limited. Two of three legs: medium."
+   },
+   "score": {
+    "judgment": {
+     "op_trend": "expanding",
+     "fcf_trend": "surging",
+     "exec_class": "beat_raise",
+     "bs_class": "moderate",
+     "nongaap_floor": false
+    },
+    "total": 83,
+    "band": "Strong",
+    "subscores": {
+     "growth": {
+      "points": 21,
+      "max": 25,
+      "detail": {
+       "pace": 15,
+       "acceleration": 1,
+       "breadth": 5
+      }
+     },
+     "profitability": {
+      "points": 18,
+      "max": 20,
+      "detail": {
+       "level": 8,
+       "trend": 10
+      }
+     },
+     "cash": {
+      "points": 18,
+      "max": 20,
+      "detail": {
+       "fcf_margin": 8,
+       "trajectory": 10
+      }
+     },
+     "balance_sheet": {
+      "points": 9,
+      "max": 15,
+      "detail": {
+       "class": "moderate"
+      }
+     },
+     "moat": {
+      "points": 12,
+      "max": 15,
+      "detail": {
+       "rating": 4
+      }
+     },
+     "execution": {
+      "points": 5,
+      "max": 5,
+      "detail": {
+       "class": "beat_raise"
+      }
+     }
+    },
+    "history": [
+     {
+      "date": "2026-08-07",
+      "total": 83,
+      "event": "baseline"
+     }
+    ]
+   },
+   "bench_reason": "thesis fit rated medium on evaluation (2026-08-07)",
+   "market_context": {
+    "rev_growth": {
+     "value": 47.7,
+     "rank": "top 10%",
+     "vs_sp500_aggregate": 33.6
+    },
+    "op_margin": {
+     "value": 39.1,
+     "rank": "top 10%"
+    },
+    "gross_margin": {
+     "value": 85.8,
+     "rank": "top 10%"
+    },
+    "fcf_margin": {
+     "value": 22.8,
+     "rank": "top 10%"
+    }
+   }
+  },
+  {
+   "ticker": "MPWR",
+   "name": "Monolithic Power Systems, Inc.",
+   "sector": "Technology - Analog/Power Semiconductors",
+   "currency": "USD",
+   "last_report": {
+    "fiscal_quarter": "Q2 2026",
+    "report_date": "2026-07-30"
+   },
+   "next_earnings": "late October 2026",
+   "revenue": {
+    "ttm_b": 3.27,
+    "latest_q_b": 0.981,
+    "latest_q_yoy_pct": 47.6,
+    "prior_q_yoy_pct": 26.1
+   },
+   "margins": {
+    "gross_pct": 55.2,
+    "operating_pct": 31.0,
+    "fcf_margin_pct": 21.3,
+    "trend_note": "GAAP operating margin expanded to 31.0% from 24.8% a year ago on strong opex leverage, while gross margin has held steady at ~55% throughout."
+   },
+   "fcf": {
+    "ttm_b": 0.63,
+    "yoy_pct": null,
+    "note": "TTM FCF is measured through Q1 2026 ($0.63B) because Q2 2026 capex is not yet published; Q2 operating cash flow was $227.9M, and capex is running elevated (~$40-70M/qtr) for capacity expansion, keeping FCF flat-to-lumpy despite surging earnings."
+   },
+   "balance_sheet": {
+    "cash_b": 1.41,
+    "total_debt_b": 0.0,
+    "net_position_b": 1.41,
+    "note": "Debt-free with $1.41B in cash and short-term investments, plus a newly expanded $1B buyback authorization."
+   },
+   "segments": [
+    {
+     "name": "Enterprise Data (AI server power)",
+     "latest_q_yoy_pct": 164.3,
+     "note": "$380.6M, now 38.8% of revenue; explosive AI data-center power demand."
+    },
+    {
+     "name": "Storage & Computing",
+     "latest_q_yoy_pct": 2.3,
+     "note": "$199.8M, 20.4% of revenue."
+    },
+    {
+     "name": "Automotive",
+     "latest_q_yoy_pct": 8.2,
+     "note": "$157.1M, 16.0% of revenue."
+    },
+    {
+     "name": "Communications",
+     "latest_q_yoy_pct": 78.3,
+     "note": "$131.5M, networking/optical strength."
+    },
+    {
+     "name": "Industrial",
+     "latest_q_yoy_pct": 17.3,
+     "note": "$54.8M."
+    },
+    {
+     "name": "Consumer",
+     "latest_q_yoy_pct": -4.8,
+     "note": "$56.8M, only declining end market."
+    }
+   ],
+   "guidance_note": "Guided Q3 2026 revenue to $1.14-$1.16B (roughly +56% YoY and +17% QoQ), far above the prior run-rate, with GAAP gross margin of 55.2-55.8%.",
+   "execution_note": "Topped Q2 estimates and issued a dramatically above-consensus Q3 guide, extending a multi-quarter streak of accelerating beats driven by AI power content wins.",
+   "moat": {
+    "rating_1to5": 3,
+    "note": "Proprietary BCD process technology and dense integration give real advantages in AI server power, but the 2024 episode of rumored share loss on NVIDIA platforms showed sockets are contestable by Infineon, TI, Renesas and others; advantaged but contested."
+   },
+   "risks": [
+    "Heavy concentration in AI data-center capex and NVIDIA-ecosystem sockets",
+    "Intensifying competition in vertical power delivery",
+    "Fabless supply chain with China/Asia manufacturing exposure"
+   ],
+   "data_confidence": "medium",
+   "sources": [
+    "https://www.globenewswire.com/news-release/2026/07/30/3336393/0/en/monolithic-power-systems-reports-second-quarter-results-on-july-30-2026.html",
+    "https://stockanalysis.com/stocks/mpwr/financials/?p=quarterly",
+    "https://stockanalysis.com/stocks/mpwr/financials/cash-flow-statement/?p=quarterly",
+    "https://www.investing.com/news/transcripts/earnings-call-transcript-monolithic-power-systems-tops-q2-2026-estimates-93CH-4826411"
+   ],
+   "thesis_fit": {
+    "rating": "medium",
+    "themes": [
+     "compute",
+     "energy"
+    ],
+    "note": "MPWR's growth is unambiguously driven by the AI compute exponential \u2014 every additional watt of accelerator power needs its conversion silicon, and enterprise data revenue is up 164% YoY \u2014 and power efficiency sits at the compute/energy intersection. However, it is a component supplier one layer removed from the curve rather than owning it, and its moat is advantaged-but-contested, so the exponential could partially commoditize across power vendors over time. Two of three criteria met: strong exponential linkage and core-business exposure, weaker moat durability."
+   },
+   "score": {
+    "judgment": {
+     "op_trend": "expanding",
+     "fcf_trend": "flat",
+     "exec_class": "beat_raise",
+     "bs_class": "net_cash",
+     "nongaap_floor": false
+    },
+    "total": 82,
+    "band": "Strong",
+    "subscores": {
+     "growth": {
+      "points": 23,
+      "max": 25,
+      "detail": {
+       "pace": 15,
+       "acceleration": 5,
+       "breadth": 3
+      }
+     },
+     "profitability": {
+      "points": 18,
+      "max": 20,
+      "detail": {
+       "level": 8,
+       "trend": 10
+      }
+     },
+     "cash": {
+      "points": 12,
+      "max": 20,
+      "detail": {
+       "fcf_margin": 8,
+       "trajectory": 4
+      }
+     },
+     "balance_sheet": {
+      "points": 15,
+      "max": 15,
+      "detail": {
+       "class": "net_cash"
+      }
+     },
+     "moat": {
+      "points": 9,
+      "max": 15,
+      "detail": {
+       "rating": 3
+      }
+     },
+     "execution": {
+      "points": 5,
+      "max": 5,
+      "detail": {
+       "class": "beat_raise"
+      }
+     }
+    },
+    "history": [
+     {
+      "date": "2026-08-07",
+      "total": 82,
+      "event": "baseline"
+     }
+    ]
+   },
+   "bench_reason": "thesis fit rated medium on evaluation (2026-08-07)",
+   "market_context": {
+    "rev_growth": {
+     "value": 47.6,
+     "rank": "top 10%",
+     "vs_sp500_aggregate": 33.5
+    },
+    "op_margin": {
+     "value": 31.0,
+     "rank": "top 10%"
+    },
+    "gross_margin": {
+     "value": 55.2,
+     "rank": "top 25%"
+    },
+    "fcf_margin": {
+     "value": 21.3,
+     "rank": "top 25%"
+    }
+   }
+  },
+  {
+   "ticker": "VRTX",
+   "name": "Vertex Pharmaceuticals Incorporated",
+   "sector": "Healthcare - Biotechnology",
+   "currency": "USD",
+   "last_report": {
+    "fiscal_quarter": "Q2 2026",
+    "report_date": "2026-08-03"
+   },
+   "next_earnings": "early November 2026",
+   "revenue": {
+    "ttm_b": 12.59,
+    "latest_q_b": 3.33,
+    "latest_q_yoy_pct": 12.4,
+    "prior_q_yoy_pct": 7.8
+   },
+   "margins": {
+    "gross_pct": 85.3,
+    "operating_pct": 37.4,
+    "fcf_margin_pct": 30.2,
+    "trend_note": "Operating margin of ~37% is essentially flat versus ~39% a year ago, with stable mid/high-80s gross margins; the CF franchise transition to higher-royalty Alyftrek and launch spend on Journavx are modest offsets to scale."
+   },
+   "fcf": {
+    "ttm_b": 3.8,
+    "yoy_pct": null,
+    "note": "TTM FCF of ~$3.8B on ~30% FCF margin; Q2 FCF of ~$1.0B was up ~9% YoY, with low capex needs typical of a royalty-light small-molecule model."
+   },
+   "balance_sheet": {
+    "cash_b": 13.64,
+    "total_debt_b": 1.98,
+    "net_position_b": 11.66,
+    "note": "Fortress balance sheet: $13.6B of cash and investments against ~$2.0B of debt (largely leases/facilities), up from $12.3B at year-end."
+   },
+   "segments": [
+    {
+     "name": "TRIKAFTA/KAFTRIO",
+     "latest_q_yoy_pct": -2.0,
+     "note": "$2.50B, declining as patients switch to next-gen Alyftrek"
+    },
+    {
+     "name": "ALYFTREK",
+     "latest_q_yoy_pct": 265.8,
+     "note": "$574M, next-gen CF triple driving overall franchise growth"
+    },
+    {
+     "name": "CASGEVY",
+     "latest_q_yoy_pct": 151.3,
+     "note": "$76M, CRISPR gene-editing therapy ramping slowly"
+    },
+    {
+     "name": "JOURNAVX",
+     "latest_q_yoy_pct": 313.3,
+     "note": "$50M, non-opioid pain launch building access"
+    }
+   ],
+   "guidance_note": "Raised FY2026 revenue guidance to $13.1-13.2B (from $12.95-13.1B) with $500M+ expected from non-CF products.",
+   "execution_note": "Long track record of steady revenue beats and incremental guidance raises, repeated again in Q2 2026 with accelerating growth (12% vs 8% prior quarter).",
+   "moat": {
+    "rating_1to5": 4,
+    "note": "Effective monopoly in cystic fibrosis (only disease-modifying CFTR modulators, now self-disrupting with Alyftrek into the 2040s patent-wise) plus rare-disease pricing power; docked below 5 because ~85% revenue concentration in one franchise and the new ventures (pain, gene editing) are not yet proven franchises."
+   },
+   "risks": [
+    "Extreme revenue concentration in the CF franchise",
+    "Journavx commercial ramp risk (payer access, opioid-entrenched prescribing)",
+    "Pipeline binary risk (type 1 diabetes cell therapy, kidney programs) needed to justify growth beyond CF",
+    "Slow Casgevy uptake and reimbursement friction for one-time therapies"
+   ],
+   "data_confidence": "high",
+   "sources": [
+    "https://news.vrtx.com/news-releases/news-release-details/vertex-reports-second-quarter-2026-financial-results",
+    "https://investors.vrtx.com/news-releases/news-release-details/vertex-reports-second-quarter-2026-financial-results",
+    "https://stockanalysis.com/stocks/vrtx/financials/?p=quarterly",
+    "https://stockanalysis.com/stocks/vrtx/financials/cash-flow-statement/?p=quarterly"
+   ],
+   "thesis_fit": {
+    "rating": "low",
+    "themes": [
+     "biology"
+    ],
+    "note": "Vertex is an excellent, durable specialty-pharma franchise, but it is not an exponential-curve business: revenue comes overwhelmingly from patent-protected small molecules in one disease, where growth is limited by patient population rather than a falling technology cost curve. It does own genuine exponential-age optionality - Casgevy commercializes CRISPR gene editing and its cell-therapy diabetes work rides falling biology read/write costs - but at ~$76M a quarter that is optionality, not the driver, so only the moat leg clearly holds."
+   },
+   "score": {
+    "judgment": {
+     "op_trend": "flat",
+     "fcf_trend": "growing",
+     "exec_class": "beat_raise",
+     "bs_class": "net_cash",
+     "nongaap_floor": false
+    },
+    "total": 78,
+    "band": "Strong",
+    "subscores": {
+     "growth": {
+      "points": 15,
+      "max": 25,
+      "detail": {
+       "pace": 7,
+       "acceleration": 5,
+       "breadth": 3
+      }
+     },
+     "profitability": {
+      "points": 14,
+      "max": 20,
+      "detail": {
+       "level": 8,
+       "trend": 6
+      }
+     },
+     "cash": {
+      "points": 17,
+      "max": 20,
+      "detail": {
+       "fcf_margin": 10,
+       "trajectory": 7
+      }
+     },
+     "balance_sheet": {
+      "points": 15,
+      "max": 15,
+      "detail": {
+       "class": "net_cash"
+      }
+     },
+     "moat": {
+      "points": 12,
+      "max": 15,
+      "detail": {
+       "rating": 4
+      }
+     },
+     "execution": {
+      "points": 5,
+      "max": 5,
+      "detail": {
+       "class": "beat_raise"
+      }
+     }
+    },
+    "history": [
+     {
+      "date": "2026-08-07",
+      "total": 78,
+      "event": "baseline"
+     }
+    ]
+   },
+   "bench_reason": "thesis fit rated low on evaluation (2026-08-07)",
+   "market_context": {
+    "rev_growth": {
+     "value": 12.4,
+     "rank": "top 25%",
+     "vs_sp500_aggregate": -1.7
+    },
+    "op_margin": {
+     "value": 37.4,
+     "rank": "top 10%"
+    },
+    "gross_margin": {
+     "value": 85.3,
+     "rank": "top 10%"
+    },
+    "fcf_margin": {
+     "value": 30.2,
+     "rank": "top 10%"
+    }
+   }
+  },
+  {
+   "ticker": "AMAT",
+   "name": "Applied Materials, Inc.",
+   "sector": "Semiconductor equipment (broad portfolio)",
+   "currency": "USD",
+   "last_report": {
+    "fiscal_quarter": "Q2 FY2026 (April 2026)",
+    "report_date": "2026-05-14"
+   },
+   "next_earnings": "2026-08-13",
+   "revenue": {
+    "ttm_b": 29.02,
+    "latest_q_b": 7.91,
+    "latest_q_yoy_pct": 11.4,
+    "prior_q_yoy_pct": -2.2
+   },
+   "margins": {
+    "gross_pct": 49.9,
+    "operating_pct": 31.9,
+    "fcf_margin_pct": 18.4,
+    "trend_note": "GAAP operating margin of 31.9% is up from 30.5% a year ago and well off the 25-26% trough of the prior two quarters, as growth re-accelerated after the China export-control air pocket."
+   },
+   "fcf": {
+    "ttm_b": 5.34,
+    "yoy_pct": null,
+    "note": "TTM FCF ~$5.3B but lumpy \u2014 first-half FY2026 FCF was only $1.25B (April quarter just $0.21B) on working-capital build and capacity investment ahead of the demand ramp."
+   },
+   "balance_sheet": {
+    "cash_b": 13.38,
+    "total_debt_b": 6.46,
+    "net_position_b": 6.93,
+    "note": "$13.4B of cash and investments vs $6.5B debt leaves ~$6.9B net cash, comfortably funding buybacks and dividend growth."
+   },
+   "segments": [
+    {
+     "name": "Semiconductor Systems",
+     "latest_q_yoy_pct": 13.5,
+     "note": "$5.97B; mix 67% foundry/logic, 29% DRAM, 4% flash \u2014 leading-edge logic and DRAM led growth"
+    },
+    {
+     "name": "Applied Global Services",
+     "latest_q_yoy_pct": 6.4,
+     "note": "$1.67B; recurring services grew slower, partly on China service restrictions"
+    },
+    {
+     "name": "Display & Other",
+     "latest_q_yoy_pct": 8.1,
+     "note": "$280M; small and non-core"
+    }
+   ],
+   "guidance_note": "Guided Q3 FY2026 revenue to $8.95B \u00b1$0.5B (~+23% YoY, +13% QoQ) with non-GAAP EPS $3.36 \u00b1$0.20, and said semiconductor equipment spending should grow more than 30% in calendar 2026.",
+   "execution_note": "After two down YoY quarters (Oct-2025 and Jan-2026, -3.5% and -2.2%) caused by China export restrictions, Q2 delivered an 11% YoY beat with net income +31% and a strong guide-up \u2014 recovering execution, but the recent record is uneven.",
+   "moat": {
+    "rating_1to5": 4,
+    "note": "Broadest materials-engineering portfolio in WFE with leadership in deposition, implant, and integrated solutions for gate-all-around/backside power, plus a large installed-base services annuity; strong but contested by Lam and Tokyo Electron in most markets rather than dominant in any single one like KLA or ASML."
+   },
+   "risks": [
+    "Largest China revenue exposure among US WFE peers \u2014 export-control escalation already caused two down quarters",
+    "WFE cyclicality; the >30% CY2026 market-growth assumption embeds aggressive AI capex continuation",
+    "Slower ICAPS (trailing-edge) spending and display weakness dilute leading-edge strength",
+    "FCF volatility from working-capital swings"
+   ],
+   "data_confidence": "high",
+   "sources": [
+    "https://ir.appliedmaterials.com/news-releases/news-release-details/applied-materials-announces-second-quarter-2026-results/",
+    "https://stockanalysis.com/stocks/amat/financials/?p=quarterly",
+    "https://www.globenewswire.com/news-release/2026/07/23/3332037/0/en/Applied-Materials-to-Report-Fiscal-Third-Quarter-2026-Results-on-Aug-13-2026.html"
+   ],
+   "thesis_fit": {
+    "rating": "medium",
+    "themes": [
+     "compute",
+     "manufacturing"
+    ],
+    "note": "Applied sells the materials-engineering tools underneath the compute exponential and the curve is its core business, satisfying the first two tests. But the third test \u2014 the curve accruing durably to the company \u2014 is weaker than for TSMC/KLA/Lam: its portfolio is broad rather than dominant in any chokepoint, it carries the largest China/trailing-edge (ICAPS) and display exposure of the group, and that mix produced two negative-growth quarters within the past year even as AI capex boomed. Strong franchise, but more of a diversified cyclical on the exponential than a pure toll-taker."
+   },
+   "score": {
+    "judgment": {
+     "op_trend": "expanding",
+     "fcf_trend": "flat",
+     "exec_class": "beat",
+     "bs_class": "net_cash",
+     "nongaap_floor": false
+    },
+    "total": 76,
+    "band": "Strong",
+    "subscores": {
+     "growth": {
+      "points": 17,
+      "max": 25,
+      "detail": {
+       "pace": 7,
+       "acceleration": 5,
+       "breadth": 5
+      }
+     },
+     "profitability": {
+      "points": 18,
+      "max": 20,
+      "detail": {
+       "level": 8,
+       "trend": 10
+      }
+     },
+     "cash": {
+      "points": 10,
+      "max": 20,
+      "detail": {
+       "fcf_margin": 6,
+       "trajectory": 4
+      }
+     },
+     "balance_sheet": {
+      "points": 15,
+      "max": 15,
+      "detail": {
+       "class": "net_cash"
+      }
+     },
+     "moat": {
+      "points": 12,
+      "max": 15,
+      "detail": {
+       "rating": 4
+      }
+     },
+     "execution": {
+      "points": 4,
+      "max": 5,
+      "detail": {
+       "class": "beat"
+      }
+     }
+    },
+    "history": [
+     {
+      "date": "2026-08-07",
+      "total": 76,
+      "event": "baseline"
+     }
+    ]
+   },
+   "bench_reason": "thesis fit rated medium on evaluation (2026-08-07)",
+   "market_context": {
+    "rev_growth": {
+     "value": 11.4,
+     "rank": "above median",
+     "vs_sp500_aggregate": -2.7
+    },
+    "op_margin": {
+     "value": 31.9,
+     "rank": "top 10%"
+    },
+    "gross_margin": {
+     "value": 49.9,
+     "rank": "above median"
+    },
+    "fcf_margin": {
+     "value": 18.4,
+     "rank": "top 25%"
+    }
+   }
+  },
+  {
+   "ticker": "NET",
+   "name": "Cloudflare, Inc.",
+   "sector": "Technology - Cloud/Edge Networking & Security",
+   "currency": "USD",
+   "last_report": {
+    "fiscal_quarter": "Q2 2026",
+    "report_date": "2026-08-06"
+   },
+   "next_earnings": "early November 2026",
+   "revenue": {
+    "ttm_b": 2.51,
+    "latest_q_b": 0.696,
+    "latest_q_yoy_pct": 35.9,
+    "prior_q_yoy_pct": 33.5
+   },
+   "margins": {
+    "gross_pct": 71.8,
+    "operating_pct": -29.6,
+    "fcf_margin_pct": 13.4,
+    "trend_note": "Gross margin fell ~3pp YoY (71.8% vs 74.9%) on GPU/AI-inference network buildout, and the headline GAAP operating loss widened to -29.6% because of a restructuring charge \u2014 excluding that, underlying GAAP losses (~-8 to -10% in recent quarters) are roughly flat vs a year ago while non-GAAP op margin held at 13.8%."
+   },
+   "fcf": {
+    "ttm_b": 0.34,
+    "yoy_pct": null,
+    "note": "TTM FCF of ~$337M compares with $288M for FY2025, and H1 2026 FCF of ~$150M was up ~50% vs H1 2025's ~$100M, though Q2's 8% FCF margin dipped on stepped-up AI capex."
+   },
+   "balance_sheet": {
+    "cash_b": 4.16,
+    "total_debt_b": 3.27,
+    "net_position_b": 0.89,
+    "note": "$4.16B of cash and investments against ~$3.27B of convertible notes leaves ~$0.9B net cash."
+   },
+   "segments": [
+    {
+     "name": "Total (no segment disclosure)",
+     "latest_q_yoy_pct": 35.9,
+     "note": "Cloudflare reports one segment; growth reaccelerated to 36% (fastest in ~3 years) on AI, agentic-web, and platform ('act-as-one') deals, with current RPO up 35% YoY."
+    }
+   ],
+   "guidance_note": "Raised FY2026 guidance to $2.864-$2.870B revenue (~33% growth) and non-GAAP EPS of $1.25-$1.26, with Q3 revenue guided to $736-$737M.",
+   "execution_note": "Beat Q2 estimates and raised the full-year outlook, sending shares up ~17% to record highs, extending a consistent recent pattern of beats with accelerating top-line growth.",
+   "moat": {
+    "rating_1to5": 3,
+    "note": "A genuinely unique global anycast network within ~50ms of most internet users plus the Workers developer ecosystem confer scale and data advantages, but Cloudflare fights hyperscalers, Akamai, and Zscaler across every product line \u2014 advantaged but heavily contested."
+   },
+   "risks": [
+    "Persistent GAAP losses and heavy SBC dilution",
+    "Hyperscaler competition in edge compute and AI inference",
+    "Gross-margin compression from GPU capex, plus a very demanding valuation"
+   ],
+   "data_confidence": "high",
+   "sources": [
+    "https://www.businesswire.com/news/home/20260806407787/en/Cloudflare-Announces-Second-Quarter-2026-Financial-Results",
+    "https://www.stocktitan.net/news/NET/cloudflare-announces-second-quarter-2026-financial-6hawe1aj0b2k.html",
+    "https://stockanalysis.com/stocks/net/financials/?p=quarterly",
+    "https://www.tradingkey.com/news/earnings/262085866-tradingkey"
+   ],
+   "thesis_fit": {
+    "rating": "medium",
+    "themes": [
+     "compute"
+    ],
+    "note": "Cloudflare is repositioning from CDN/security toward being the connective and inference layer of the agentic internet \u2014 Workers AI, AI crawler monetization, and edge GPU deployment tie it increasingly to the compute exponential, and growth reaccelerating to 36% suggests it is landing. But today's revenue base is still majority security/network services where AI is an accelerant rather than the core curve, and its moat, while real (unmatched network footprint), is contested by hyperscalers who own the underlying compute economics. Two of three criteria solidly met; core-exponential purity is the gap."
+   },
+   "score": {
+    "judgment": {
+     "op_trend": "flat",
+     "fcf_trend": "growing",
+     "exec_class": "beat_raise",
+     "bs_class": "net_cash",
+     "nongaap_floor": true
+    },
+    "total": 73,
+    "band": "Strong",
+    "subscores": {
+     "growth": {
+      "points": 21,
+      "max": 25,
+      "detail": {
+       "pace": 13,
+       "acceleration": 5,
+       "breadth": 3
+      }
+     },
+     "profitability": {
+      "points": 10,
+      "max": 20,
+      "detail": {
+       "level": 4,
+       "trend": 6
+      }
+     },
+     "cash": {
+      "points": 13,
+      "max": 20,
+      "detail": {
+       "fcf_margin": 6,
+       "trajectory": 7
+      }
+     },
+     "balance_sheet": {
+      "points": 15,
+      "max": 15,
+      "detail": {
+       "class": "net_cash"
+      }
+     },
+     "moat": {
+      "points": 9,
+      "max": 15,
+      "detail": {
+       "rating": 3
+      }
+     },
+     "execution": {
+      "points": 5,
+      "max": 5,
+      "detail": {
+       "class": "beat_raise"
+      }
+     }
+    },
+    "history": [
+     {
+      "date": "2026-08-07",
+      "total": 73,
+      "event": "baseline"
+     }
+    ]
+   },
+   "bench_reason": "thesis fit rated medium on evaluation (2026-08-07)",
+   "market_context": {
+    "rev_growth": {
+     "value": 35.9,
+     "rank": "top 10%",
+     "vs_sp500_aggregate": 21.8
+    },
+    "op_margin": {
+     "value": -29.6,
+     "rank": "bottom 25%"
+    },
+    "gross_margin": {
+     "value": 71.8,
+     "rank": "top 10%"
+    },
+    "fcf_margin": {
+     "value": 13.4,
+     "rank": "above median"
+    }
+   }
+  },
+  {
+   "ticker": "NOW",
+   "name": "ServiceNow, Inc.",
+   "sector": "Technology - Enterprise Software (Workflow/SaaS)",
+   "currency": "USD",
+   "last_report": {
+    "fiscal_quarter": "Q2 2026",
+    "report_date": "2026-07-22"
+   },
+   "next_earnings": "late October 2026",
+   "revenue": {
+    "ttm_b": 14.73,
+    "latest_q_b": 3.987,
+    "latest_q_yoy_pct": 24.0,
+    "prior_q_yoy_pct": 22.1
+   },
+   "margins": {
+    "gross_pct": 70.7,
+    "operating_pct": 4.1,
+    "fcf_margin_pct": 31.1,
+    "trend_note": "GAAP margins compressed sharply vs a year ago (op 4.1% vs 11.1%, gross 70.7% vs 77.5%) on accelerated AI infrastructure investment and related depreciation, while non-GAAP operating margin held at ~29.5%."
+   },
+   "fcf": {
+    "ttm_b": 4.58,
+    "yoy_pct": null,
+    "note": "TTM FCF (OCF minus capex) is ~$4.58B, roughly level with FY2025's $4.58B; company-defined Q2 FCF of $634M grew 16% YoY and FY2026 guidance targets a 35% FCF margin."
+   },
+   "balance_sheet": {
+    "cash_b": 8.78,
+    "total_debt_b": 8.52,
+    "net_position_b": 0.26,
+    "note": "$8.78B of cash and investments against $8.52B of debt after raising ~$7B over the past year (acquisitions and AI infrastructure), leaving the company marginally net cash versus heavily net cash a year ago."
+   },
+   "segments": [
+    {
+     "name": "Subscription",
+     "latest_q_yoy_pct": 24.5,
+     "note": "$3.877B, 97% of revenue; cRPO $13.2B up 21% YoY, RPO $29.0B up 21%; 123 deals >$1M ACV, up 40% YoY."
+    },
+    {
+     "name": "Professional services & other",
+     "latest_q_yoy_pct": null,
+     "note": "~$110M residual; YoY not separately verified."
+    }
+   ],
+   "guidance_note": "Raised FY2026 subscription revenue guidance to $15.76-$15.78B (+22.5% YoY) with 31.5% non-GAAP operating margin and 35% FCF margin.",
+   "execution_note": "Beat on essentially every headline line and raised the full-year subscription outlook, continuing its long beat-and-raise streak, though GAAP margin compression from AI spend was the one blemish investors flagged.",
+   "moat": {
+    "rating_1to5": 4,
+    "note": "The Now Platform is deeply embedded as the enterprise workflow system of record, with ~98% renewal rates, 21% cRPO growth, and expanding multi-product attach \u2014 classic durable switching costs, though not a structural monopoly."
+   },
+   "risks": [
+    "Agentic-AI disruption of seat-based enterprise SaaS pricing models",
+    "GAAP margin and gross-margin erosion from heavy AI infrastructure spend",
+    "New $8.5B debt load and macro/federal-spending sensitivity"
+   ],
+   "data_confidence": "high",
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/data/1373715/000137371526000072/erq2fy26.htm",
+    "https://stockanalysis.com/stocks/now/financials/?p=quarterly",
+    "https://stockanalysis.com/stocks/now/financials/balance-sheet/?p=quarterly",
+    "https://www.investing.com/news/company-news/servicenow-q2-2026-slides-revenue-beats-margins-face-ai-pressure-93CH-4807204"
+   ],
+   "thesis_fit": {
+    "rating": "medium",
+    "themes": [
+     "compute"
+    ],
+    "note": "ServiceNow is monetizing the AI wave impressively ($1B+ AI ACV, 40% growth in $1M+ deals) and has a durable platform moat, but the underlying business is enterprise workflow software that uses AI rather than a business whose revenue rides directly on an exponential cost/performance curve \u2014 the exponential is adjacent, not the core engine. It also carries a live tail risk that agentic AI erodes rather than expands seat-based SaaS economics. Moat and AI leverage are real; direct exponential exposure is partial, hence medium."
+   },
+   "score": {
+    "judgment": {
+     "op_trend": "compressing",
+     "fcf_trend": "growing",
+     "exec_class": "beat_raise",
+     "bs_class": "net_cash",
+     "nongaap_floor": false
+    },
+    "total": 69,
+    "band": "Solid",
+    "subscores": {
+     "growth": {
+      "points": 16,
+      "max": 25,
+      "detail": {
+       "pace": 10,
+       "acceleration": 3,
+       "breadth": 3
+      }
+     },
+     "profitability": {
+      "points": 4,
+      "max": 20,
+      "detail": {
+       "level": 2,
+       "trend": 2
+      }
+     },
+     "cash": {
+      "points": 17,
+      "max": 20,
+      "detail": {
+       "fcf_margin": 10,
+       "trajectory": 7
+      }
+     },
+     "balance_sheet": {
+      "points": 15,
+      "max": 15,
+      "detail": {
+       "class": "net_cash"
+      }
+     },
+     "moat": {
+      "points": 12,
+      "max": 15,
+      "detail": {
+       "rating": 4
+      }
+     },
+     "execution": {
+      "points": 5,
+      "max": 5,
+      "detail": {
+       "class": "beat_raise"
+      }
+     }
+    },
+    "history": [
+     {
+      "date": "2026-08-07",
+      "total": 69,
+      "event": "baseline"
+     }
+    ]
+   },
+   "bench_reason": "thesis fit rated medium on evaluation (2026-08-07)",
+   "market_context": {
+    "rev_growth": {
+     "value": 24.0,
+     "rank": "top 10%",
+     "vs_sp500_aggregate": 9.9
+    },
+    "op_margin": {
+     "value": 4.1,
+     "rank": "bottom 25%"
+    },
+    "gross_margin": {
+     "value": 70.7,
+     "rank": "top 10%"
+    },
+    "fcf_margin": {
+     "value": 31.1,
+     "rank": "top 10%"
+    }
+   }
+  },
+  {
+   "ticker": "SYM",
+   "name": "Symbotic Inc.",
+   "sector": "Industrials - Warehouse Automation / Robotics",
+   "currency": "USD",
+   "last_report": {
+    "fiscal_quarter": "Q3 FY2026 (June quarter)",
+    "report_date": "2026-08-05"
+   },
+   "next_earnings": "mid-to-late November 2026",
+   "revenue": {
+    "ttm_b": 2.65,
+    "latest_q_b": 0.721,
+    "latest_q_yoy_pct": 21.7,
+    "prior_q_yoy_pct": 23.1
+   },
+   "margins": {
+    "gross_pct": 22.3,
+    "operating_pct": 4.6,
+    "fcf_margin_pct": 27.9,
+    "trend_note": "Clear inflection: GAAP operating margin swung to +4.6% from -4.4% a year ago and gross margin rose from 18.9% to 22.3% on better system deployment execution and scale."
+   },
+   "fcf": {
+    "ttm_b": 0.74,
+    "yoy_pct": null,
+    "note": "TTM FCF ~$737M is flattered by customer prepayments/deferred revenue (~$1.7B) and is very lumpy - the June quarter itself burned ~$165M of FCF."
+   },
+   "balance_sheet": {
+    "cash_b": 1.7,
+    "total_debt_b": 0.0,
+    "net_position_b": 1.7,
+    "note": "~$1.7B cash and zero debt, though a large slug of the cash is effectively customer deposits (deferred revenue ~$1.7B)."
+   },
+   "segments": [
+    {
+     "name": "Systems (deployments)",
+     "latest_q_yoy_pct": null,
+     "note": "77 systems in deployment; backlog ~$22.5B anchored by Walmart, plus Walmex/Target/Albertsons; no separate segment YoY disclosed."
+    }
+   ],
+   "guidance_note": "Guided FQ4 2026 revenue of $760-780M (+23-26% YoY) and adjusted EBITDA of $100-105M, though the stock fell after hours on perceived caution.",
+   "execution_note": "FQ3 came in at/above its own guidance with adjusted EBITDA of $95M more than doubling YoY, continuing a recent beat streak, but the company has a checkered history (2024 revenue-recognition restatement) and shares often trade off on guidance tone.",
+   "moat": {
+    "rating_1to5": 3,
+    "note": "Proprietary end-to-end warehouse automation with deep Walmart integration and a $22.5B backlog creates real switching costs at existing customers, but the space is contested (Dematic, AutoStore, Ocado, Amazon in-house) and extreme customer concentration caps the rating."
+   },
+   "risks": [
+    "Walmart concentration (majority of revenue and backlog)",
+    "Lumpy, deposit-driven cash flow that can reverse (latest quarter FCF negative)",
+    "Thin gross margins for a 'tech' multiple; execution/restatement history",
+    "Competition from in-house and rival automation platforms"
+   ],
+   "data_confidence": "high",
+   "sources": [
+    "https://www.globenewswire.com/news-release/2026/08/05/3339646/0/en/Symbotic-Reports-Third-Quarter-Fiscal-Year-2026-Results.html",
+    "https://stockanalysis.com/stocks/sym/financials/?p=quarterly",
+    "https://stockanalysis.com/stocks/sym/financials/cash-flow-statement/?p=quarterly"
+   ],
+   "thesis_fit": {
+    "rating": "medium",
+    "themes": [
+     "manufacturing"
+    ],
+    "note": "Symbotic scores on two of three exponential-thesis legs: revenue is driven by the robotics/AI-autonomy cost-performance curve, and that curve IS the core business (autonomous warehouse robots replacing manual case-handling). What it lacks is a durable moat that guarantees the curve accrues to Symbotic - the business is dominated by one customer relationship, competitors are numerous and well-funded, and 22% gross margins suggest limited pricing power so far. The 20%+ growth, swing to GAAP profitability, and $22.5B backlog are genuine evidence of the thesis working, but concentration risk keeps it at medium."
+   },
+   "score": {
+    "judgment": {
+     "op_trend": "expanding",
+     "fcf_trend": "flat",
+     "exec_class": "beat",
+     "bs_class": "net_cash",
+     "nongaap_floor": false
+    },
+    "total": 68,
+    "band": "Solid",
+    "subscores": {
+     "growth": {
+      "points": 16,
+      "max": 25,
+      "detail": {
+       "pace": 10,
+       "acceleration": 3,
+       "breadth": 3
+      }
+     },
+     "profitability": {
+      "points": 12,
+      "max": 20,
+      "detail": {
+       "level": 2,
+       "trend": 10
+      }
+     },
+     "cash": {
+      "points": 12,
+      "max": 20,
+      "detail": {
+       "fcf_margin": 8,
+       "trajectory": 4
+      }
+     },
+     "balance_sheet": {
+      "points": 15,
+      "max": 15,
+      "detail": {
+       "class": "net_cash"
+      }
+     },
+     "moat": {
+      "points": 9,
+      "max": 15,
+      "detail": {
+       "rating": 3
+      }
+     },
+     "execution": {
+      "points": 4,
+      "max": 5,
+      "detail": {
+       "class": "beat"
+      }
+     }
+    },
+    "history": [
+     {
+      "date": "2026-08-07",
+      "total": 68,
+      "event": "baseline"
+     }
+    ]
+   },
+   "bench_reason": "thesis fit rated medium on evaluation (2026-08-07)",
+   "market_context": {
+    "rev_growth": {
+     "value": 21.7,
+     "rank": "top 25%",
+     "vs_sp500_aggregate": 7.6
+    },
+    "op_margin": {
+     "value": 4.6,
+     "rank": "bottom 25%"
+    },
+    "gross_margin": {
+     "value": 22.3,
+     "rank": "bottom 25%"
+    },
+    "fcf_margin": {
+     "value": 27.9,
+     "rank": "top 10%"
+    }
+   }
+  },
+  {
+   "ticker": "RKLB",
+   "name": "Rocket Lab Corporation",
+   "sector": "Industrials - Aerospace & Defense (Space Launch & Systems)",
+   "currency": "USD",
+   "last_report": {
+    "fiscal_quarter": "Q1 2026",
+    "report_date": "2026-05-07"
+   },
+   "next_earnings": "2026-08-10",
+   "revenue": {
+    "ttm_b": 0.68,
+    "latest_q_b": 0.2,
+    "latest_q_yoy_pct": 63.5,
+    "prior_q_yoy_pct": 35.7
+   },
+   "margins": {
+    "gross_pct": 38.2,
+    "operating_pct": -28.0,
+    "fcf_margin_pct": -46.5,
+    "trend_note": "Losses narrowing fast on scale: GAAP gross margin up to 38.2% from 28.8% a year ago and operating margin improved to -28% from -48%, with adjusted EBITDA loss shrinking to -$11.8M from -$30M."
+   },
+   "fcf": {
+    "ttm_b": -0.32,
+    "yoy_pct": null,
+    "note": "Still burning ~$320M TTM FCF as Neutron rocket development and capacity capex run ahead of revenue; burn has widened, not narrowed, over the past year."
+   },
+   "balance_sheet": {
+    "cash_b": 1.38,
+    "total_debt_b": 0.14,
+    "net_position_b": 1.24,
+    "note": "~$1.38B cash plus short-term investments against only ~$139M debt (per stockanalysis.com, Mar 31, 2026), giving multi-year runway at the current burn rate."
+   },
+   "segments": [
+    {
+     "name": "Product revenue (space systems hardware)",
+     "latest_q_yoy_pct": 57.8,
+     "note": "$127.5M vs $80.8M - satellite components, spacecraft, Flatellite/SDA work."
+    },
+    {
+     "name": "Service revenue (incl. launch)",
+     "latest_q_yoy_pct": 74.4,
+     "note": "$72.9M vs $41.8M - Electron launch cadence and services scaling."
+    }
+   ],
+   "guidance_note": "Guided Q2 2026 to another record of $225-240M revenue (up ~56-66% YoY) with 33-35% GAAP gross margin and adjusted EBITDA loss of $20-26M; Q2 results due August 10, 2026.",
+   "execution_note": "Q1 2026 surpassed all guidance metrics (revenue, margin, adjusted EBITDA) and backlog grew 20% QoQ to $2.2B, continuing a consistent beat-and-raise cadence over recent quarters.",
+   "moat": {
+    "rating_1to5": 3,
+    "note": "The only reliable, high-cadence small-launch provider outside SpaceX, with growing vertical integration into satellites and components and sticky government/defense contracts; but SpaceX's cost curve looms over launch pricing and Neutron is unproven, so the position is advantaged but contested."
+   },
+   "risks": [
+    "Heavy cash burn and execution risk on Neutron first flight and ramp",
+    "SpaceX pricing/rideshare pressure on launch economics",
+    "Backlog concentration in government/defense programs subject to timing and appropriations",
+    "Q2 report on Aug 10 will supersede these figures; guidance implies continued losses"
+   ],
+   "data_confidence": "high",
+   "sources": [
+    "https://investors.rocketlabcorp.com/news-releases/news-release-details/rocket-lab-announces-first-quarter-2026-financial-results",
+    "https://stockanalysis.com/stocks/rklb/financials/?p=quarterly",
+    "https://www.tipranks.com/news/rocket-lab-will-report-q2-earnings-on-august-10-heres-who-owns-this-space-stock"
+   ],
+   "thesis_fit": {
+    "rating": "medium",
+    "themes": [
+     "manufacturing"
+    ],
+    "note": "Rocket Lab sits squarely on the space-economy cost curve - reusable launch, vertically integrated satellite manufacturing, and 60%+ revenue growth show the exponential is the core business, not adjacent. Where it falls short of 'high' is moat durability: the launch cost curve is being driven hardest by SpaceX, and much of Rocket Lab's advantage (execution, cadence, integration) is operational rather than structural, so it is not certain the curve accrues to RKLB rather than to its far larger competitor. Strong balance sheet and beat-and-raise execution derisk the path, but persistent cash burn means the model is not yet self-funding."
+   },
+   "score": {
+    "judgment": {
+     "op_trend": "expanding",
+     "fcf_trend": "negative",
+     "exec_class": "beat_raise",
+     "bs_class": "net_cash",
+     "nongaap_floor": false
+    },
+    "total": 64,
+    "band": "Solid",
+    "subscores": {
+     "growth": {
+      "points": 25,
+      "max": 25,
+      "detail": {
+       "pace": 15,
+       "acceleration": 5,
+       "breadth": 5
+      }
+     },
+     "profitability": {
+      "points": 10,
+      "max": 20,
+      "detail": {
+       "level": 0,
+       "trend": 10
+      }
+     },
+     "cash": {
+      "points": 0,
+      "max": 20,
+      "detail": {
+       "fcf_margin": 0,
+       "trajectory": 0
+      }
+     },
+     "balance_sheet": {
+      "points": 15,
+      "max": 15,
+      "detail": {
+       "class": "net_cash"
+      }
+     },
+     "moat": {
+      "points": 9,
+      "max": 15,
+      "detail": {
+       "rating": 3
+      }
+     },
+     "execution": {
+      "points": 5,
+      "max": 5,
+      "detail": {
+       "class": "beat_raise"
+      }
+     }
+    },
+    "history": [
+     {
+      "date": "2026-08-07",
+      "total": 64,
+      "event": "baseline"
+     }
+    ]
+   },
+   "bench_reason": "thesis fit rated medium on evaluation (2026-08-07)",
+   "market_context": {
+    "rev_growth": {
+     "value": 63.5,
+     "rank": "top 10%",
+     "vs_sp500_aggregate": 49.4
+    },
+    "op_margin": {
+     "value": -28.0,
+     "rank": "bottom 25%"
+    },
+    "gross_margin": {
+     "value": 38.2,
+     "rank": "above median"
+    },
+    "fcf_margin": {
+     "value": -46.5,
+     "rank": "bottom 25%"
+    }
+   }
+  },
+  {
+   "ticker": "AXON",
+   "name": "Axon Enterprise, Inc.",
+   "sector": "Industrials - Public Safety Technology",
+   "currency": "USD",
+   "last_report": {
+    "fiscal_quarter": "Q2 2026",
+    "report_date": "2026-08-05"
+   },
+   "next_earnings": "early November 2026",
+   "revenue": {
+    "ttm_b": 3.22,
+    "latest_q_b": 0.9,
+    "latest_q_yoy_pct": 35.3,
+    "prior_q_yoy_pct": 33.8
+   },
+   "margins": {
+    "gross_pct": 60.4,
+    "operating_pct": 5.2,
+    "fcf_margin_pct": 4.1,
+    "trend_note": "GAAP operating margin improved to +5.2% from roughly breakeven/negative a year ago (heavy stock-based compensation), while adjusted EBITDA margin held around 26-27% and gross margin was flat at ~60%."
+   },
+   "fcf": {
+    "ttm_b": 0.13,
+    "yoy_pct": null,
+    "note": "TTM FCF of only ~$133M (4% of revenue) with the last two quarters roughly breakeven-to-negative, as receivables, inventory build for hardware/counter-drone ramps and rising capex absorb the EBITDA."
+   },
+   "balance_sheet": {
+    "cash_b": 0.69,
+    "total_debt_b": 1.8,
+    "net_position_b": -1.1,
+    "note": "About $1.1B net debt against currently thin FCF looks stretched on that ratio, though the debt is largely low-coupon notes and the SaaS backlog/future contracted revenue provides substantial cover."
+   },
+   "segments": [
+    {
+     "name": "Software & Services",
+     "latest_q_yoy_pct": 36.0,
+     "note": "$397.8M, recurring cloud/AI revenue incl. AI Era Plan bookings up ~700%"
+    },
+    {
+     "name": "Connected Devices",
+     "latest_q_yoy_pct": 35.0,
+     "note": "$506.6M: TASER $261M, Personal Sensors $95M, Platform Solutions (incl. counter-drone, now >$100M) $150M"
+    }
+   ],
+   "guidance_note": "Raised FY2026 outlook to ~32-34% revenue growth with ~25.5% adjusted EBITDA margin, though shares fell on margin/cash-flow concerns despite the raise.",
+   "execution_note": "Consistent pattern of revenue beats and full-year guidance raises for many consecutive quarters, with the caveat that GAAP profitability and FCF keep lagging the topline.",
+   "moat": {
+    "rating_1to5": 4,
+    "note": "Near-monopoly in conducted-energy weapons (TASER) plus deep ecosystem lock-in - body cams, Evidence.com digital evidence, records and AI subscriptions embedded in agency workflows create very high switching costs; contested at the edges by Motorola Solutions and drone specialists, which keeps it just short of a 5."
+   },
+   "risks": [
+    "GAAP profitability and FCF heavily suppressed by stock-based compensation and working-capital/inventory build",
+    "Government budget cycles and municipal procurement/political risk",
+    "Execution risk scaling new categories (counter-drone, robotics, AI Era Plan) against Motorola and defense-tech entrants",
+    "Premium valuation sensitive to any margin or growth disappointment, as the Q2 sell-off showed"
+   ],
+   "data_confidence": "high",
+   "sources": [
+    "https://investor.axon.com/2026-08-05-Axon-reports-Q2-2026-revenue-of-904-million,-up-35-year-over-year",
+    "https://www.prnewswire.com/news-releases/axon-reports-q2-2026-revenue-of-904-million-up-35-year-over-year-302844105.html",
+    "https://stockanalysis.com/stocks/AXON/financials/?p=quarterly",
+    "https://stockanalysis.com/stocks/AXON/financials/cash-flow-statement/?p=quarterly",
+    "https://www.investing.com/news/company-news/axon-q2-2026-slides-show-35-growth-but-shares-fall-on-margin-worries-93CH-4839831"
+   ],
+   "thesis_fit": {
+    "rating": "medium",
+    "themes": [
+     "compute",
+     "manufacturing"
+    ],
+    "note": "Axon increasingly monetizes real exponential curves - cheap sensors and cameras, cloud compute, AI transcription/report-writing (AI Era Plan bookings up ~700%), and now drones/counter-autonomy - and its ecosystem lock-in means those curves largely accrue to Axon rather than commoditizing. However, the core economic engine today is still hardware plus public-safety SaaS on government procurement cycles rather than the tech curve itself, and the weak GAAP/FCF conversion shows the exponential has not yet translated into compounding cash economics: two of three legs, medium."
+   },
+   "score": {
+    "judgment": {
+     "op_trend": "expanding",
+     "fcf_trend": "declining",
+     "exec_class": "beat_raise",
+     "bs_class": "heavy",
+     "nongaap_floor": true
+    },
+    "total": 60,
+    "band": "Solid",
+    "subscores": {
+     "growth": {
+      "points": 21,
+      "max": 25,
+      "detail": {
+       "pace": 13,
+       "acceleration": 3,
+       "breadth": 5
+      }
+     },
+     "profitability": {
+      "points": 14,
+      "max": 20,
+      "detail": {
+       "level": 4,
+       "trend": 10
+      }
+     },
+     "cash": {
+      "points": 5,
+      "max": 20,
+      "detail": {
+       "fcf_margin": 3,
+       "trajectory": 2
+      }
+     },
+     "balance_sheet": {
+      "points": 3,
+      "max": 15,
+      "detail": {
+       "class": "heavy"
+      }
+     },
+     "moat": {
+      "points": 12,
+      "max": 15,
+      "detail": {
+       "rating": 4
+      }
+     },
+     "execution": {
+      "points": 5,
+      "max": 5,
+      "detail": {
+       "class": "beat_raise"
+      }
+     }
+    },
+    "history": [
+     {
+      "date": "2026-08-07",
+      "total": 60,
+      "event": "baseline"
+     }
+    ]
+   },
+   "bench_reason": "thesis fit rated medium on evaluation (2026-08-07)",
+   "market_context": {
+    "rev_growth": {
+     "value": 35.3,
+     "rank": "top 10%",
+     "vs_sp500_aggregate": 21.2
+    },
+    "op_margin": {
+     "value": 5.2,
+     "rank": "bottom 25%"
+    },
+    "gross_margin": {
+     "value": 60.4,
+     "rank": "top 25%"
+    },
+    "fcf_margin": {
+     "value": 4.1,
+     "rank": "bottom 25%"
+    }
+   }
+  },
+  {
+   "ticker": "BWXT",
+   "name": "BWX Technologies, Inc.",
+   "sector": "Industrials - Defense & Nuclear Components",
+   "currency": "USD",
+   "last_report": {
+    "fiscal_quarter": "Q2 2026",
+    "report_date": "2026-08-03"
+   },
+   "next_earnings": "early November 2026",
+   "revenue": {
+    "ttm_b": 3.51,
+    "latest_q_b": 0.902,
+    "latest_q_yoy_pct": 18.0,
+    "prior_q_yoy_pct": 26.1
+   },
+   "margins": {
+    "gross_pct": 22.4,
+    "operating_pct": 12.7,
+    "fcf_margin_pct": 9.0,
+    "trend_note": "Operating margin roughly flat vs a year ago (~12.7% vs ~12.1% as company-reported, incl. JV equity income; ex-JV data shows mild compression to ~10% from ~11%) as fast-growing but lower-margin Commercial revenue dilutes mix."
+   },
+   "fcf": {
+    "ttm_b": 0.32,
+    "yoy_pct": null,
+    "note": "TTM FCF ~$317M with strong H1 conversion ($249M operating cash flow), and 2026 FCF guidance was raised to $345-360M from $315-330M."
+   },
+   "balance_sheet": {
+    "cash_b": 0.61,
+    "total_debt_b": 2.02,
+    "net_position_b": -1.41,
+    "note": "Net debt ~$1.4B (~4x TTM FCF) after funding the Precision Components Group acquisition closed July 1, 2026; leverage manageable against contracted government cash flows."
+   },
+   "segments": [
+    {
+     "name": "Government Operations",
+     "latest_q_yoy_pct": 2.0,
+     "note": "$601.3M - steady naval nuclear propulsion base (sole-source for US Navy reactors)."
+    },
+    {
+     "name": "Commercial Operations",
+     "latest_q_yoy_pct": 72.0,
+     "note": "$302.5M - commercial nuclear components/services surging on the nuclear power buildout, boosted by acquisitions."
+    }
+   ],
+   "guidance_note": "Raised full-year 2026 guidance across the board: revenue to ~$3.8B, adjusted EBITDA to $662-672M, non-GAAP EPS to $4.70-4.80, and FCF to $345-360M, alongside a record backlog.",
+   "execution_note": "Consistent beat-and-raise: Q2 2026 beat on EPS with record backlog and the second guidance raise dynamic of the year, though shares slipped modestly after hours on valuation.",
+   "moat": {
+    "rating_1to5": 4,
+    "note": "Sole-source supplier of nuclear reactors and fuel for the US Navy - an effectively unassailable, security-cleared franchise with decades-long visibility - though its monopsony customer caps pricing power, and the commercial nuclear side is more contested."
+   },
+   "risks": [
+    "Government budget/appropriations timing and monopsony pricing pressure on the core Navy franchise",
+    "Commercial nuclear growth partly acquisition-driven; integration and mix dilution of margins",
+    "Rich valuation embeds flawless execution on SMR/TRISO/medical optionality",
+    "Leverage stepped up with recent M&A"
+   ],
+   "data_confidence": "medium",
+   "sources": [
+    "https://www.stocktitan.net/news/BWXT/bwx-technologies-reports-second-quarter-2026-y4jnjpl91u30.html",
+    "https://stockanalysis.com/stocks/bwxt/financials/?p=quarterly",
+    "https://www.investing.com/news/transcripts/earnings-call-transcript-bwx-technologies-posts-q2-2026-eps-beat-shares-slip-after-hours-93CH-4832487"
+   ],
+   "thesis_fit": {
+    "rating": "low",
+    "themes": [
+     "energy"
+    ],
+    "note": "BWXT has the strongest moat of this group - a literal sole-source monopoly on US naval nuclear propulsion - but that core business (two-thirds of revenue, growing 2%) is program-driven defense manufacturing, not a technology riding an exponential cost/performance curve; nuclear has historically shown negative learning rates. The exciting part, Commercial Operations up 72% on the AI-power-driven nuclear renaissance plus SMR/TRISO/medical-isotope optionality, is real but is demand exposure to someone else's exponential (compute) rather than a compounding curve in BWXT's own product. Only one of the three exponential-thesis legs (moat) is clearly satisfied, so it fits as a high-quality compounder rather than an exponential-age pure play."
+   },
+   "score": {
+    "judgment": {
+     "op_trend": "flat",
+     "fcf_trend": "growing",
+     "exec_class": "beat_raise",
+     "bs_class": "elevated",
+     "nongaap_floor": false
+    },
+    "total": 57,
+    "band": "Solid",
+    "subscores": {
+     "growth": {
+      "points": 14,
+      "max": 25,
+      "detail": {
+       "pace": 10,
+       "acceleration": 1,
+       "breadth": 3
+      }
+     },
+     "profitability": {
+      "points": 10,
+      "max": 20,
+      "detail": {
+       "level": 4,
+       "trend": 6
+      }
+     },
+     "cash": {
+      "points": 10,
+      "max": 20,
+      "detail": {
+       "fcf_margin": 3,
+       "trajectory": 7
+      }
+     },
+     "balance_sheet": {
+      "points": 6,
+      "max": 15,
+      "detail": {
+       "class": "elevated"
+      }
+     },
+     "moat": {
+      "points": 12,
+      "max": 15,
+      "detail": {
+       "rating": 4
+      }
+     },
+     "execution": {
+      "points": 5,
+      "max": 5,
+      "detail": {
+       "class": "beat_raise"
+      }
+     }
+    },
+    "history": [
+     {
+      "date": "2026-08-07",
+      "total": 57,
+      "event": "baseline"
+     }
+    ]
+   },
+   "bench_reason": "thesis fit rated low on evaluation (2026-08-07)",
+   "market_context": {
+    "rev_growth": {
+     "value": 18.0,
+     "rank": "top 25%",
+     "vs_sp500_aggregate": 3.9
+    },
+    "op_margin": {
+     "value": 12.7,
+     "rank": "below median"
+    },
+    "gross_margin": {
+     "value": 22.4,
+     "rank": "bottom 25%"
+    },
+    "fcf_margin": {
+     "value": 9.0,
+     "rank": "below median"
+    }
+   }
+  },
+  {
+   "ticker": "VST",
+   "name": "Vistra Corp.",
+   "sector": "Utilities - Independent Power Producer & Retail Electricity",
+   "currency": "USD",
+   "last_report": {
+    "fiscal_quarter": "Q2 2026",
+    "report_date": "2026-08-07"
+   },
+   "next_earnings": "early November 2026",
+   "revenue": {
+    "ttm_b": 19.21,
+    "latest_q_b": 4.017,
+    "latest_q_yoy_pct": -5.5,
+    "prior_q_yoy_pct": 43.4
+   },
+   "margins": {
+    "gross_pct": null,
+    "operating_pct": 13.8,
+    "fcf_margin_pct": 11.7,
+    "trend_note": "GAAP operating margin improved to ~13.8% from ~12.1% a year ago (operating income +7.4% on lower revenue), while adjusted EBITDA jumped 31% - reported GAAP revenue/margins are noisy due to mark-to-market hedge swings."
+   },
+   "fcf": {
+    "ttm_b": 2.26,
+    "yoy_pct": null,
+    "note": "TTM FCF ~$2.26B with a sharp inflection - H1 2026 FCF was +$650M vs roughly -$287M in H1 2025 - though heavy growth capex (~$1.57B in H1) is a persistent drag."
+   },
+   "balance_sheet": {
+    "cash_b": 0.44,
+    "total_debt_b": 21.0,
+    "net_position_b": -20.57,
+    "note": "Net debt ~$20.6B (debt as of Mar 31, cash as of Jun 30) is ~9x TTM GAAP FCF but ~4.8x the midpoint of guided 2026 adjusted FCF-before-growth; structurally high leverage typical of IPPs, backstopped by $6.3B liquidity."
+   },
+   "segments": [
+    {
+     "name": "Retail (adj. EBITDA $773M)",
+     "latest_q_yoy_pct": null,
+     "note": "Segment YoY not disclosed in release."
+    },
+    {
+     "name": "Texas (adj. EBITDA $311M)",
+     "latest_q_yoy_pct": null,
+     "note": "Generation Texas."
+    },
+    {
+     "name": "East (adj. EBITDA $642M)",
+     "latest_q_yoy_pct": null,
+     "note": "Includes nuclear fleet upside."
+    },
+    {
+     "name": "West (adj. EBITDA $68M)",
+     "latest_q_yoy_pct": null,
+     "note": "Smallest segment."
+    }
+   ],
+   "guidance_note": "Reaffirmed 2026 guidance of $6.8-7.6B ongoing adjusted EBITDA and $3.925-4.725B adjusted FCF before growth, and announced the Helix Digital Infrastructure data-center power partnership with KKR, KIA and NVIDIA (up to $1B Vistra commitment).",
+   "execution_note": "Pattern is EBITDA beats with GAAP revenue misses - Q2 2026 adjusted EBITDA rose 31% and beat while revenue fell 5.5% and missed, and shares slipped on the miss despite reaffirmed guidance.",
+   "moat": {
+    "rating_1to5": 3,
+    "note": "Owns scarce, hard-to-replicate dispatchable and nuclear capacity in supply-constrained grids plus a large integrated retail book - a real advantage in the AI power crunch - but it remains a price-taking commodity generator without contractual lock-in on most output."
+   },
+   "risks": [
+    "Commodity power price and hedge mark-to-market volatility",
+    "~$21B debt load and rising growth capex (Cogentrix acquisition, data-center buildout)",
+    "Regulatory/political intervention risk in power markets if consumer prices spike",
+    "AI data-center demand assumptions may disappoint or be competed away"
+   ],
+   "data_confidence": "high",
+   "sources": [
+    "https://investor.vistracorp.com/2026-08-07-Vistra-Reports-Second-Quarter-2026-Results",
+    "https://www.prnewswire.com/news-releases/vistra-reports-second-quarter-2026-results-302845874.html",
+    "https://stockanalysis.com/stocks/vst/financials/?p=quarterly",
+    "https://stockanalysis.com/stocks/vst/financials/cash-flow-statement/?p=quarterly"
+   ],
+   "thesis_fit": {
+    "rating": "medium",
+    "themes": [
+     "energy",
+     "compute"
+    ],
+    "note": "Vistra is an indirect play on the compute exponential: AI data-center load growth is repricing its scarce nuclear and gas fleet, and the NVIDIA/KKR Helix partnership makes that linkage explicit. But the exponential is the customer, not the product - Vistra sells commodity electrons, its fleet is not on a technology learning curve (gas/nuclear/coal, with renewables a minority), and its advantage is asset scarcity plus interconnection queues rather than a compounding technology moat. Two-of-three at best: strong demand-side exposure to the exponential and a defensible-for-now asset position, but the core business is not itself exponential technology."
+   },
+   "score": {
+    "judgment": {
+     "op_trend": "expanding",
+     "fcf_trend": "surging",
+     "exec_class": "mixed",
+     "bs_class": "elevated",
+     "nongaap_floor": false
+    },
+    "total": 52,
+    "band": "Watch",
+    "subscores": {
+     "growth": {
+      "points": 5,
+      "max": 25,
+      "detail": {
+       "pace": 1,
+       "acceleration": 1,
+       "breadth": 3
+      }
+     },
+     "profitability": {
+      "points": 14,
+      "max": 20,
+      "detail": {
+       "level": 4,
+       "trend": 10
+      }
+     },
+     "cash": {
+      "points": 16,
+      "max": 20,
+      "detail": {
+       "fcf_margin": 6,
+       "trajectory": 10
+      }
+     },
+     "balance_sheet": {
+      "points": 6,
+      "max": 15,
+      "detail": {
+       "class": "elevated"
+      }
+     },
+     "moat": {
+      "points": 9,
+      "max": 15,
+      "detail": {
+       "rating": 3
+      }
+     },
+     "execution": {
+      "points": 2,
+      "max": 5,
+      "detail": {
+       "class": "mixed"
+      }
+     }
+    },
+    "history": [
+     {
+      "date": "2026-08-07",
+      "total": 52,
+      "event": "baseline"
+     }
+    ]
+   },
+   "bench_reason": "thesis fit rated medium on evaluation (2026-08-07)",
+   "market_context": {
+    "rev_growth": {
+     "value": -5.5,
+     "rank": "bottom 25%",
+     "vs_sp500_aggregate": -19.6
+    },
+    "op_margin": {
+     "value": 13.8,
+     "rank": "above median"
+    },
+    "gross_margin": {
+     "value": null,
+     "rank": null
+    },
+    "fcf_margin": {
+     "value": 11.7,
+     "rank": "above median"
+    }
+   }
+  },
+  {
+   "ticker": "NVO",
+   "name": "Novo Nordisk A/S",
+   "sector": "Healthcare - Pharmaceuticals",
+   "currency": "DKK",
+   "last_report": {
+    "fiscal_quarter": "Q2 2026",
+    "report_date": "2026-08-04"
+   },
+   "next_earnings": "early November 2026",
+   "revenue": {
+    "ttm_b": 329.43,
+    "latest_q_b": 78.49,
+    "latest_q_yoy_pct": 2.1,
+    "prior_q_yoy_pct": 24.0
+   },
+   "margins": {
+    "gross_pct": 78.2,
+    "operating_pct": 34.5,
+    "fcf_margin_pct": 18.8,
+    "trend_note": "GAAP operating margin fell to ~34.5% from ~43.5% a year ago on DKK 6.3B of non-recurring impairments (incl. DKK 4.0B monlunabant) and restructuring; on an adjusted basis operating profit grew 11% CER on 7% adjusted sales, i.e. roughly flat-to-slightly-better underlying margin."
+   },
+   "fcf": {
+    "ttm_b": 61.91,
+    "yoy_pct": null,
+    "note": "TTM FCF of ~DKK 62B is solid but held back by heavy capex (DKK 12-18B per quarter) on API and fill-finish capacity; Q2 FCF of DKK 27.5B was roughly flat YoY."
+   },
+   "balance_sheet": {
+    "cash_b": 44.98,
+    "total_debt_b": 140.13,
+    "net_position_b": -95.15,
+    "note": "Net debt of ~DKK 95B (~1.5x TTM FCF), a marked shift from the historical net-cash position following the Catalent acquisition and capacity investments."
+   },
+   "segments": [
+    {
+     "name": "GLP-1 franchise (Ozempic/Wegovy incl. oral Wegovy)",
+     "latest_q_yoy_pct": null,
+     "note": "Product-level splits not verified from the summary release; company cited oral Wegovy exceeding 265,000 weekly US prescriptions and >5M scripts since launch, with guidance raised on 'increased expectations for GLP-1 product sales'."
+    }
+   ],
+   "guidance_note": "Raised FY2026 adjusted guidance to 0% to -6% CER for both adjusted sales and adjusted operating profit growth (from -4% to -12% in May), still implying a down year on an adjusted basis.",
+   "execution_note": "Beat Q2 estimates and raised the 2026 outlook, but this follows a string of prior guidance cuts and a sharp growth deceleration, so the pattern is mixed rather than clean beat-and-raise.",
+   "moat": {
+    "rating_1to5": 3,
+    "note": "Deep semaglutide franchise, manufacturing scale and 100 years of diabetes brand equity, but the moat is visibly contested: Lilly is out-innovating it in obesity, compounders/generics are eroding pricing in some markets, and pipeline setbacks (monlunabant impairment) weaken the succession story."
+   },
+   "risks": [
+    "Share loss and price pressure in obesity/diabetes versus Eli Lilly (tirzepatide, oral orforglipron)",
+    "US pricing headwinds: 340B dynamics, IRA negotiation, political pressure on GLP-1 pricing",
+    "Pipeline execution after impairments; heavy reliance on semaglutide ahead of patent expiries in the early 2030s",
+    "Restructuring execution and leadership transition while growth is decelerating"
+   ],
+   "data_confidence": "medium",
+   "sources": [
+    "https://www.globenewswire.com/news-release/2026/08/04/3338659/0/en/novo-nordisk-raises-adjusted-sales-and-adjusted-operating-profit-outlook-for-2026.html",
+    "https://www.biospace.com/press-releases/novo-nordisk-reports-adjusted-operating-profit-of-dkk-33-389-million-for-q2-2026-and-raises-full-year-outlook",
+    "https://stockanalysis.com/stocks/NVO/financials/?p=quarterly",
+    "https://stockanalysis.com/stocks/NVO/financials/cash-flow-statement/?p=quarterly"
+   ],
+   "thesis_fit": {
+    "rating": "low",
+    "themes": [
+     "biology"
+    ],
+    "note": "Novo sits on the same GLP-1 biology wave as Lilly, but the evidence no longer supports the curve accruing to the company: reported sales grew only ~2% in DKK in the latest quarter, full-year adjusted guidance is for a decline, and the franchise is losing the innovation race to Lilly while facing compounding/generic erosion. The underlying technology (peptide engineering, oral delivery) is real, but it is a single maturing franchise rather than a compounding platform, and the moat leg is failing - at most one of the three thesis legs holds today."
+   },
+   "score": {
+    "judgment": {
+     "op_trend": "flat",
+     "fcf_trend": "flat",
+     "exec_class": "mixed",
+     "bs_class": "moderate",
+     "nongaap_floor": false
+    },
+    "total": 50,
+    "band": "Watch",
+    "subscores": {
+     "growth": {
+      "points": 6,
+      "max": 25,
+      "detail": {
+       "pace": 2,
+       "acceleration": 1,
+       "breadth": 3
+      }
+     },
+     "profitability": {
+      "points": 14,
+      "max": 20,
+      "detail": {
+       "level": 8,
+       "trend": 6
+      }
+     },
+     "cash": {
+      "points": 10,
+      "max": 20,
+      "detail": {
+       "fcf_margin": 6,
+       "trajectory": 4
+      }
+     },
+     "balance_sheet": {
+      "points": 9,
+      "max": 15,
+      "detail": {
+       "class": "moderate"
+      }
+     },
+     "moat": {
+      "points": 9,
+      "max": 15,
+      "detail": {
+       "rating": 3
+      }
+     },
+     "execution": {
+      "points": 2,
+      "max": 5,
+      "detail": {
+       "class": "mixed"
+      }
+     }
+    },
+    "history": [
+     {
+      "date": "2026-08-07",
+      "total": 50,
+      "event": "baseline"
+     }
+    ]
+   },
+   "bench_reason": "thesis fit rated low on evaluation (2026-08-07)",
+   "market_context": {
+    "rev_growth": {
+     "value": 2.1,
+     "rank": "below median",
+     "vs_sp500_aggregate": -12.0
+    },
+    "op_margin": {
+     "value": 34.5,
+     "rank": "top 10%"
+    },
+    "gross_margin": {
+     "value": 78.2,
+     "rank": "top 10%"
+    },
+    "fcf_margin": {
+     "value": 18.8,
+     "rank": "top 25%"
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.lifeos.exponential-watchlist</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>/Users/synergaise/LifeOS-agents/exponential-watchlist.sh</string>
+  </array>
+  <key>StartCalendarInterval</key>
+  <dict><key>Hour</key><integer>7</integer><key>Minute</key><integer>45</integer></dict>
+  <key>StandardOutPath</key>
+  <string>/Users/synergaise/LifeOS-agents/logs/exponential-watchlist.launchd.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/synergaise/LifeOS-agents/logs/exponential-watchlist.launchd.log</string>
+</dict>
+</plist>
