@@ -1,5 +1,3 @@
 [
-  {"ticker": "CEG", "date": "2026-08-06", "watch": "Reports today, call 10am ET, results not yet released as of this briefing; consensus EPS ~$2.36-2.41, revenue ~$7.47-7.94B; watch nuclear fleet output and any Blue Energy SMR update"},
-  {"ticker": "DDOG", "date": "2026-08-06", "watch": "Reports today, BMO call 8am ET, results not yet released as of this briefing; consensus EPS ~$0.57-0.59, revenue ~$1.07-1.08B; watch AI-observability traction and Q3/FY guide"},
-  {"ticker": "DE", "date": "2026-08-20", "watch": "Consensus EPS ~$4.85, revenue estimates split $10.26-10.87B; watch Large Ag/Precision Ag sales trend (guided down 5-10% FY26) and ~$1.2B tariff cost absorption"}
+  {"ticker": "DE", "date": "2026-08-20", "watch": "Consensus EPS ~$4.82-4.86, revenue ~$10.83B (+4.5% YoY); watch Large Ag/Precision Ag guide and the UAW contract standoff (Deere's 2-yr extension offer rejected, ratification vote expected ~Aug 23, contract deadline Aug 31)"}
 ]

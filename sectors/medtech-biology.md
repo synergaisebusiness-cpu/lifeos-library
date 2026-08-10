@@ -20,3 +20,6 @@ No material company-specific news for TMO or ISRG this window beyond routine tra
 
 ### 2026-08-06
 No fresh company-specific news for TMO or ISRG this window. The biotech IPO reopening continued concretely: Attovia Therapeutics priced its IPO Aug 4 (up to $212.5m raised, Nasdaq: ATTO), with reporting describing at least five biopharma companies going public the week of Aug 4-6; 2026 biotech IPOs are averaging a 55% return, leading the broader IPO market, though investor appetite is described as selective (differentiated, later-stage, cleaner commercial stories) rather than broad-based. [PharmaVoice](https://www.pharmavoice.com/news/bio-2026-ipo-biotech-performance-predictions/823500/)
+
+### 2026-08-10
+No fresh company-specific news for TMO or ISRG this window — a dry streak now running several briefings. The biotech IPO reopening remained the more active storyline: Braveheart Bio (BRVE), an a16z/Forbion-backed cardiovascular biopharma, priced its upsized IPO at $18/share (above the $15-17 range) Aug 6, raising $382.5m, and surged 68% on its Nasdaq debut to close at $29.80 — one of the strongest biotech IPO pops of the cycle. BlossomHill (BLSM) and Latigo Biotherapeutics (LTGO) also debuted around Aug 7 as part of the same week's wave. [Bloomberg](https://www.bloomberg.com/news/articles/2026-08-06/a16z-backed-braveheart-bio-soars-68-after-382-5-million-ipo)

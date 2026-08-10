@@ -20,3 +20,6 @@ A busy stretch: Jul 30 essay (with Nathan Warren), "For AI adopters, success and
 
 ### 2026-08-06
 No new Azhar-authored essay landed inside Aug 3-6 (the Aug 3 "data to start your week" post was written by colleague Hannah Petrovic, covering agentic-AI patent filings up 59% YoY — not counted as an Azhar statement). Flagging explicitly rather than padding; his Aug 2 EV #595 framing (above) remains the most recent substantive item.
+
+### 2026-08-10
+New Sunday essay, #596 ("Agents form alliances, DeepMind's reset & how likely is a crash?"), published Aug 9 — the first new essay since EV #595 (Aug 2). Full content not independently reviewed beyond the headline framing this pass. [Exponential View](https://www.exponentialview.co/)
