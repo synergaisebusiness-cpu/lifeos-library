@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Python L1 Checkpoint — 10 Aug 2026</title>
+<style>
+:root{--ink:#1a1a1a;--mut:#6b6b6b;--rule:#e4e0d8;--bg:#faf9f7;--acc:#8a5a2b;--code:#f3f1ed}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+font:17px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Georgia,serif;}
+.wrap{max-width:760px;margin:0 auto;padding:56px 28px 96px}
+h1{font-size:28px;line-height:1.25;margin:0 0 6px;letter-spacing:-.01em}
+h2{font-size:20px;margin:44px 0 14px;padding-top:20px;border-top:1px solid var(--rule);letter-spacing:-.005em}
+h1+p em,p em:first-child{color:var(--mut)}
+em{font-style:italic}
+p{margin:0 0 14px}
+strong{font-weight:650}
+ul{margin:0 0 14px;padding-left:22px}
+ol{margin:0 0 14px;padding-left:22px}
+li{margin:0 0 7px}
+hr{border:0;border-top:1px solid var(--rule);margin:34px 0}
+code{background:var(--code);padding:1px 5px;border-radius:4px;
+font:14px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace}
+pre{background:#fff;border:1px solid var(--rule);border-left:3px solid var(--acc);
+border-radius:5px;padding:14px 16px;overflow-x:auto;margin:0 0 16px}
+pre code{background:none;padding:0;font-size:14px;line-height:1.55}
+.callout{background:#fff;border:1px solid var(--rule);border-left:3px solid var(--acc);
+border-radius:5px;padding:12px 16px;margin:0 0 16px}
+@media print{body{background:#fff}.wrap{padding:0}pre{break-inside:avoid}}
+</style></head><body><div class="wrap">
+<h1>Python L1 CHECKPOINT — Lists &amp; Tuples, Dicts &amp; Sets, Comprehensions, Files &amp; Exceptions</h1>
+<p><em>Monday 10 August 2026 · cold · unassisted</em></p>
+<p>Covers L1.1 (3 Aug), L1.2 (4 Aug), L1.3 (6 Aug — already rep-checked and <strong>CLIMBED 7 Aug</strong>,
+6/6 clean, so this touches it lightly rather than re-litigating it), and L1.4 (7 Aug — <strong>taught, not
+climbed</strong>: exercises were skipped and the model-check left two misses live). This absorbs the L1.4
+exercises that never got done and the two Friday retests, the same way the L0 checkpoint absorbed
+the unmarked L0.3 rep sheet.</p>
+<div class="callout"><p style="margin:0"><strong>Where this sits.</strong> Sat 8 Aug and Sun 9 Aug did not happen — nothing since
+Friday's close. That trips the tripwire agreed on 2 Aug: weekend blocks are cut from here without
+further discussion. Full note in <code>study-log.md</code>. This checkpoint is today's actual block —
+not Python L5, which the printed schedule names for today but which is three rungs away from where
+the ladder actually is.</p></div>
+<p><strong>Rules.</strong> No notes, no chat panel, no running anything until a part is fully written down. If you
+get stuck, leave it blank and move on — a blank is data, a borrowed answer isn't.</p>
+<p><strong>Confidence letters.</strong> Next to every answer write <strong>A</strong> (certain), <strong>B</strong> (fairly sure) or <strong>C</strong>
+(guessing) <strong>before you run anything</strong>. Scored separately from correctness.</p>
+<hr />
+<h2>Part 0 — Hygiene, before anything else (~90 sec)</h2>
+<p>Two things left over from Friday, do them now so they don't sit there another week:</p>
+<ol>
+<li><code>data/</code> is currently inside <code>practice/</code> — drag it up to the <code>lloyds-prep</code> root,
+next to <code>practice/</code>, not inside it. <strong>This is why seeding the data felt weird on Friday</strong>:
+the file lives at <code>data/cities.txt</code> relative to <code>practice/</code>, but the VS Code ▶ button runs
+from the project root (<code>lloyds-prep</code>), so <code>open(&quot;data/cities.txt&quot;)</code> was looking in the wrong
+place the whole time — <code>cities.txt</code> itself is fine (checked: four city names, no issue there),
+it was just sat behind the wrong door.</li>
+<li><code>Files and Exceptions.py</code> has capitals and a space in the name — rename it to
+<code>files_exceptions.py</code>. (Third costume of the lowercase rule: variables, then a folder, now a
+filename. Spaces make a module permanently unimportable — worth knowing why this one isn't
+optional.)</li>
+<li>Create an empty <code>results/</code> folder at the <code>lloyds-prep</code> root too (same level as
+<code>data/</code> and <code>practice/</code>). <code>open(path, &quot;w&quot;)</code> will happily create the <em>file</em>, but it
+will not create a missing <em>folder</em> — Part 1 Q6 and the append example both write into
+<code>results/</code>, and without the folder existing first you'd hit a FileNotFoundError that has
+nothing to do with the lesson.</li>
+</ol>
+<hr />
+<h2>Part 1 — Predict. Value <strong>and</strong> type where relevant. Nothing runs until all nine are written. (~15 min)</h2>
+<pre><code class="language-python"># 1
+prices = [42, 17, 99, 8, 63]
+print(prices[1:99])
+</code></pre>
+<pre><code class="language-python"># 2
+original = [10, 20, 30]
+backup = original
+backup[0] = 999
+print(original)
+</code></pre>
+<pre><code class="language-python"># 3
+prices = [42, 17, 99]
+cheapest_first = prices.sort()
+print(cheapest_first)
+print(prices)
+</code></pre>
+<pre><code class="language-python"># 4
+account = {&quot;active&quot;: True, &quot;balance&quot;: 500}
+balance = account.get(&quot;balence&quot;)
+print(f&quot;Balance: {balance}&quot;)
+</code></pre>
+<pre><code class="language-python"># 5
+scores = [&quot;7&quot;, &quot;10&quot;, &quot;9&quot;]
+top = [s for s in scores if s &gt; &quot;8&quot;]
+print(top)
+</code></pre>
+<pre><code class="language-python"># 6 — retest of Friday's Q1
+with open(&quot;results/log.txt&quot;, &quot;w&quot;) as f:
+    f.write(&quot;run 1\n&quot;)
+
+with open(&quot;results/log.txt&quot;, &quot;w&quot;) as f:
+    f.write(&quot;run 2\n&quot;)
+
+with open(&quot;results/log.txt&quot;) as f:
+    print(f.read())
+</code></pre>
+<pre><code class="language-python"># 7 — retest of Friday's Q2
+try:
+    total = pryce * 2
+    print(total)
+except:
+    print(&quot;could not calculate total&quot;)
+
+print(&quot;done&quot;)
+</code></pre>
+<pre><code class="language-python"># 8
+try:
+    with open(&quot;data/missing.txt&quot;) as f:
+        content = f.read()
+except FileNotFoundError:
+    content = &quot;&quot;
+
+print(repr(content))
+</code></pre>
+<pre><code class="language-python"># 9
+row = (&quot;2026-08-10&quot;, &quot;Leeds&quot;, 3980)
+date, city = row
+</code></pre>
+<p>Now run all nine. <strong>Mark which you got wrong before you look at why</strong>, and flag every case where you
+rated <strong>A</strong> and were wrong — that's still the most useful cell on the sheet.</p>
+<hr />
+<h2>Part 2 — Write. (~20 min)</h2>
+<p><strong>File: <code>practice/checkpoint_l1.py</code>, in VS Code, run from <code>lloyds-prep</code>.</strong></p>
+<p>Write all three first. <strong>A / B / C</strong> on each, before you run. <code># takes a ___, returns a ___</code>
+above every <code>def</code>, written before the body — still marked.</p>
+<h3 style="font-size:17px;margin:0 0 10px">The three</h3>
+<p><strong>1. <code>read_scores(path)</code></strong> <em>(this is Friday's exercise 3, undone — doing it now, not skipped twice)</em></p>
+<ul>
+<li>Takes a <code>str</code> path. Returns a <code>list</code> of <code>int</code>s.</li>
+<li>Skip blank lines. <code>int(&quot;42\n&quot;)</code> copes with the trailing newline; <code>int(&quot;&quot;)</code> does not — decide your
+order of operations.</li>
+</ul>
+<p><strong>2. <code>load_scores_safely(path)</code></strong></p>
+<ul>
+<li>Takes a <code>str</code> path. Calls <code>read_scores(path)</code>.</li>
+<li>If the file doesn't exist yet (first run of the harness, genuinely expected), return an empty
+list. Catch <strong>the one exception you mean, by name</strong> — not bare <code>except</code>.</li>
+<li>Anything else that goes wrong should still crash. Say why that matters in a comment.</li>
+</ul>
+<p><strong>3. <code>summarize_orders(orders)</code></strong></p>
+<ul>
+<li>Takes a <code>list</code> of <code>dict</code>s shaped like <code>{&quot;city&quot;: &quot;leeds&quot;, &quot;amount&quot;: 90}</code>.</li>
+<li>Returns a <code>dict</code> mapping each city to its <strong>total</strong> amount across all its entries.</li>
+<li>No <code>.get()</code> needed here — you're building the dict, not reading one that might be missing a key.
+Decide what happens the first time you see a city versus the second.</li>
+</ul>
+<h3 style="font-size:15px;margin:0 0 10px;color:var(--mut)">Skeleton — type this into the file</h3>
+<pre><code class="language-python"># practice/checkpoint_l1.py
+
+# takes a ___, returns a ___
+def read_scores(path):
+    ...
+
+
+# takes a ___, returns a ___
+def load_scores_safely(path):
+    ...
+
+
+# takes a ___, returns a ___
+def summarize_orders(orders):
+    ...
+
+
+# ---------- tests: do not edit ----------
+
+# before running: create data/scores.txt yourself —
+# five numbers, one per line, with one blank line in there somewhere
+
+print(read_scores(&quot;data/scores.txt&quot;))              # expect a list of ints, blank line skipped
+print(load_scores_safely(&quot;data/scores.txt&quot;))        # expect the same list
+print(load_scores_safely(&quot;data/nope.txt&quot;))          # expect [] — no traceback
+
+orders = [
+    {&quot;city&quot;: &quot;leeds&quot;, &quot;amount&quot;: 90},
+    {&quot;city&quot;: &quot;york&quot;, &quot;amount&quot;: 120},
+    {&quot;city&quot;: &quot;leeds&quot;, &quot;amount&quot;: 40},
+]
+print(summarize_orders(orders))                      # expect {'leeds': 130, 'york': 120}
+</code></pre>
+<p>Paste me the file and the terminal output together.</p>
+<hr />
+<h2>Part 3 — One sentence each. (~4 min)</h2>
+<p><strong>(a)</strong> Q6 in Part 1 ran clean and printed something short. What got lost, and would you have known
+if this had been your golden-set results file?</p>
+<p><strong>(b)</strong> Q7 printed a polite message instead of crashing. What was actually wrong with the code, and
+why did the <code>except</code> hide it rather than fix it?</p>
+<p><strong>(c)</strong> Three of the nine Part 1 questions are the same failure in different clothes — a wrong or
+missing answer that doesn't announce itself. Name the failure in one sentence and say which three.</p>
+<hr />
+<h2>What I'm marking</h2>
+<p>Correctness, then calibration, then whether (a) and (b) show the two Friday misses actually closed
+— that's the real pass condition for L1.4, not just today's questions.</p>
+</div></body></html>
