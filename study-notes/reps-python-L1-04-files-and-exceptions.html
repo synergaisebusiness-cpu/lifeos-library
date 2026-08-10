@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Reps — Python L1.4 Files &amp; Exceptions — 10 Aug 2026</title>
+<style>
+:root{--ink:#1a1a1a;--mut:#6b6b6b;--rule:#e4e0d8;--bg:#faf9f7;--acc:#8a5a2b;--code:#f3f1ed}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+font:17px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Georgia,serif;}
+.wrap{max-width:760px;margin:0 auto;padding:56px 28px 96px}
+h1{font-size:28px;line-height:1.25;margin:0 0 6px;letter-spacing:-.01em}
+h2{font-size:20px;margin:44px 0 14px;padding-top:20px;border-top:1px solid var(--rule);letter-spacing:-.005em}
+h1+p em,p em:first-child{color:var(--mut)}
+em{font-style:italic}
+p{margin:0 0 14px}
+strong{font-weight:650}
+ul{margin:0 0 14px;padding-left:22px}
+li{margin:0 0 7px}
+hr{border:0;border-top:1px solid var(--rule);margin:34px 0}
+code{background:var(--code);padding:1px 5px;border-radius:4px;
+font:14px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace}
+pre{background:#fff;border:1px solid var(--rule);border-left:3px solid var(--acc);
+border-radius:5px;padding:14px 16px;overflow-x:auto;margin:0 0 16px}
+pre code{background:none;padding:0;font-size:14px;line-height:1.55}
+.callout{background:#fff;border:1px solid var(--rule);border-left:3px solid var(--acc);
+border-radius:5px;padding:12px 16px;margin:0 0 16px}
+@media print{body{background:#fff}.wrap{padding:0}pre{break-inside:avoid}}
+</style></head><body><div class="wrap">
+<h1>Reps — Python L1.4, Files and Exceptions</h1>
+<p><em>Monday 10 August 2026 · ~15 min · unassisted · marked at the top of tomorrow's block</em></p>
+<p>Two reps and one explain-back. These target the two things Friday's model-check missed — the mode
+letter, and what a bare <code>except:</code> does — so they're deliberately narrow rather than the full six
+exercises from the notes.</p>
+<p>Notes shut. No chat panel. A blank is data, a borrowed answer isn't.</p>
+<div class="callout"><p style="margin:0"><strong>Predictions are a typed line, not a thought.</strong> Every step that says
+<em>write your prediction</em> means type it into the file as a comment before you run. Not because I need
+it — because the gap between what you predicted and what happened is the entire lesson, and it
+evaporates if you don't pin it down first.</p></div>
+<hr />
+<h2>Rep 1 — The mode letter. <code>practice/reps_l1_04_modes.py</code> (~6 min)</h2>
+<p><strong>Step 1.</strong> Type this:</p>
+<pre><code class="language-python"># I predict the file will contain: ____
+with open(&quot;results/runs.txt&quot;, &quot;a&quot;) as f:
+    f.write(&quot;run\n&quot;)
+</code></pre>
+<p>Fill in the blank before you run anything.</p>
+<p><strong>Step 2.</strong> Run it. Open <code>results/runs.txt</code> and look.</p>
+<p><strong>Step 3.</strong> Run it twice more. Look again after each run. Update the comment with what's actually
+there.</p>
+<p><strong>Step 4.</strong> Now change <code>&quot;a&quot;</code> to <code>&quot;w&quot;</code> — one character. Before you run it, type a second
+prediction line:</p>
+<pre><code class="language-python"># I predict that after switching to &quot;w&quot; the file will contain: ____
+</code></pre>
+<p><strong>Step 5.</strong> Run it once. Look at the file.</p>
+<p><strong>Step 6.</strong> Write, as a comment at the bottom: how many lines of data did that one character
+destroy, and what — if anything — told you it had happened?</p>
+<hr />
+<h2>Rep 2 — The sabotage. <code>practice/reps_l1_04_sabotage.py</code> (~6 min)</h2>
+<p><strong>Step 1.</strong> Type this, exactly as written, typo included:</p>
+<pre><code class="language-python">price = 20
+
+# I predict this prints: ____
+try:
+    total = pryce * 2
+    print(f&quot;Total: {total}&quot;)
+except:
+    print(&quot;could not calculate total&quot;)
+
+print(&quot;finished&quot;)
+</code></pre>
+<p>Prediction first.</p>
+<p><strong>Step 2.</strong> Run it. Note that the program completed successfully and reported a problem with
+calculating the total.</p>
+<p><strong>Step 3.</strong> Ask yourself, in a comment: <em>based only on that output, where would you start looking
+for the bug?</em> Write down the honest answer — the one you'd actually act on at 9am with a coffee, not
+the one you know is correct because you typed the typo yourself thirty seconds ago.</p>
+<p><strong>Step 4.</strong> Now change <code>except:</code> to <code>except TypeError:</code> and run it again.</p>
+<p><strong>Step 5.</strong> Read what comes out. Write down the exception's <strong>name</strong>, and the thing it tells you
+that the polite message did not.</p>
+<p><strong>Step 6.</strong> Fix the typo. Run once more to confirm.</p>
+<hr />
+<h2>Rep 3 — Explain back. Voice note is fine. (~3 min)</h2>
+<p>Not code. Answer in your own words, as though to someone who has written a bit of Python but has
+never thought about this:</p>
+<div class="callout"><p style="margin:0"><strong>A colleague shows you a function. Every risky operation in it is wrapped in
+<code>try</code> / bare <code>except:</code>, and it never crashes — it always returns something. They're pleased
+with how robust it is. What do you tell them, and what would you ask to see before you believed it
+worked?</strong></p></div>
+<hr />
+<h2>What I'm marking tomorrow</h2>
+<p>Whether the predictions were typed <em>before</em> the runs — that's the rep, the rest is just running
+code. Then Step 3 of Rep 2, which is the honest one: bare <code>except:</code> doesn't only hide the bug, it
+actively points you at the wrong place.</p>
+</div></body></html>
