@@ -1,3 +1,5 @@
 [
-  {"ticker": "DE", "date": "2026-08-20", "watch": "Consensus EPS ~$4.82-4.86, revenue ~$10.83B (+4.5% YoY); watch Large Ag/Precision Ag guide and the UAW contract standoff (Deere's 2-yr extension offer rejected, ratification vote expected ~Aug 23, contract deadline Aug 31)"}
+  {"ticker": "DE", "date": "2026-08-20", "watch": "Consensus EPS ~$4.75-4.85 (revenue consensus unconfirmed); watch Large Ag/Precision Ag guide (Q2 sales -14%, op profit -39%) and the UAW contract standoff — Deere rejected the union's counteroffer, ratification vote set for Aug 23 (3 days after this print), contract deadline Aug 31"},
+  {"ticker": "NVDA", "date": "2026-08-26", "watch": "Fiscal Q2 FY2027; watch follow-through on the $500bn Wall Street compute-financing consortium (Apollo/BlackRock/Blackstone/Brookfield/Goldman/KKR) and Lancium power-infrastructure stake, plus any Vera Rubin production commentary"},
+  {"ticker": "CRWD", "date": "2026-08-26", "watch": "Fiscal Q2 FY2027, same day as NVDA; watch demand read-through from the agentic-AI-hacking cybersecurity narrative that drove the Aug 10 rally, and any commentary on the pace of insider 10b5-1 selling"}
 ]

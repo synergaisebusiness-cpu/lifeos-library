@@ -23,3 +23,6 @@ On SpaceX's first public-company earnings call (Aug 4-5), Musk said SpaceX will 
 
 ### 2026-08-10
 Grok 4.6 missed its own Aug 7 target date. As of Sunday Aug 9, no model card, API listing, or company announcement had appeared — a real miss against the timeline Musk set on SpaceX's Aug 4 earnings call ("next week"), pointing to a further slip toward the week of Aug 10 at the earliest. No other new, sourced Musk statement found this window. [Grok 4.6 release tracker](https://www.orcarouter.ai/blog/grok-4-6-release-date)
+
+### 2026-08-13
+Grok 4.6 actually shipped Aug 12, after missing its Aug 7 target. Musk called it a "banger" on X, touting its "amazing bang for buck" — xAI priced it at $2/M input and $6/M output tokens, roughly half of rival frontier-model pricing, live across the xAI API, Grok Build, Cursor, and Grok on X (1.5T parameters, same V9 base as Grok 4.5, claimed 1753 Elo). Grok 4.7 — described as a genuine architecture upgrade at 2.1T parameters — is slated for late Aug/early Sept. Musk has reportedly tasked xAI leadership with matching Anthropic's Claude release cadence cycle-for-cycle. [Basenor](https://www.basenor.com/blogs/news/xai-launches-grok-4-6-1753-elo-half-the-price-of-rival-frontier-models)

@@ -23,3 +23,6 @@ No new Azhar-authored essay landed inside Aug 3-6 (the Aug 3 "data to start your
 
 ### 2026-08-10
 New Sunday essay, #596 ("Agents form alliances, DeepMind's reset & how likely is a crash?"), published Aug 9 — the first new essay since EV #595 (Aug 2). Full content not independently reviewed beyond the headline framing this pass. [Exponential View](https://www.exponentialview.co/)
+
+### 2026-08-13
+Published "Making sense of the AI capex logjam" (Aug 10, co-authored with Hannah Petrovic, William Gildea, Marija Gavrilov) — directly relevant to this cycle's Oracle/Alphabet/Broadcom AI-financing-stress storylines: the seven largest AI-infrastructure builders plan $863bn in 2026 capex (+88% YoY), with hyperscalers already holding $315bn in assets "not yet in service" across four disclosing companies — an accounting-timing mismatch where capex is capitalized during construction but only hits earnings via depreciation once operational. Example cited: Meta's capex now takes ~1.7 years to go live (a year longer than in 2024), meaning "for every dollar it spends today, only about a third will reach service within the year." Quote: "This represents both capacity still to come online and a reservoir of future depreciation that has not yet reached the income statement." [Exponential View](https://www.exponentialview.co/p/ai-capex-deployment-gap)
