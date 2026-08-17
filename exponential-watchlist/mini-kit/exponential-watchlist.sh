@@ -24,16 +24,18 @@ git pull --rebase --quiet || echo "WARN: git pull failed (continuing on local co
 TODAY=$(date +%F)
 YESTERDAY=$(date -v-1d +%F 2>/dev/null || date -d yesterday +%F)
 
-# tickers (watchlist + bench) whose next_earnings ISO date is yesterday or today
+# tickers (all sections) whose next_earnings ISO date has PASSED and not been
+# re-scored — self-healing after downtime; oldest first, max 4 per run.
 TICKERS=$(python3 - "$WL_DIR/register.json" "$YESTERDAY" "$TODAY" <<'EOF'
 import json, sys, re
-reg = json.load(open(sys.argv[1])); days = set(sys.argv[2:])
+reg = json.load(open(sys.argv[1])); today = sys.argv[3]
 hits = []
 for c in reg["companies"] + reg.get("bench", []) + reg.get("distribution", []) + reg.get("distribution_bench", []):
     m = re.match(r"(\d{4}-\d{2}-\d{2})", str(c.get("next_earnings","")))
-    if m and m.group(1) in days:
-        hits.append(c["ticker"])
-print(",".join(hits))
+    if m and m.group(1) <= today:
+        hits.append((m.group(1), c["ticker"]))
+hits.sort()
+print(",".join(t for _, t in hits[:4]))
 EOF
 )
 echo "reported yesterday/today: ${TICKERS:-none}"

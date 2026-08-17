@@ -22,16 +22,20 @@ git pull --rebase --quiet || echo "WARN: git pull failed (continuing on local co
 TODAY=$(date +%F)
 YESTERDAY=$(date -v-1d +%F 2>/dev/null || date -d yesterday +%F)
 
-# tickers whose next_earnings ISO date is yesterday or today
+# tickers whose next_earnings ISO date has PASSED (reported but not yet re-scored).
+# Self-healing after downtime: a missed day no longer goes stale forever — the
+# agent updates next_earnings on re-score, so processed names drop out.
+# Oldest first, max 4 per run to bound a catch-up backlog.
 TICKERS=$(python3 - "$CH_DIR/register.json" "$YESTERDAY" "$TODAY" <<'EOF'
 import json, sys, re
-reg = json.load(open(sys.argv[1])); days = set(sys.argv[2:])
+reg = json.load(open(sys.argv[1])); today = sys.argv[3]
 hits = []
 for c in reg["companies"]:
     m = re.match(r"(\d{4}-\d{2}-\d{2})", str(c.get("next_earnings","")))
-    if m and m.group(1) in days:
-        hits.append(c["ticker"])
-print(",".join(hits))
+    if m and m.group(1) <= today:
+        hits.append((m.group(1), c["ticker"]))
+hits.sort()
+print(",".join(t for _, t in hits[:4]))
 EOF
 )
 
