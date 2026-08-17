@@ -1,5 +1,5 @@
 [
-  {"ticker": "DE", "date": "2026-08-20", "watch": "Consensus EPS ~$4.75-4.85 (revenue consensus unconfirmed); watch Large Ag/Precision Ag guide (Q2 sales -14%, op profit -39%) and the UAW contract standoff — Deere rejected the union's counteroffer, ratification vote set for Aug 23 (3 days after this print), contract deadline Aug 31"},
-  {"ticker": "NVDA", "date": "2026-08-26", "watch": "Fiscal Q2 FY2027; watch follow-through on the $500bn Wall Street compute-financing consortium (Apollo/BlackRock/Blackstone/Brookfield/Goldman/KKR) and Lancium power-infrastructure stake, plus any Vera Rubin production commentary"},
-  {"ticker": "CRWD", "date": "2026-08-26", "watch": "Fiscal Q2 FY2027, same day as NVDA; watch demand read-through from the agentic-AI-hacking cybersecurity narrative that drove the Aug 10 rally, and any commentary on the pace of insider 10b5-1 selling"}
+  {"ticker": "DE", "date": "2026-08-20", "watch": "Consensus EPS ~$4.85-4.86 on ~$10.87bn revenue; watch the UAW standoff — Deere holding firm on its 4%/yr, $3,000-bonus offer, rejected the union's richer counteroffer; ratification vote Aug 23 (3 days after this print), contract deadline Aug 31"},
+  {"ticker": "NVDA", "date": "2026-08-26", "watch": "Fiscal Q2 FY2027, consensus ~$2.08-2.13 EPS on $91-93.6bn revenue vs Nvidia's own ~$91.0bn guide; watch China H200-access commentary (reports China may allow limited purchases capped below half requested volume) and any Vera Rubin production update"},
+  {"ticker": "CRWD", "date": "2026-08-26", "watch": "Fiscal Q2 FY2027, same day as NVDA, guided to $1.436-1.442bn revenue/$1.16-1.17 EPS; watch net new ARR after Q1's record $256m (+32% YoY) and the raised FY2027 guide ($1.213-1.264bn)"}
 ]

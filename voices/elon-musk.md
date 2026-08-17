@@ -26,3 +26,6 @@ Grok 4.6 missed its own Aug 7 target date. As of Sunday Aug 9, no model card, AP
 
 ### 2026-08-13
 Grok 4.6 actually shipped Aug 12, after missing its Aug 7 target. Musk called it a "banger" on X, touting its "amazing bang for buck" — xAI priced it at $2/M input and $6/M output tokens, roughly half of rival frontier-model pricing, live across the xAI API, Grok Build, Cursor, and Grok on X (1.5T parameters, same V9 base as Grok 4.5, claimed 1753 Elo). Grok 4.7 — described as a genuine architecture upgrade at 2.1T parameters — is slated for late Aug/early Sept. Musk has reportedly tasked xAI leadership with matching Anthropic's Claude release cadence cycle-for-cycle. [Basenor](https://www.basenor.com/blogs/news/xai-launches-grok-4-6-1753-elo-half-the-price-of-rival-frontier-models)
+
+### 2026-08-17
+Aug 16, X post: responding to Cybertruck lead engineer Wes Morrill citing Tesla's 84% domestic-content score (vs. Ford's 63%), Musk wrote "Tesla cars sold in America are the most made in America of any cars" — tied to the ongoing tariff news cycle. [Yahoo Finance UK/Benzinga](https://uk.finance.yahoo.com/news/elon-musk-says-tesla-most-035929356.html). Grok 4.7 timeline unchanged from Aug 12 (initial training complete, now in supplemental SpaceX-data training, targeting "3 to 4 weeks" i.e. early September) — not a new update this window.
