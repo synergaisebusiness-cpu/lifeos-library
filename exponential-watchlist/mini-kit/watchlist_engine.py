@@ -6,7 +6,7 @@ kept as a self-contained copy so the kit installs independently. The agent
 edits DATA blocks + score.judgment (+ thesis_fit on evidence), then runs this.
 All arithmetic lives here; the model never does mental maths.
 
-Scores BOTH sections (companies + bench). Does NOT move entries between
+Scores ALL sections (companies + bench + distribution + distribution_bench). Does NOT move entries between
 sections — promotions/demotions are judgment calls per methodology.md — but
 prints WARN lines when a bench entry now clears the bar (score>=70 AND
 thesis_fit high) or a watchlist entry falls below it, so the agent acts.
@@ -96,7 +96,8 @@ def main():
     bpath = os.path.join(os.path.dirname(os.path.abspath(path)), "data", "benchmarks.json")
     benchmarks = json.load(open(bpath)) if os.path.exists(bpath) else None
     changed = []
-    everyone = reg["companies"] + reg.get("bench", [])
+    dist = reg.get("distribution", []); dist_bench = reg.get("distribution_bench", [])
+    everyone = reg["companies"] + reg.get("bench", []) + dist + dist_bench
     for c in everyone:
         total, ss = score(c)
         old = c["score"].get("total")
@@ -110,6 +111,8 @@ def main():
     refresh_market_context(everyone, benchmarks)
     reg["companies"].sort(key=lambda x: -x["score"]["total"])
     reg.get("bench", []).sort(key=lambda x: -x["score"]["total"])
+    dist.sort(key=lambda x: -x["score"]["total"])
+    dist_bench.sort(key=lambda x: -x["score"]["total"])
     reg["as_of"] = date
     json.dump(reg, open(path, "w"), indent=1)
     if changed:
@@ -127,6 +130,16 @@ def main():
     n = len(reg["companies"])
     if n > reg.get("cap", 20):
         print(f"WARN: watchlist has {n} entries, over the cap of {reg.get('cap',20)} — displace the lowest scorer")
+    # lens 2 (distribution-moat) bar checks — same pattern, separate sections, no cross-lens moves
+    for c in dist:
+        if c["score"]["total"] < 70 or c["thesis_fit"]["rating"] != "high":
+            print(f"WARN: {c['ticker']} on distribution list but below bar (score {c['score']['total']}, fit {c['thesis_fit']['rating']}) — check exit rules")
+    for c in dist_bench:
+        if c["score"]["total"] >= 70 and c["thesis_fit"]["rating"] == "high":
+            print(f"WARN: {c['ticker']} on distribution bench but clears bar (score {c['score']['total']}) — consider promotion")
+    nd = len(dist)
+    if nd > reg.get("cap_distribution", 10):
+        print(f"WARN: distribution list has {nd} entries, over the cap of {reg.get('cap_distribution',10)} — displace the lowest scorer")
 
 if __name__ == "__main__":
     main()

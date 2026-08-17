@@ -1,7 +1,7 @@
 {
- "as_of": "2026-08-15",
+ "as_of": "2026-08-17",
  "methodology_version": "1.0",
- "scale": "Fundamentals score /100 (company-health rubric v1.1) + thesis-fit rating high/medium/low. Bar: score>=70 AND fit high. Cap 20. Bands: Elite 85+ / Strong 70+ / Solid 55+ / Watch 40+ / Weak.",
+ "scale": "Fundamentals score /100 (company-health rubric v1.1) + thesis-fit rating high/medium/low. Bar: score>=70 AND fit high. Cap 20. Bands: Elite 85+ / Strong 70+ / Solid 55+ / Watch 40+ / Weak. Lens 2 (distribution-moat): same rubric, fit = D1 unbypassable distribution / D2 efficiency retention / D3 not priced for it; bar score>=70 AND fit high; cap 10; sections distribution/distribution_bench; no cross-lens displacement.",
  "note": "Figure-free public data only \u2014 shared library. Informational, never buy/sell. Companies here are NOT holdings (holdings live in company-health).",
  "cap": 20,
  "companies": [
@@ -5891,6 +5891,984 @@
     }
    },
    "bench_reason": "fit low and score well below bar \u2014 humanoid narrative outruns the P&L; re-look only if humanoid pipeline converts to disclosed nine-figure revenue (evaluated 2026-08-15, robotics sweep)"
+  }
+ ],
+ "cap_distribution": 10,
+ "distribution": [],
+ "distribution_bench": [
+  {
+   "ticker": "GWW",
+   "name": "W.W. Grainger",
+   "sector": "Industrial distribution (MRO)",
+   "currency": "USD",
+   "last_report": {
+    "fiscal_quarter": "Q2 2026",
+    "report_date": "2026-08-04"
+   },
+   "next_earnings": "late October 2026",
+   "revenue": {
+    "ttm_b": 18.85,
+    "latest_q_b": 5.02,
+    "latest_q_yoy_pct": 10.3,
+    "prior_q_yoy_pct": 10.1
+   },
+   "margins": {
+    "gross_pct": 39.5,
+    "operating_pct": 16.1,
+    "fcf_margin_pct": 8.0,
+    "trend_note": "Q2 2026 gross margin 39.5% (+100bp YoY, incl. a one-off $43M IEEPA tariff refund) and operating margin 16.1% (+120bp); FY26 operating-margin guide raised to 15.8-16.2%. Mix headwind flagged from lower-margin project-based sales."
+   },
+   "fcf": {
+    "ttm_b": 1.51,
+    "yoy_pct": 6.6,
+    "note": "TTM FCF ~$1.51B (+6.6% YoY); H1 2026 FCF $902M, up ~25% YoY."
+   },
+   "balance_sheet": {
+    "cash_b": 0.589,
+    "total_debt_b": 2.408,
+    "net_position_b": -1.82,
+    "note": "Net debt ~$1.8B is ~0.5x TTM EBITDA \u2014 conservative, funding ~$341M/quarter of dividends + buybacks."
+   },
+   "segments": [
+    {
+     "name": "High-Touch Solutions N.A.",
+     "latest_q_yoy_pct": 11.9,
+     "note": "+11.7% daily constant currency; broad-based, strongest in manufacturing and government."
+    },
+    {
+     "name": "Endless Assortment (Zoro/MonotaRO)",
+     "latest_q_yoy_pct": 13.5,
+     "note": "+20.6% daily organic constant currency (gap = UK/Cromwell exit + yen FX)."
+    }
+   ],
+   "guidance_note": "FY2026 raised on Aug 4 (second raise of the year): sales $19.4-19.7B, EPS $45.50-47.25, operating margin 15.8-16.2%.",
+   "execution_note": "Q2 2026 beat both lines (EPS $12.01 vs ~$11.22) and raised FY guidance; stock traded down on margin-quality concerns (tariff-refund benefit). Preliminary July sales +13% daily organic.",
+   "moat": {
+    "rating_1to5": 4,
+    "note": "Largest distributor in a fragmented N.A. MRO market (~7% share vs Fastenal ~4-5%, then thousands of subscale locals): DC network/next-day fulfilment, ~40% of orders via embedded EDI/ePro integrations, on-site KeepStock/vending inside customer facilities. Operational rather than structural moat \u2014 Amazon Business and Fastenal keep price transparency high."
+   },
+   "risks": [
+    "Cyclical industrial demand \u2014 current growth rides a market that turned positive",
+    "One-off tariff refund ($43M) flattered Q2 gross margin; tariff policy can swing costs",
+    "Amazon Business / digital-native price transparency in Endless Assortment",
+    "Mix shift to lower-gross-margin project/contract sales",
+    "Premium ~27x forward multiple leaves no room for slippage"
+   ],
+   "data_confidence": "high",
+   "sources": [
+    "https://www.prnewswire.com/news-releases/grainger-reports-results-for-the-second-quarter-2026-302841639.html",
+    "https://stockanalysis.com/stocks/gww/",
+    "https://www.fool.com/earnings/call-transcripts/2026/08/11/grainger-gww-q2-2026-earnings-call-transcript/"
+   ],
+   "thesis_fit": {
+    "rating": "medium",
+    "themes": [
+     "distribution"
+    ],
+    "note": "D1 pass: physical embedded distribution (branches, vending, KeepStock, EDI integration) AI strengthens rather than bypasses. D2 pass: labour/SG&A-heavy model vs subscale rivals, margins expanding +120bp with AI deployed in sales/marketing/KeepStock (Q4'25 call) \u2014 retention evidenced against a fragmented tail. D3 FAIL: ~27x forward, top of its own historical range, +33% in 12 months \u2014 priced as a premium compounder, not a boring distributor. Two of three: medium."
+   },
+   "score": {
+    "judgment": {
+     "op_trend": "expanding",
+     "fcf_trend": "growing",
+     "exec_class": "beat_raise",
+     "bs_class": "neutral",
+     "nongaap_floor": false
+    },
+    "total": 68,
+    "band": "Solid",
+    "subscores": {
+     "growth": {
+      "points": 15,
+      "max": 25,
+      "detail": {
+       "pace": 7,
+       "acceleration": 3,
+       "breadth": 5
+      }
+     },
+     "profitability": {
+      "points": 14,
+      "max": 20,
+      "detail": {
+       "level": 4,
+       "trend": 10
+      }
+     },
+     "cash": {
+      "points": 10,
+      "max": 20,
+      "detail": {
+       "fcf_margin": 3,
+       "trajectory": 7
+      }
+     },
+     "balance_sheet": {
+      "points": 12,
+      "max": 15,
+      "detail": {
+       "class": "neutral"
+      }
+     },
+     "moat": {
+      "points": 12,
+      "max": 15,
+      "detail": {
+       "rating": 4
+      }
+     },
+     "execution": {
+      "points": 5,
+      "max": 5,
+      "detail": {
+       "class": "beat_raise"
+      }
+     }
+    },
+    "history": [
+     {
+      "date": "2026-08-17",
+      "total": 68,
+      "event": "distribution lens seeded (Cowork)"
+     }
+    ]
+   },
+   "market_context": {
+    "rev_growth": {
+     "value": 10.3,
+     "rank": "above median",
+     "vs_sp500_aggregate": -3.8
+    },
+    "op_margin": {
+     "value": 16.1,
+     "rank": "above median"
+    },
+    "gross_margin": {
+     "value": 39.5,
+     "rank": "above median"
+    },
+    "fcf_margin": {
+     "value": 8.0,
+     "rank": "below median"
+    }
+   },
+   "bench_reason": "Fit medium \u2014 fails not-priced-for-it (~27x forward, top of its own range); fundamentals 68 also two shy of the bar."
+  },
+  {
+   "ticker": "MCK",
+   "name": "McKesson",
+   "sector": "Pharmaceutical distribution & services",
+   "currency": "USD",
+   "last_report": {
+    "fiscal_quarter": "Q1 FY2027",
+    "report_date": "2026-08-05"
+   },
+   "next_earnings": "early November 2026",
+   "revenue": {
+    "ttm_b": 410.98,
+    "latest_q_b": 105.38,
+    "latest_q_yoy_pct": 8,
+    "prior_q_yoy_pct": 6
+   },
+   "margins": {
+    "gross_pct": 3.63,
+    "operating_pct": 1.57,
+    "fcf_margin_pct": 1.56,
+    "trend_note": "Structurally razor-thin by design (pass-through distribution), but improving within the band: Q1 FY27 adjusted operating profit grew faster than revenue in every growth segment, opex improved ~150bp as % of gross profit, FY27 guides operating profit +9-13% vs revenue +5-9%."
+   },
+   "fcf": {
+    "ttm_b": 6.42,
+    "yoy_pct": 6.8,
+    "note": "TTM FCF $6.42B (+6.8%); Q1 seasonally negative as usual for MCK's working-capital cycle."
+   },
+   "balance_sheet": {
+    "cash_b": 5.16,
+    "total_debt_b": 9.73,
+    "net_position_b": -4.57,
+    "note": "Net debt ~$4.6B \u2248 0.65x TTM EBITDA (~0.9x with leases) \u2014 lightly levered while funding ~$5B FY27 buybacks + 15% dividend raise."
+   },
+   "segments": [
+    {
+     "name": "North American Pharmaceutical",
+     "latest_q_yoy_pct": 5,
+     "note": "$86.8B of the quarter; adjusted operating profit +19%; FY27 segment guide moved to high end."
+    },
+    {
+     "name": "Oncology & Multispecialty",
+     "latest_q_yoy_pct": 33,
+     "note": "US Oncology / provider platforms; operating profit +41% \u2014 the growth engine."
+    },
+    {
+     "name": "Prescription Technology Solutions",
+     "latest_q_yoy_pct": 9,
+     "note": "Access/affordability tech; operating profit +13%."
+    },
+    {
+     "name": "Medical-Surgical Solutions",
+     "latest_q_yoy_pct": 4,
+     "note": "Operating profit -20%; being separated as 'Wellverse' (target Jan 2027, Apollo ~13% minority)."
+    }
+   ],
+   "guidance_note": "FY2027 adjusted EPS raised to $44.20-45.00 (13-15% growth); operating profit +9-13% (raised from 8-12%); FCF $4.5-4.9B; ~$5B buybacks; dividend +15%.",
+   "execution_note": "Q1 FY27 clean beat-and-raise: revenue $105.4B (+1% vs consensus), adjusted EPS $9.93 vs $9.44 (+20% YoY); GAAP EPS drop was charge-driven (separation), not operating weakness.",
+   "moat": {
+    "rating_1to5": 4,
+    "note": "US drug distribution is a three-firm oligopoly (MCK/Cencora/Cardinal \u224890%+ of volume; MCK largest at ~a third). Scale on ~$400B throughput, DSCSA regulatory burden, dense logistics and multi-year exclusive mega-contracts (CVS, Walmart, health systems) = high switching costs. Limit is thin pass-through margins and buyer concentration, not competitive entry."
+   },
+   "risks": [
+    "Customer concentration (CVS largest) \u2014 one mega-contract repricing moves results",
+    "US drug-pricing policy (MFN, IRA negotiation, tariffs) compressing branded/specialty economics",
+    "Wellverse separation execution in FY2027 with segment profit already -20%",
+    "~1.6% operating margin leaves no buffer for cost inflation",
+    "GLP-1 volumes flatter revenue growth at near-zero margin"
+   ],
+   "data_confidence": "high",
+   "sources": [
+    "https://www.mckesson.com/about-us/newsroom/press-releases/2026/mckesson-reports-fiscal-2027-first-quarter-results-and-raises-full-year-adjusted-eps-guidance/",
+    "https://stockanalysis.com/stocks/mck/statistics/",
+    "https://www.investing.com/news/transcripts/earnings-call-transcript-mckesson-tops-q1-2026-estimates-and-lifts-outlook-93CH-4839519",
+    "https://intuitionlabs.ai/articles/drug-wholesaler-market-concentration"
+   ],
+   "thesis_fit": {
+    "rating": "high",
+    "themes": [
+     "distribution"
+    ],
+    "note": "D1 pass: DEA/DSCSA-regulated oligopoly distribution \u2014 AI agents cannot disintermediate drug logistics. D2 pass: huge labour/working-capital cost base, 90%+ three-firm concentration, and retention EVIDENCED \u2014 opex -150bp as % of gross profit, profit guided to grow ~2x revenue, CFO credits AI tools for structural working-capital improvements (Q1 FY27 call). D3 pass: ~18.7x forward vs S&P ~22x, priced as a defensive compounder \u2014 AI upside is free optionality. All three: high. The lens's first promotion candidate \u2014 benched purely on fundamentals score (the rubric's margin pillars structurally punish 1.6%-operating-margin pass-through economics)."
+   },
+   "score": {
+    "judgment": {
+     "op_trend": "expanding",
+     "fcf_trend": "growing",
+     "exec_class": "beat_raise",
+     "bs_class": "neutral",
+     "nongaap_floor": false
+    },
+    "total": 66,
+    "band": "Solid",
+    "subscores": {
+     "growth": {
+      "points": 15,
+      "max": 25,
+      "detail": {
+       "pace": 7,
+       "acceleration": 5,
+       "breadth": 3
+      }
+     },
+     "profitability": {
+      "points": 12,
+      "max": 20,
+      "detail": {
+       "level": 2,
+       "trend": 10
+      }
+     },
+     "cash": {
+      "points": 10,
+      "max": 20,
+      "detail": {
+       "fcf_margin": 3,
+       "trajectory": 7
+      }
+     },
+     "balance_sheet": {
+      "points": 12,
+      "max": 15,
+      "detail": {
+       "class": "neutral"
+      }
+     },
+     "moat": {
+      "points": 12,
+      "max": 15,
+      "detail": {
+       "rating": 4
+      }
+     },
+     "execution": {
+      "points": 5,
+      "max": 5,
+      "detail": {
+       "class": "beat_raise"
+      }
+     }
+    },
+    "history": [
+     {
+      "date": "2026-08-17",
+      "total": 66,
+      "event": "distribution lens seeded (Cowork)"
+     }
+    ]
+   },
+   "market_context": {
+    "rev_growth": {
+     "value": 8,
+     "rank": "above median",
+     "vs_sp500_aggregate": -6.1
+    },
+    "op_margin": {
+     "value": 1.57,
+     "rank": "bottom 25%"
+    },
+    "gross_margin": {
+     "value": 3.63,
+     "rank": "bottom 25%"
+    },
+    "fcf_margin": {
+     "value": 1.56,
+     "rank": "bottom 25%"
+    }
+   },
+   "bench_reason": "Fit HIGH \u2014 the lens's first promotion candidate. Benched on fundamentals only: the rubric's margin pillars punish 1.6%-op-margin pass-through economics. Promotion evidence = opex/profit-vs-revenue retention continuing."
+  },
+  {
+   "ticker": "MELI",
+   "name": "MercadoLibre",
+   "sector": "LatAm e-commerce & fintech",
+   "currency": "USD",
+   "last_report": {
+    "fiscal_quarter": "Q2 2026",
+    "report_date": "2026-08-05"
+   },
+   "next_earnings": "early November 2026",
+   "revenue": {
+    "ttm_b": 35.18,
+    "latest_q_b": 10.17,
+    "latest_q_yoy_pct": 50,
+    "prior_q_yoy_pct": 49
+   },
+   "margins": {
+    "gross_pct": 47.8,
+    "operating_pct": 8.3,
+    "fcf_margin_pct": 35.3,
+    "trend_note": "Operating margin compressing sharply by choice: Q2 6.7% (-550bp YoY) after Q1 6.9% (-600bp) on the lower Brazil free-shipping threshold and credit-card push. FCF margin uses stockanalysis OCF-capex, which fintech funding flows inflate \u2014 company-defined Adjusted FCF was just $158M in H1 2026."
+   },
+   "fcf": {
+    "ttm_b": 12.41,
+    "yoy_pct": 68.0,
+    "note": "TTM $12.4B per stockanalysis definition, but flattered by fintech/credit-book funding inflows; company Adjusted FCF $158M H1 2026 \u2014 fcf_trend judgment held at flat for that reason."
+   },
+   "balance_sheet": {
+    "cash_b": 5.75,
+    "total_debt_b": 13.21,
+    "net_position_b": -7.46,
+    "note": "Company-reported net debt $6.4B incl. investments (~1.7x EBITDA); most debt is fintech funding backing the $16B+ credit portfolio, not corporate leverage."
+   },
+   "segments": [
+    {
+     "name": "Commerce",
+     "latest_q_yoy_pct": 44,
+     "note": "GMV $21.9B +44% USD; items sold 795M (+45%); 77% of fast shipments within 48h; unit shipping cost -17% YoY."
+    },
+    {
+     "name": "Fintech (Mercado Pago)",
+     "latest_q_yoy_pct": 56,
+     "note": "TPV $101B +56%; credit book >$16B (+75%), card book $7.7B (+91%); 15-90d NPL 7.0%."
+    }
+   ],
+   "guidance_note": "No formal guidance; 2026 framed as a deliberate investment year \u2014 'the right response is to invest, not harvest.'",
+   "execution_note": "Q2 2026 beat both lines (EPS $9.19 vs $8.69; revenue +4.1% vs consensus) but shares fell on the 550bp margin compression (operating income -17% YoY).",
+   "moat": {
+    "rating_1to5": 4,
+    "note": "LatAm's dominant commerce-logistics-payments flywheel: proprietary managed logistics subscale rivals can't replicate across Brazil/Mexico/Argentina, plus two-sided fintech lock-in (88M fintech MAU, $16B credit book) and 89M-buyer network effects. Strong but actively defended with margin dollars against Amazon/Shein/Temu."
+   },
+   "risks": [
+    "Amazon (Mexico/Brazil) and Shein/Temu/Shopee cross-border price competition \u2014 the trigger for margin-dilutive shipping subsidies",
+    "$16B+ credit book growing 75% YoY with 7.0% NPLs \u2014 LatAm downturn would bite",
+    "FX/macro: ARS devaluation, BRL/MXN swings (50% USD vs 43% FX-neutral growth)",
+    "Margin compression must convert into durable share gains to pay back",
+    "Brazil rates/fintech regulation raising funding costs"
+   ],
+   "data_confidence": "high",
+   "sources": [
+    "https://www.businesswire.com/news/home/20260805925866/en/MercadoLibre-Inc.-Reports-Second-Quarter-2026-Financial-Results",
+    "https://stockanalysis.com/stocks/MELI/financials/?p=trailing",
+    "https://finance.yahoo.com/technology/ai/articles/mercadolibres-ai-strategy-become-next-140300087.html"
+   ],
+   "thesis_fit": {
+    "rating": "medium",
+    "themes": [
+     "distribution"
+    ],
+    "note": "D1 pass: the physical LatAm logistics + fintech network is exactly the distribution AI can't bypass. D2 split: the best AI-efficiency evidence of any lens name (Claude to ~31k employees, dev productivity growing 7-10x faster than headcount, AI reviewing 500k+ code submissions, unit shipping -17% YoY) \u2014 but gains are being deliberately reinvested into share defence (op margin -550bp), so retention is unproven while competition is this hot. D3 FAIL: ~44x forward \u2014 compressed vs its own history but not boring. One clear pass + one strong half: medium."
+   },
+   "score": {
+    "judgment": {
+     "op_trend": "compressing",
+     "fcf_trend": "flat",
+     "exec_class": "beat",
+     "bs_class": "moderate",
+     "nongaap_floor": false
+    },
+    "total": 66,
+    "band": "Solid",
+    "subscores": {
+     "growth": {
+      "points": 23,
+      "max": 25,
+      "detail": {
+       "pace": 15,
+       "acceleration": 3,
+       "breadth": 5
+      }
+     },
+     "profitability": {
+      "points": 4,
+      "max": 20,
+      "detail": {
+       "level": 2,
+       "trend": 2
+      }
+     },
+     "cash": {
+      "points": 14,
+      "max": 20,
+      "detail": {
+       "fcf_margin": 10,
+       "trajectory": 4
+      }
+     },
+     "balance_sheet": {
+      "points": 9,
+      "max": 15,
+      "detail": {
+       "class": "moderate"
+      }
+     },
+     "moat": {
+      "points": 12,
+      "max": 15,
+      "detail": {
+       "rating": 4
+      }
+     },
+     "execution": {
+      "points": 4,
+      "max": 5,
+      "detail": {
+       "class": "beat"
+      }
+     }
+    },
+    "history": [
+     {
+      "date": "2026-08-17",
+      "total": 66,
+      "event": "distribution lens seeded (Cowork)"
+     }
+    ]
+   },
+   "market_context": {
+    "rev_growth": {
+     "value": 50,
+     "rank": "top 10%",
+     "vs_sp500_aggregate": 35.9
+    },
+    "op_margin": {
+     "value": 8.3,
+     "rank": "below median"
+    },
+    "gross_margin": {
+     "value": 47.8,
+     "rank": "above median"
+    },
+    "fcf_margin": {
+     "value": 35.3,
+     "rank": "top 10%"
+    }
+   },
+   "bench_reason": "Fit medium \u2014 retention unproven while margin is spent defending share; 44x forward is not boring. fcf_trend held at flat (fintech-flow distortion)."
+  },
+  {
+   "ticker": "SYY",
+   "name": "Sysco",
+   "sector": "US foodservice distribution",
+   "currency": "USD",
+   "last_report": {
+    "fiscal_quarter": "Q4 FY2026",
+    "report_date": "2026-08-04"
+   },
+   "next_earnings": "late October 2026",
+   "revenue": {
+    "ttm_b": 84.6,
+    "latest_q_b": 22.1,
+    "latest_q_yoy_pct": 4.7,
+    "prior_q_yoy_pct": 4.7
+   },
+   "margins": {
+    "gross_pct": 18.5,
+    "operating_pct": 3.7,
+    "fcf_margin_pct": 2.5,
+    "trend_note": "FY26 gross margin +10bp to 18.5% but Q4 slipped 17bp on fuel costs; adjusted operating income +2.6% vs sales +3.9% \u2014 flat-to-slightly-compressing. FY27 EPS guide of +9-11% leans on ~$100M net AI-driven cost savings."
+   },
+   "fcf": {
+    "ttm_b": 2.1,
+    "yoy_pct": 16.3,
+    "note": "FY26 FCF $2.1B (+16.3%); funded $1.2B of shareholder returns."
+   },
+   "balance_sheet": {
+    "cash_b": 1.8,
+    "total_debt_b": 13.5,
+    "net_position_b": -11.7,
+    "note": "2.7x net debt/adjusted EBITDA (company-reported); the pending $29B Jetro Restaurant Depot deal would push leverage well higher."
+   },
+   "segments": [
+    {
+     "name": "US Foodservice Operations",
+     "latest_q_yoy_pct": 4.4,
+     "note": "Q4 $15.4B; case volume +2.5%; segment operating income +2.4%."
+    },
+    {
+     "name": "International Foodservice",
+     "latest_q_yoy_pct": 6.7,
+     "note": "11th consecutive quarter of double-digit adjusted operating income growth (+15.7%)."
+    },
+    {
+     "name": "SYGMA",
+     "latest_q_yoy_pct": null,
+     "note": "Chain-restaurant arm; not separately broken out in sources reviewed."
+    }
+   ],
+   "guidance_note": "FY2027 introduced: sales +6-7% (~$90B, 53-week year), adjusted EPS $5.02-5.12 (+9-11%), explicitly supported by ~$100M net in-year AI savings ($160M run-rate).",
+   "execution_note": "Q4 FY26 beat both lines (adj EPS $1.53 vs ~$1.51; revenue $22.1B vs ~$21.96B); FY26 EPS finished above guidance; shares slipped ~2% on gross margin, fuel and Jetro capital-allocation concerns.",
+   "moat": {
+    "rating_1to5": 4,
+    "note": "Largest US foodservice distributor (~17% share of a fragmented market): unmatched route density, national footprint, scale purchasing and private-label penetration smaller broadliners can't match; top three (SYY/USFD/PFG) steadily consolidate share from independents. Durable but low-margin \u2014 customers can switch."
+   },
+   "risks": [
+    "$29B Jetro acquisition: active antitrust opposition AND a leverage jump from an already-elevated 2.7x",
+    "Restaurant traffic softness \u2014 Q3 FY26 GAAP operating income fell 9.1% on industry weakness",
+    "Fuel/freight cost pressure driving gross-margin slippage",
+    "FY27 guide leans on the AI cost-out program actually delivering ~$100M",
+    "USFD/PFG competition on thin 3.7% operating margins"
+   ],
+   "data_confidence": "high",
+   "sources": [
+    "https://www.globenewswire.com/news-release/2026/08/04/3338268/0/en/sysco-reports-fiscal-fourth-quarter-and-full-year-2026-results-issues-fy27-guidance-of-9-11-adjusted-eps-growth.html",
+    "https://stockanalysis.com/stocks/syy/",
+    "https://www.investing.com/news/transcripts/earnings-call-transcript-sysco-tops-q4-2026-estimates-but-shares-slip-93CH-4835106"
+   ],
+   "thesis_fit": {
+    "rating": "high",
+    "themes": [
+     "distribution"
+    ],
+    "note": "D1 pass: route-density physical distribution of perishables \u2014 undeliverable by AI agents, only optimisable by them. D2 pass: the most labour-heavy cost base on the lens (drivers, warehouses, salesforce), a consolidating top-three structure, and the single cleanest Camillo indicator found in this sweep \u2014 a NAMED multi-year AI transformation program guiding ~$100M net FY27 savings ($160M run-rate) across routing, inventory forecasting, pricing and back-office. D3 pass: ~16.3x forward, priced as a boring levered distributor. All three: high. Benched purely on fundamentals (3.7% margins, 2.7x leverage, Jetro risk) \u2014 promotion evidence = the AI savings landing in retained margin over FY27 quarters."
+   },
+   "score": {
+    "judgment": {
+     "op_trend": "flat",
+     "fcf_trend": "growing",
+     "exec_class": "beat",
+     "bs_class": "elevated",
+     "nongaap_floor": false
+    },
+    "total": 50,
+    "band": "Watch",
+    "subscores": {
+     "growth": {
+      "points": 10,
+      "max": 25,
+      "detail": {
+       "pace": 4,
+       "acceleration": 3,
+       "breadth": 3
+      }
+     },
+     "profitability": {
+      "points": 8,
+      "max": 20,
+      "detail": {
+       "level": 2,
+       "trend": 6
+      }
+     },
+     "cash": {
+      "points": 10,
+      "max": 20,
+      "detail": {
+       "fcf_margin": 3,
+       "trajectory": 7
+      }
+     },
+     "balance_sheet": {
+      "points": 6,
+      "max": 15,
+      "detail": {
+       "class": "elevated"
+      }
+     },
+     "moat": {
+      "points": 12,
+      "max": 15,
+      "detail": {
+       "rating": 4
+      }
+     },
+     "execution": {
+      "points": 4,
+      "max": 5,
+      "detail": {
+       "class": "beat"
+      }
+     }
+    },
+    "history": [
+     {
+      "date": "2026-08-17",
+      "total": 50,
+      "event": "distribution lens seeded (Cowork)"
+     }
+    ]
+   },
+   "market_context": {
+    "rev_growth": {
+     "value": 4.7,
+     "rank": "below median",
+     "vs_sp500_aggregate": -9.4
+    },
+    "op_margin": {
+     "value": 3.7,
+     "rank": "bottom 25%"
+    },
+    "gross_margin": {
+     "value": 18.5,
+     "rank": "bottom 25%"
+    },
+    "fcf_margin": {
+     "value": 2.5,
+     "rank": "bottom 25%"
+    }
+   },
+   "bench_reason": "Fit HIGH. Benched on fundamentals: 3.7% margins, 2.7x leverage, Jetro deal risk. Promotion evidence = the ~$100M AI savings landing in RETAINED margin through FY27."
+  },
+  {
+   "ticker": "OTIS",
+   "name": "Otis Worldwide",
+   "sector": "Elevator service & new equipment",
+   "currency": "USD",
+   "last_report": {
+    "fiscal_quarter": "Q2 2026",
+    "report_date": "2026-07-22"
+   },
+   "next_earnings": "late October 2026",
+   "revenue": {
+    "ttm_b": 14.91,
+    "latest_q_b": 3.86,
+    "latest_q_yoy_pct": 7.3,
+    "prior_q_yoy_pct": 6.5
+   },
+   "margins": {
+    "gross_pct": 30.3,
+    "operating_pct": 16.6,
+    "fcf_margin_pct": 11.5,
+    "trend_note": "Compressing: Q2 adjusted operating margin -180bp YoY to 15.2%; Service margin -170bp to 23.2% on labour inflation and slow new-mechanic onboarding; New Equipment margin -220bp to 3.1% on China volume/price/mix."
+   },
+   "fcf": {
+    "ttm_b": 1.71,
+    "yoy_pct": 27,
+    "note": "TTM ~$1.71B (+27%), but FY26 adjusted FCF guidance cut to $1.50-1.55B."
+   },
+   "balance_sheet": {
+    "cash_b": 0.81,
+    "total_debt_b": 8.85,
+    "net_position_b": -8.03,
+    "note": "~3.0x net debt/TTM EBITDA; negative shareholder equity by design (buybacks) \u2014 serviceable on recurring service cash flows but no cushion."
+   },
+   "segments": [
+    {
+     "name": "Service",
+     "latest_q_yoy_pct": 11,
+     "note": "$2.58B +9% organic; ~2.5M-unit maintenance portfolio +3%; modernization organic +24% (backlog +24%)."
+    },
+    {
+     "name": "New Equipment",
+     "latest_q_yoy_pct": 0,
+     "note": "-1% organic; China sales/orders down high-teens; backlog +9% ex-China."
+    }
+   ],
+   "guidance_note": "FY2026 CUT at Q2: adjusted EPS to $4.01-4.05 (from $4.20-4.24), FCF to $1.50-1.55B, operating profit -$30-45M on ~$50M productivity/cost and ~$20M pricing headwinds.",
+   "execution_note": "Q2 beat both lines narrowly but adjusted EPS fell 4% YoY and FY EPS/FCF/profit guidance was cut \u2014 sold off on the print.",
+   "moat": {
+    "rating_1to5": 4,
+    "note": "The ~2.5M-unit maintenance portfolio (industry's largest) converts cyclical installs into decades of ~23%-margin recurring service revenue; switching costs, route density, safety codes and OEM parts/data access keep retention high. The moat is the installed base \u2014 but current margin pressure shows it isn't immune to labour inflation."
+   },
+   "risks": [
+    "China new-equipment downturn (sales/orders down high-teens) with property weakness",
+    "Service margin compression from labour inflation + slow mechanic ramp \u2014 the core engine decelerating",
+    "Guidance credibility after a mid-year cut despite completed UpLift restructuring",
+    "~3.0x leverage with negative equity \u2014 thin cushion if service falters",
+    "New Equipment at ~3% margin, near breakeven"
+   ],
+   "data_confidence": "high",
+   "sources": [
+    "https://www.prnewswire.com/news-releases/otis-reports-second-quarter-2026-results-302832034.html",
+    "https://stockanalysis.com/stocks/otis/statistics/",
+    "https://www.fool.com/earnings/call-transcripts/2026/07/22/otis-otis-q2-2026-earnings-call-transcript/"
+   ],
+   "thesis_fit": {
+    "rating": "medium",
+    "themes": [
+     "distribution"
+    ],
+    "note": "D1 pass: a 2.5M-unit physical installed base under safety-code service obligations \u2014 nothing for AI agents to bypass. D3 pass: ~17x forward near its 52-week low, priced as a slowing boring industrial. D2 FAIL on current evidence: the thesis needs AI (Otis ONE, ~1.1M connected units) to compress a labour-heavy service cost base, but productivity is currently NEGATIVE \u2014 a ~$50M cost/productivity headwind from slow mechanic onboarding, service margin -170bp, and independent service companies contest the fragmented tail. Two of three: medium. Promotion evidence = Otis ONE showing up as service-margin recovery."
+   },
+   "score": {
+    "judgment": {
+     "op_trend": "compressing",
+     "fcf_trend": "growing",
+     "exec_class": "mixed",
+     "bs_class": "elevated",
+     "nongaap_floor": false
+    },
+    "total": 49,
+    "band": "Watch",
+    "subscores": {
+     "growth": {
+      "points": 10,
+      "max": 25,
+      "detail": {
+       "pace": 4,
+       "acceleration": 3,
+       "breadth": 3
+      }
+     },
+     "profitability": {
+      "points": 6,
+      "max": 20,
+      "detail": {
+       "level": 4,
+       "trend": 2
+      }
+     },
+     "cash": {
+      "points": 13,
+      "max": 20,
+      "detail": {
+       "fcf_margin": 6,
+       "trajectory": 7
+      }
+     },
+     "balance_sheet": {
+      "points": 6,
+      "max": 15,
+      "detail": {
+       "class": "elevated"
+      }
+     },
+     "moat": {
+      "points": 12,
+      "max": 15,
+      "detail": {
+       "rating": 4
+      }
+     },
+     "execution": {
+      "points": 2,
+      "max": 5,
+      "detail": {
+       "class": "mixed"
+      }
+     }
+    },
+    "history": [
+     {
+      "date": "2026-08-17",
+      "total": 49,
+      "event": "distribution lens seeded (Cowork)"
+     }
+    ]
+   },
+   "market_context": {
+    "rev_growth": {
+     "value": 7.3,
+     "rank": "above median",
+     "vs_sp500_aggregate": -6.8
+    },
+    "op_margin": {
+     "value": 16.6,
+     "rank": "above median"
+    },
+    "gross_margin": {
+     "value": 30.3,
+     "rank": "below median"
+    },
+    "fcf_margin": {
+     "value": 11.5,
+     "rank": "above median"
+    }
+   },
+   "bench_reason": "Fit medium \u2014 D2 failing on current evidence (negative service productivity, mid-year guide cut)."
+  },
+  {
+   "ticker": "BNZL",
+   "name": "Bunzl",
+   "sector": "Essentials distribution (not-for-resale consumables)",
+   "currency": "GBP",
+   "last_report": {
+    "fiscal_quarter": "FY2025",
+    "report_date": "2026-03-02"
+   },
+   "next_earnings": "2026-09-01",
+   "revenue": {
+    "ttm_b": 11.85,
+    "latest_q_b": 6.09,
+    "latest_q_yoy_pct": 0.9,
+    "prior_q_yoy_pct": -0.2
+   },
+   "margins": {
+    "gross_pct": null,
+    "operating_pct": 7.7,
+    "fcf_margin_pct": 4.9,
+    "trend_note": "Adjusted operating margin fell 8.3% (FY24) \u2192 7.7% FY25 (7.6% ex one-off credit); H1 2025 troughed at 7.0% after the April 2025 North America warning; FY26 still guided slightly down. Semi-annual discloser \u2014 latest_q fields are half-years."
+   },
+   "fcf": {
+    "ttm_b": 0.58,
+    "yoy_pct": -8.7,
+    "note": "FY25 FCF \u00a3578.5M (-8.7%) at 95% cash conversion; H1 25 had fallen 21.6% before an H2 recovery."
+   },
+   "balance_sheet": {
+    "cash_b": 0.54,
+    "total_debt_b": null,
+    "net_position_b": -1.66,
+    "note": "Net debt \u00a31.66B ex-leases; adjusted net debt/EBITDA 2.0x (bottom of 2.0-2.5x target); \u00a3200M buyback completed Oct 2025, no new one \u2014 capital pointed at the M&A pipeline."
+   },
+   "segments": [
+    {
+     "name": "North America",
+     "latest_q_yoy_pct": -1.2,
+     "note": "53% of revenue; epicentre of the 2025 warning (own-brand deflation, foodservice redistribution); recovering in 2026 on new wins."
+    },
+    {
+     "name": "Continental Europe",
+     "latest_q_yoy_pct": 2.5,
+     "note": "Margin 8.4%, -0.5pp."
+    },
+    {
+     "name": "UK & Ireland",
+     "latest_q_yoy_pct": 15.9,
+     "note": "Almost all acquisition-driven (underlying +1.4%)."
+    },
+    {
+     "name": "Rest of World",
+     "latest_q_yoy_pct": 9.1,
+     "note": "Highest-margin region at 11.7%."
+    }
+   ],
+   "guidance_note": "June 2026 pre-close UPGRADED revenue outlook (H1 26 ~+4% constant FX); margin still guided slightly down YoY. Path: Apr 2025 warning cut guidance + paused buyback (shares -25%); delivered on revised guidance since.",
+   "execution_note": "FY25 results (Mar 2026) landed in line with the post-warning guidance (adjusted operating profit \u00a3910.3M, -4.3% constant FX); June 2026 pre-close upgraded revenue guidance with NA volumes recovering. CEO van Zanten (since 2016) continues.",
+   "moat": {
+    "rating_1to5": 4,
+    "note": "The archetype essentials-distribution consolidator: route density, purchasing scale, 200+ bolt-ons, rising own-brand mix, small-ticket mission-critical products = sticky customers vs mostly regional/family-owned rivals. The 2025 troubles look largely cyclical/execution (US own-brand deflation, a mishandled NA operating-model change) \u2014 but US foodservice redistribution is a genuine structural pressure point."
+   },
+   "risks": [
+    "North America (53% of revenue) own-brand deflation + soft foodservice volumes \u2014 the 2025 warning's driver",
+    "Execution risk from centralising a historically decentralised NA operating model",
+    "Tariff-driven inflation reversing pass-through revenue support",
+    "M&A-dependent compounding: 2025 committed spend fell to \u00a3132M \u2014 a thin pipeline impairs the algorithm",
+    "Mix shift to larger, lower-margin accounts; margin guided down again in 2026"
+   ],
+   "data_confidence": "high",
+   "sources": [
+    "https://www.bunzl.com/newsroom/annual-results-for-2025/",
+    "https://www.bunzl.com/newsroom/bunzl-pre-close-statement-june-2026/",
+    "https://simplywall.st/stocks/gb/capital-goods/lse-bnzl/bunzl-shares"
+   ],
+   "thesis_fit": {
+    "rating": "medium",
+    "themes": [
+     "distribution"
+    ],
+    "note": "D1 pass (with a scar): route-density distribution of small-ticket essentials is unbypassable by AI agents, though the 2025 US redistribution fight shows scaled human competitors CAN contest it. D3 pass: ~14x forward, below its own 10-year norm \u2014 priced boring after the warnings. D2 FAIL on current evidence: labour-heavy and fragmented (good), digital orders at 76% and warehouse automation invested, but no AI efficiency programme articulated and margins/FCF are currently COMPRESSING \u2014 the opposite of retention. Two of three: medium. Watch the 1 Sep 2026 interims for margin stabilisation and any AI/automation language."
+   },
+   "score": {
+    "judgment": {
+     "op_trend": "compressing",
+     "fcf_trend": "declining",
+     "exec_class": "inline",
+     "bs_class": "moderate",
+     "nongaap_floor": false
+    },
+    "total": 41,
+    "band": "Watch",
+    "subscores": {
+     "growth": {
+      "points": 8,
+      "max": 25,
+      "detail": {
+       "pace": 2,
+       "acceleration": 3,
+       "breadth": 3
+      }
+     },
+     "profitability": {
+      "points": 4,
+      "max": 20,
+      "detail": {
+       "level": 2,
+       "trend": 2
+      }
+     },
+     "cash": {
+      "points": 5,
+      "max": 20,
+      "detail": {
+       "fcf_margin": 3,
+       "trajectory": 2
+      }
+     },
+     "balance_sheet": {
+      "points": 9,
+      "max": 15,
+      "detail": {
+       "class": "moderate"
+      }
+     },
+     "moat": {
+      "points": 12,
+      "max": 15,
+      "detail": {
+       "rating": 4
+      }
+     },
+     "execution": {
+      "points": 3,
+      "max": 5,
+      "detail": {
+       "class": "inline"
+      }
+     }
+    },
+    "history": [
+     {
+      "date": "2026-08-17",
+      "total": 41,
+      "event": "distribution lens seeded (Cowork)"
+     }
+    ]
+   },
+   "market_context": {
+    "rev_growth": {
+     "value": 0.9,
+     "rank": "below median",
+     "vs_sp500_aggregate": -13.2
+    },
+    "op_margin": {
+     "value": 7.7,
+     "rank": "bottom 25%"
+    },
+    "gross_margin": {
+     "value": null,
+     "rank": null
+    },
+    "fcf_margin": {
+     "value": 4.9,
+     "rank": "bottom 25%"
+    }
+   },
+   "bench_reason": "Fit medium \u2014 D2 failing (margins/FCF compressing through the NA warnings). Watch the 2026-09-01 interims for stabilisation + any AI/automation language."
   }
  ]
 }

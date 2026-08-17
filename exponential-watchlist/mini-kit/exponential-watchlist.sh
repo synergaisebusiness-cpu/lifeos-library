@@ -29,7 +29,7 @@ TICKERS=$(python3 - "$WL_DIR/register.json" "$YESTERDAY" "$TODAY" <<'EOF'
 import json, sys, re
 reg = json.load(open(sys.argv[1])); days = set(sys.argv[2:])
 hits = []
-for c in reg["companies"] + reg.get("bench", []):
+for c in reg["companies"] + reg.get("bench", []) + reg.get("distribution", []) + reg.get("distribution_bench", []):
     m = re.match(r"(\d{4}-\d{2}-\d{2})", str(c.get("next_earnings","")))
     if m and m.group(1) in days:
         hits.append(c["ticker"])

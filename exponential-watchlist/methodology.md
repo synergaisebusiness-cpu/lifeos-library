@@ -1,4 +1,4 @@
-# Exponential Watchlist — Methodology v1.0
+# Exponential Watchlist — Methodology v1.1
 
 A forward radar. Where `company-health/` answers *"are the businesses I own still healthy?"*, this list answers *"which businesses I **don't** own fit the exponential thesis and clear the same fundamentals bar?"*. It is a research shortlist, not a shopping list — **informational only, never mapped to buy/sell language. Decisions stay with Jude**, and per the wealth plan any new individual-stock money is satellite money, capped.
 
@@ -38,6 +38,48 @@ Identical to company-health rubric v1.1: growth 25 / profitability 20 / cash 20 
 
 Fundamentals score and thesis-fit rating are **never blended into one number**. Two axes, shown separately.
 
+## Lens 2 — Distribution moat (added 2026-08-17)
+
+A second, separate lens on the same register — motivated by Chris Camillo's
+thesis (see `library/voices/chris-camillo.md`): once intelligence commoditises,
+the gains accrue to incumbents whose distribution cannot be bypassed, not to
+whoever designs the better product. This is deliberately the DEMAND side of AI
+— the exponential lens tracks sellers of the curve; this lens tracks buyers of
+it with moats. Sections `distribution` (cleared the bar) and
+`distribution_bench` in `register.json`, cap **10** (`cap_distribution`).
+**No cross-lens displacement** — a lens-2 name never displaces an exponential
+name or vice versa. Rail rotation does not apply to this lens.
+
+Same fundamentals bar (score ≥ 70, same rubric, same engine). Distribution-fit
+tests, rated high/medium/low exactly like thesis fit (recorded in the same
+`thesis_fit` field with `themes: ["distribution"]`):
+
+1. **Unbypassable distribution** — physical, regulatory or network
+   distribution that AI agents cannot disintermediate. Screens OUT
+   attention-based and middleman distribution (OTAs, comparison sites,
+   ad-driven brand pull) — those are what AI bypasses.
+2. **Efficiency retention** — a labour-heavy cost base AI can compress AND a
+   market structure concentrated enough (or fragmented against subscale rivals)
+   that the gains are RETAINED as margin rather than competed away to
+   customers. Evidence beats narrative: look for AI/efficiency language in
+   earnings plus margin actually held ≥2 quarters later.
+3. **Not priced for it** — a boring multiple; the market does not yet treat
+   the name as an AI beneficiary. (Camillo's own exit rule: when the world
+   sees it, the edge is gone.)
+
+`high` = all three clearly · `medium` = two · `low` = one or none.
+
+**Standing note (2026-08-17):** the rubric's profitability/cash pillars
+structurally punish pass-through distribution economics — a 1.6%-operating-
+margin drug distributor can never score high on margin level however good the
+business. That is accepted; the bar never bends. It means lens-2 promotions
+are rare and driven by margin-RETENTION evidence, not margin level — which is
+exactly the Camillo indicator.
+
+**Lens-2 discovery is passive:** no daily rotation. The agent may evaluate at
+most 1 lens-2 seed per run, only after exponential work is done, from the seed
+list (FAST, COR, FERG, WSO, DPLM, CPNG) or names Jude adds.
+
 ## Exit rules
 
 A name leaves the list (→ bench, with reason) when any of:
@@ -64,3 +106,4 @@ All numbers from reported filings/press releases plus a secondary source; `data_
 
 ## Changelog
 - 2026-08-07: v1.0 — methodology written; initial universe of 20 candidates evaluated and seeded (Cowork session).
+- 2026-08-17: v1.1 — Lens 2 (distribution moat) added: separate sections/cap, same fundamentals bar, three distribution-fit tests, passive discovery. Six candidates evaluated and seeded on distribution_bench (Cowork session).

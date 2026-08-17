@@ -59,9 +59,10 @@ Cover:
    interviews / posts from: **Sam Altman** (OpenAI), **Elon Musk** (Tesla/xAI),
    **Dario Amodei** (Anthropic), **Jensen Huang** (Nvidia), **Mark Zuckerberg**
    (Meta); and the exponential-rails thinkers **Azeem Azhar** (Exponential View),
-   **Peter Diamandis**, **Raoul Pal** (Real Vision). Only include real, sourced,
-   recent items; if someone had nothing notable this cycle, skip them — never
-   invent a quote.
+   **Peter Diamandis**, **Raoul Pal** (Real Vision); and the investor voice
+   **Chris Camillo** (Dumb Money — social arbitrage, AI distribution-moat
+   thesis). Only include real, sourced, recent items; if someone had nothing
+   notable this cycle, skip them — never invent a quote.
 6. **Exponential thesis watch** — developments across the convergence pillars
    (compute, energy, manufacturing, biology) and the robotics / picks-and-shovels
    angle Jude wants to build into. Name candidates to *research* and the catalyst

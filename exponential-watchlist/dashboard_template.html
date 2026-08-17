@@ -88,6 +88,10 @@
 <h2>Bench</h2>
 <div class="h2sub">Evaluated, below the bar — tracked so a promotion is one re-score away.</div>
 <table id="benchTable"><thead><tr><th>Ticker</th><th>Company</th><th>Score</th><th>Thesis fit</th><th>Why benched</th></tr></thead><tbody></tbody></table>
+<h2>Distribution-moat lens</h2>
+<div class="h2sub">Lens 2 (added 2026-08-17): incumbents whose distribution AI strengthens rather than bypasses. Bar: fundamentals ≥ 70 AND high distribution fit (unbypassable distribution · efficiency retention · not priced for it). Same rubric, separate cap, no cross-lens displacement.</div>
+<div id="distList"></div>
+<table id="distBenchTable"><thead><tr><th>Ticker</th><th>Company</th><th>Score</th><th>Lens fit</th><th>Why benched</th></tr></thead><tbody></tbody></table>
 <footer id="foot"></footer>
 <script>
 const REG = __DATA__;
@@ -124,7 +128,7 @@ function scorebar(c) {
   }).join("") + `</div>`;
 }
 
-document.getElementById("list").innerHTML = cos.map(c => {
+function coCard(c, fitLabel) {
   const mc = c.market_context || {};
   const rank = k => mc[k] && mc[k].rank ? mc[k].rank : "—";
   const val = (k, suf) => mc[k] && mc[k].value != null ? mc[k].value + suf : "n/a";
@@ -137,7 +141,7 @@ document.getElementById("list").innerHTML = cos.map(c => {
   </summary>
   <div class="body">
     <div class="chips">
-      <span class="chip fit-high">thesis fit: high</span>
+      <span class="chip fit-${esc(c.thesis_fit.rating)}">${fitLabel}: ${esc(c.thesis_fit.rating)}</span>
       ${(c.thesis_fit.themes||[]).map(t=>`<span class="chip">${esc(t)}</span>`).join("")}
       <span class="chip">last report: ${esc(c.last_report.fiscal_quarter)}</span>
       <span class="chip">next earnings: ${esc(c.next_earnings)}</span>
@@ -149,7 +153,7 @@ document.getElementById("list").innerHTML = cos.map(c => {
       <div><div class="k">Gross margin</div>${val("gross_margin","%")} · ${rank("gross_margin")}</div>
       <div><div class="k">FCF margin (TTM)</div>${val("fcf_margin","%")} · ${rank("fcf_margin")}</div>
     </div>
-    <div class="note"><b>Why it fits the thesis.</b> ${esc(c.thesis_fit.note)}</div>
+    <div class="note"><b>Why it fits.</b> ${esc(c.thesis_fit.note)}</div>
     <div class="note"><b>Moat (${c.moat.rating_1to5}/5).</b> ${esc(c.moat.note)}</div>
     <div class="note"><b>Margins.</b> ${esc(c.margins.trend_note)}</div>
     <div class="note"><b>Guidance.</b> ${esc(c.guidance_note)}</div>
@@ -158,18 +162,27 @@ document.getElementById("list").innerHTML = cos.map(c => {
     <ul class="risks">${(c.risks||[]).map(r=>`<li>${esc(r)}</li>`).join("")}</ul>
   </div>
 </details>`;
-}).join("");
+}
+document.getElementById("list").innerHTML = cos.map(c => coCard(c, "thesis fit")).join("");
 
-document.querySelector("#benchTable tbody").innerHTML = bench.map(c => `<tr>
+const benchRow = c => `<tr>
   <td class="num">${esc(c.ticker)}</td>
   <td>${esc(c.name)}<div class="co-sector">${esc(c.sector)}</div></td>
   <td class="num">${c.score.total} <span class="band" style="color:var(${bandColor(c.score.band)})">${c.score.band}</span></td>
   <td><span class="chip fit-${esc(c.thesis_fit.rating)}">${esc(c.thesis_fit.rating)}</span></td>
   <td class="muted">${esc(c.bench_reason || "")}</td>
-</tr>`).join("");
+</tr>`;
+document.querySelector("#benchTable tbody").innerHTML = bench.map(benchRow).join("");
+
+// Lens 2 — distribution moat
+const dist = REG.distribution || [], distBench = REG.distribution_bench || [];
+document.getElementById("distList").innerHTML = dist.length
+  ? dist.map(c => coCard(c, "distribution fit")).join("")
+  : `<div class="h2sub" style="margin:6px 0 14px">No name has cleared the full bar yet — the bench below is the pipeline. High-fit bench names are one fundamentals re-score from promotion.</div>`;
+document.querySelector("#distBenchTable tbody").innerHTML = distBench.map(benchRow).join("");
 
 document.getElementById("foot").innerHTML =
-  `Methodology v${esc(REG.methodology_version)} — identical fundamentals rubric to company-health (growth 25 · profitability 20 · cash 20 · balance sheet 15 · moat 15 · execution 5); thesis fit rated separately (curve exposure · core-not-adjacent · moat on the curve), never blended into the score. Cap ${REG.cap}, holdings excluded. Public reported data only. This is a research radar, not advice — scores never map to buy/sell actions.`;
+  `Methodology v${esc(REG.methodology_version)} — identical fundamentals rubric to company-health (growth 25 · profitability 20 · cash 20 · balance sheet 15 · moat 15 · execution 5); thesis fit rated separately (curve exposure · core-not-adjacent · moat on the curve), never blended into the score. Cap ${REG.cap}, holdings excluded. Lens 2 (distribution moat): fit = unbypassable distribution · efficiency retention · not priced for it; cap ${REG.cap_distribution || 10}; no cross-lens displacement. Public reported data only. This is a research radar, not advice — scores never map to buy/sell actions.`;
 
 // hover tooltip for pillar segments
 const tip = document.getElementById("tip");
