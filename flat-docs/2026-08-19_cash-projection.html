@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cash &amp; Wealth Projection — Aug 2026 to Mar 2027</title>
+<style>
+  :root{--bg:#0f1115;--panel:#171a21;--panel2:#1e222b;--line:#2a2f3a;--ink:#e8eaf0;--mut:#9aa3b2;--dim:#6b7382;
+        --pos:#4ea87a;--warn:#d9a441;--neg:#d1685f;--acc:#6b8cc4;--pen:#8a7bc4}
+  @media (prefers-color-scheme: light){
+    :root{--bg:#f7f8fa;--panel:#fff;--panel2:#f0f2f6;--line:#dfe3ea;--ink:#161a20;--mut:#5b6472;--dim:#858d9a;
+          --pos:#2f7d55;--warn:#9a6f14;--neg:#a8443b;--acc:#3f5f96;--pen:#5d4f96}}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1080px;margin:0 auto;padding:40px 24px 80px}
+  h1{font-size:26px;margin:0 0 4px;letter-spacing:-.02em}
+  .sub{color:var(--mut);font-size:14px;margin-bottom:32px}
+  h2{font-size:13px;text-transform:uppercase;letter-spacing:.09em;color:var(--mut);margin:42px 0 14px;font-weight:600}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:20px 22px;margin-bottom:14px}
+  table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+  th{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--dim);font-weight:600;padding:0 10px 9px;border-bottom:1px solid var(--line)}
+  td{padding:9px 10px;border-bottom:1px solid var(--line);font-size:14px}
+  tr:last-child td{border-bottom:none}
+  .num{text-align:right}
+  .tot td{font-weight:600;border-top:1px solid var(--line)}
+  .sec td{background:var(--panel2);font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--dim);font-weight:600;padding:7px 10px}
+  .ind{padding-left:26px;color:var(--mut)}
+  .pos{color:var(--pos)}.neg{color:var(--neg)}.warn{color:var(--warn)}.pen{color:var(--pen)}
+  .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:12px;margin-bottom:14px}
+  .tile{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px 18px}
+  .tile .k{font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--dim);margin-bottom:7px}
+  .tile .v{font-size:23px;font-weight:600;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+  .tile .n{font-size:12px;color:var(--mut);margin-top:5px;line-height:1.4}
+  .chart{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:22px}
+  .bars{display:flex;align-items:flex-end;gap:9px;height:200px}
+  .bcol{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%}
+  .stack{width:100%;display:flex;flex-direction:column;justify-content:flex-end}
+  .seg{width:100%}
+  .blab{font-size:11px;color:var(--mut);margin-top:8px}
+  .bval{font-size:11px;color:var(--dim);margin-bottom:5px;font-variant-numeric:tabular-nums}
+  .key{display:flex;gap:18px;flex-wrap:wrap;margin-top:16px;font-size:12.5px;color:var(--mut)}
+  .key span{display:flex;align-items:center;gap:6px}
+  .sw{width:11px;height:11px;border-radius:3px;display:inline-block}
+  .risk{border-left:3px solid var(--neg)}.risk.med{border-left-color:var(--warn)}.risk.ok{border-left-color:var(--acc)}
+  .risk h3{margin:0 0 6px;font-size:15px}
+  .risk p{margin:0 0 8px;color:var(--mut);font-size:14px}.risk p:last-child{margin-bottom:0}
+  .fix{background:var(--panel2);border-radius:6px;padding:9px 12px;font-size:13.5px;margin-top:10px}
+  .fix b{color:var(--ink)}
+  code{background:var(--panel2);padding:1px 5px;border-radius:4px;font-size:13px}
+  .foot{color:var(--dim);font-size:12.5px;margin-top:36px;line-height:1.6}
+  ol{padding-left:20px;margin:0}ol li{margin-bottom:9px;color:var(--mut)}ol li b{color:var(--ink)}
+  .assump{columns:2;column-gap:32px;font-size:13.5px;color:var(--mut)}
+  .assump div{break-inside:avoid;margin-bottom:6px}
+  @media(max-width:640px){.assump{columns:1}.bars{height:155px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>Cash &amp; wealth projection — 19 Aug 2026 → 31 Mar 2027</h1>
+<div class="sub">Apt 301, Maurice House · v2, updated with phone £20, ISA DCA £460, and the pension lines shown properly. Supersedes the 10 Aug rent-payment-schedule cash figures.</div>
+
+<div class="tiles">
+  <div class="tile"><div class="k">Sept trough</div><div class="v warn">£3,242</div><div class="n">19 Sept, day before first payslip</div></div>
+  <div class="tile"><div class="k">Cash, end Mar</div><div class="v">£9,679</div><div class="n">but £6,529 unencumbered — see the clawback note</div></div>
+  <div class="tile"><div class="k">Wealth build / mo</div><div class="v pos">£1,403</div><div class="n">£156 cash + £460 ISA + £788 pension</div></div>
+  <div class="tile"><div class="k">Costs you</div><div class="v">£778</div><div class="n">out of pocket, because the pension is mostly not your money</div></div>
+  <div class="tile"><div class="k">Of total comp</div><div class="v">32.5%</div><div class="n">of £4,312/mo incl. employer pension</div></div>
+</div>
+
+<h2>The monthly engine</h2>
+<div class="card">
+<table>
+<thead><tr><th>Line</th><th class="num">Amount</th><th class="num">% of net</th><th>Note</th></tr></thead>
+<tbody>
+<tr class="sec"><td colspan="4">Before it reaches you</td></tr>
+<tr><td>Gross salary</td><td class="num">£3,750.00</td><td class="num">—</td><td>£45,000/yr, Grade D</td></tr>
+<tr><td class="pen">− Pension: your 6% (salary sacrifice)</td><td class="num pen">£225.00</td><td class="num">—</td><td>never hits your account</td></tr>
+<tr><td>− Income tax &amp; NI</td><td class="num">£693.70</td><td class="num">—</td><td>20% + 8% above £12,570</td></tr>
+<tr class="tot"><td>Net pay</td><td class="num">£2,831.30</td><td class="num">100%</td><td>£2,728 from Apr 2027 (Plan 2 starts)</td></tr>
+
+<tr class="sec"><td colspan="4">Out of net pay</td></tr>
+<tr><td>Rent — your seat</td><td class="num">£1,465.00</td><td class="num">51.7%</td><td>£43 under your £1,508 ceiling</td></tr>
+<tr><td>Bills — your third</td><td class="num">£160.33</td><td class="num">5.7%</td><td class="warn">modelled £120 · +£40 over</td></tr>
+<tr><td>Food</td><td class="num">£270.00</td><td class="num">9.5%</td><td>discipline line</td></tr>
+<tr><td>Phone</td><td class="num">£20.00</td><td class="num">0.7%</td><td class="pos">was £40 — corrected, +£20/mo</td></tr>
+<tr><td>Discretionary</td><td class="num">£300.00</td><td class="num">10.6%</td><td>discipline line</td></tr>
+<tr class="tot"><td>Investable capacity</td><td class="num">£615.97</td><td class="num">21.8%</td><td>was £597 at phone £40</td></tr>
+<tr><td class="ind">— ISA DCA (Trading 212)</td><td class="num">£460.00</td><td class="num">16.2%</td><td>BTC paused ✓</td></tr>
+<tr><td class="ind">— builds cash buffer</td><td class="num">£155.97</td><td class="num">5.5%</td><td class="warn">this is the thin line</td></tr>
+
+<tr class="sec"><td colspan="4">On top — pension (not cash, not spendable until 57+)</td></tr>
+<tr><td class="pen">Your 6% sacrifice</td><td class="num pen">£225.00</td><td class="num">—</td><td>costs you £162 of net pay</td></tr>
+<tr><td class="pen">Lloyds 15%</td><td class="num pen">£562.50</td><td class="num">—</td><td>free money, no employee equivalent</td></tr>
+<tr class="tot"><td class="pen">Pension flow</td><td class="num pen">£787.50</td><td class="num">—</td><td>£9,450/yr · <b>4.86× your felt cost</b></td></tr>
+
+<tr class="sec"><td colspan="4">Total</td></tr>
+<tr class="tot"><td>Wealth built each month</td><td class="num pos">£1,403.47</td><td class="num">—</td><td>32.5% of total comp</td></tr>
+<tr><td class="ind">out of your own pocket</td><td class="num">£777.97</td><td class="num">27.5%</td><td>£156 + £460 + £162 felt pension cost</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2>Cash balance, month by month</h2>
+<div class="chart">
+  <div class="bars" id="bars"></div>
+  <div class="key">
+    <span><i class="sw" style="background:var(--acc)"></i> unencumbered cash</span>
+    <span><i class="sw" style="background:var(--warn);opacity:.55"></i> settling-in payment (repayable if you leave before Oct 2027)</span>
+    <span style="color:var(--dim)">dashed line = £5,166, one full month of the whole flat</span>
+  </div>
+</div>
+
+<h2>The ledger</h2>
+<div class="card">
+<table>
+<thead><tr><th>Month</th><th class="num">In</th><th class="num">Out</th><th class="num">Net</th><th class="num">Cash</th><th class="num">Pension pot*</th></tr></thead>
+<tbody id="ledger"></tbody>
+</table>
+</div>
+
+<h2>How much buffer — the honest answer</h2>
+
+<div class="card risk ok">
+<h3>First, a correction to how you're reading your own balance</h3>
+<p>The ~£3,150 settling-in payment arriving ~20 Oct is <b>repayable in full if you leave Lloyds within 12 months</b>. Until roughly October 2027 it is a conditional asset sitting inside your buffer. If you count it, you look like you hit £9k in October. If you don't, your real buffer at end of March is <b>£6,529</b>, not £9,679.</p>
+<p>That matters because the whole point of a buffer is that it works in exactly the scenario — losing or leaving the job — where this £3,150 evaporates. A buffer that shrinks when you need it isn't a buffer.</p>
+</div>
+
+<div class="card">
+<table>
+<thead><tr><th>Tier</th><th class="num">Amount</th><th>What it actually covers</th></tr></thead>
+<tbody>
+<tr><td><b>Floor</b></td><td class="num">£5,166</td><td>One month of the <em>whole flat</em> — rent £4,685 + all bills £481. This is joint-and-several insurance: if both flatmates fail to pay, you are legally liable for all of it, on the 1st, alone.</td></tr>
+<tr><td>One seat fails</td><td class="num">£3,295</td><td>More realistic version — your seat plus the largest room, plus your bills, for a month while it gets sorted.</td></tr>
+<tr><td>3 months essentials</td><td class="num">£5,746</td><td>Rent + bills + food + phone at £1,915/mo. Standard minimum for a salaried single earner.</td></tr>
+<tr><td><b>Working target</b></td><td class="num">£9,000</td><td>4.7 months of your essentials, or 1.7 months of the whole flat. This is the number already in your plan — but it was set before you signed a joint-and-several lease, so it's now right for a different reason than you chose it.</td></tr>
+<tr><td>Robust</td><td class="num">£11,492</td><td>6 months essentials. Defensible for a first year in a new job with joint liability and no other income.</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="card risk med">
+<h3>So: how much to add</h3>
+<p>You're on track for <b>£6,529 unencumbered</b> by end of March. To reach £9,000 of genuinely-yours cash you need <b>£2,471 more</b>. At £156/mo of free cash that takes <b>15.8 months</b> — mid-2028. Too slow to be a plan.</p>
+<p>Three ways to close it. These are yours to pick — the numbers, not a recommendation:</p>
+<table style="margin-top:12px">
+<thead><tr><th>Option</th><th class="num">Free cash/mo</th><th class="num">Time to £9k</th><th>Cost</th></tr></thead>
+<tbody>
+<tr><td><b>A.</b> Change nothing — treat the headline £9k as good enough</td><td class="num">£156</td><td class="num">—</td><td>£0. Bets that you won't leave Lloyds before Oct 2027. Probably true, but it's a bet.</td></tr>
+<tr><td><b>B.</b> Trim ISA DCA to £260 until the gap closes</td><td class="num">£356</td><td class="num">6.9 months</td><td>~£1,400 less invested over the period; a few hundred in forgone growth. Buffer solid by ~Mar 2027.</td></tr>
+<tr><td><b>C.</b> Pause ISA DCA entirely</td><td class="num">£616</td><td class="num">4.0 months</td><td>~£1,840 less invested. Fastest, but breaks the £400/mo DCA floor your plan set.</td></tr>
+<tr><td><b>D.</b> Synergaise</td><td class="num">—</td><td class="num">—</td><td>The only option that doesn't trade one goal against the other. Also the one you don't fully control.</td></tr>
+</tbody>
+</table>
+<div class="fix"><b>The thing worth noticing:</b> your buffer gap (£2,471) and your ISA shortfall (~£1,905/mo) are the same problem wearing two hats — £156/mo of genuine slack isn't enough to fund either. Everything in the plan past this point runs on income, not discipline. Your discipline is already maxed.</div>
+</div>
+
+<h2>Two things I found in the pension numbers</h2>
+
+<div class="card risk med">
+<h3>The felt cost in wealth-plan.md is wrong</h3>
+<p>The file says the 6% sacrifice has a <b>£153/mo</b> felt cost. Recomputed at 2026/27 rates it's <b>£162/mo</b> — the £153 figure assumes 12% employee NI, but basic-rate NI is 8%. Small, but it's a source-of-truth file, so it's now corrected.</p>
+<p>The headline still holds and it's the best line in your whole plan: <b>£162 of net pay buys £787.50 of pension. 4.86×.</b> Nothing else you can do with £162 comes close.</p>
+</div>
+
+<div class="card risk med">
+<h3>You're already over the reported 2029 sacrifice cap</h3>
+<p>Your file notes a reported <b>£2,000/yr NI cap on salary sacrifice from 2029</b>. Your 6% is <b>£2,700/yr</b> — already £700 over it. So if that rule lands as described, part of your sacrifice starts attracting NI in 2029, and the Layer-3 "£1 sacrificed = £1.87" maths needs redoing before it goes live.</p>
+<div class="fix"><b>Not urgent</b> — three years out and the detail still needs verifying. But it stops being theoretical the moment you consider raising contributions above 6%.</div>
+</div>
+
+<h2>Still open from this morning</h2>
+<div class="card">
+<ol>
+<li><b>Standing orders from Kaleb and Aditya, 25th monthly — first one 25 Aug.</b> Still the only thing that can put you overdrawn. Without them the 19 Sept trough drops from £3,242 to around £22.</li>
+<li><b>Confirm your first Lloyds pay date</b> and whether it's full or pro-rata.</li>
+<li><b>E.ON heat account — ask for Heat 3.</b> ~£360/yr for the flat.</li>
+<li><b>Southwark: 10 or 12 instalments?</b> £240 × 10 = Band E, × 12 = Band F.</li>
+<li><b>The £460 DCA split.</b> You've confirmed the amount; what's still unknown is whether any of it reaches VWRP, and whether the ~£2,657 of transfer cash was ever invested.</li>
+</ol>
+</div>
+
+<h2>Assumptions</h2>
+<div class="card assump">
+<div>Opening balance £6,000 (midpoint of your £5.5–6.5k).</div>
+<div>Net pay £2,831.30 computed from £45,000 less 6% sacrifice, 2026/27 bands, no student loan until Apr 2027.</div>
+<div>Pension £787.50/mo from September; existing SW pot £2,312 shown growing at 7% nominal, contributions not growth-adjusted within the period.</div>
+<div>Settling-in ~£3,150 net ~20 Oct, shown separately because it's repayable before Oct 2027.</div>
+<div>Bills £481/mo for the flat assume Heat 3 and a mid-range electricity fix — nothing is signed, so this is the softest number here.</div>
+<div>Deposit £5,405 excluded from cash (your £1,690 is an asset at MyDeposits).</div>
+<div>£280 TV share in October; fan, desk, chair, monitor still deferred.</div>
+<div>No Synergaise revenue modelled.</div>
+</div>
+
+<div class="foot">
+* Pension pot = existing SW placement pot £2,312 (now 100% SW Global Equity CS8) plus £787.50/mo from September, at 7% nominal. Not cash and not accessible until 57+ — shown so the wealth build is visible alongside the buffer, not confused with it.<br>
+Sources: <code>~/LifeOS/memory/flat.md</code>, <code>wealth-plan.md</code> · phone, DCA and council tax figures stated by Jude 19 Aug 2026.<br>
+Planning document, not financial advice.
+</div>
+
+</div>
+
+<script>
+const D=[
+ {m:"Aug", cash:5717.04, enc:0,    inn:0,    out:282.96,  pen:2312},
+ {m:"Sept",cash:5873.01, enc:0,    inn:2831, out:2675.33, pen:3126},
+ {m:"Oct", cash:8898.98, enc:3150, inn:5981, out:2955.33, pen:3945},
+ {m:"Nov", cash:9054.95, enc:3150, inn:2831, out:2675.33, pen:4770},
+ {m:"Dec", cash:9210.92, enc:3150, inn:2831, out:2675.33, pen:5601},
+ {m:"Jan", cash:9366.89, enc:3150, inn:2831, out:2675.33, pen:6437},
+ {m:"Feb", cash:9522.86, enc:3150, inn:2831, out:2675.33, pen:7279},
+ {m:"Mar", cash:9678.83, enc:3150, inn:2831, out:2675.33, pen:8127}
+];
+const gbp=n=>"£"+n.toLocaleString("en-GB",{maximumFractionDigits:0});
+const MAX=10200, FLOOR=5166;
+document.getElementById("bars").innerHTML=D.map(d=>{
+  const free=d.cash-d.enc;
+  const hF=(free/MAX*100).toFixed(1), hE=(d.enc/MAX*100).toFixed(1);
+  return `<div class="bcol">
+    <div class="bval">${gbp(d.cash)}</div>
+    <div class="stack" style="height:100%">
+      ${d.enc?`<div class="seg" style="height:${hE}%;background:var(--warn);opacity:.55;border-radius:4px 4px 0 0"></div>`:""}
+      <div class="seg" style="height:${hF}%;background:var(--acc);border-radius:${d.enc?"0 0 0 0":"4px 4px 0 0"}"
+           title="${d.m}: ${gbp(free)} unencumbered"></div>
+    </div>
+    <div class="blab">${d.m}</div>
+  </div>`;
+}).join("");
+
+document.getElementById("ledger").innerHTML=D.map(d=>{
+  const net=d.inn-d.out, cls=net>=0?"pos":"neg";
+  const lab=d.m==="Aug"?"Aug (19–31)":d.m==="Oct"?"Oct *":d.m;
+  return `<tr><td>${lab}</td>
+   <td class="num">${d.inn?gbp(d.inn):"—"}</td>
+   <td class="num">${gbp(d.out)}</td>
+   <td class="num ${cls}">${net>=0?"+":"−"}${gbp(Math.abs(net))}</td>
+   <td class="num"><b>${gbp(d.cash)}</b>${d.enc?`<br><span style="font-size:11px;color:var(--dim)">${gbp(d.cash-d.enc)} free</span>`:""}</td>
+   <td class="num pen">${gbp(d.pen)}</td></tr>`;
+}).join("")+`<tr><td colspan="6" style="color:var(--dim);font-size:12.5px;border-top:1px solid var(--line)">* October includes the ~£3,150 settling-in payment (shown amber above — repayable if you leave before Oct 2027) and the £280 TV share.</td></tr>`;
+</script>
+</body>
+</html>

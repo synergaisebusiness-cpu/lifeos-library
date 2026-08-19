@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wealth Trajectory — Aug 2026 → Aug 2030</title>
+<style>
+  :root{--bg:#0f1115;--panel:#171a21;--panel2:#1e222b;--line:#2a2f3a;--ink:#e8eaf0;--mut:#9aa3b2;--dim:#6b7382;
+        --pos:#4ea87a;--warn:#d9a441;--neg:#d1685f;--acc:#6b8cc4;--pen:#8a7bc4;--cash:#4fa3a8}
+  @media (prefers-color-scheme: light){
+    :root{--bg:#f7f8fa;--panel:#fff;--panel2:#f0f2f6;--line:#dfe3ea;--ink:#161a20;--mut:#5b6472;--dim:#858d9a;
+          --pos:#2f7d55;--warn:#9a6f14;--neg:#a8443b;--acc:#3f5f96;--pen:#5d4f96;--cash:#2c7278}}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1080px;margin:0 auto;padding:40px 24px 80px}
+  h1{font-size:26px;margin:0 0 4px;letter-spacing:-.02em}
+  .sub{color:var(--mut);font-size:14px;margin-bottom:32px}
+  h2{font-size:13px;text-transform:uppercase;letter-spacing:.09em;color:var(--mut);margin:42px 0 14px;font-weight:600}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:20px 22px;margin-bottom:14px}
+  table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+  th{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--dim);font-weight:600;padding:0 10px 9px;border-bottom:1px solid var(--line)}
+  td{padding:9px 10px;border-bottom:1px solid var(--line);font-size:14px}
+  tr:last-child td{border-bottom:none}
+  .num{text-align:right}
+  .tot td{font-weight:600;border-top:1px solid var(--line)}
+  .ind{padding-left:26px;color:var(--mut)}
+  .pos{color:var(--pos)}.neg{color:var(--neg)}.warn{color:var(--warn)}.pen{color:var(--pen)}.acc{color:var(--acc)}
+  .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-bottom:14px}
+  .tile{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px 18px}
+  .tile .k{font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--dim);margin-bottom:7px}
+  .tile .v{font-size:24px;font-weight:600;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+  .tile .n{font-size:12px;color:var(--mut);margin-top:5px;line-height:1.4}
+  .chart{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:22px;margin-bottom:14px}
+  .bars{display:flex;align-items:flex-end;gap:22px;height:250px}
+  .bcol{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%}
+  .stack{width:100%;display:flex;flex-direction:column;justify-content:flex-end}
+  .blab{font-size:12px;color:var(--mut);margin-top:9px;text-align:center;line-height:1.35}
+  .bval{font-size:12.5px;font-weight:600;margin-bottom:5px;font-variant-numeric:tabular-nums}
+  .key{display:flex;gap:18px;flex-wrap:wrap;margin-top:18px;font-size:12.5px;color:var(--mut)}
+  .key span{display:flex;align-items:center;gap:6px}
+  .sw{width:11px;height:11px;border-radius:3px;display:inline-block}
+  .note{border-left:3px solid var(--acc)}
+  .note.warn{border-left-color:var(--warn)}.note.neg{border-left-color:var(--neg)}
+  .note h3{margin:0 0 6px;font-size:15px}
+  .note p{margin:0 0 8px;color:var(--mut);font-size:14px}.note p:last-child{margin-bottom:0}
+  .big{font-size:19px;font-weight:600;color:var(--ink)}
+  code{background:var(--panel2);padding:1px 5px;border-radius:4px;font-size:13px}
+  .foot{color:var(--dim);font-size:12.5px;margin-top:36px;line-height:1.6}
+  .assump{columns:2;column-gap:32px;font-size:13.5px;color:var(--mut)}
+  .assump div{break-inside:avoid;margin-bottom:6px}
+  @media(max-width:640px){.assump{columns:1}.bars{height:190px;gap:12px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>Wealth trajectory — now, +2 years, +4 years</h1>
+<div class="sub">Salary rises captured in full, living costs held flat, Lloyds throughout, no Synergaise revenue. Built 19 Aug 2026 from <code>wealth-plan.md</code> positions.</div>
+
+<h2>Right now — 19 August 2026</h2>
+<div class="tiles">
+  <div class="tile"><div class="k">Total</div><div class="v">£17,363</div><div class="n">age 22, before your first payslip</div></div>
+  <div class="tile"><div class="k">Accessible</div><div class="v acc">£15,051</div><div class="n">excludes pension</div></div>
+  <div class="tile"><div class="k">Actually liquid</div><div class="v">£13,361</div><div class="n">excludes pension and the tied-up deposit</div></div>
+  <div class="tile"><div class="k">Spendable today</div><div class="v warn">£6,000</div><div class="n">cash only — the rest is invested</div></div>
+</div>
+
+<div class="card">
+<table>
+<thead><tr><th>Holding</th><th class="num">Value</th><th>Note</th></tr></thead>
+<tbody>
+<tr><td>Cash — HSBC</td><td class="num">£6,000</td><td>midpoint of your £5.5–6.5k</td></tr>
+<tr><td>ISA — Bankers pie</td><td class="num">£2,261</td><td rowspan="4" style="vertical-align:middle;color:var(--mut)">valued 25 Jul; market moves since not priced</td></tr>
+<tr><td>ISA — Exponential Convergence pie</td><td class="num">£979</td></tr>
+<tr><td>ISA — VWRP / transfer cash</td><td class="num">£2,657</td></tr>
+<tr><td>ISA — August DCA</td><td class="num">£460</td></tr>
+<tr><td>Bitcoin — 0.02086 BTC</td><td class="num">£1,004</td><td>unwrapped, recurring buy paused</td></tr>
+<tr><td>Deposit held at MyDeposits</td><td class="num">£1,690</td><td>your share — an asset, returned at end of tenancy</td></tr>
+<tr><td class="pen">Pension — SW Global Equity CS8</td><td class="num pen">£2,312</td><td>locked until 57+</td></tr>
+<tr class="tot"><td>Total</td><td class="num">£17,363</td><td></td></tr>
+</tbody>
+</table>
+</div>
+
+<h2>Where it goes</h2>
+<div class="chart">
+  <div class="bars" id="bars"></div>
+  <div class="key">
+    <span><i class="sw" style="background:var(--cash)"></i> cash + deposit</span>
+    <span><i class="sw" style="background:var(--acc)"></i> ISA + BTC</span>
+    <span><i class="sw" style="background:var(--pen)"></i> pension (locked to 57+)</span>
+  </div>
+</div>
+
+<div class="card">
+<table>
+<thead><tr><th>Scenario</th><th class="num">Salary then</th><th class="num">Cash</th><th class="num">ISA + BTC</th><th class="num">Pension</th><th class="num">Total</th><th class="num">Accessible</th></tr></thead>
+<tbody>
+<tr><td colspan="7" style="background:var(--panel2);font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--dim);font-weight:600;padding:7px 10px">+2 years — 31 Aug 2028, age 24</td></tr>
+<tr><td>Floor — no rises at all</td><td class="num">£45,000</td><td class="num">£11,634</td><td class="num">£21,596</td><td class="num pen">£22,943</td><td class="num"><b>£56,172</b></td><td class="num acc">£33,230</td></tr>
+<tr><td>Base — your plan's ladder</td><td class="num">£45,000</td><td class="num">£11,634</td><td class="num">£21,596</td><td class="num pen">£22,943</td><td class="num"><b>£56,172</b></td><td class="num acc">£33,230</td></tr>
+<tr><td>Conservative — 5%/yr</td><td class="num">£47,250</td><td class="num">£11,634</td><td class="num">£22,978</td><td class="num pen">£23,433</td><td class="num"><b>£58,045</b></td><td class="num acc">£34,612</td></tr>
+<tr><td colspan="7" style="background:var(--panel2);font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--dim);font-weight:600;padding:7px 10px">+4 years — 31 Aug 2030, age 26</td></tr>
+<tr><td>Floor — no rises at all</td><td class="num">£45,000</td><td class="num">£12,445</td><td class="num">£37,781</td><td class="num pen">£46,562</td><td class="num"><b>£96,789</b></td><td class="num acc">£50,227</td></tr>
+<tr><td><b>Base — your plan's ladder</b></td><td class="num">£65,000</td><td class="num">£12,445</td><td class="num">£53,099</td><td class="num pen">£52,552</td><td class="num"><b>£118,096</b></td><td class="num acc">£65,544</td></tr>
+<tr><td>Conservative — 5%/yr</td><td class="num">£52,093</td><td class="num">£12,445</td><td class="num">£46,755</td><td class="num pen">£49,745</td><td class="num"><b>£108,945</b></td><td class="num acc">£59,200</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2>Milestones on the base case</h2>
+<div class="tiles">
+  <div class="tile"><div class="k">£50k total</div><div class="v">May 2028</div><div class="n">age 24 — 21 months away</div></div>
+  <div class="tile"><div class="k">£50k accessible</div><div class="v">Nov 2029</div><div class="n">age 25 — the one that's actually yours</div></div>
+  <div class="tile"><div class="k">£100k total</div><div class="v">Mar 2030</div><div class="n">age 26</div></div>
+</div>
+
+<h2>Five things worth reading carefully</h2>
+
+<div class="card note warn">
+<h3>1 — The two-year number barely moves with pay rises</h3>
+<p>Floor and Base are <b>identical at £56,172</b>, because your own ladder puts the first rise (£52k at age 24) right at the two-year boundary. Rises matter enormously in years 3–4 and almost not at all in years 1–2.</p>
+<p>So: over 24 months you're looking at roughly <span class="big">£56k</span> almost regardless of what happens with your salary. That's your discipline, not your career.</p>
+</div>
+
+<div class="card note neg">
+<h3>2 — Nearly half of it is money you can't touch</h3>
+<p>At four years, base case: <b>£118,096 total, but £52,552 of that is pension</b> — locked until 57+. Accessible is <b>£65,544</b>.</p>
+<p>The pension line is the fastest-growing thing you own and it's the right call at a 15% employer match. Just don't read £118k as £118k of options. The number that buys you a house, a career break or a move abroad is the £65,544.</p>
+</div>
+
+<div class="card note">
+<h3>3 — Capturing the raise is worth £15,317 over four years</h3>
+<p>Same salary ladder, three behaviours:</p>
+<table style="margin-top:10px">
+<thead><tr><th>What you do with each rise</th><th class="num">Total at 4 years</th><th class="num">vs plan</th></tr></thead>
+<tbody>
+<tr><td>Save 100% of it — your stated plan</td><td class="num">£118,096</td><td class="num">—</td></tr>
+<tr><td>Let lifestyle absorb half</td><td class="num">£110,437</td><td class="num neg">−£7,659</td></tr>
+<tr><td>Let lifestyle absorb all of it</td><td class="num">£102,779</td><td class="num neg">−£15,317</td></tr>
+</tbody>
+</table>
+<p style="margin-top:10px">Over four years that's a bad-but-survivable gap. Your own compounding research put the lifetime cost of never capturing raises at <b>−£2.04m</b>. This table is the first four years of that curve, which is why it looks small here and doesn't stay small.</p>
+</div>
+
+<div class="card note warn">
+<h3>4 — Living costs will not stay flat</h3>
+<p>You asked me to hold them constant, so I did. But your tenancy allows s13 rent reviews, and bills, food and council tax all move. At <b>+3%/yr</b> — modest — the four-year total drops from £118,096 to <b>£112,794</b>. Roughly <b>£5,302</b>, and it's the realistic case, not the pessimistic one.</p>
+<p>Rent is the one to watch: other 3-beds in the building were advertised from £4,385 against your £4,685, which is your evidence at the first review.</p>
+</div>
+
+<div class="card note">
+<h3>5 — The ISA allowance never becomes your constraint</h3>
+<p>Even at £65k with costs flat, your surplus peaks around <b>£16,476/yr</b> against a £20,000 allowance. You never fill it on salary alone, so no GIA is ever needed.</p>
+<p>That's the same finding as this morning, at a longer horizon: the wrapper isn't the limit, <b>income is</b>. The £20k cap only starts to bite if Synergaise works.</p>
+</div>
+
+<h2>What the salary ladder actually buys you</h2>
+<div class="card">
+<table>
+<thead><tr><th>Salary</th><th class="num">Net/mo</th><th class="num">Surplus/mo</th><th class="num">+ pension</th><th class="num">Wealth build/mo</th><th class="num">Per year</th></tr></thead>
+<tbody>
+<tr><td>£45,000 — today</td><td class="num">£2,728</td><td class="num">£512</td><td class="num pen">£788</td><td class="num">£1,300</td><td class="num">£15,597</td></tr>
+<tr><td>£52,000 — age 24</td><td class="num">£3,073</td><td class="num">£858</td><td class="num pen">£910</td><td class="num">£1,768</td><td class="num">£21,212</td></tr>
+<tr><td>£65,000 — age 25</td><td class="num">£3,588</td><td class="num">£1,373</td><td class="num pen">£1,138</td><td class="num"><b>£2,510</b></td><td class="num"><b>£30,125</b></td></tr>
+</tbody>
+</table>
+<p style="color:var(--mut);font-size:13.5px;margin:12px 0 0">A £20k salary rise nearly <b>doubles</b> your wealth build, because your costs are fixed and every marginal pound is saved. That leverage is the entire argument for the ladder — and it only exists while you hold living costs flat.</p>
+</div>
+
+<h2>Assumptions</h2>
+<div class="card assump">
+<div>7% nominal growth on ISA, GIA and pension; 4% on cash. An assumption, not a forecast — sequence risk is real over four years.</div>
+<div>Bitcoin held flat at £1,004. Not a forecast; just no basis for one.</div>
+<div>Living costs flat at £2,215.33/mo per your instruction (rent £1,465, bills £160.33, food £270, phone £20, discretionary £300).</div>
+<div>Pension 6% sacrifice + 15% Lloyds throughout, on the stated salary.</div>
+<div>Plan 2 student loan from Apr 2027, 9% above £28,470.</div>
+<div>2026/27 tax bands held frozen for the whole period.</div>
+<div>Buffer fills to £9,000 first, then everything to the ISA.</div>
+<div>Settling-in £3,150 in Oct 2026 and the £280 TV share included; no other one-offs.</div>
+<div>ISA positions valued 25 Jul 2026 — market movement since is not priced in.</div>
+<div>No Synergaise revenue, no inheritance, no house purchase, no career break.</div>
+</div>
+
+<div class="foot">
+Cross-check: <code>wealth-plan.md</code> §7 projects ~£85k at 25 and ~£165k at 27, interpolating to ~£120k at 26 — this model lands at £118,096, so the two are consistent. That file's figures assume ISA-max contributions funded partly by Synergaise; this one assumes salary only and still arrives close, because the pension does the heavy lifting.<br>
+Planning document, not financial advice. Every figure past today is a model output, not a promise.
+</div>
+
+</div>
+
+<script>
+const S=[
+ {l:"Now",     s:"Aug 2026 · 22", cash:7690,  inv:7361,  pen:2312},
+ {l:"+2 years",s:"Aug 2028 · 24", cash:11634, inv:21596, pen:22943},
+ {l:"+4 years",s:"Aug 2030 · 26", cash:12445, inv:53099, pen:52552}
+];
+const gbp=n=>"£"+n.toLocaleString("en-GB",{maximumFractionDigits:0});
+const MAX=125000;
+document.getElementById("bars").innerHTML=S.map(d=>{
+  const t=d.cash+d.inv+d.pen;
+  const h=x=>(x/MAX*100).toFixed(1);
+  return `<div class="bcol">
+    <div class="bval">${gbp(t)}</div>
+    <div class="stack" style="height:100%">
+      <div style="height:${h(d.pen)}%;background:var(--pen);border-radius:5px 5px 0 0" title="Pension ${gbp(d.pen)}"></div>
+      <div style="height:${h(d.inv)}%;background:var(--acc)" title="ISA + BTC ${gbp(d.inv)}"></div>
+      <div style="height:${h(d.cash)}%;background:var(--cash)" title="Cash + deposit ${gbp(d.cash)}"></div>
+    </div>
+    <div class="blab"><b style="color:var(--ink)">${d.l}</b><br>${d.s}</div>
+  </div>`;
+}).join("");
+</script>
+</body>
+</html>
