@@ -1,76 +1,59 @@
-# Amazon order — sourdough (v5, final)
+# Sourdough kit — links & prices
 
-2026-08-20. Banneton added back. **£46–64 on Amazon**, ~£3.50 supermarket, ~£2 IKEA.
+Checked live on Amazon.co.uk, 2026-08-20 (delivering to SE17). Prices move — reverify at checkout.
 
-⚠️ **Do not re-buy Block A.** Jars, containers and scale sourced 18 Aug: IKEA KORKEN 0.5L ×7 (£14) ·
-IKEA 365+ glass 1.0L ×7 (£31.50) · Salter 1103 (~£14).
+⚠️ **Do not re-buy Block A.** Jars/containers/scale sourced 18 Aug: IKEA KORKEN 0.5L ×7 (£14) ·
+IKEA 365+ 1.0L ×7 (£31.50) · Salter 1103 (~£14).
 
 ---
 
-## Amazon — 3 items, £46–64
+## Recommended basket — £54.88
 
-| Item | Spec that matters | £ |
+| Item | Pick | £ | Link |
+|---|---|---|---|
+| **Pot** | Amazon Basics Cast Iron Casserole, enamelled, 4.1L — **listing confirms oven-safe to 232°C** · 4.6★ / 50.2K ratings | **28.40** | [B0G1LPQPD9](https://www.amazon.co.uk/dp/B0G1LPQPD9) |
+| **Banneton** | Natural rattan, **25cm oval, with linen liner** — exactly the spec · 4.4★ | **11.89** | [B0DC3Q4VYK](https://www.amazon.co.uk/dp/B0DC3Q4VYK) |
+| **Bowl** | Dexam stainless steel mixing bowl, **5L** · 4.6★ | **14.59** | [B0000BVEK9](https://www.amazon.co.uk/dp/B0000BVEK9) |
+
+**Correction:** I estimated £8–10 for the bowl. Real price is £14.59 on Amazon. **IKEA BLANDA BLANK
+stainless bowl is ~£9** — worth adding to the IKEA order with the spare starter jar instead.
+
+**Supermarket, ~£3.50:** baking parchment · rice flour (banneton dusting).
+**IKEA, ~£2:** spare KORKEN 0.5L as the second starter jar.
+
+---
+
+## Pot alternatives
+
+| Option | £ | Trade-off |
 |---|---|---|
-| **Cast-iron lidded pot** | 24–26cm, 4–5L. **Rated 250°C including the lid knob** ⚠️ · no PTFE | 28–40 |
-| **Metal mixing bowl ~5L** | Single bowl, not a set | 8–10 |
-| **Banneton** | **25cm oval or 23cm round** (takes a ~900g–1kg loaf — right size for a 3-person flat) · **rattan**, not plastic — it wicks moisture out of the skin, which is most of the point · with linen liner | 10–14 |
+| **Amazon Basics 4.1L** — [B0G1LPQPD9](https://www.amazon.co.uk/dp/B0G1LPQPD9) | 28.40 | ✅ **Temp rating confirmed on the listing (232°C).** Huge review base. Bake at 230°C, not 250°C — fine, just don't crank it |
+| **Warmiehomy 4.5L 24cm, pre-seasoned BARE cast iron** — [B0DPFQ9L3F](https://www.amazon.co.uk/dp/B0DPFQ9L3F) | **21.99** | Cheapest, and **no knob problem exists** — bare iron, iron lid, nothing to melt. Handles any oven temp. But only 35 ratings, and bare iron needs drying and re-oiling or it rusts |
+| **Overmont 26cm / 5.2L** — [B0C2V7M6S9](https://www.amazon.co.uk/dp/B0C2V7M6S9) | 33.96 | Best-reviewed by far (4.6★ / 10.2K) and marketed for bread. Bigger, more room for spring. ⚠️ **Temp rating is NOT stated on this listing** — Overmont states 260°C on sibling products, but I couldn't confirm it for this one |
 
-**Supermarket ~£3.50:** baking parchment · **rice flour** for dusting the banneton — it doesn't
-absorb moisture, so it won't glue the dough to the basket the way wheat flour does. This is the
-single thing that decides whether your first loaf comes out of the basket cleanly.
-
-**Banneton care:** never wash it. Knock the dry flour out, let it air. Use the liner while you're
-learning (forgiving), bare rattan later when you want the spiral rings.
-
-### The one trap
-Cheap cast-iron casseroles ship with phenolic lid knobs rated 180–200°C. Sourdough bakes at 230–250°C
-and they scorch or melt. Buy one with a stainless knob, or unscrew it and fit a stainless bolt +
-washer — ~£1, two minutes.
+**If you want zero risk on the knob, take the Warmiehomy** — bare cast iron sidesteps the entire
+issue for £6.41 less. If you'd rather have enamel (easier cleaning, no seasoning upkeep, doubles for
+the D2 turkey chilli), take the Amazon Basics and bake at 230°C.
 
 ---
 
-## Second jar: wanted, not needed
+## Banneton alternative
 
-**You don't need one to bake.** But get one — it should cost you £2 or nothing.
+**2-pack, 25×15×8cm oval, with liners — £13.99** — [B0D78TPDSZ](https://www.amazon.co.uk/dp/B0D78TPDSZ) · 4.2★
 
-- **Spare IKEA KORKEN 0.5L (~£2)** — add one or two to the IKEA order if it hasn't gone in yet.
-- **Or free:** a saved passata / peanut-butter jar. Identical function.
-
-**Two things it earns you:**
-
-1. **Clean-jar rotation.** Feed into a clean jar, wash the dirty one, alternate. Stops the dried
-   crust ring that eventually flakes back into the starter. You *can* scrape and wipe one jar
-   forever — it's just grim.
-2. **Levain separate from mother.** The pattern that suits a weekly baker: keep a small mother
-   (~50–100g) in the fridge, and the night before a bake take a spoonful into the second jar with
-   flour and water to build the levain. Means you never have to scale the mother up to bake size,
-   and you feed far less flour overall.
-
-⚠️ **Never seal a starter jar airtight.** Fermentation produces CO₂ and a sealed clip jar builds real
-pressure. Take the rubber gasket out, or rest the lid on without clipping, or leave a screw lid
-loose. This is the one way a starter jar goes wrong.
-
-**Size:** starter roughly triples at peak. 100g of starter needs 500ml of jar minimum — the KORKEN
-0.5L is about right for a small mother, generous for a levain.
-
-**Discard is food**, not waste — pancakes, crackers, flatbreads. Worth knowing given how hard the
-value rule works everywhere else in your plan.
+Two for £2.10 more than one. You cut the second banneton and that was reasonable — one pot bakes one
+loaf. But if you're baking doubles for the flat, both loaves proof at the same time even though they
+bake in sequence. £2. Your call, not a push.
 
 ---
 
-## Still cut
+## Reminders
 
-2nd banneton (one pot bakes one loaf, so bake sequentially) · mixing bowl *set* · bowl scraper ·
-lame (any thin sharp blade — craft knife, razor from a DIY multipack; just not a chef's knife, it
-drags the skin and the loaf tears instead of opening) · bread knife (check the kitchen first) ·
-freezer bags (supermarket, £2).
+- **Never wash the banneton.** Knock the dry flour out, let it air.
+- **Rice flour, not wheat**, for dusting — decides whether loaf one leaves the basket cleanly.
+- **Never seal the starter jar airtight.** Gasket out or lid resting loose — CO₂ builds real pressure.
+- Bake **30–50% wholemeal** · **slice-weigh-freeze every loaf** · **protein bread deferred** until
+  H8's bloat trial has run 2–3 weeks.
 
-Bench scraper is £5 and I still think it's the best £5 in bread. Dropped it. Your call if you change
-your mind.
-
----
-
-## Unchanged in diet.md
-
-Bake 30–50% wholemeal · slice-weigh-freeze every loaf · protein bread deferred until H8's bloat
-trial has run 2–3 weeks · wraps-vs-sandwiches still open.
+Still cut: mixing bowl set · bowl scraper · lame (any thin sharp blade, not a chef's knife) · bread
+knife (check the kitchen first) · freezer bags (supermarket, £2).
