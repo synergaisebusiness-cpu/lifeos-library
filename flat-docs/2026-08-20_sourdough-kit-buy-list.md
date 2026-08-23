@@ -1,59 +1,49 @@
-# Sourdough kit — links & prices
+# Sourdough kit — ORDERED 2026-08-20
 
-Checked live on Amazon.co.uk, 2026-08-20 (delivering to SE17). Prices move — reverify at checkout.
+Final record. Supersedes all earlier drafts of this file.
 
-⚠️ **Do not re-buy Block A.** Jars/containers/scale sourced 18 Aug: IKEA KORKEN 0.5L ×7 (£14) ·
-IKEA 365+ 1.0L ×7 (£31.50) · Salter 1103 (~£14).
+## Ordered — £47.36, free delivery, ETA ~27 Aug
 
----
-
-## Recommended basket — £54.88
-
-| Item | Pick | £ | Link |
-|---|---|---|---|
-| **Pot** | Amazon Basics Cast Iron Casserole, enamelled, 4.1L — **listing confirms oven-safe to 232°C** · 4.6★ / 50.2K ratings | **28.40** | [B0G1LPQPD9](https://www.amazon.co.uk/dp/B0G1LPQPD9) |
-| **Banneton** | Natural rattan, **25cm oval, with linen liner** — exactly the spec · 4.4★ | **11.89** | [B0DC3Q4VYK](https://www.amazon.co.uk/dp/B0DC3Q4VYK) |
-| **Bowl** | Dexam stainless steel mixing bowl, **5L** · 4.6★ | **14.59** | [B0000BVEK9](https://www.amazon.co.uk/dp/B0000BVEK9) |
-
-**Correction:** I estimated £8–10 for the bowl. Real price is £14.59 on Amazon. **IKEA BLANDA BLANK
-stainless bowl is ~£9** — worth adding to the IKEA order with the spare starter jar instead.
-
-**Supermarket, ~£3.50:** baking parchment · rice flour (banneton dusting).
-**IKEA, ~£2:** spare KORKEN 0.5L as the second starter jar.
-
----
-
-## Pot alternatives
-
-| Option | £ | Trade-off |
+| Item | £ | Why this one |
 |---|---|---|
-| **Amazon Basics 4.1L** — [B0G1LPQPD9](https://www.amazon.co.uk/dp/B0G1LPQPD9) | 28.40 | ✅ **Temp rating confirmed on the listing (232°C).** Huge review base. Bake at 230°C, not 250°C — fine, just don't crank it |
-| **Warmiehomy 4.5L 24cm, pre-seasoned BARE cast iron** — [B0DPFQ9L3F](https://www.amazon.co.uk/dp/B0DPFQ9L3F) | **21.99** | Cheapest, and **no knob problem exists** — bare iron, iron lid, nothing to melt. Handles any oven temp. But only 35 ratings, and bare iron needs drying and re-oiling or it rusts |
-| **Overmont 26cm / 5.2L** — [B0C2V7M6S9](https://www.amazon.co.uk/dp/B0C2V7M6S9) | 33.96 | Best-reviewed by far (4.6★ / 10.2K) and marketed for bread. Bigger, more room for spring. ⚠️ **Temp rating is NOT stated on this listing** — Overmont states 260°C on sibling products, but I couldn't confirm it for this one |
+| **Amazon Basics enamelled cast-iron Dutch oven, 5.67 L** | 22.91 | 26–27 cm — right for flat-scale loaves. **Stainless knob, oven-safe 260 °C**, so a full 250 °C bake is fine. Cheapest of everything considered *and* the best spec |
+| **Chef Aid stainless mixing bowl, 22 cm** | 5.75 | ~3 L. A 900 g dough occupies ~900 ml and doubles — comfortable |
+| **SHANNA 15-piece rattan sourdough kit** | 18.70 | Rattan round 23 cm + oval 25 cm, marked starter jar, lame + 5 blades, metal + bowl scrapers, whisk, spatula, silicone mat, bread bags |
 
-**If you want zero risk on the knob, take the Warmiehomy** — bare cast iron sidesteps the entire
-issue for £6.41 less. If you'd rather have enamel (easier cleaning, no seasoning upkeep, doubles for
-the D2 turkey chilli), take the Amazon Basics and bake at 230°C.
+**First bake is the week of 31 Aug**, not the 23 Aug prep Sunday — delivery lands after it.
 
----
+## ⚠️ Open: the scale
 
-## Banneton alternative
+Not ordered. Believed incoming from the 18 Aug plan (Salter 1103) — **unverified**, and Jude
+confirmed the same day he doesn't currently have one.
 
-**2-pack, 25×15×8cm oval, with liners — £13.99** — [B0D78TPDSZ](https://www.amazon.co.uk/dp/B0D78TPDSZ) · 4.2★
+The 18 Aug entry "finalised" the KORKEN 0.5L ×7, the IKEA 365+ 1.0L ×7 **and** the scale. That was a
+decision, not a purchase. **Check all three were actually bought.** Every macro in diet.md assumes
+weighed portions, and prep Sunday is 23 Aug.
 
-Two for £2.10 more than one. You cut the second banneton and that was reasonable — one pot bakes one
-loaf. But if you're baking doubles for the flat, both loaves proof at the same time even though they
-bake in sequence. £2. Your call, not a push.
+If nothing is coming: Argos / Sainsbury's / Wilko, £10–15, same-day collection. Spec: **5 kg+
+capacity, 1 g resolution, tare, platform wide enough for a bowl.** Don't pay for 0.1 g.
 
----
+## Still to buy offline
 
-## Reminders
+- **Bread knife**, serrated 20 cm+ — not in either kit, and see the age-gate note below. In-store only.
+- **Rice flour** — dust the banneton with it. Doesn't absorb moisture, so it won't glue the dough in.
+- **Baking parchment** — sling for lowering the loaf into a 250 °C pot.
+- **Freezer bags** — the slice-weigh-freeze protocol.
 
-- **Never wash the banneton.** Knock the dry flour out, let it air.
-- **Rice flour, not wheat**, for dusting — decides whether loaf one leaves the basket cleanly.
-- **Never seal the starter jar airtight.** Gasket out or lid resting loose — CO₂ builds real pressure.
-- Bake **30–50% wholemeal** · **slice-weigh-freeze every loaf** · **protein bread deferred** until
-  H8's bloat trial has run 2–3 weeks.
+## Two things learned today, worth keeping
 
-Still cut: mixing bowl set · bowl scraper · lame (any thin sharp blade, not a chef's knife) · bread
-knife (check the kitchen first) · freezer bags (supermarket, £2).
+**UK knife law blocks these kits.** Anything containing a bread knife or lame blades triggers
+Amazon's 18+ age verification, which accepts **credit cards only** — a Visa Debit won't clear it.
+Workaround is "proceed without age-restricted items", or buy the bladed part in a shop.
+
+**Basket material: rattan > cotton > silicone.** A proofing basket's job beyond holding shape is
+wicking moisture out of the dough's skin. Rattan does it well, cotton partially, silicone not at all
+(non-porous). The HOXHA silicone kit at £16.99 was rejected on this — its "never moulds, dishwasher
+safe" selling points are all consequences of the property you don't want.
+
+## Standing rules from diet.md
+
+Bake **30–50% wholemeal** · **slice, weigh and freeze every loaf** on bake day · **protein bread
+deferred** until H8's bloat trial has run 2–3 weeks · **never seal the starter jar airtight** ·
+**never wash the banneton** — knock the flour out and let it air.
