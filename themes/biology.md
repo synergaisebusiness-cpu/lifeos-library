@@ -17,3 +17,6 @@ Scribe Therapeutics' gene-editing IPO (first in over two years, $129m, Jul 23) a
 
 ### 2026-08-13
 The thinnest pillar this window — no major AI+biology convergence story landed inside Aug 10-13, stating that plainly rather than padding. The closest genuinely in-window item is press coverage (Aug 12) of Chai Discovery, a ~2.5-year-old AI protein-design startup positioning drug discovery as "software-like" (founders Matt McPartland and Neil Patil appeared on the Latent Space podcast) — a research candidate worth a closer look, alongside the standing AI-native biology cohort (Isomorphic Labs, Insilico Medicine, Xaira Therapeutics, Recursion, EvolutionaryScale) that continues drawing large rounds but has yet to produce a single FDA-approved AI-discovered drug industry-wide. [StartupHub.ai](https://www.startuphub.ai/ai-news/healthcare/2026/chai-discovery-ai-designing-proteins-like-software)
+
+### 2026-08-24
+The thinnest pillar again this window — stating that plainly rather than padding. One item surfaced in research — Isomorphic Labs (Alphabet-backed AI drug-discovery) reportedly raising a $2.1bn Series B — but could not be confirmed to fall within the Aug 17-24 window specifically; flagging as needing re-verification next pass rather than asserting it as new news.

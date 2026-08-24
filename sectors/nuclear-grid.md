@@ -35,3 +35,6 @@ Cameco closed roughly flat (~$99.03 Aug 12, +0.30%). The bigger story is Westing
 
 ### 2026-08-17
 Cameco: no fresh confirmed price print for Aug 14-17 beyond the $99.03 Aug 12 close; Westinghouse's confidential US IPO filing saw no material progress this window. Uranium spot continued edging higher to ~$87.43/lb as of Aug 17 (live futures aggregator, up modestly from the $87.18 ATH flagged Aug 13) — treat as directional, not an official TradeTech/UxC print. [metalcharts.org](https://metalcharts.org/uranium-price). No new development on the US-Saudi 123 agreement's Congressional review.
+
+### 2026-08-24
+Uranium spot held roughly flat in the high-$80s/lb ($87.55 Aug 21, $88.87 Aug 23) — no material move. Cameco itself was volatile independent of uranium: closed $95.59 Aug 20 (-2.44%), then surged 7.2% Aug 21 to $102.51 — no single confirmed catalyst identified beyond a Truist target raise to $130 (Aug 17). [GuruFocus](https://www.gurufocus.com/news/9048146/cameco-corp-ccj-shares-surge-72-what-gf-score-of-87-tells-investors). Westinghouse's confidential US IPO filing saw no material progress this window; no new development on the US-Saudi 123 agreement's Congressional review.

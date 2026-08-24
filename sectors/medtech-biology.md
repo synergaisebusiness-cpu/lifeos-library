@@ -29,3 +29,6 @@ No company-specific news for TMO this window — the dry streak continues unbrok
 
 ### 2026-08-17
 Thermo Fisher's dry news streak continues unbroken. Intuitive Surgical drew its first genuinely bearish rating action this cycle: Wall Street Zen downgraded ISRG from Buy to Hold (published Aug 15-16), citing FY26 da Vinci procedure-growth guidance (13.5-15.5%) as a clear deceleration from the ~18% pace investors expected — a concrete data point behind the sentiment-vs-fundamentals gap flagged last briefing. BofA still reaffirmed Buy (Aug 13) but trimmed its target to $470. Shares closed $394.51 Aug 14 (-1.68%). [MarketBeat](https://www.marketbeat.com/instant-alerts/wall-street-zen-downgrades-intuitive-surgical-nasdaqisrg-to-hold-2026-08-15/)
+
+### 2026-08-24
+Thermo Fisher's dry news streak continued for a fifth-plus consecutive briefing — shares held around $629 (Aug 21). Intuitive Surgical stabilized somewhat post-downgrade, trading $374-379 through Aug 20-21 (still -33-34% YTD); no further analyst rating action confirmed this window beyond the Aug 15-16 Wall Street Zen downgrade already logged.
