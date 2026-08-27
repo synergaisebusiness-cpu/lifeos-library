@@ -1,5 +1,3 @@
 [
-  {"ticker": "NVDA", "date": "2026-08-26", "watch": "Fiscal Q2 FY2027, consensus ~$91.7-91.9bn revenue / $2.08 EPS vs Nvidia's own ~$91bn guide; watch China H200 shipments reportedly resumed Aug 19 (guidance assumed zero China revenue, up to $30bn potential upside) and Vera Rubin ramp commentary"},
-  {"ticker": "CRWD", "date": "2026-08-26", "watch": "Fiscal Q2 FY2027, same day as NVDA; guided to $1.436-1.442bn revenue/$1.16-1.17 EPS/$284-286m net new ARR; watch net new ARR after CTO Elia Zaitsev's Aug 20 departure and a ~175x forward-earnings valuation into the print"},
-  {"ticker": "AVGO", "date": "2026-09-02", "watch": "Consensus ~$29.4bn revenue, non-GAAP EPS estimates $3.16-3.24 depending on provider (vs $1.69 year-ago); watch VMware vCenter security-story follow-up and AI-financing (XPV platform) commentary"}
+  {"ticker": "AVGO", "date": "2026-09-02", "watch": "Consensus ~$29.4bn revenue, non-GAAP EPS ~$3.24 vs $1.69 year-ago; watch VMware vCenter exploitation status and reports of a $60-70bn+ AI-financing debt raise tied to the Apollo/Blackstone-backed AI XPV Platform"}
 ]

@@ -29,3 +29,6 @@ Grok 4.6 actually shipped Aug 12, after missing its Aug 7 target. Musk called it
 
 ### 2026-08-17
 Aug 16, X post: responding to Cybertruck lead engineer Wes Morrill citing Tesla's 84% domestic-content score (vs. Ford's 63%), Musk wrote "Tesla cars sold in America are the most made in America of any cars" — tied to the ongoing tariff news cycle. [Yahoo Finance UK/Benzinga](https://uk.finance.yahoo.com/news/elon-musk-says-tesla-most-035929356.html). Grok 4.7 timeline unchanged from Aug 12 (initial training complete, now in supplemental SpaceX-data training, targeting "3 to 4 weeks" i.e. early September) — not a new update this window.
+
+### 2026-08-27
+Thin window despite a dedicated search. One item: an X post (~Aug 27) replying to a user testing Grok Bot's autonomous trading feature: "Try it out. If Grok Bot messes up, we will make you whole." Worth flagging this verbal guarantee is not reflected in xAI's actual terms of service, which cap liability at $100 or fees paid — a notable gap between public commitment and contract terms. [Yahoo Finance](https://finance.yahoo.com/markets/crypto/articles/elon-musk-grok-bot-promise-230000414.html)

@@ -32,3 +32,6 @@ Thermo Fisher's dry news streak continues unbroken. Intuitive Surgical drew its 
 
 ### 2026-08-24
 Thermo Fisher's dry news streak continued for a fifth-plus consecutive briefing — shares held around $629 (Aug 21). Intuitive Surgical stabilized somewhat post-downgrade, trading $374-379 through Aug 20-21 (still -33-34% YTD); no further analyst rating action confirmed this window beyond the Aug 15-16 Wall Street Zen downgrade already logged.
+
+### 2026-08-27
+No material news for either name this window. Thermo Fisher's dry streak continues (~$613-629, still digesting its Q2 beat and the completed $1.075bn microbiology-business sale to Astorg). Intuitive Surgical is stabilizing around $366-372 (down ~34.4% YTD), still absorbing the Aug 15-16 downgrade with no new rating action.
