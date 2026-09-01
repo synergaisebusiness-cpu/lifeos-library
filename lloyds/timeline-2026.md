@@ -15,7 +15,8 @@ Legend: 🔴 deadline or hard commitment · 🟡 needs confirming · ⚪ schedul
 |---|---|---|
 | 🔴 **passed — 28 Aug** | **Activation Event registration.** Email went to Jude's PERSONAL address. Travel forms were due before this too. | **UNCONFIRMED — chase today** |
 | 🔴 before Thu | Join the **NGT LinkedIn group** and **WhatsApp community** — invites already sent | unconfirmed |
-| 🔴 before Thu | Confirm the **day-1 start time** — not published in any deck; will be in joining instructions or a calendar invite. Default 08:45 for a 9:00 start | unconfirmed |
+| ✅ resolved | **Day-1 times confirmed** by the NGT joining email — arrive 09:00–09:30, starts 10:00, finishes 17:00 | done |
+| 🔴 before Thu | **Ask Sean where to go on Mon 7 Sept.** The joining email says week 1 location is agreed with the line manager *before* starting, and the 1 Sept email didn't ask | outstanding |
 | 🟡 before Thu | **Photo ID** located, smart-casual outfit sorted (see [style.md]) | |
 
 Escalation contacts, from the Summer Welcome deck:
@@ -27,21 +28,34 @@ Escalation contacts, from the Summer Welcome deck:
 ## Phase 1 — Launch & set-up, 3–18 Sept
 
 ### Thu 3 Sept — Day 1: Welcome to your local hub
-**10 Gresham Street, London.** 106 joiners at the London hub (98 graduates, 8 apprentices) out of
-**470 across five hubs** (Edinburgh 102, Bristol 105, Leeds 89, Manchester 68).
+**10 Gresham Street, London EC2V 7AE.** Arrive **09:00–09:30** · starts **10:00** · finishes
+**17:00**. Smart casual. **Photo ID required.** 106 joiners at the London hub (98 graduates,
+8 apprentices) out of **470 across five hubs** (Edinburgh 102, Bristol 105, Leeds 89,
+Manchester 68).
 
-- Arrive, **collect building pass**, get settled
-- Meet the cohort from your hub
-- High-level intro to LBG — purpose and culture
-- Icebreakers and networking
-- A **senior leader** on their career journey and opportunities at LBG
-- Lunch with the cohort
-- **"Laying the Groundwork" development session, facilitated by Fitch** — core skills and
-  behaviours, "what success looks like from day 1"
-- Preview of day 2 and week 1
+| From | To | What |
+|---|---|---|
+| 09:00 | 10:00 | Registration and refreshments — informal, coffee, meet the cohort |
+| 10:00 | 10:30 | Welcome, from the Next Generation Talent Lead |
+| 10:30 | 11:00 | Speed networking, at your table |
+| 11:00 | 11:15 | Break |
+| 11:15 | 11:45 | Senior Leader Welcome — career story and Q&A |
+| 11:45 | 12:30 | **Aspire Panel** — current grads and apprentices, open questions |
+| 12:30 | 13:30 | Lunch |
+| 13:30 | 13:40 | Introduction to Blueprint |
+| 13:40 | 15:15 | **Faster Forward, part 1** — "Build Your Career from Day One" (this is the Fitch session the other deck called "Laying the Groundwork") |
+| 15:15 | 15:30 | Break |
+| 15:30 | 16:45 | Faster Forward, part 2 |
+| 16:45 | 17:00 | Positioning Day 2 — IT collection, settling in |
+
+🔴 **Seating is unallocated and fixed for the day** — "this will be your seat for the day". Speed
+networking and both Faster Forward blocks run at that table, so where you sit at 09:00 decides who
+you spend day one with. Arrive at the **front** of the arrival window, not the back.
+
+A **chill room** is open all day — drop in, no notice needed, no calls.
 
 ### Fri 4 Sept — Day 2: Tech Ready Day
-Same building.
+Same building. **Arrive 08:30–09:00 · starts 09:00 · finishes 16:00 — an hour earlier than day 1.**
 
 - **IT onboarding and laptop setup with the Modern Workplace team** — laptop, logins, tools
 - Explore the hub's collaboration spaces
@@ -158,6 +172,11 @@ about what "the Qualification" in the offer letter refers to; it is Stanford, st
 DS&AI scheme slide. Placement job families: Data & AI Data Scientist · **Machine Learning & AI
 Engineering** · Data Engineering.
 
+**Getting there.** From Elephant & Castle the station is **Moorgate**, not Bank. Both are on the
+Northern line's Bank branch; Moorgate is one stop further (E&C → Borough → London Bridge → Bank →
+Moorgate) but the walk is **6 minutes vs 10**. The pack's full list: Moorgate 6 min · Liverpool St
+(Moorgate exit) 6 min · Barbican 7 min · Bank 10 min · Mansion House 10 min.
+
 **Working pattern.** At least **2 days per week** in your assigned office (the NGT summary words the
 same rule as **40% minimum**; any LBG office counts), possibly more depending on role. **Core hours
 9–5** 🟡 *confirm with Sean — schedule.md currently assumes 08:00–16:00*. Office travel is in your
@@ -176,7 +195,8 @@ personal-skills course per quarter for graduates plus an optional leadership wor
 ## Open items on this timeline
 
 - [ ] 🔴 Activation Event registration + travel forms — confirm or chase NGT today
-- [ ] 🔴 Day-1 start time
+- [x] ~~Day-1 start time~~ — arrive 09:00–09:30, starts 10:00
+- [ ] 🔴 Ask Sean where to go on Monday 7 Sept
 - [ ] LinkedIn group + WhatsApp community
 - [ ] 🟡 AI Basecamp: exempt or not, and the Friday clash
 - [ ] 🟡 Core hours 9–5 vs the 08:00–16:00 assumption in [schedule.md]

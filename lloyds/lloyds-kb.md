@@ -1058,3 +1058,27 @@ the full deck settles that the screenshots did not:
 
 **The merged, detailed day-by-day now lives in `timeline-2026.md`** — that file, not this section,
 is the thing to open when the question is "what happens when".
+
+## Day 1 & 2 logistics — confirmed source filed (1 Sept 2026)
+
+The **London Welcome Event Pre-Attendance Pack** and the NGT joining email are in
+`day1-welcome-pack/`, decoded in its `notes.md`. They confirm the times (Day 1 arrive 09:00–09:30,
+starts 10:00, ends 17:00; **Day 2 arrive 08:30–09:00, starts 09:00, ends 16:00** — an hour earlier),
+the venue as **10 Gresham Street EC2V 7AE**, photo ID, and smart casual. Three things worth
+carrying into the day itself:
+
+- **Seating is unallocated and holds for the whole day.** Speed networking and both "Faster Forward"
+  blocks run at whatever table you pick on arrival. It is the highest-leverage decision of day one
+  and it is made before anything begins.
+- **"Faster Forward — Build Your Career from Day One" is the Fitch session** the Get Work Ready deck
+  called "Laying the Groundwork", and it runs 13:40–16:45. Over three hours, the largest block of
+  the day by far.
+- **The Aspire Panel (11:45–12:30) is current graduates and apprentices taking open questions** —
+  the cheapest honest read on the scheme available all week, and a better venue for "what actually
+  happens on placement two" than any formal session.
+
+**Travel correction: Moorgate, not Bank** — 0.3 mi / 6 min walk vs 0.5 mi / 10 min, and both sit on
+the Northern line's Bank branch out of Elephant & Castle.
+
+⚠️ The pack is a reused template carrying **leftover slides from an unrelated disability/
+neurodiversity programme ("PDP")**. Ignore that content; it is not about this event.
