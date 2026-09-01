@@ -998,7 +998,9 @@ from the internet.
 2. **Clause 24 — get a solicitor's view before September**; put the IP hygiene rules in place now.
 3. **Model the two clawbacks into the wealth plan** (£5k at 12 months; qualification funding on a
    24-month taper). Numbers only — the strategy stays Jude's.
-4. **Confirm with Sean whether "the Qualification" is the Stanford programme.**
+4. ~~Confirm with Sean whether "the Qualification" is the Stanford programme.~~ **RESOLVED 1 Sept
+   2026 — the Summer Welcome DS&AI scheme slide states it: Artificial Intelligence Professional
+   Programme via Stanford University.**
 5. **Stop the screenshot-and-transcribe habit on 3 September.**
 
 ## Get Work Ready briefing — onboarding logistics (deck 28 Jul–Aug 2026, filed 1 Sept 2026)
@@ -1028,3 +1030,31 @@ operational detail lives in that file — what matters here:
 - **Blueprint** (Q1 2027) is the NGT development programme proper — quarterly themes, one mandatory
   personal-skills course per quarter for graduates, plus an optional leadership workshop capped at
   150 places. Worth knowing the cap exists before the Q1 sign-up opens.
+
+## Summer Welcome source deck filed + what it settles (1 Sept 2026)
+
+The original PDF of the 29 July DS&AI Virtual Summer Welcome is now in
+`summer-welcome-2026-07-29/Virtual_Summer_Welcome_Data_Science_AI_Graduates.pdf`, alongside the 27
+screenshots taken from it at the time. **The screenshot-and-transcribe habit can stop.** Four things
+the full deck settles that the screenshots did not:
+
+- **"The Qualification" IS Stanford.** The DS&AI scheme slide states it outright: *"Qualification:
+  Artificial Intelligence Professional Programme via Stanford University."* This closes open
+  question 4 in the contract section — no need to ask Sean. It also means the offer letter's
+  professional-qualification clause and its 24-month funding taper attach to the Stanford
+  programme, and that the Phase B plan's "Stanford route" is not an ambition Jude has to argue
+  for; it is the scheme.
+- **Scheme shape confirmed: 2 years, three 8-month placements.** Job families a DS&AI grad can be
+  placed into: **Data & AI Data Scientist · Machine Learning & AI Engineering · Data Engineering.**
+- **Two gaps in the timeline the screenshots missed.** **Week 2 (w/c 7 Sept) is labelled "Team
+  Time"** — induction activities, software downloads and bonding with the new team, i.e. there IS
+  team contact before the bootcamp. And **Fri 18 Sept is a virtual "Bootcamp Induction Session"**,
+  not just the start of AI Basecamp. **16 Nov is also "Team Time"** — the point at which you "fully
+  join your placement one team". The 90-day clock starts there.
+- **Direct contacts, from the closing slide:** `nextgenerationtalent@lloydsbanking.com` for
+  programme-specific queries (Activation event, bootcamp, schedule) and
+  `nextgenerationrecruitment@lloydsbanking.com` for vetting, references and start date. **These are
+  the addresses for chasing the missed Activation registration.**
+
+**The merged, detailed day-by-day now lives in `timeline-2026.md`** — that file, not this section,
+is the thing to open when the question is "what happens when".
