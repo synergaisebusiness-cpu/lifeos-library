@@ -6,7 +6,8 @@ you need, not the whole file.** The operational plan (what Jude studies and when
 [lloyds-study.md]; this file is what that plan is built on.
 
 Sources: Summer Welcome, 29 July 2026 (27 slides archived in `summer-welcome-2026-07-29/`); the
-offer letter and Contract of Employment (`Grad-Offer-Letter-v7-20260310.pdf`); public record
+offer letter and Contract of Employment (`Grad-Offer-Letter-v7-20260310.pdf`); the Get Work Ready
+onboarding briefing (`get-work-ready-2026-08-28/`); public record
 research, 28 July 2026. Where something is inferred rather than stated, it says so.
 
 ## Index
@@ -999,3 +1000,31 @@ from the internet.
    24-month taper). Numbers only — the strategy stays Jude's.
 4. **Confirm with Sean whether "the Qualification" is the Stanford programme.**
 5. **Stop the screenshot-and-transcribe habit on 3 September.**
+
+## Get Work Ready briefing — onboarding logistics (deck 28 Jul–Aug 2026, filed 1 Sept 2026)
+
+Full decode in **`get-work-ready-2026-08-28/notes.md`** (deck: `Get_Work_Ready_2026.pdf`). Jude
+missed the live session; this was reconstructed from the deck plus the NGT summary email. The
+operational detail lives in that file — what matters here:
+
+- **Day 1 and 2 (3–4 Sept) are both at 10 Gresham Street**, with the London hub's 106 joiners (98
+  graduates, 8 apprentices) out of **470 NGT joiners across five hubs**. Day 1 is passes, cohort
+  networking, a senior leader, and a **"Laying the Groundwork" session facilitated by Fitch**. Day 2
+  is IT onboarding with the **Modern Workplace team** plus **"How the Bank Makes Money"** — which is
+  the session the 21 Aug NIM prep was aimed at.
+- **The Activation Event is in MANCHESTER** — Tue 15 Sept, Victoria Warehouse, travel and hotel
+  arranged by NGT via Inntel. The KB previously recorded only the date. **Registration closed 28
+  August and travel forms were due before that**; whether Jude completed either is unconfirmed as of
+  1 Sept and is the single time-critical item in the pack.
+- **Anchor days are explicitly designated a line-manager conversation** by the Group's own
+  onboarding material, twice. The week-one question held since 29 July is the sanctioned route, not
+  an imposition — asking Sean about it before starting is exactly what the deck tells joiners to do.
+  Office floor is **at least 2 days/week** (the NGT summary words it as **40%**, any LBG office
+  counting); core hours **9–5**; **office travel is unpaid and in your own time**; desks via
+  **Condeco**; dress **smart casual**.
+- **AI Basecamp (18 Sept – 6 Nov, Friday mornings) is mandatory for graduates — except data
+  graduates**, who do the Cambridge Spark bootcamp instead. ⚠️ Confirm: those Friday mornings would
+  otherwise collide with the bootcamp's Friday in-office hub day. One question to Sean or NGT.
+- **Blueprint** (Q1 2027) is the NGT development programme proper — quarterly themes, one mandatory
+  personal-skills course per quarter for graduates, plus an optional leadership workshop capped at
+  150 places. Worth knowing the cap exists before the Q1 sign-up opens.
