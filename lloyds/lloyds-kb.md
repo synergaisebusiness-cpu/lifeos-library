@@ -1082,3 +1082,13 @@ the Northern line's Bank branch out of Elephant & Castle.
 
 ⚠️ The pack is a reused template carrying **leftover slides from an unrelated disability/
 neurodiversity programme ("PDP")**. Ignore that content; it is not about this event.
+
+## Holiday rules + the 2026/27 decision (19 Oct 2026)
+
+**Rules (contract cl. 9 + Flex, Jude's reading of the policy):** 28 days + bank holidays, holiday year Jan–Dec, first year pro-rated — 69 hrs unbooked as of 19 Oct 2026. Roll over up to one week (35 hrs). Buy or sell up to one week (35 hrs, whole hours) through Flex: in the annual enrolment window, or Jan–Oct pro-rated to whole months left in the year. Price = hours × hourly rate at time of selection (£45k / 1,820 hrs = £24.73/hr → a week ≈ £865 gross, ~£620 net). Days taken in a year must not fall below 28. Bought/sold hours do not roll over. Separate policy: up to 20 working days a year working from a foreign country with the right to work there.
+
+**Decision:** roll 35 hrs into 2027; book the remaining 34 hrs as 23, 24, 29, 30 Dec + a 6-hr short day on 31 Dec (off 22 Dec evening → 4 Jan with the bank holidays); in the enrolment window sell 35 hrs for 2027, so 2027 = 28 + 5 − 5 = 28 days taken and ≈ £865 cash. Selling this year was ruled out: outside the window it pro-rates to ~5 hrs.
+
+**Open checks:** (1) does rollover need Sean's sign-off or happen automatically; (2) confirm rolled-over days count toward the 28-day floor so the 2027 sale is allowed; (3) date of the annual Flex enrolment window — sell inside it, not after.
+
+**Compensation as recorded 19 Oct 2026** (full table in memory/wealth-plan.md §3): base £45,000, emailed 10 Sept that it should rise to £48,500 from Sept 2027; bonus 5%–12.5%, 5% basically guaranteed, paid later; pension 6% Jude / 15% Lloyds; £5k settling-in paid; ~£1.5k home-office kit; ShareMatch enrolment pending details.
