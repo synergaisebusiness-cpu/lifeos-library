@@ -1092,3 +1092,11 @@ neurodiversity programme ("PDP")**. Ignore that content; it is not about this ev
 **Open checks:** (1) does rollover need Sean's sign-off or happen automatically; (2) confirm rolled-over days count toward the 28-day floor so the 2027 sale is allowed; (3) date of the annual Flex enrolment window — sell inside it, not after.
 
 **Compensation as recorded 19 Oct 2026** (full table in memory/wealth-plan.md §3): base £45,000, emailed 10 Sept that it should rise to £48,500 from Sept 2027; bonus 5%–12.5%, 5% basically guaranteed, paid later; pension 6% Jude / 15% Lloyds; £5k settling-in paid; ~£1.5k home-office kit; ShareMatch enrolment pending details.
+
+## Sick pay rules (24 Nov 2026)
+
+**Rules (contract cl. 11 only points to the sickness Policy Standards; this is the policy wording as read out by Jude, 24 Nov 2026):** occupational sick pay (OSP) depends on length of service at the start of the absence and is counted over a 12-month period on basic salary, pro-rated for reduced hours. Under 1 year: 1 month full pay, then SSP up to 28 weeks. 1 to under 2 years: 2 months full pay + 1 month half pay, then SSP up to 28 weeks. 2 to under 4 years: 4 months full + 2 months half, then SSP up to 28 weeks. 4+ years: 6 months full + 6 months half. Full pay = normal base salary with tax and NI as usual; OSP includes any SSP. Entitlement is reduced by any sick pay or phased returns taken in the previous 12 months.
+
+**Where Jude sits:** started Sept 2026, so under 1 year: 1 month full pay until Sept 2027, then the 1 to 2 year band (2 months full + 1 month half).
+
+**Not covered by what was read out:** the reporting procedure (who to tell, by when), Lloyds' own self-certification / fit-note rules, and any absence-review trigger points.
